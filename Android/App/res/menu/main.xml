@@ -1,9 +1,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:id="@+id/action_help"
+        android:showAsAction="always"
+        android:title="@string/help"/>
+    <item
+        android:id="@+id/action_twitter"
+        android:icon="@drawable/menu_icon_twitter"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="Twitter"/>
+    <item
+        android:id="@+id/action_facebook"
+        android:icon="@drawable/menu_icon_facebook"
+        android:showAsAction="never"
+        android:title="Facebook"/>
+    <item
+        android:id="@+id/action_rss"
+        android:icon="@drawable/menu_icon_rss"
+        android:showAsAction="never"
+        android:title="RSS"/>
+    <item
+        android:id="@+id/action_plus"
+        android:icon="@drawable/menu_icon_gplus"
+        android:showAsAction="never"
+        android:title="G+"/>
+    <item
+        android:id="@+id/action_mail"
+        android:icon="@drawable/menu_icon_mail"
+        android:showAsAction="never"
+        android:title="e-mail"/>
 
 </menu>

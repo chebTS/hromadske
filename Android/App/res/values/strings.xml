@@ -9,5 +9,6 @@
     <string name="interview">Інтерв\'ю</string>
     <string name="videonews">Відеоновини</string>
     <string name="help">" + Допомогти проекту"</string>
+    <string name="main_tab">Головна</string>
 
 </resources>

@@ -4,5 +4,9 @@
     <string name="app_name">Hromadske</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="about_project">Про проект</string>
+    <string name="programs">Програми</string>
+    <string name="interview">Інтерв\'ю</string>
+    <string name="videonews">Відеоновини</string>
 
 </resources>

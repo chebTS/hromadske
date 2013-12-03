@@ -20,4 +20,5 @@
 
 #define TWITTER_URL @"https://twitter.com/HromadskeTV"
 #define FB_URL      @"https://www.facebook.com/hromadsketv"
+#define G_PLUS_URL  @"https://plus.google.com/+HromadskeTvUkraine/posts"
 #define RSS_URL     @"http://hromadske.tv/rss"

@@ -21,7 +21,8 @@
 #define SOCIAL_PAGES        @"Соц. мережі"
 #define TWITTER_ROW         @(0)
 #define FB_ROW              @(1)
-#define RSS_ROW             @(2)
+#define GOOGLE_PLUS         @(2)
+#define RSS_ROW             @(3)
 
 #define  SECTIONS_NUMBER 2
 
@@ -56,6 +57,7 @@
     if (!_socialNetworks) {
         _socialNetworks = @{TWITTER_ROW: @[@"Twitter", TWITTER_URL],
                             FB_ROW : @[@"Facebook", FB_URL],
+                            GOOGLE_PLUS : @[@"G+", G_PLUS_URL],
                             RSS_ROW : @[@"RSS", RSS_URL]};
     }
     return _socialNetworks;

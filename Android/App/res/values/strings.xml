@@ -14,6 +14,7 @@
     <string name="htv">Громадське телебачення</string>
     <string name="about">Додаток розробив\nЦибровський С.В.\nспеціально для\n http://hromadske.tv/</string>
     <string name="about_2">Додаток було зроблено за одну нічь :-))</string>
+    <string name="exit_text">Натисніть ще раз для виходу</string>
     
 
 </resources>

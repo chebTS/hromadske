@@ -9,10 +9,12 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 	private final String urlHome = "http://hromadske.tv/";
@@ -26,8 +28,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	private FragmentWeb fragmentInterview = new FragmentWeb(urlInterview);
 	private FragmentWeb fragmentPrograms = new FragmentWeb(urlPrograms);
 	private FragmentWeb fragmentAbout = new FragmentWeb(urlAbout);
-
-	int pos = 0;
+	private boolean exitApp = false;
+	private int pos = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -168,5 +170,30 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private class TimeOutTask extends AsyncTask<Void, Void, Boolean> {
+
+		@Override
+		protected Boolean doInBackground(Void... params) {
+			try {
+				Thread.sleep(SystemUtils.EXIT_DELAY);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			exitApp = false;
+			return true;
+		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (!exitApp) {
+			Toast.makeText(this, R.string.exit_text, Toast.LENGTH_SHORT).show();
+			exitApp = true;
+			new TimeOutTask().execute();
+		} else {
+			super.onBackPressed();
+		}
 	}
 }

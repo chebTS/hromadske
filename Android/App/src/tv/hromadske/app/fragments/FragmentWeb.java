@@ -57,9 +57,9 @@ public class FragmentWeb extends Fragment {
 		public void onPageStarted(WebView view, String url, Bitmap favicon) {
 			super.onPageStarted(view, url, favicon);
 			progressBar.setVisibility(View.VISIBLE);
-
 		}
-
+		
+	
 		@Override
 		public void onPageFinished(WebView view, String url) {
 			super.onPageFinished(view, url);

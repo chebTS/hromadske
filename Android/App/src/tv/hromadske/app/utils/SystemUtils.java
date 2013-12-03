@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 
 public class SystemUtils {
-
+	public static final int EXIT_DELAY = 2000;
 	public static boolean isAppInstalledOrNot(String uri, Context context) {
 		PackageManager pm = context.getPackageManager();
 		boolean app_installed = false;

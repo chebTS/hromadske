@@ -9,20 +9,22 @@ import android.webkit.WebView;
 
 public class FragmentWeb extends Fragment {
 	private String url;
-	
+
 	public FragmentWeb(String url) {
 		super();
 		this.url = url;
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		WebView wv = new WebView(getActivity());
 		wv.getSettings().setBuiltInZoomControls(true);
-		wv.getSettings().setSupportZoom(true); 
+		wv.getSettings().setSupportZoom(true);
 		wv.getSettings().setUseWideViewPort(true);
 		wv.getSettings().setLoadWithOverviewMode(true);
 		wv.loadUrl(url);
 		return wv;
 	}
+
 }

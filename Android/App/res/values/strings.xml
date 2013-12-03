@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Hromadske.TV BETA</string>
+    <string name="app_name">Hromadske.TV</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="about_project">Про проект</string>
     <string name="programs">Програми</string>
     <string name="interview">Інтерв\'ю</string>
     <string name="videonews">Відеоновини</string>
-    <string name="help">" + Допомогти проекту"</string>
+    <string name="help">"+ Допомогти\n проекту"</string>
     <string name="main_tab">Головна</string>
+    <string name="youtube_menu">Наш канал на YouTube</string>
 
 </resources>

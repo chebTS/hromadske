@@ -62,11 +62,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	}
 
 	@Override
-	public void onTabReselected(Tab tab, FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		switch (tab.getPosition()) {
 		case 0:
@@ -89,6 +84,9 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			break;
 		}
 	}
+	
+	@Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) { 	}
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {	}
@@ -104,13 +102,16 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			//getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentHome).commit();
 			getActionBar().setSelectedNavigationItem(0);
 			break;
 		case R.id.action_help:
 			startActivity(new Intent(Intent.ACTION_VIEW,
 					Uri.parse("http://hromadske.tv/donate")));
 			break;
+		case R.id.action_youtube:
+			startActivity(new Intent(Intent.ACTION_VIEW,
+					Uri.parse("http://www.youtube.com/user/HromadskeTV/featured")));
+			break;			
 		case R.id.action_twitter:
 			startActivity(new Intent(Intent.ACTION_VIEW,
 					Uri.parse("https://twitter.com/HromadskeTV")));

@@ -4,6 +4,11 @@
         android:id="@+id/action_help"
         android:showAsAction="always"
         android:title="@string/help"/>
+     <item
+        android:id="@+id/action_youtube"
+        android:showAsAction="always"
+        android:icon="@drawable/youtube"
+        android:title="@string/youtube_menu"/>
     <item
         android:id="@+id/action_twitter"
         android:icon="@drawable/menu_icon_twitter"

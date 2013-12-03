@@ -1,0 +1,5 @@
+#define HOME_URL               @"http://hromadske.tv"
+#define VIDEO_URL     HOME_URL @"/video"
+#define INTERVIEW_URL HOME_URL @"/interview"
+#define PROGRAMS_URL  HOME_URL @"/programs"
+#define ABOUT_US_URL  HOME_URL @"/about"

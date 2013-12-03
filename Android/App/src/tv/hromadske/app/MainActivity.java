@@ -27,13 +27,18 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	private FragmentWeb fragmentPrograms = new FragmentWeb(urlPrograms);
 	private FragmentWeb fragmentAbout = new FragmentWeb(urlAbout);
 
+	int pos = 0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		ActionBar bar = getActionBar();
 
-		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		if (savedInstanceState != null) {
+			pos = savedInstanceState.getInt("pos");
+		}
+
 		bar.setHomeButtonEnabled(true);
 
 		Tab tab = bar.newTab();
@@ -60,6 +65,14 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		tab.setText(R.string.about_project);
 		tab.setTabListener(this);
 		bar.addTab(tab);
+		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		bar.setSelectedNavigationItem(pos);
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt("pos", getActionBar().getSelectedNavigationIndex());
 	}
 
 	@Override

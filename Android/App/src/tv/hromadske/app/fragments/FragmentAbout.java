@@ -17,5 +17,4 @@ public class FragmentAbout extends DialogFragment {
 		getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 		return v;
 	}
-
 }

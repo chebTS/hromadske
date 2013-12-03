@@ -6,13 +6,38 @@
 //  Copyright (c) 2013 Max Tymchii. All rights reserved.
 //
 
+
 #import "HTVAppDelegate.h"
+#import "HTVCategoriesViewController.h"
+#import "HTVMainVC.h"
+
+@interface HTVAppDelegate()
+@property (nonatomic, strong) UIStoryboard *storyboard;
+@end
 
 @implementation HTVAppDelegate
+
+
+- (UIStoryboard *)storyboard
+{
+    if(!_storyboard) {
+        _storyboard = [UIStoryboard storyboardWithName:STORY_BOARD bundle:[NSBundle mainBundle]];
+    }
+    return _storyboard;
+}
+
+- (UIWindow *)window
+{
+    if(!_window) {
+        _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    return _window;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self makeDeckRootViewController];
     return YES;
 }
 							
@@ -42,5 +67,50 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)makeDeckRootViewController
+{
+    HTVCategoriesViewController* leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVCategoriesViewController"];
+    HTVMainVC *centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVMainVC"];
+   
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:[[UINavigationController alloc] initWithRootViewController:centerController]
+                                                                                    leftViewController:leftController
+                                                                                   rightViewController:nil];
+    [deckController setLeftSize:LEFT_RIGHT_CONTROLLER_SHIFT];
+    [deckController setRightSize:LEFT_RIGHT_CONTROLLER_SHIFT];
+    deckController.elastic = NO;
+    deckController.panningMode = IIViewDeckNoPanning;
+
+    self.window.rootViewController = deckController;
+}
+
+
+
+//- (void)pushToCenterDeckController:(TOCategoryModel *)model andColoseLeftOrRightPart:(TODeckScreenParts)screen
+//{
+//    IIViewDeckController *deckVC = (IIViewDeckController *)self.window.rootViewController;
+//    UIViewController *newCenterVC = nil;
+//    @try {
+//        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:model.controllerIdentifier];
+//    }
+//    @catch (NSException *exception) {
+//        return;
+//    }
+//    @finally {
+//        if (newCenterVC) {
+//            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:newCenterVC];
+//            deckVC.centerController = navigationVC;
+//            if (screen == ToDeckLeftScreen) {
+//                [deckVC closeLeftViewAnimated:YES];
+//            }
+//            else {
+//                [deckVC closeRightViewAnimated:YES];
+//            }
+//        }
+//        
+//    }
+//    
+//}
+//
 
 @end

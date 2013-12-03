@@ -14,5 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <SVWebViewController/SVWebViewController.h>
+    #import <ViewDeck/IIViewDeckController.h>
+
     #import "Definitions.h"
 #endif

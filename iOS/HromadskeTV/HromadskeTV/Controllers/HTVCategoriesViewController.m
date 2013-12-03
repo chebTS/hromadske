@@ -45,7 +45,7 @@
                             INTERVIEW_ROW : @[@"Інтерв'ю", INTERVIEW_URL],
                             PROGRAMS_ROW : @[@"Програми", PROGRAMS_URL],
                             ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL],
-                            YOUTUBE_ROW : @[@"Youtube канал", YOUTUBE_URL]
+                            YOUTUBE_ROW : @[@"YouTube канал", YOUTUBE_URL]
                             };
     }
     return _tableStructure;

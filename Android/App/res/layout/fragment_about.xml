@@ -38,15 +38,6 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="@string/about_2"
-            android:textColor="@android:color/black"
-            android:textSize="12sp" />
     </LinearLayout>
 
 </ScrollView>

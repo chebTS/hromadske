@@ -34,12 +34,13 @@
     </style>
 
     <style name="MyActionBarTabTextStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabText">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="ActionBar.Solid.Hromadske_style" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_hromadske_style</item>
-        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_hromadske_style</item>
+        <!-- <item name="android:backgroundStacked">@drawable/ab_stacked_solid_hromadske_style</item> -->
+        <item name="android:backgroundStacked">@android:color/white</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_hromadske_style</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Hromadske_style</item>
     </style>

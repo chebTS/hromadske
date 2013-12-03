@@ -13,6 +13,10 @@ import android.webkit.WebViewClient;
 public class FragmentWeb extends Fragment {
 	private String url;
 
+	public FragmentWeb() {
+		super();
+	}
+
 	public FragmentWeb(String url) {
 		super();
 		this.url = url;

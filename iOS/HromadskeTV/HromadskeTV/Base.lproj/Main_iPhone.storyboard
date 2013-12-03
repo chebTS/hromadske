@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lWM-5B-gqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tMQ-gK-9X9">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
-        <scene sceneID="BpX-ng-tyj">
+        <!--WebVC-->
+        <scene sceneID="x80-eW-oZw">
             <objects>
-                <viewController storyboardIdentifier="HTVMainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cN3-Sf-P4R" customClass="HTVMainVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HTVWebVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vPD-Q2-yqE" customClass="HTVWebVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NXY-ct-NQU"/>
-                        <viewControllerLayoutGuide type="bottom" id="lZV-6h-3cg"/>
+                        <viewControllerLayoutGuide type="top" id="NZY-ga-7Wv"/>
+                        <viewControllerLayoutGuide type="bottom" id="DB9-g4-mdn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cAz-jC-cov">
+                    <view key="view" contentMode="scaleToFill" id="wOE-hK-9ei">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vl1-Ov-5mo"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHt-Jt-6JP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zx0-Ef-Sq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="703" y="-359"/>
+            <point key="canvasLocation" x="656" y="32"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="Oef-ob-SSj">
@@ -100,82 +99,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqI-kY-soD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="212" y="32"/>
-        </scene>
-        <!--Video NewsVC-->
-        <scene sceneID="3Fa-EO-5db">
-            <objects>
-                <viewController storyboardIdentifier="HTVVideoNewsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MCq-eO-MaK" customClass="HTVVideoNewsVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hYn-Yf-fea"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y9A-yi-C7j"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="emD-n6-3FQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="TMN-QE-cGJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XLG-AU-aIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1103" y="-359"/>
-        </scene>
-        <!--InterviewVC-->
-        <scene sceneID="Rif-se-zmA">
-            <objects>
-                <viewController storyboardIdentifier="HTVInterviewVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cfN-Mc-2fc" customClass="HTVInterviewVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7dh-yx-oR2"/>
-                        <viewControllerLayoutGuide type="bottom" id="NJC-TM-yJn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="J9w-eW-mrv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Ges-hj-fq2"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4y0-5h-8zn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1511" y="-359"/>
-        </scene>
-        <!--ProgramsVC-->
-        <scene sceneID="KTx-Ir-3Bo">
-            <objects>
-                <viewController storyboardIdentifier="HTVProgramsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lWM-5B-gqX" customClass="HTVProgramsVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lhY-je-CXa"/>
-                        <viewControllerLayoutGuide type="bottom" id="bQP-uJ-Cz8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="L1I-y1-pYc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8Pf-ia-xV5"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SzI-NR-TwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="703" y="345"/>
-        </scene>
-        <!--About Us-->
-        <scene sceneID="NvC-hP-fBL">
-            <objects>
-                <viewController storyboardIdentifier="HTVAboutUs" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rFG-eW-cF3" customClass="HTVAboutUs" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4be-35-PBs"/>
-                        <viewControllerLayoutGuide type="bottom" id="zce-Qf-Y8f"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Iwc-yk-o33">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Hpp-gP-qA8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J2N-6d-h9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1511" y="345"/>
         </scene>
     </scenes>
     <resources>

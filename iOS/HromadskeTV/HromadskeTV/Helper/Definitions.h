@@ -5,7 +5,7 @@
 
 
 
-#define LEFT_RIGHT_CONTROLLER_SHIFT 100.0
+#define LEFT_RIGHT_CONTROLLER_SHIFT IS_IPHONE ? 100.0 : 500
 #define IS_IPHONE   ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 #define IS_IPHONE_5 ([[UIScreen mainScreen] bounds ].size.height == HEIGHT_IPHONE_5)
 
@@ -16,3 +16,4 @@
 #define INTERVIEW_URL HOME_URL @"/interview"
 #define PROGRAMS_URL  HOME_URL @"/programs"
 #define ABOUT_US_URL  HOME_URL @"/about"
+#define YOUTUBE_URL            @"http://www.youtube.com/user/HromadskeTV/featured"

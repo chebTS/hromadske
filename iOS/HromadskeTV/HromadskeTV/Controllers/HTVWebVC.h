@@ -1,5 +1,5 @@
 //
-//  HTVInterviewVC.h
+//  HTVWebVC.h
 //  HromadskeTV
 //
 //  Created by Max Tymchii on 12/3/13.
@@ -8,6 +8,6 @@
 
 #import "HTVParentVC.h"
 
-@interface HTVInterviewVC : HTVParentVC
+@interface HTVWebVC : HTVParentVC
 
 @end

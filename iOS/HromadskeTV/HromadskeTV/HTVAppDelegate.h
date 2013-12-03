@@ -12,5 +12,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (void)pushToCenterDeckController:(NSString *)controllerIdentifier;
+- (void)pushToCenterDeckControllerWithURL:(NSString *)url;
 @end

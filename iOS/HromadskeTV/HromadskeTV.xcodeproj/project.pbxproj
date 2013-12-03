@@ -21,19 +21,17 @@
 		506870B6184E4FD50024624B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50687095184E4FD50024624B /* UIKit.framework */; };
 		506870BE184E4FD50024624B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 506870BC184E4FD50024624B /* InfoPlist.strings */; };
 		506870C0184E4FD50024624B /* HromadskeTVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870BF184E4FD50024624B /* HromadskeTVTests.m */; };
-		506870D5184E52FA0024624B /* HTVMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870D4184E52FA0024624B /* HTVMainVC.m */; };
 		506870D8184E570E0024624B /* HTVParentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870D7184E570E0024624B /* HTVParentVC.m */; };
-		506870DB184E577D0024624B /* HTVVideoNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870DA184E577D0024624B /* HTVVideoNewsVC.m */; };
 		506870DF184E59100024624B /* Definitions.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870DE184E59100024624B /* Definitions.h */; };
-		506870E2184E59560024624B /* HTVInterviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870E1184E59560024624B /* HTVInterviewVC.m */; };
-		506870E5184E59750024624B /* HTVProgramsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870E4184E59750024624B /* HTVProgramsVC.m */; };
-		506870E8184E59890024624B /* HTVAboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870E7184E59890024624B /* HTVAboutUs.m */; };
 		506870EB184E68B30024624B /* HTVCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870EA184E68B30024624B /* HTVCategoriesViewController.m */; };
 		506870F2184E73920024624B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 506870ED184E73920024624B /* logo.png */; };
 		506870F3184E73920024624B /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 506870EE184E73920024624B /* logo@2x.png */; };
 		506870F4184E73920024624B /* logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 506870EF184E73920024624B /* logo_small.png */; };
 		506870F5184E73920024624B /* logoLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 506870F0184E73920024624B /* logoLarge.png */; };
 		506870F6184E73920024624B /* logoLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 506870F1184E73920024624B /* logoLarge@2x.png */; };
+		506870F9184E83F60024624B /* HTVWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870F8184E83F60024624B /* HTVWebVC.m */; };
+		50687100184E872D0024624B /* SVWebViewChanges.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870FE184E872D0024624B /* SVWebViewChanges.h */; };
+		50687101184E872D0024624B /* SVWebViewChanges.m in Resources */ = {isa = PBXBuildFile; fileRef = 506870FF184E872D0024624B /* SVWebViewChanges.m */; };
 		D70C5A50436A43B9950E2E8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE59C3A3614E108E7889A0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,19 +64,9 @@
 		506870BB184E4FD50024624B /* HromadskeTVTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HromadskeTVTests-Info.plist"; sourceTree = "<group>"; };
 		506870BD184E4FD50024624B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		506870BF184E4FD50024624B /* HromadskeTVTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HromadskeTVTests.m; sourceTree = "<group>"; };
-		506870D3184E52FA0024624B /* HTVMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVMainVC.h; path = Controllers/HTVMainVC.h; sourceTree = "<group>"; };
-		506870D4184E52FA0024624B /* HTVMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVMainVC.m; path = Controllers/HTVMainVC.m; sourceTree = "<group>"; };
 		506870D6184E570E0024624B /* HTVParentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVParentVC.h; path = Controllers/HTVParentVC.h; sourceTree = "<group>"; };
 		506870D7184E570E0024624B /* HTVParentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVParentVC.m; path = Controllers/HTVParentVC.m; sourceTree = "<group>"; };
-		506870D9184E577D0024624B /* HTVVideoNewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVVideoNewsVC.h; path = Controllers/HTVVideoNewsVC.h; sourceTree = "<group>"; };
-		506870DA184E577D0024624B /* HTVVideoNewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVVideoNewsVC.m; path = Controllers/HTVVideoNewsVC.m; sourceTree = "<group>"; };
 		506870DE184E59100024624B /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Definitions.h; path = Helper/Definitions.h; sourceTree = "<group>"; };
-		506870E0184E59560024624B /* HTVInterviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVInterviewVC.h; path = Controllers/HTVInterviewVC.h; sourceTree = "<group>"; };
-		506870E1184E59560024624B /* HTVInterviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVInterviewVC.m; path = Controllers/HTVInterviewVC.m; sourceTree = "<group>"; };
-		506870E3184E59750024624B /* HTVProgramsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVProgramsVC.h; path = Controllers/HTVProgramsVC.h; sourceTree = "<group>"; };
-		506870E4184E59750024624B /* HTVProgramsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVProgramsVC.m; path = Controllers/HTVProgramsVC.m; sourceTree = "<group>"; };
-		506870E6184E59890024624B /* HTVAboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVAboutUs.h; path = Controllers/HTVAboutUs.h; sourceTree = "<group>"; };
-		506870E7184E59890024624B /* HTVAboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVAboutUs.m; path = Controllers/HTVAboutUs.m; sourceTree = "<group>"; };
 		506870E9184E68B30024624B /* HTVCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVCategoriesViewController.h; path = Controllers/HTVCategoriesViewController.h; sourceTree = "<group>"; };
 		506870EA184E68B30024624B /* HTVCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVCategoriesViewController.m; path = Controllers/HTVCategoriesViewController.m; sourceTree = "<group>"; };
 		506870ED184E73920024624B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -86,6 +74,10 @@
 		506870EF184E73920024624B /* logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_small.png; sourceTree = "<group>"; };
 		506870F0184E73920024624B /* logoLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoLarge.png; sourceTree = "<group>"; };
 		506870F1184E73920024624B /* logoLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoLarge@2x.png"; sourceTree = "<group>"; };
+		506870F7184E83F60024624B /* HTVWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVWebVC.h; path = Controllers/HTVWebVC.h; sourceTree = "<group>"; };
+		506870F8184E83F60024624B /* HTVWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVWebVC.m; path = Controllers/HTVWebVC.m; sourceTree = "<group>"; };
+		506870FE184E872D0024624B /* SVWebViewChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = SVWebViewChanges.h; path = Changes/SVWebViewChanges.h; sourceTree = "<group>"; };
+		506870FF184E872D0024624B /* SVWebViewChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = SVWebViewChanges.m; path = Changes/SVWebViewChanges.m; sourceTree = "<group>"; };
 		BCEE59C3A3614E108E7889A0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC76C99E07E345D78FAD3B32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +142,7 @@
 		50687097184E4FD50024624B /* HromadskeTV */ = {
 			isa = PBXGroup;
 			children = (
+				506870FD184E871F0024624B /* Changes */,
 				506870DC184E57A20024624B /* Helper */,
 				506870CC184E504C0024624B /* Controllers */,
 				506870A0184E4FD50024624B /* HTVAppDelegate.h */,
@@ -197,18 +190,10 @@
 			children = (
 				506870D6184E570E0024624B /* HTVParentVC.h */,
 				506870D7184E570E0024624B /* HTVParentVC.m */,
-				506870D3184E52FA0024624B /* HTVMainVC.h */,
-				506870D4184E52FA0024624B /* HTVMainVC.m */,
-				506870D9184E577D0024624B /* HTVVideoNewsVC.h */,
-				506870DA184E577D0024624B /* HTVVideoNewsVC.m */,
-				506870E0184E59560024624B /* HTVInterviewVC.h */,
-				506870E1184E59560024624B /* HTVInterviewVC.m */,
-				506870E3184E59750024624B /* HTVProgramsVC.h */,
-				506870E4184E59750024624B /* HTVProgramsVC.m */,
-				506870E6184E59890024624B /* HTVAboutUs.h */,
-				506870E7184E59890024624B /* HTVAboutUs.m */,
 				506870E9184E68B30024624B /* HTVCategoriesViewController.h */,
 				506870EA184E68B30024624B /* HTVCategoriesViewController.m */,
+				506870F7184E83F60024624B /* HTVWebVC.h */,
+				506870F8184E83F60024624B /* HTVWebVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -232,6 +217,15 @@
 			);
 			path = images;
 			sourceTree = SOURCE_ROOT;
+		};
+		506870FD184E871F0024624B /* Changes */ = {
+			isa = PBXGroup;
+			children = (
+				506870FE184E872D0024624B /* SVWebViewChanges.h */,
+				506870FF184E872D0024624B /* SVWebViewChanges.m */,
+			);
+			name = Changes;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -314,7 +308,9 @@
 			files = (
 				506870A8184E4FD50024624B /* Main_iPad.storyboard in Resources */,
 				506870DF184E59100024624B /* Definitions.h in Resources */,
+				50687100184E872D0024624B /* SVWebViewChanges.h in Resources */,
 				506870F4184E73920024624B /* logo_small.png in Resources */,
+				50687101184E872D0024624B /* SVWebViewChanges.m in Resources */,
 				506870F2184E73920024624B /* logo.png in Resources */,
 				506870F5184E73920024624B /* logoLarge.png in Resources */,
 				506870AD184E4FD50024624B /* Images.xcassets in Resources */,
@@ -373,14 +369,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				506870D5184E52FA0024624B /* HTVMainVC.m in Sources */,
+				506870F9184E83F60024624B /* HTVWebVC.m in Sources */,
 				506870D8184E570E0024624B /* HTVParentVC.m in Sources */,
-				506870DB184E577D0024624B /* HTVVideoNewsVC.m in Sources */,
-				506870E2184E59560024624B /* HTVInterviewVC.m in Sources */,
 				506870EB184E68B30024624B /* HTVCategoriesViewController.m in Sources */,
-				506870E8184E59890024624B /* HTVAboutUs.m in Sources */,
 				5068709E184E4FD50024624B /* main.m in Sources */,
-				506870E5184E59750024624B /* HTVProgramsVC.m in Sources */,
 				506870A2184E4FD50024624B /* HTVAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

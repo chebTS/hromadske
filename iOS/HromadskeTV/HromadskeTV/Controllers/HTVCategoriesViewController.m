@@ -14,6 +14,8 @@
 #define INTERVIEW_ROW       @(2)
 #define PROGRAMS_ROW        @(3)
 #define ABOUT_US_ROW        @(4)
+#define YOUTUBE_ROW         @(5)
+//#define SHARE_ROW           @(6)
 
 
 @interface HTVCategoriesViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -27,11 +29,12 @@
 {
     if (!_tableStructure) {
         _tableStructure = @{
-                            HOME_ROW : @[@"Головна",@"HTVMainVC"],
-                            VIDEO_ROW : @[@"Відеоновини",@"HTVVideoNewsVC"],
-                            INTERVIEW_ROW : @[@"Інтерв'ю", @"HTVInterviewVC"],
-                            PROGRAMS_ROW : @[@"Програми", @"HTVProgramsVC"],
-                            ABOUT_US_ROW  : @[@"Про проект", @"HTVAboutUs"]
+                            HOME_ROW : @[@"Головна",HOME_URL],
+                            VIDEO_ROW : @[@"Відеоновини",VIDEO_URL],
+                            INTERVIEW_ROW : @[@"Інтерв'ю", INTERVIEW_URL],
+                            PROGRAMS_ROW : @[@"Програми", PROGRAMS_URL],
+                            ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL],
+                            YOUTUBE_ROW : @[@"Youtube канал", YOUTUBE_URL]
                             };
     }
     return _tableStructure;
@@ -65,7 +68,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [DELEGATE pushToCenterDeckController:self.tableStructure[@(indexPath.row)][1]];
+    [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
 }
 
 @end

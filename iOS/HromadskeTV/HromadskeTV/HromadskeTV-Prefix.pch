@@ -13,8 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "Definitions.h"
     #import <SVWebViewController/SVWebViewController.h>
     #import <ViewDeck/IIViewDeckController.h>
 
-    #import "Definitions.h"
-#endif
+    #endif

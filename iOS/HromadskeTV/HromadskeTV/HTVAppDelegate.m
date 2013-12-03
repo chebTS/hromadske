@@ -9,7 +9,7 @@
 
 #import "HTVAppDelegate.h"
 #import "HTVCategoriesViewController.h"
-#import "HTVMainVC.h"
+#import "HTVWebVC.h"
 
 @interface HTVAppDelegate()
 @property (nonatomic, strong) UIStoryboard *storyboard;
@@ -71,8 +71,8 @@
 - (void)makeDeckRootViewController
 {
     HTVCategoriesViewController* leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVCategoriesViewController"];
-    HTVMainVC *centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVMainVC"];
-    
+    HTVWebVC *centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVWebVC"];
+    centerController.URL = [NSURL URLWithString:HOME_URL];
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:[[UINavigationController alloc] initWithRootViewController:centerController]
                                                                                     leftViewController:leftController
                                                                                    rightViewController:nil];
@@ -86,12 +86,13 @@
 
 
 
-- (void)pushToCenterDeckController:(NSString *)controllerIdentifier
+- (void)pushToCenterDeckControllerWithURL:(NSString *)url
 {
     IIViewDeckController *deckVC = (IIViewDeckController *)self.window.rootViewController;
-    UIViewController *newCenterVC = nil;
+    HTVWebVC *newCenterVC = nil;
     @try {
-        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:controllerIdentifier];
+        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVWebVC"];
+        ((HTVWebVC *)newCenterVC).URL = [NSURL URLWithString:url];
     }
     @catch (NSException *exception) {
         return;

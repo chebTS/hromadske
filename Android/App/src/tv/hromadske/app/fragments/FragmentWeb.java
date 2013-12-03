@@ -1,7 +1,9 @@
 package tv.hromadske.app.fragments;
 
+import tv.hromadske.app.R;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 public class FragmentWeb extends Fragment {
 	private String url;
+	private ProgressBar progressBar;
 
 	public FragmentWeb() {
 		super();
@@ -25,7 +29,9 @@ public class FragmentWeb extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		WebView wv = new WebView(getActivity());
+		View v = inflater.inflate(R.layout.fragment_tab, null, false);
+		progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+		WebView wv = (WebView) v.findViewById(R.id.web);
 		wv.getSettings().setBuiltInZoomControls(true);
 		wv.getSettings().setSupportZoom(true);
 		wv.getSettings().setUseWideViewPort(true);
@@ -33,7 +39,7 @@ public class FragmentWeb extends Fragment {
 		wv.getSettings().setLoadWithOverviewMode(true);
 		wv.setWebViewClient(new CustomWebViewClient());
 		wv.loadUrl(url);
-		return wv;
+		return v;
 	}
 
 	private class CustomWebViewClient extends WebViewClient {
@@ -45,6 +51,19 @@ public class FragmentWeb extends Fragment {
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
 			}
 			return true;
+		}
+
+		@Override
+		public void onPageStarted(WebView view, String url, Bitmap favicon) {
+			super.onPageStarted(view, url, favicon);
+			progressBar.setVisibility(View.VISIBLE);
+
+		}
+
+		@Override
+		public void onPageFinished(WebView view, String url) {
+			super.onPageFinished(view, url);
+			progressBar.setVisibility(View.GONE);
 		}
 	}
 }

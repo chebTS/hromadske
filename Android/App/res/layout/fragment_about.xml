@@ -10,10 +10,10 @@
         android:orientation="vertical" >
 
         <ImageView
-            android:contentDescription="@null"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:contentDescription="@null"
             android:padding="15dp"
             android:src="@drawable/ic_launcher" />
 
@@ -37,6 +37,16 @@
             android:text="@string/about"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/about_2"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
     </LinearLayout>
 
 </ScrollView>

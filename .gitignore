@@ -29,3 +29,8 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+
+#CocoaPods
+Podfile.lock
+Pods

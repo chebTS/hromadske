@@ -17,3 +17,7 @@
 #define PROGRAMS_URL  HOME_URL @"/programs"
 #define ABOUT_US_URL  HOME_URL @"/about"
 #define YOUTUBE_URL            @"http://www.youtube.com/user/HromadskeTV/featured"
+
+#define TWITTER_URL @"https://twitter.com/HromadskeTV"
+#define FB_URL      @"https://www.facebook.com/hromadsketv"
+#define RSS_URL     @"http://hromadske.tv/rss"

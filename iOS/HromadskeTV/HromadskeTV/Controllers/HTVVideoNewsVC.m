@@ -14,5 +14,11 @@
 
 @implementation HTVVideoNewsVC
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.URL = [NSURL URLWithString:VIDEO_URL];
+}
+
 
 @end

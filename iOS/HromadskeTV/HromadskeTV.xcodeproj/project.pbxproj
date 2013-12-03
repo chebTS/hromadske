@@ -27,6 +27,7 @@
 		506870DF184E59100024624B /* Definitions.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870DE184E59100024624B /* Definitions.h */; };
 		506870E2184E59560024624B /* HTVInterviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870E1184E59560024624B /* HTVInterviewVC.m */; };
 		506870E5184E59750024624B /* HTVProgramsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870E4184E59750024624B /* HTVProgramsVC.m */; };
+		506870E8184E59890024624B /* HTVAboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870E7184E59890024624B /* HTVAboutUs.m */; };
 		D70C5A50436A43B9950E2E8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE59C3A3614E108E7889A0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		506870E1184E59560024624B /* HTVInterviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVInterviewVC.m; path = Controllers/HTVInterviewVC.m; sourceTree = "<group>"; };
 		506870E3184E59750024624B /* HTVProgramsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVProgramsVC.h; path = Controllers/HTVProgramsVC.h; sourceTree = "<group>"; };
 		506870E4184E59750024624B /* HTVProgramsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVProgramsVC.m; path = Controllers/HTVProgramsVC.m; sourceTree = "<group>"; };
+		506870E6184E59890024624B /* HTVAboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVAboutUs.h; path = Controllers/HTVAboutUs.h; sourceTree = "<group>"; };
+		506870E7184E59890024624B /* HTVAboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVAboutUs.m; path = Controllers/HTVAboutUs.m; sourceTree = "<group>"; };
 		BCEE59C3A3614E108E7889A0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC76C99E07E345D78FAD3B32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +191,8 @@
 				506870E1184E59560024624B /* HTVInterviewVC.m */,
 				506870E3184E59750024624B /* HTVProgramsVC.h */,
 				506870E4184E59750024624B /* HTVProgramsVC.m */,
+				506870E6184E59890024624B /* HTVAboutUs.h */,
+				506870E7184E59890024624B /* HTVAboutUs.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				506870D8184E570E0024624B /* HTVParentVC.m in Sources */,
 				506870DB184E577D0024624B /* HTVVideoNewsVC.m in Sources */,
 				506870E2184E59560024624B /* HTVInterviewVC.m in Sources */,
+				506870E8184E59890024624B /* HTVAboutUs.m in Sources */,
 				5068709E184E4FD50024624B /* main.m in Sources */,
 				506870E5184E59750024624B /* HTVProgramsVC.m in Sources */,
 				506870A2184E4FD50024624B /* HTVAppDelegate.m in Sources */,

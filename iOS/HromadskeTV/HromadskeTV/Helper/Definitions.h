@@ -1,10 +1,11 @@
 #import "HTVAppDelegate.h"
 #define DELEGATE ((HTVAppDelegate *)([[UIApplication sharedApplication] delegate]))
+#define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
 //#define NSLog(...)
 
 
 
-#define LEFT_RIGHT_CONTROLLER_SHIFT 240.0
+#define LEFT_RIGHT_CONTROLLER_SHIFT 100.0
 #define IS_IPHONE   ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 #define IS_IPHONE_5 ([[UIScreen mainScreen] bounds ].size.height == HEIGHT_IPHONE_5)
 

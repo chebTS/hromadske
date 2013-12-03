@@ -40,7 +40,7 @@
     [self makeDeckRootViewController];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -49,7 +49,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -72,7 +72,7 @@
 {
     HTVCategoriesViewController* leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVCategoriesViewController"];
     HTVMainVC *centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVMainVC"];
-   
+    
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:[[UINavigationController alloc] initWithRootViewController:centerController]
                                                                                     leftViewController:leftController
                                                                                    rightViewController:nil];
@@ -80,37 +80,30 @@
     [deckController setRightSize:LEFT_RIGHT_CONTROLLER_SHIFT];
     deckController.elastic = NO;
     deckController.panningMode = IIViewDeckNoPanning;
-
+    
     self.window.rootViewController = deckController;
 }
 
 
 
-//- (void)pushToCenterDeckController:(TOCategoryModel *)model andColoseLeftOrRightPart:(TODeckScreenParts)screen
-//{
-//    IIViewDeckController *deckVC = (IIViewDeckController *)self.window.rootViewController;
-//    UIViewController *newCenterVC = nil;
-//    @try {
-//        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:model.controllerIdentifier];
-//    }
-//    @catch (NSException *exception) {
-//        return;
-//    }
-//    @finally {
-//        if (newCenterVC) {
-//            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:newCenterVC];
-//            deckVC.centerController = navigationVC;
-//            if (screen == ToDeckLeftScreen) {
-//                [deckVC closeLeftViewAnimated:YES];
-//            }
-//            else {
-//                [deckVC closeRightViewAnimated:YES];
-//            }
-//        }
-//        
-//    }
-//    
-//}
-//
+- (void)pushToCenterDeckController:(NSString *)controllerIdentifier
+{
+    IIViewDeckController *deckVC = (IIViewDeckController *)self.window.rootViewController;
+    UIViewController *newCenterVC = nil;
+    @try {
+        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:controllerIdentifier];
+    }
+    @catch (NSException *exception) {
+        return;
+    }
+    @finally {
+        if (newCenterVC) {
+            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:newCenterVC];
+            deckVC.centerController = navigationVC;
+            [deckVC closeLeftViewAnimated:YES];
+        }
+    }    
+}
+
 
 @end

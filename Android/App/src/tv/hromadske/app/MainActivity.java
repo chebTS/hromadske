@@ -1,5 +1,6 @@
 package tv.hromadske.app;
 
+import tv.hromadske.app.fragments.FragmentAbout;
 import tv.hromadske.app.fragments.FragmentWeb;
 import tv.hromadske.app.utils.SystemUtils;
 import android.app.ActionBar;
@@ -39,7 +40,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		tab.setText(R.string.main_tab);
 		tab.setTabListener(this);
 		bar.addTab(tab);
-		
+
 		tab = bar.newTab();
 		tab.setText(R.string.videonews);
 		tab.setTabListener(this);
@@ -84,12 +85,14 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			break;
 		}
 	}
-	
-	@Override
-	public void onTabReselected(Tab tab, FragmentTransaction ft) { 	}
 
 	@Override
-	public void onTabUnselected(Tab tab, FragmentTransaction ft) {	}
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+	}
+
+	@Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,9 +112,10 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 					Uri.parse("http://hromadske.tv/donate")));
 			break;
 		case R.id.action_youtube:
-			startActivity(new Intent(Intent.ACTION_VIEW,
+			startActivity(new Intent(
+					Intent.ACTION_VIEW,
 					Uri.parse("http://www.youtube.com/user/HromadskeTV/featured")));
-			break;			
+			break;
 		case R.id.action_twitter:
 			startActivity(new Intent(Intent.ACTION_VIEW,
 					Uri.parse("https://twitter.com/HromadskeTV")));
@@ -142,6 +146,10 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 					+ "&body= " + "&to=" + "hromadsketv@gmail.com");
 			testIntent.setData(data);
 			startActivity(testIntent);
+			break;
+		case R.id.action_about:
+			FragmentAbout fragmentAbout = new FragmentAbout();
+			fragmentAbout.show(getFragmentManager(), "about");
 			break;
 		default:
 			break;

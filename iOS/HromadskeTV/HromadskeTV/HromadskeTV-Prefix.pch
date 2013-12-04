@@ -18,6 +18,7 @@
     #import <SVWebViewController/SVWebViewController.h>
     #import <ViewDeck/IIViewDeckController.h>
     #import <MBProgressHUD/MBProgressHUD.h>
+    #import <REActivityViewController/REActivityViewController.h>
 
 
     #endif

@@ -3,6 +3,8 @@
 #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
 //#define NSLog(...)
 
+#define APP_URL @"http://google.com"
+#define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"
 #define END_SPINNER @"End spinner"
 

@@ -3,6 +3,9 @@
 #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
 //#define NSLog(...)
 
+#define START_SPINNER @"Start spinner"
+#define END_SPINNER @"End spinner"
+
 
 
 #define LEFT_RIGHT_CONTROLLER_SHIFT IS_IPHONE ? 100.0 : 500

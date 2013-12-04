@@ -12,5 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)spinnerStart;
+- (void)spinnerEnd;
 - (void)pushToCenterDeckControllerWithURL:(NSString *)url;
 @end

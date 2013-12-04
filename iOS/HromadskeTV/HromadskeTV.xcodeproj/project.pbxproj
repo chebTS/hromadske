@@ -32,6 +32,7 @@
 		506870F9184E83F60024624B /* HTVWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870F8184E83F60024624B /* HTVWebVC.m */; };
 		50687100184E872D0024624B /* SVWebViewChanges.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870FE184E872D0024624B /* SVWebViewChanges.h */; };
 		50687101184E872D0024624B /* SVWebViewChanges.m in Resources */ = {isa = PBXBuildFile; fileRef = 506870FF184E872D0024624B /* SVWebViewChanges.m */; };
+		50687104184FE4E40024624B /* HTVHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 50687103184FE4E40024624B /* HTVHud.m */; };
 		D70C5A50436A43B9950E2E8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE59C3A3614E108E7889A0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,8 @@
 		506870F8184E83F60024624B /* HTVWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVWebVC.m; path = Controllers/HTVWebVC.m; sourceTree = "<group>"; };
 		506870FE184E872D0024624B /* SVWebViewChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = SVWebViewChanges.h; path = Changes/SVWebViewChanges.h; sourceTree = "<group>"; };
 		506870FF184E872D0024624B /* SVWebViewChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = SVWebViewChanges.m; path = Changes/SVWebViewChanges.m; sourceTree = "<group>"; };
+		50687102184FE4E40024624B /* HTVHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHud.h; path = Controllers/HTVHud.h; sourceTree = "<group>"; };
+		50687103184FE4E40024624B /* HTVHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHud.m; path = Controllers/HTVHud.m; sourceTree = "<group>"; };
 		BCEE59C3A3614E108E7889A0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC76C99E07E345D78FAD3B32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +191,8 @@
 		506870CC184E504C0024624B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				50687102184FE4E40024624B /* HTVHud.h */,
+				50687103184FE4E40024624B /* HTVHud.m */,
 				506870D6184E570E0024624B /* HTVParentVC.h */,
 				506870D7184E570E0024624B /* HTVParentVC.m */,
 				506870E9184E68B30024624B /* HTVCategoriesViewController.h */,
@@ -369,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50687104184FE4E40024624B /* HTVHud.m in Sources */,
 				506870F9184E83F60024624B /* HTVWebVC.m in Sources */,
 				506870D8184E570E0024624B /* HTVParentVC.m in Sources */,
 				506870EB184E68B30024624B /* HTVCategoriesViewController.m in Sources */,

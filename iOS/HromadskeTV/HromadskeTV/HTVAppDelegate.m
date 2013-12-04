@@ -38,6 +38,12 @@
 {
     // Override point for customization after application launch.
     [self makeDeckRootViewController];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(spinnerStart) name:START_SPINNER object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(spinnerEnd) name:END_SPINNER
+                                               object:nil];
     return YES;
 }
 
@@ -104,6 +110,17 @@
             [deckVC closeLeftViewAnimated:YES];
         }
     }    
+}
+
+
+- (void)spinnerStart
+{
+    [[HTVHud sharedManager] startHUD];
+}
+
+- (void)spinnerEnd
+{
+    [[HTVHud sharedManager] finishHUD];
 }
 
 

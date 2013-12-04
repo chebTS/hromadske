@@ -14,7 +14,10 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "Definitions.h"
+    #import "HTVHud.h"
     #import <SVWebViewController/SVWebViewController.h>
     #import <ViewDeck/IIViewDeckController.h>
+    #import <MBProgressHUD/MBProgressHUD.h>
+
 
     #endif

@@ -19,6 +19,11 @@
     #import <ViewDeck/IIViewDeckController.h>
     #import <MBProgressHUD/MBProgressHUD.h>
     #import <REActivityViewController/REActivityViewController.h>
+    #import <UrbanAirship-iOS-SDK/UAirship.h>
+    #import <UrbanAirship-iOS-SDK/UAConfig.h>
+    #import <UrbanAirship-iOS-SDK/UAPush.h>
+    #import <UrbanAirship-iOS-SDK/UAInboxPushHandler.h>
+
 
 
     #endif

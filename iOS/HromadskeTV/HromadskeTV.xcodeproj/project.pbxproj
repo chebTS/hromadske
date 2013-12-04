@@ -33,6 +33,7 @@
 		50687100184E872D0024624B /* SVWebViewChanges.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870FE184E872D0024624B /* SVWebViewChanges.h */; };
 		50687101184E872D0024624B /* SVWebViewChanges.m in Resources */ = {isa = PBXBuildFile; fileRef = 506870FF184E872D0024624B /* SVWebViewChanges.m */; };
 		50687104184FE4E40024624B /* HTVHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 50687103184FE4E40024624B /* HTVHud.m */; };
+		50687106184FF7560024624B /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50687105184FF7560024624B /* AirshipConfig.plist */; };
 		D70C5A50436A43B9950E2E8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE59C3A3614E108E7889A0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		506870FF184E872D0024624B /* SVWebViewChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = SVWebViewChanges.m; path = Changes/SVWebViewChanges.m; sourceTree = "<group>"; };
 		50687102184FE4E40024624B /* HTVHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHud.h; path = Controllers/HTVHud.h; sourceTree = "<group>"; };
 		50687103184FE4E40024624B /* HTVHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHud.m; path = Controllers/HTVHud.m; sourceTree = "<group>"; };
+		50687105184FF7560024624B /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		BCEE59C3A3614E108E7889A0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC76C99E07E345D78FAD3B32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 		50687098184E4FD50024624B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				50687105184FF7560024624B /* AirshipConfig.plist */,
 				506870EC184E73920024624B /* images */,
 				50687099184E4FD50024624B /* HromadskeTV-Info.plist */,
 				5068709A184E4FD50024624B /* InfoPlist.strings */,
@@ -314,6 +317,7 @@
 				506870A8184E4FD50024624B /* Main_iPad.storyboard in Resources */,
 				506870DF184E59100024624B /* Definitions.h in Resources */,
 				50687100184E872D0024624B /* SVWebViewChanges.h in Resources */,
+				50687106184FF7560024624B /* AirshipConfig.plist in Resources */,
 				506870F4184E73920024624B /* logo_small.png in Resources */,
 				50687101184E872D0024624B /* SVWebViewChanges.m in Resources */,
 				506870F2184E73920024624B /* logo.png in Resources */,

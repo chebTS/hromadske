@@ -180,7 +180,7 @@
                 if (IOS_7) {
                     shift = 68;
                 }
-                [self.popoverVC presentPopoverFromRect:CGRectMake(0, shift, 0, 0) inView:self.viewDeckController.centerController.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+                [self.popoverVC presentPopoverFromRect:CGRectMake(0, shift, 1, 1) inView:self.viewDeckController.centerController.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
             }
         }];
     }

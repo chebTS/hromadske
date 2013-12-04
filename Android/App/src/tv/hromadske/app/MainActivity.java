@@ -11,9 +11,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ShareActionProvider;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
@@ -30,6 +32,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	private FragmentWeb fragmentAbout = new FragmentWeb(urlAbout);
 	private boolean exitApp = false;
 	private int pos = 0;
+	private ShareActionProvider mShareActionProvider;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -112,8 +115,52 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.main, menu);
-		return true;
+        inflater.inflate(R.menu.main2, menu);
+        mShareActionProvider = (ShareActionProvider)menu.findItem(R.id.action_share).getActionProvider();
+        mShareActionProvider.setShareIntent(creatShareIntent());
+        return true;
+	}
+	
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		getSupportMenuInflater().inflate(R.menu.general_menu, menu);
+//		mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.menu_share)
+//				.getActionProvider();
+//		mShareActionProvider.setShareHistoryFileName(null);
+//		mShareActionProvider.setShareIntent(creatShareIntent());
+//		mShareActionProvider.setOnShareTargetSelectedListener(this);
+//		return super.onCreateOptionsMenu(menu);
+//	}
+	
+	
+//	  // In Activity.onCreateOptionsMenu()
+//	  public boolean onCreateOptionsMenu(Menu menu) {
+//	      // Get the menu item.
+//	      MenuItem menuItem = menu.findItem(R.id.my_menu_item);
+//	      // Get the provider and hold onto it to set/change the share intent.
+//	      mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+//	      // Set history different from the default before getting the action
+//	      // view since a call to MenuItemCompat.getActionView() calls
+//	      // onCreateActionView() which uses the backing file name. Omit this
+//	      // line if using the default share history file is desired.
+//	      mShareActionProvider.setShareHistoryFileName("custom_share_history.xml");
+//	      . . .
+//	  }
+//
+//	  // Somewhere in the application.
+//	  public void doShare(Intent shareIntent) {
+//	      // When you want to share set the share intent.
+//	      mShareActionProvider.setShareIntent(shareIntent);
+//	  }
+//	 
+	
+	
+	private Intent creatShareIntent() {
+		Intent shareIntent = new Intent(Intent.ACTION_SEND);
+		shareIntent.setAction(Intent.ACTION_SEND);
+		shareIntent.setType("text/plain");
+		shareIntent.putExtra(Intent.EXTRA_TEXT, " "+getResources().getString(R.string.share_text));
+		return shareIntent;
 	}
 
 	@Override

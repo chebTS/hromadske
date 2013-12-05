@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5068708D184E4FD50024624B"
                BuildableName = "HromadskeTV.app"
-               BlueprintName = "HromadskeTV"
+               BlueprintName = "Hromadske"
                ReferencedContainer = "container:HromadskeTV.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5068708D184E4FD50024624B"
             BuildableName = "HromadskeTV.app"
-            BlueprintName = "HromadskeTV"
+            BlueprintName = "Hromadske"
             ReferencedContainer = "container:HromadskeTV.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -54,7 +54,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5068708D184E4FD50024624B"
             BuildableName = "HromadskeTV.app"
-            BlueprintName = "HromadskeTV"
+            BlueprintName = "Hromadske"
             ReferencedContainer = "container:HromadskeTV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,7 +81,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5068708D184E4FD50024624B"
             BuildableName = "HromadskeTV.app"
-            BlueprintName = "HromadskeTV"
+            BlueprintName = "Hromadske"
             ReferencedContainer = "container:HromadskeTV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

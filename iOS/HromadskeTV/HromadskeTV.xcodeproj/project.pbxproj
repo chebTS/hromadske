@@ -78,8 +78,8 @@
 		506870F1184E73920024624B /* logoLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoLarge@2x.png"; sourceTree = "<group>"; };
 		506870F7184E83F60024624B /* HTVWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVWebVC.h; path = Controllers/HTVWebVC.h; sourceTree = "<group>"; };
 		506870F8184E83F60024624B /* HTVWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVWebVC.m; path = Controllers/HTVWebVC.m; sourceTree = "<group>"; };
-		506870FE184E872D0024624B /* SVWebViewChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = SVWebViewChanges.h; path = Changes/SVWebViewChanges.h; sourceTree = "<group>"; };
-		506870FF184E872D0024624B /* SVWebViewChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = SVWebViewChanges.m; path = Changes/SVWebViewChanges.m; sourceTree = "<group>"; };
+		506870FE184E872D0024624B /* SVWebViewChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVWebViewChanges.h; path = Changes/SVWebViewChanges.h; sourceTree = "<group>"; };
+		506870FF184E872D0024624B /* SVWebViewChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVWebViewChanges.m; path = Changes/SVWebViewChanges.m; sourceTree = "<group>"; };
 		50687102184FE4E40024624B /* HTVHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHud.h; path = Controllers/HTVHud.h; sourceTree = "<group>"; };
 		50687103184FE4E40024624B /* HTVHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHud.m; path = Controllers/HTVHud.m; sourceTree = "<group>"; };
 		50687105184FF7560024624B /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
@@ -238,9 +238,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5068708D184E4FD50024624B /* HromadskeTV */ = {
+		5068708D184E4FD50024624B /* Hromadske */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 506870C3184E4FD50024624B /* Build configuration list for PBXNativeTarget "HromadskeTV" */;
+			buildConfigurationList = 506870C3184E4FD50024624B /* Build configuration list for PBXNativeTarget "Hromadske" */;
 			buildPhases = (
 				A53B660EBACE4A1DBC1B1F29 /* Check Pods Manifest.lock */,
 				5068708A184E4FD50024624B /* Sources */,
@@ -252,7 +252,7 @@
 			);
 			dependencies = (
 			);
-			name = HromadskeTV;
+			name = Hromadske;
 			productName = HromadskeTV;
 			productReference = 5068708E184E4FD50024624B /* HromadskeTV.app */;
 			productType = "com.apple.product-type.application";
@@ -303,7 +303,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5068708D184E4FD50024624B /* HromadskeTV */,
+				5068708D184E4FD50024624B /* Hromadske */,
 				506870B1184E4FD50024624B /* HromadskeTVTests */,
 			);
 		};
@@ -400,7 +400,7 @@
 /* Begin PBXTargetDependency section */
 		506870B8184E4FD50024624B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5068708D184E4FD50024624B /* HromadskeTV */;
+			target = 5068708D184E4FD50024624B /* Hromadske */;
 			targetProxy = 506870B7184E4FD50024624B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -524,7 +524,8 @@
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HromadskeTV;
+				PROVISIONING_PROFILE = "2D64047B-1C7A-4651-815F-428BDFA63A3B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -534,11 +535,14 @@
 			baseConfigurationReference = DC76C99E07E345D78FAD3B32 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Fred Cox";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fred Cox";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HromadskeTV;
+				PROVISIONING_PROFILE = "2D64047B-1C7A-4651-815F-428BDFA63A3B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -597,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		506870C3184E4FD50024624B /* Build configuration list for PBXNativeTarget "HromadskeTV" */ = {
+		506870C3184E4FD50024624B /* Build configuration list for PBXNativeTarget "Hromadske" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				506870C4184E4FD50024624B /* Debug */,

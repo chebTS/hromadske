@@ -1,7 +1,7 @@
 #import "HTVAppDelegate.h"
 #define DELEGATE ((HTVAppDelegate *)([[UIApplication sharedApplication] delegate]))
 #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
-//#define NSLog(...)
+#define NSLog(...)
 
 #define APP_URL @"http://google.com"
 #define VK_API_KEY @"4038987"

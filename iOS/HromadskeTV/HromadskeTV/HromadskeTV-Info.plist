@@ -8,6 +8,10 @@
 	<string>HromadskeTV</string>
 	<key>CFBundleExecutable</key>
 	<string>HromadskeTV</string>
+	<key>CFBundleIcons</key>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>co.fedr.hromadske</string>
 	<key>CFBundleInfoDictionaryVersion</key>

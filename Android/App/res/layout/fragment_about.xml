@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:contentDescription="@null"
-            android:padding="15dp"
+            android:padding="10dp"
             android:src="@drawable/ic_launcher" />
 
         <TextView
@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="@string/htv"
             android:textColor="@android:color/black"
             android:textSize="22sp"
@@ -38,6 +39,17 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
+        <Button
+            android:id="@+id/btn_developers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_orange"
+            android:padding="10dp"
+            android:text="@string/button_review"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </ScrollView>

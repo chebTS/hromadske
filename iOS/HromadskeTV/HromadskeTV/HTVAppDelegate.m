@@ -38,6 +38,7 @@
 {
     // Override point for customization after application launch.
     [self makeDeckRootViewController];
+    [self initGoogleAnalytics];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(spinnerStart) name:START_SPINNER object:nil];
     
@@ -155,6 +156,24 @@
 {
     [[HTVHud sharedManager] finishHUD];
 }
+
+
+
+
+- (void)initGoogleAnalytics
+{
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = GA_TIME_INTERVAL;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelNone];
+    
+    // Initialize tracker.
+    [[GAI sharedInstance] trackerWithTrackingId:GA_TRACKER_KEY];
+}
+
 
 
 @end

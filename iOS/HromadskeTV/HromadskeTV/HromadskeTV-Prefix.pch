@@ -23,6 +23,9 @@
     #import <UrbanAirship-iOS-SDK/UAConfig.h>
     #import <UrbanAirship-iOS-SDK/UAPush.h>
     #import <UrbanAirship-iOS-SDK/UAInboxPushHandler.h>
+    #import <GoogleAnalytics-iOS-SDK/GAI.h>
+    #import <GoogleAnalytics-iOS-SDK/GAITrackedViewController.h>
+    #import <GoogleAnalytics-iOS-SDK/GAITracker.h>
 
 
 

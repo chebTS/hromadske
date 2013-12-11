@@ -33,6 +33,9 @@
 		50687101184E872D0024624B /* SVWebViewChanges.m in Resources */ = {isa = PBXBuildFile; fileRef = 506870FF184E872D0024624B /* SVWebViewChanges.m */; };
 		50687104184FE4E40024624B /* HTVHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 50687103184FE4E40024624B /* HTVHud.m */; };
 		50687106184FF7560024624B /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50687105184FF7560024624B /* AirshipConfig.plist */; };
+		50D1EFF1185920CE00B390CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */; };
+		50D1EFF61859253500B390CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF51859253500B390CA /* MessageUI.framework */; };
+		50D1EFF91859260000B390CA /* HTVHelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D1EFF81859260000B390CA /* HTVHelperMethods.m */; };
 		50DF6E4E18506B5A00576DD3 /* landscape-io6.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E4218506B5A00576DD3 /* landscape-io6.png */; };
 		50DF6E4F18506B5A00576DD3 /* landscape-io6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E4318506B5A00576DD3 /* landscape-io6@2x.png */; };
 		50DF6E5018506B5A00576DD3 /* landscape-io7.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E4418506B5A00576DD3 /* landscape-io7.png */; };
@@ -109,6 +112,10 @@
 		50687102184FE4E40024624B /* HTVHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHud.h; path = Controllers/HTVHud.h; sourceTree = "<group>"; };
 		50687103184FE4E40024624B /* HTVHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHud.m; path = Controllers/HTVHud.m; sourceTree = "<group>"; };
 		50687105184FF7560024624B /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
+		50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		50D1EFF51859253500B390CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		50D1EFF71859260000B390CA /* HTVHelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHelperMethods.h; path = Helper/HTVHelperMethods.h; sourceTree = "<group>"; };
+		50D1EFF81859260000B390CA /* HTVHelperMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHelperMethods.m; path = Helper/HTVHelperMethods.m; sourceTree = "<group>"; };
 		50DF6E4218506B5A00576DD3 /* landscape-io6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landscape-io6.png"; sourceTree = "<group>"; };
 		50DF6E4318506B5A00576DD3 /* landscape-io6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landscape-io6@2x.png"; sourceTree = "<group>"; };
 		50DF6E4418506B5A00576DD3 /* landscape-io7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landscape-io7.png"; sourceTree = "<group>"; };
@@ -146,6 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D1EFF61859253500B390CA /* MessageUI.framework in Frameworks */,
+				50D1EFF1185920CE00B390CA /* SystemConfiguration.framework in Frameworks */,
 				50687094184E4FD50024624B /* CoreGraphics.framework in Frameworks */,
 				50687096184E4FD50024624B /* UIKit.framework in Frameworks */,
 				50687092184E4FD50024624B /* Foundation.framework in Frameworks */,
@@ -190,6 +199,8 @@
 		50687090184E4FD50024624B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50D1EFF51859253500B390CA /* MessageUI.framework */,
+				50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */,
 				50687091184E4FD50024624B /* Foundation.framework */,
 				50687093184E4FD50024624B /* CoreGraphics.framework */,
 				50687095184E4FD50024624B /* UIKit.framework */,
@@ -266,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				506870DE184E59100024624B /* Definitions.h */,
+				50D1EFF71859260000B390CA /* HTVHelperMethods.h */,
+				50D1EFF81859260000B390CA /* HTVHelperMethods.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -529,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50687104184FE4E40024624B /* HTVHud.m in Sources */,
+				50D1EFF91859260000B390CA /* HTVHelperMethods.m in Sources */,
 				506870F9184E83F60024624B /* HTVWebVC.m in Sources */,
 				506870D8184E570E0024624B /* HTVParentVC.m in Sources */,
 				506870EB184E68B30024624B /* HTVCategoriesViewController.m in Sources */,

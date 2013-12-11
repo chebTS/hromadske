@@ -3,6 +3,13 @@
 #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
 #define NSLog(...)
 
+#define APP_NAME @"HromadskeTV"
+#define EMAIL_ADDRESS @"Samback@ukr.net"
+#define EMAIL_SUBJECT @"Поради та пропозиції"
+#define NO_INTERNET_COONECTION @"Будь-ласка, впевніться, що у Вас доступна мережа Internet"
+
+#define EMAIL_ERROR_MESSAGE NSLocalizedString (@"Неможливо надіслати повідомлення. Не налаштовано надсилання почтових повідомлень.", @"Alert error when problem with email configuration")
+
 #define APP_URL @"http://itunes.apple.com/app/id774631543"
 #define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"

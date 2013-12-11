@@ -24,17 +24,19 @@
 #define GOOGLE_PLUS         @(2)
 #define RSS_ROW             @(3)
 #define SHARE_FRIENDS_ROW   @(4)
+#define WRITE_TO_DEVELOPER  @(5)
 
 #define  SECTIONS_NUMBER 2
 
 
 
-@interface HTVCategoriesViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface HTVCategoriesViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSDictionary *tableStructure;
 @property (nonatomic, strong) NSDictionary *socialNetworks;
 @property (nonatomic, strong) REActivityViewController *activityVC;
 @property (nonatomic, strong) UIPopoverController *popoverVC;
+@property (nonatomic, strong) MFMailComposeViewController *picker;
 @end
 
 @implementation HTVCategoriesViewController
@@ -62,7 +64,7 @@
         //
         _activityVC = [[REActivityViewController alloc] initWithViewController:self activities:activities];
         _activityVC.userInfo = @{
-                                            @"text":[NSString stringWithFormat:@"Я дивлюсь HromadskeTV через цей додаток %@", APP_URL]
+                                            @"text":[NSString stringWithFormat:@"Я дивлюсь HromadskeTV через цей додаток %@ #HromadskeTV", APP_URL]
                                             };
     }
     
@@ -92,7 +94,8 @@
                             FB_ROW : @[@"Facebook", FB_URL, FB_SCREEN],
                             GOOGLE_PLUS : @[@"G+", G_PLUS_URL, G_PLUS_SCREEN],
                             RSS_ROW : @[@"RSS", RSS_URL, RSS_URL],
-                            SHARE_FRIENDS_ROW : @[@"Розповісти друзям"] };
+                            SHARE_FRIENDS_ROW : @[@"Розповісти друзям"],
+                            WRITE_TO_DEVELOPER : @[@"Написати розробнику"]};
     }
     return _socialNetworks;
 }
@@ -156,6 +159,9 @@
                                                                                           forKey:kGAIScreenName] build]];
             [self showSharing];
         }
+        else if (indexPath.row == WRITE_TO_DEVELOPER.integerValue) {
+            [self sendEmailToRecipient];
+        }
         else {
             [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
                                                                                           forKey:kGAIScreenName] build]];
@@ -188,6 +194,52 @@
                 [self.popoverVC presentPopoverFromRect:CGRectMake(0, shift, 1, 1) inView:self.viewDeckController.centerController.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
             }
         }];
+    }
+}
+
+
+#pragma mark MFMailComposeViewControllerDelegate
+//**********************************************
+//MFMailComposeViewControllerDelegate
+//**********************************************
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    NSString * message;
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            message = @"Відправку листа скасовано";
+            break;
+        case MFMailComposeResultSaved:
+            message = @"Повідомлення збережено";
+            break;
+        case MFMailComposeResultSent:
+            message = @"Повідомлення відправлено";
+            break;
+        case MFMailComposeResultFailed:
+            message = @"Повідомлення не відправлено";
+            break;
+        default:
+            message = @"Повідомлення не відправлено";
+            break;
+    }
+    [self.picker dismissViewControllerAnimated:YES completion:NULL];
+    [HTVHelperMethods callCustomAlertWithMessage:message];
+}
+
+- (void)sendEmailToRecipient
+{
+    if([MFMailComposeViewController canSendMail]){
+        self.picker = [[MFMailComposeViewController alloc] init];
+        self.picker.mailComposeDelegate = self;
+        [self.picker setToRecipients:@[EMAIL_ADDRESS]];
+        [self.picker setSubject:EMAIL_SUBJECT];
+        [self presentViewController:self.picker animated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        }];
+    }
+    else {
+           [HTVHelperMethods callCustomAlertWithMessage:EMAIL_ERROR_MESSAGE];
     }
 }
 

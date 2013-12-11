@@ -73,12 +73,12 @@
 {
     if (!_tableStructure) {
         _tableStructure = @{
-                            HOME_ROW : @[@"Головна",HOME_URL],
-                            VIDEO_ROW : @[@"Відеоновини",VIDEO_URL],
-                            INTERVIEW_ROW : @[@"Інтерв'ю", INTERVIEW_URL],
-                            PROGRAMS_ROW : @[@"Програми", PROGRAMS_URL],
-                            ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL],
-                            YOUTUBE_ROW : @[@"YouTube канал", YOUTUBE_URL]
+                            HOME_ROW : @[@"Головна",HOME_URL, HOME_SCREEN],
+                            VIDEO_ROW : @[@"Відеоновини",VIDEO_URL, VIDEO_SCREEN],
+                            INTERVIEW_ROW : @[@"Інтерв'ю", INTERVIEW_URL, INTERVIEW_SCREEN],
+                            PROGRAMS_ROW : @[@"Програми", PROGRAMS_URL, PROGRAMS_SCREEN],
+                            ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL, ABOUT_SCREEN],
+                            YOUTUBE_ROW : @[@"YouTube канал", YOUTUBE_URL, YOUTUBE_SCREEN]
                             };
     }
     return _tableStructure;
@@ -88,11 +88,11 @@
 - (NSDictionary *)socialNetworks
 {
     if (!_socialNetworks) {
-        _socialNetworks = @{TWITTER_ROW: @[@"Twitter", TWITTER_URL],
-                            FB_ROW : @[@"Facebook", FB_URL],
-                            GOOGLE_PLUS : @[@"G+", G_PLUS_URL],
-                            RSS_ROW : @[@"RSS", RSS_URL],
-                            SHARE_FRIENDS_ROW : @[@"Розповісти друзям"]};
+        _socialNetworks = @{TWITTER_ROW: @[@"Twitter", TWITTER_URL, TWITTER_SCREEN],
+                            FB_ROW : @[@"Facebook", FB_URL, FB_SCREEN],
+                            GOOGLE_PLUS : @[@"G+", G_PLUS_URL, G_PLUS_SCREEN],
+                            RSS_ROW : @[@"RSS", RSS_URL, RSS_URL],
+                            SHARE_FRIENDS_ROW : @[@"Розповісти друзям"] };
     }
     return _socialNetworks;
 }
@@ -152,9 +152,14 @@
     }
     else if (indexPath.section == SECTION_SOCIAL) {
         if (indexPath.row == SHARE_FRIENDS_ROW.integerValue) {
+            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:SHARE_SCREEN
+                                                                                          forKey:kGAIScreenName] build]];
             [self showSharing];
         }
         else {
+            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
+                                                                                          forKey:kGAIScreenName] build]];
+
             [DELEGATE pushToCenterDeckControllerWithURL:self.socialNetworks[@(indexPath.row)][1]];
         }
         

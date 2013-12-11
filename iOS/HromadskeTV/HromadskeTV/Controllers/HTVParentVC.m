@@ -33,20 +33,20 @@
     [button addTarget:self.viewDeckController
                action:@selector(toggleLeftView)
      forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftButon = [[UIBarButtonItem alloc] initWithCustomView:button];
-    [leftButon setTintColor:[UIColor whiteColor]];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [leftButton setTintColor:[UIColor whiteColor]];
     UIBarButtonItem *negativeSpacerLeft = [[UIBarButtonItem alloc]
                                             initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                             target:nil action:nil];
     if (IOS_7) {
-        negativeSpacerLeft.width = -15;// it was 0 in iOS 6
+        negativeSpacerLeft.width = -5;// it was 0 in iOS 6
     }
     else {
         negativeSpacerLeft.width = 0;
     }
     
     
-    self.navigationItem.leftBarButtonItems = @[negativeSpacerLeft, leftButon];
+    self.navigationItem.leftBarButtonItems = @[negativeSpacerLeft, leftButton];
 }
 
 @end

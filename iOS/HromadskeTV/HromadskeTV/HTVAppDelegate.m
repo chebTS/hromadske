@@ -60,6 +60,12 @@
                                          UIRemoteNotificationTypeAlert
                                          );
     [[UAPush shared] registerForRemoteNotifications];
+   
+    
+  
+    
+    [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:HOME_SCREEN
+                                                      forKey:kGAIScreenName] build]];
     return YES;
 }
 
@@ -107,6 +113,7 @@
     [[UAPush shared] handleNotification:userInfo applicationState:application.applicationState];
     [UAInboxPushHandler handleNotification:userInfo];
 }
+
 
 - (void)makeDeckRootViewController
 {
@@ -156,9 +163,6 @@
 {
     [[HTVHud sharedManager] finishHUD];
 }
-
-
-
 
 - (void)initGoogleAnalytics
 {

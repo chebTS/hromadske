@@ -11,8 +11,11 @@
 #import "HTVCategoriesViewController.h"
 #import "HTVWebVC.h"
 
+
+
 @interface HTVAppDelegate()
 @property (nonatomic, strong) UIStoryboard *storyboard;
+@property (nonatomic, strong) AFHTTPClient *client;
 @end
 
 @implementation HTVAppDelegate
@@ -61,8 +64,7 @@
                                          );
     [[UAPush shared] registerForRemoteNotifications];
    
-    
-  
+    [self detectInternetStatus];
     
     [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:HOME_SCREEN
                                                       forKey:kGAIScreenName] build]];
@@ -178,6 +180,17 @@
     [[GAI sharedInstance] trackerWithTrackingId:GA_TRACKER_KEY];
 }
 
+
+- (void)detectInternetStatus
+{
+    self.client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://google.com"]];
+    [self.client setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusNotReachable) {
+            [HTVHelperMethods callCustomAlertWithMessage:NO_INTERNET_COONECTION];
+        }
+    }];
+
+}
 
 
 @end

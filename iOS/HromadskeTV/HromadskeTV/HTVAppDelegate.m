@@ -105,6 +105,31 @@
     // Updates the device token and registers the token with UA. This won't occur until
     // push is enabled if the outlined process is followed. This call is required.
     [[UAPush shared] registerDeviceToken:deviceToken];
+    [self sendDeviceToken:deviceToken];
+}
+
+- (void)sendDeviceToken:(NSData *)token
+{
+    NSMutableString *deviceToken = [NSMutableString stringWithCapacity:([token length] * 2)];
+    const unsigned char *bytes = (const unsigned char *)[token bytes];
+    
+    for (NSUInteger i = 0; i < [token length]; i++) {
+        [deviceToken appendFormat:@"%02X", bytes[i]];
+    }
+    NSURL *url = [NSURL URLWithString:DEVICE_TOKEN_URL];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+
+    NSDictionary *params = @{@"deviceID" : [deviceToken lowercaseString],
+                             @"platform": @"ios"};
+    
+    [httpClient postPath:nil
+              parameters:params
+                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                     
+                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+                 }];
+
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {

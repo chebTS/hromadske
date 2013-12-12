@@ -4,7 +4,7 @@
 #define NSLog(...)
 
 #define APP_NAME @"HromadskeTV"
-#define EMAIL_ADDRESS @"Samback@ukr.net"
+#define EMAIL_ADDRESS @"hromadsketv@ukr.net"
 #define EMAIL_SUBJECT @"Поради та пропозиції"
 #define NO_INTERNET_COONECTION @"Будь-ласка, впевніться, що у Вас доступна мережа Internet"
 

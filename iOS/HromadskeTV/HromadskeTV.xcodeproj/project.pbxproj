@@ -32,7 +32,6 @@
 		50687100184E872D0024624B /* SVWebViewChanges.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870FE184E872D0024624B /* SVWebViewChanges.h */; };
 		50687101184E872D0024624B /* SVWebViewChanges.m in Resources */ = {isa = PBXBuildFile; fileRef = 506870FF184E872D0024624B /* SVWebViewChanges.m */; };
 		50687104184FE4E40024624B /* HTVHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 50687103184FE4E40024624B /* HTVHud.m */; };
-		50687106184FF7560024624B /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50687105184FF7560024624B /* AirshipConfig.plist */; };
 		50D1EFF1185920CE00B390CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */; };
 		50D1EFF61859253500B390CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF51859253500B390CA /* MessageUI.framework */; };
 		50D1EFF91859260000B390CA /* HTVHelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D1EFF81859260000B390CA /* HTVHelperMethods.m */; };
@@ -111,7 +110,6 @@
 		506870FF184E872D0024624B /* SVWebViewChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVWebViewChanges.m; path = Changes/SVWebViewChanges.m; sourceTree = "<group>"; };
 		50687102184FE4E40024624B /* HTVHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHud.h; path = Controllers/HTVHud.h; sourceTree = "<group>"; };
 		50687103184FE4E40024624B /* HTVHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHud.m; path = Controllers/HTVHud.m; sourceTree = "<group>"; };
-		50687105184FF7560024624B /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		50D1EFF51859253500B390CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		50D1EFF71859260000B390CA /* HTVHelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHelperMethods.h; path = Helper/HTVHelperMethods.h; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 			children = (
 				50DF6E5B18506C8C00576DD3 /* icon */,
 				50DF6E4018506B5A00576DD3 /* Archive.2 */,
-				50687105184FF7560024624B /* AirshipConfig.plist */,
 				506870EC184E73920024624B /* images */,
 				50687099184E4FD50024624B /* HromadskeTV-Info.plist */,
 				5068709A184E4FD50024624B /* InfoPlist.strings */,
@@ -455,7 +452,6 @@
 				506870DF184E59100024624B /* Definitions.h in Resources */,
 				50DF6E4E18506B5A00576DD3 /* landscape-io6.png in Resources */,
 				50687100184E872D0024624B /* SVWebViewChanges.h in Resources */,
-				50687106184FF7560024624B /* AirshipConfig.plist in Resources */,
 				50DF6E9918506C8C00576DD3 /* Icon-72@2x.png in Resources */,
 				506870F4184E73920024624B /* logo_small.png in Resources */,
 				50DF6E4F18506B5A00576DD3 /* landscape-io6@2x.png in Resources */,

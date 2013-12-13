@@ -10,6 +10,7 @@
 
 #define EMAIL_ERROR_MESSAGE NSLocalizedString (@"Неможливо надіслати повідомлення. Не налаштовано надсилання почтових повідомлень.", @"Alert error when problem with email configuration")
 
+#define DEVICE_TOKEN_URL @"http://hrom.fedr.co/devices"
 #define APP_URL @"http://itunes.apple.com/app/id774631543"
 #define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"

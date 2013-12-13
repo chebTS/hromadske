@@ -48,26 +48,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(spinnerEnd) name:END_SPINNER
                                                object:nil];
-    
-    UAConfig *config = [UAConfig defaultConfig];
-    
-    // You can also programmatically override the plist values:
-    // config.developmentAppKey = @"YourKey";
-    // etc.
-    
-    // Call takeOff (which creates the UAirship singleton)
-    [UAirship takeOff:config];
-    
-    [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
-                                         UIRemoteNotificationTypeSound |
-                                         UIRemoteNotificationTypeAlert
-                                         );
-    [[UAPush shared] registerForRemoteNotifications];
    
     [self detectInternetStatus];
     
     [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:HOME_SCREEN
                                                       forKey:kGAIScreenName] build]];
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     return YES;
 }
 
@@ -100,20 +87,38 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    UA_LINFO(@"APNS device token: %@", deviceToken);
-    
     // Updates the device token and registers the token with UA. This won't occur until
     // push is enabled if the outlined process is followed. This call is required.
-    [[UAPush shared] registerDeviceToken:deviceToken];
+    [self sendDeviceToken:deviceToken];
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+- (void)sendDeviceToken:(NSData *)token
+{
+    NSMutableString *deviceToken = [NSMutableString stringWithCapacity:([token length] * 2)];
+    const unsigned char *bytes = (const unsigned char *)[token bytes];
     
-    UA_LINFO(@"Received remote notification: %@", userInfo);
+    for (NSUInteger i = 0; i < [token length]; i++) {
+        [deviceToken appendFormat:@"%02X", bytes[i]];
+    }
+    NSURL *url = [NSURL URLWithString:DEVICE_TOKEN_URL];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+
+    NSDictionary *params = @{@"deviceID" : [deviceToken lowercaseString],
+                             @"platform": @"ios"};
     
-    // Fire the handlers for both regular and rich push
-    [[UAPush shared] handleNotification:userInfo applicationState:application.applicationState];
-    [UAInboxPushHandler handleNotification:userInfo];
+    [httpClient postPath:nil
+              parameters:params
+                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                     
+                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+                 }];
+
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
 }
 
 

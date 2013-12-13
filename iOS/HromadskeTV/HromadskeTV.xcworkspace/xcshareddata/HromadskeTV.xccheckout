@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3AE7652C-8893-48EA-A57C-749F8BA55A82</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HromadskeTV</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DA7676EE-131E-4B45-A873-9338E7CC3CC2</key>
+		<string>ssh://github.com/chebTS/hromadske.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS/HromadskeTV/HromadskeTV.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DA7676EE-131E-4B45-A873-9338E7CC3CC2</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/chebTS/hromadske.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DA7676EE-131E-4B45-A873-9338E7CC3CC2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DA7676EE-131E-4B45-A873-9338E7CC3CC2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>hromadske</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -102,19 +102,26 @@
     }
     NSURL *url = [NSURL URLWithString:DEVICE_TOKEN_URL];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-
-    NSDictionary *params = @{@"deviceID" : [deviceToken lowercaseString],
+    [httpClient setParameterEncoding:AFJSONParameterEncoding];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    
+    NSDictionary *params = @{@"deviceID" : deviceToken,
                              @"platform": @"ios"};
     
-    [httpClient postPath:nil
+    [httpClient postPath:@"/devices"
               parameters:params
                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                     
+
                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                     NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+                     
                  }];
 
 }
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+}
+
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {

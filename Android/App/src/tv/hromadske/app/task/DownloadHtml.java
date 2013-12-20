@@ -29,7 +29,6 @@ public class DownloadHtml extends AsyncTask<String, Void, String> {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				result += line + "\n";
-
 			}
 			responseStr = result;
 		} catch (Exception e) {

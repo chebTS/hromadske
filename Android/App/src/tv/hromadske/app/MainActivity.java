@@ -1,6 +1,8 @@
 package tv.hromadske.app;
 
 import tv.hromadske.app.fragments.FragmentAbout;
+import tv.hromadske.app.fragments.FragmentLinks;
+import tv.hromadske.app.fragments.FragmentVideos;
 import tv.hromadske.app.fragments.FragmentWeb;
 import tv.hromadske.app.utils.SystemUtils;
 import android.app.ActionBar;
@@ -21,9 +23,9 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	private final String urlSite = "http://hromadske.tv/";
 	
 
-	private FragmentWeb fragmentHome = new FragmentWeb(urlSite);
+	private FragmentVideos fragmentVideos = new FragmentVideos();
 	private FragmentWeb fragmentSite = new FragmentWeb(urlSite);
-	private FragmentWeb fragmentInterview = new FragmentWeb(urlSite);
+	private FragmentLinks fragmentLinks = new FragmentLinks();
 	private boolean exitApp = false;
 	private int pos = 0;
 	private ShareActionProvider mShareActionProvider;
@@ -70,13 +72,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		switch (tab.getPosition()) {
 		case 0:
-			ft.replace(R.id.fragment_container, fragmentHome);
+			ft.replace(R.id.fragment_container, fragmentVideos);
 			break;
 		case 1:
 			ft.replace(R.id.fragment_container, fragmentSite);
 			break;
 		case 2:
-			ft.replace(R.id.fragment_container, fragmentInterview);
+			ft.replace(R.id.fragment_container, fragmentLinks);
 			break;
 		default:
 			break;

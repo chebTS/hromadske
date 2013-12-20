@@ -19,4 +19,5 @@
 
 <resources>
     <color name="pressed_hromadske_style">#CC5A646D</color>
+    <color name="half_transparent_bg">#55667788</color>
 </resources>

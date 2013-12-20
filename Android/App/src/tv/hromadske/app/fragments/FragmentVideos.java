@@ -22,9 +22,10 @@ import android.widget.Toast;
 
 public class FragmentVideos extends Fragment implements OnClickListener {
 	private Button btnEng, btnUkr;
+	private View containerLoad;
 	private String engUrl = "";
 	private String ukrUrl = "";
-	
+
 	public FragmentVideos() {
 		super();
 	}
@@ -34,15 +35,17 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		View v = inflater.inflate(R.layout.fragment_videos, null);
 		btnUkr = (Button) v.findViewById(R.id.btn_ukr);
 		btnEng = (Button) v.findViewById(R.id.btn_eng);
+		containerLoad = v.findViewById(R.id.container_load);
 		return v;
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		containerLoad.setOnClickListener(this);
 		btnUkr.setOnClickListener(this);
 		btnEng.setOnClickListener(this);
-		DownloadDoc downloadDoc = new DownloadDoc();
+		DownloadDoc downloadDoc = new DownloadDoc(containerLoad);
 		downloadDoc.execute();
 	}
 
@@ -52,18 +55,18 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		intent = new Intent(getActivity(), VideoUkrActivity.class);
 		switch (v.getId()) {
 		case R.id.btn_ukr:
-			if (!ukrUrl.isEmpty()){
-				intent.putExtra(SystemUtils.UKR_URL,ukrUrl);
+			if (!ukrUrl.isEmpty()) {
+				intent.putExtra(SystemUtils.UKR_URL, ukrUrl);
 				startActivity(intent);
-			}else{
+			} else {
 				Toast.makeText(getActivity(), "Недоступне посилання", Toast.LENGTH_LONG).show();
 			}
 			break;
 		case R.id.btn_eng:
-			if (!engUrl.isEmpty()){
+			if (!engUrl.isEmpty()) {
 				intent.putExtra(SystemUtils.UKR_URL, engUrl);
 				startActivity(intent);
-			}else{
+			} else {
 				Toast.makeText(getActivity(), "Недоступне посилання", Toast.LENGTH_LONG).show();
 			}
 			break;
@@ -73,7 +76,20 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 	}
 
 	private class DownloadDoc extends AsyncTask<Void, Void, String> {
-		
+
+		private View loadView;
+
+		public DownloadDoc(View loadView) {
+			super();
+			this.loadView = loadView;
+		}
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			loadView.setVisibility(View.VISIBLE);
+		}
+
 		@Override
 		protected String doInBackground(Void... params) {
 			try {
@@ -81,25 +97,25 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 				Elements links = doc.select("a[href]");
 				for (Element link : links) {
 					String s = link.attr("abs:href");
-					if (s.contains("www.youtube.com")){
-						String[] sp = s.split("="); 
+					if (s.contains("www.youtube.com")) {
+						String[] sp = s.split("=");
 						engUrl = sp[sp.length - 1];
 						Log.i("engURL", engUrl);
 					}
 				}
-				
+
 				Elements es = doc.select("iframe");
 				String ukr;
-				for(Element e : es){
+				for (Element e : es) {
 					ukr = e.getElementsByTag("iframe").attr("src");
-				    if (ukr.contains("www.youtube.com")){
-				    	Log.i("URK_URL", " " + ukr);
-				    	ukr = ukr.substring(0, ukr.indexOf("?"));
-				    	Log.i("URK_URL", " " + ukr);
-				    	String[] slashes = ukr.split("/");
-				    	Log.i("URK_URL", " "+slashes[slashes.length-1]);
-				    	ukrUrl = slashes[slashes.length-1];
-				    }
+					if (ukr.contains("www.youtube.com")) {
+						Log.i("URK_URL", " " + ukr);
+						ukr = ukr.substring(0, ukr.indexOf("?"));
+						Log.i("URK_URL", " " + ukr);
+						String[] slashes = ukr.split("/");
+						Log.i("URK_URL", " " + slashes[slashes.length - 1]);
+						ukrUrl = slashes[slashes.length - 1];
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -110,6 +126,7 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
+			loadView.setVisibility(View.GONE);
 		}
 	}
 }

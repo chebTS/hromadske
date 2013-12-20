@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/btn_ukr"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ukraine_flag"
-        android:text="@string/ukr_translation" />
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/btn_eng"
+        <Button
+            android:id="@+id/btn_ukr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ukraine_flag"
+            android:text="@string/ukr_translation"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_eng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/uk_flag"
+            android:text="@string/in_english"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/container_load"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/uk_flag"
-        android:text="@string/in_english" />
+        android:layout_height="match_parent"
+        android:background="@color/half_transparent_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
 
-</LinearLayout>
+        <ProgressBar
+            android:id="@+id/progresBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -12,7 +12,10 @@
             android:id="@+id/btn_ukr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_video_selector"
             android:drawableLeft="@drawable/ukraine_flag"
+            android:padding="5dp"
             android:text="@string/ukr_translation"
             android:textSize="20sp" />
 
@@ -20,19 +23,22 @@
             android:id="@+id/btn_eng"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_video_selector"
             android:drawableLeft="@drawable/uk_flag"
+            android:padding="5dp"
             android:text="@string/in_english"
             android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/container_load"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/half_transparent_bg"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:visibility="gone" >
 
         <ProgressBar
             android:id="@+id/progresBar"

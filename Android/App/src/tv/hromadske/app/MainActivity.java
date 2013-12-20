@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,17 +18,12 @@ import android.widget.ShareActionProvider;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
-	private final String urlHome = "http://hromadske.tv/";
-	private final String urlVideos = "http://hromadske.tv/video/";
-	private final String urlInterview = "http://hromadske.tv/interview/";
-	private final String urlPrograms = "http://hromadske.tv/programs/";
-	private final String urlAbout = "http://hromadske.tv/about/";
+	private final String urlSite = "http://hromadske.tv/";
+	
 
-	private FragmentWeb fragmentHome = new FragmentWeb(urlHome);
-	private FragmentWeb fragmentVideoNews = new FragmentWeb(urlVideos);
-	private FragmentWeb fragmentInterview = new FragmentWeb(urlInterview);
-	private FragmentWeb fragmentPrograms = new FragmentWeb(urlPrograms);
-	private FragmentWeb fragmentAbout = new FragmentWeb(urlAbout);
+	private FragmentWeb fragmentHome = new FragmentWeb(urlSite);
+	private FragmentWeb fragmentSite = new FragmentWeb(urlSite);
+	private FragmentWeb fragmentInterview = new FragmentWeb(urlSite);
 	private boolean exitApp = false;
 	private int pos = 0;
 	private ShareActionProvider mShareActionProvider;
@@ -45,31 +39,23 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		}
 
 		bar.setHomeButtonEnabled(true);
-
+		
 		Tab tab = bar.newTab();
-		tab.setText(R.string.main_tab);
+		tab.setText("Відео");
 		tab.setTabListener(this);
 		bar.addTab(tab);
 
 		tab = bar.newTab();
-		tab.setText(R.string.videonews);
+		tab.setText("Сайт");
 		tab.setTabListener(this);
 		bar.addTab(tab);
 
 		tab = bar.newTab();
-		tab.setText(R.string.interview);
+		tab.setText("Посилання");
 		tab.setTabListener(this);
 		bar.addTab(tab);
 
-		tab = bar.newTab();
-		tab.setText(R.string.programs);
-		tab.setTabListener(this);
-		bar.addTab(tab);
-
-		tab = bar.newTab();
-		tab.setText(R.string.about_project);
-		tab.setTabListener(this);
-		bar.addTab(tab);
+		
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		bar.setSelectedNavigationItem(pos);
 	}
@@ -87,18 +73,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			ft.replace(R.id.fragment_container, fragmentHome);
 			break;
 		case 1:
-			ft.replace(R.id.fragment_container, fragmentVideoNews);
+			ft.replace(R.id.fragment_container, fragmentSite);
 			break;
 		case 2:
 			ft.replace(R.id.fragment_container, fragmentInterview);
 			break;
-		case 3:
-			ft.replace(R.id.fragment_container, fragmentPrograms);
-			break;
-		case 4:
-			ft.replace(R.id.fragment_container, fragmentAbout);
-			break;
-
 		default:
 			break;
 		}
@@ -120,40 +99,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         mShareActionProvider.setShareIntent(creatShareIntent());
         return true;
 	}
-	
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		getSupportMenuInflater().inflate(R.menu.general_menu, menu);
-//		mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.menu_share)
-//				.getActionProvider();
-//		mShareActionProvider.setShareHistoryFileName(null);
-//		mShareActionProvider.setShareIntent(creatShareIntent());
-//		mShareActionProvider.setOnShareTargetSelectedListener(this);
-//		return super.onCreateOptionsMenu(menu);
-//	}
-	
-	
-//	  // In Activity.onCreateOptionsMenu()
-//	  public boolean onCreateOptionsMenu(Menu menu) {
-//	      // Get the menu item.
-//	      MenuItem menuItem = menu.findItem(R.id.my_menu_item);
-//	      // Get the provider and hold onto it to set/change the share intent.
-//	      mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-//	      // Set history different from the default before getting the action
-//	      // view since a call to MenuItemCompat.getActionView() calls
-//	      // onCreateActionView() which uses the backing file name. Omit this
-//	      // line if using the default share history file is desired.
-//	      mShareActionProvider.setShareHistoryFileName("custom_share_history.xml");
-//	      . . .
-//	  }
-//
-//	  // Somewhere in the application.
-//	  public void doShare(Intent shareIntent) {
-//	      // When you want to share set the share intent.
-//	      mShareActionProvider.setShareIntent(shareIntent);
-//	  }
-//	 
-	
 	
 	private Intent creatShareIntent() {
 		Intent shareIntent = new Intent(Intent.ACTION_SEND);

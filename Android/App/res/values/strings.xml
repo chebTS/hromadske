@@ -19,5 +19,7 @@
     <string name="share">Розповісти про нас</string>
     <string name="about_menu">Про додаток</string>
     <string name="share_text">"Я дивлюсь HromadskeTV через цей додаток https://play.google.com/store/apps/details?id=tv.hromadske.app"</string>
+    <string name="ukr_translation">Українською мовою</string>
+    <string name="in_english">English version</string>
     
 </resources>

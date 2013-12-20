@@ -8,12 +8,14 @@
         android:id="@+id/btn_ukr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="UKR" />
+        android:drawableLeft="@drawable/ukraine_flag"
+        android:text="@string/ukr_translation" />
 
     <Button
         android:id="@+id/btn_eng"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ENG" />
+        android:drawableLeft="@drawable/uk_flag"
+        android:text="@string/in_english" />
 
 </LinearLayout>

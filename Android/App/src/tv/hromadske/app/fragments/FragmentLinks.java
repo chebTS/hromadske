@@ -1,7 +1,6 @@
 package tv.hromadske.app.fragments;
 
 import tv.hromadske.app.R;
-import tv.hromadske.app.task.DownloadHtml;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,8 +26,6 @@ public class FragmentLinks extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_btn:
-			DownloadHtml downloadHtml = new DownloadHtml();
-			downloadHtml.execute("http://hromadske.tv/episode/128");
 			break;
 		default:
 			break;

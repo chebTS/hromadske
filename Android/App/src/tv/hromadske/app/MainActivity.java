@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 	private final String urlSite = "http://hromadske.tv/";
-	
 
 	private FragmentVideos fragmentVideos = new FragmentVideos();
 	private FragmentWeb fragmentSite = new FragmentWeb(urlSite);
@@ -39,9 +38,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		if (savedInstanceState != null) {
 			pos = savedInstanceState.getInt("pos");
 		}
-
-		bar.setHomeButtonEnabled(true);
 		
+		try {
+			bar.setHomeButtonEnabled(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		Tab tab = bar.newTab();
 		tab.setText("Β³δεξ");
 		tab.setTabListener(this);
@@ -57,7 +60,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		tab.setTabListener(this);
 		bar.addTab(tab);
 
-		
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		bar.setSelectedNavigationItem(pos);
 	}
@@ -96,17 +98,17 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main2, menu);
-        mShareActionProvider = (ShareActionProvider)menu.findItem(R.id.action_share).getActionProvider();
-        mShareActionProvider.setShareIntent(creatShareIntent());
-        return true;
+		inflater.inflate(R.menu.main2, menu);
+		mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.action_share).getActionProvider();
+		mShareActionProvider.setShareIntent(creatShareIntent());
+		return true;
 	}
-	
+
 	private Intent creatShareIntent() {
 		Intent shareIntent = new Intent(Intent.ACTION_SEND);
 		shareIntent.setAction(Intent.ACTION_SEND);
 		shareIntent.setType("text/plain");
-		shareIntent.putExtra(Intent.EXTRA_TEXT, " "+getResources().getString(R.string.share_text));
+		shareIntent.putExtra(Intent.EXTRA_TEXT, " " + getResources().getString(R.string.share_text));
 		return shareIntent;
 	}
 
@@ -117,42 +119,32 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			getActionBar().setSelectedNavigationItem(0);
 			break;
 		case R.id.action_help:
-			startActivity(new Intent(Intent.ACTION_VIEW,
-					Uri.parse("http://hromadske.tv/donate")));
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://hromadske.tv/donate")));
 			break;
 		case R.id.action_youtube:
-			startActivity(new Intent(
-					Intent.ACTION_VIEW,
-					Uri.parse("http://www.youtube.com/user/HromadskeTV/featured")));
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/user/HromadskeTV/featured")));
 			break;
 		case R.id.action_twitter:
-			startActivity(new Intent(Intent.ACTION_VIEW,
-					Uri.parse("https://twitter.com/HromadskeTV")));
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/HromadskeTV")));
 			break;
 		case R.id.action_facebook:
 			if (SystemUtils.isAppInstalledOrNot("com.facebook.katana", this)) {
 				String facebookScheme = "fb://profile/594022430618124";
-				Intent facebookIntent = new Intent(Intent.ACTION_VIEW,
-						Uri.parse(facebookScheme));
+				Intent facebookIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookScheme));
 				startActivity(facebookIntent);
 			} else {
-				startActivity(new Intent("android.intent.action.VIEW",
-						Uri.parse("https://www.facebook.com/hromadsketv")));
+				startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://www.facebook.com/hromadsketv")));
 			}
 			break;
 		case R.id.action_rss:
-			startActivity(new Intent(Intent.ACTION_VIEW,
-					Uri.parse("http://hromadske.tv/rss")));
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://hromadske.tv/rss")));
 			break;
 		case R.id.action_plus:
-			startActivity(new Intent(
-					Intent.ACTION_VIEW,
-					Uri.parse("https://plus.google.com/u/0/+HromadskeTvUkraine/posts")));
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/u/0/+HromadskeTvUkraine/posts")));
 			break;
 		case R.id.action_mail:
 			Intent testIntent = new Intent(Intent.ACTION_VIEW);
-			Uri data = Uri.parse("mailto:?subject=" + "From Android app"
-					+ "&body= " + "&to=" + "hromadsketv@gmail.com");
+			Uri data = Uri.parse("mailto:?subject=" + "From Android app" + "&body= " + "&to=" + "hromadsketv@gmail.com");
 			testIntent.setData(data);
 			startActivity(testIntent);
 			break;
@@ -165,7 +157,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	private class TimeOutTask extends AsyncTask<Void, Void, Boolean> {
 
 		@Override

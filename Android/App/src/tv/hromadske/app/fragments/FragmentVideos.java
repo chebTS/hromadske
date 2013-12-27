@@ -44,9 +44,9 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		super.onActivityCreated(savedInstanceState);
 		containerLoad.setOnClickListener(this);
 		btnUkr.setOnClickListener(this);
-		btnEng.setOnClickListener(this);
+		btnEng.setOnClickListener(this);		
 		DownloadDoc downloadDoc = new DownloadDoc(containerLoad);
-		downloadDoc.execute();
+		downloadDoc.execute();		
 	}
 
 	@Override
@@ -78,10 +78,12 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 	private class DownloadDoc extends AsyncTask<Void, Void, String> {
 
 		private View loadView;
+		private String videosUrl;
 
 		public DownloadDoc(View loadView) {
 			super();
 			this.loadView = loadView;
+			//this.videosUrl = videosUrl;
 		}
 
 		@Override
@@ -93,7 +95,11 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		@Override
 		protected String doInBackground(Void... params) {
 			try {
-				Document doc = Jsoup.connect("http://hromadske.tv/episode/190").get();
+				Document home = Jsoup.connect("http://hromadske.tv").get();
+				Elements homeUrls = home.select("div.mainnews a");
+				videosUrl =  homeUrls.first().attr("abs:href");
+				
+				Document doc = Jsoup.connect(videosUrl).get();
 				Elements links = doc.select("a[href]");
 				for (Element link : links) {
 					String s = link.attr("abs:href");
@@ -115,6 +121,7 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 						String[] slashes = ukr.split("/");
 						Log.i("URK_URL", " " + slashes[slashes.length - 1]);
 						ukrUrl = slashes[slashes.length - 1];
+						break;
 					}
 				}
 			} catch (Exception e) {

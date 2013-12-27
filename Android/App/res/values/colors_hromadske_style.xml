@@ -5,4 +5,6 @@
     <color name="half_transparent_bg">#55667788</color>
     <color name="bg_active">#EE7829</color>
     <color name="bg_not_active">#F8A13A</color>
+    <color name="working_red">#E6212A</color>
+    
 </resources>

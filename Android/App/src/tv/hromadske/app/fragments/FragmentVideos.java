@@ -60,7 +60,7 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 				intent.putExtra(SystemUtils.UKR_URL, ukrUrl);
 				startActivity(intent);
 			} else {
-				Toast.makeText(getActivity(), "Недоступне посилання", Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), R.string.no_link, Toast.LENGTH_LONG).show();
 			}
 			break;
 		case R.id.btn_eng:
@@ -68,7 +68,7 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 				intent.putExtra(SystemUtils.UKR_URL, engUrl);
 				startActivity(intent);
 			} else {
-				Toast.makeText(getActivity(), "Недоступне посилання", Toast.LENGTH_LONG).show();
+				Toast.makeText(getActivity(), R.string.no_link, Toast.LENGTH_LONG).show();
 			}
 			break;
 		default:
@@ -98,10 +98,10 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 				Document home = Jsoup.connect("http://hromadske.tv").get();
 				Elements homeUrls = home.select("div.mainnews a");
 				videosUrl = homeUrls.first().attr("abs:href");
-				
+
 				Element aElement = home.select("div.youtube_english a").first();
 				String s = aElement.attr("abs:href");
-				engUrl = s.substring(s.indexOf("=")+1);
+				engUrl = s.substring(s.indexOf("=") + 1);
 
 				Document doc = Jsoup.connect(videosUrl).get();
 

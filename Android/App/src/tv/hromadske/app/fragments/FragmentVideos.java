@@ -1,5 +1,7 @@
 package tv.hromadske.app.fragments;
 
+import java.net.URL;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -44,9 +46,9 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		super.onActivityCreated(savedInstanceState);
 		containerLoad.setOnClickListener(this);
 		btnUkr.setOnClickListener(this);
-		btnEng.setOnClickListener(this);		
+		btnEng.setOnClickListener(this);
 		DownloadDoc downloadDoc = new DownloadDoc(containerLoad);
-		downloadDoc.execute();		
+		downloadDoc.execute();
 	}
 
 	@Override
@@ -83,7 +85,6 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		public DownloadDoc(View loadView) {
 			super();
 			this.loadView = loadView;
-			//this.videosUrl = videosUrl;
 		}
 
 		@Override
@@ -97,9 +98,10 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 			try {
 				Document home = Jsoup.connect("http://hromadske.tv").get();
 				Elements homeUrls = home.select("div.mainnews a");
-				videosUrl =  homeUrls.first().attr("abs:href");
-				
+				videosUrl = homeUrls.first().attr("abs:href");
+
 				Document doc = Jsoup.connect(videosUrl).get();
+
 				Elements links = doc.select("a[href]");
 				for (Element link : links) {
 					String s = link.attr("abs:href");
@@ -110,20 +112,9 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 					}
 				}
 
-				Elements es = doc.select("iframe");
-				String ukr;
-				for (Element e : es) {
-					ukr = e.getElementsByTag("iframe").attr("src");
-					if (ukr.contains("www.youtube.com")) {
-						Log.i("URK_URL", " " + ukr);
-						ukr = ukr.substring(0, ukr.indexOf("?"));
-						Log.i("URK_URL", " " + ukr);
-						String[] slashes = ukr.split("/");
-						Log.i("URK_URL", " " + slashes[slashes.length - 1]);
-						ukrUrl = slashes[slashes.length - 1];
-						break;
-					}
-				}
+				Elements ukrLink = doc.select("div.video_player iframe");
+				String path = (new URL("http:" + ukrLink.first().attr("src"))).getPath();
+				ukrUrl = path.substring(path.lastIndexOf("/") + 1);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

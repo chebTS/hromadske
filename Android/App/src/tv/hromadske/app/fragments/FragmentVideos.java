@@ -14,7 +14,6 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -99,18 +98,12 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 				Document home = Jsoup.connect("http://hromadske.tv").get();
 				Elements homeUrls = home.select("div.mainnews a");
 				videosUrl = homeUrls.first().attr("abs:href");
+				
+				Element aElement = home.select("div.youtube_english a").first();
+				String s = aElement.attr("abs:href");
+				engUrl = s.substring(s.indexOf("=")+1);
 
 				Document doc = Jsoup.connect(videosUrl).get();
-
-				Elements links = doc.select("a[href]");
-				for (Element link : links) {
-					String s = link.attr("abs:href");
-					if (s.contains("www.youtube.com")) {
-						String[] sp = s.split("=");
-						engUrl = sp[sp.length - 1];
-						Log.i("engURL", engUrl);
-					}
-				}
 
 				Elements ukrLink = doc.select("div.video_player iframe");
 				String path = (new URL("http:" + ukrLink.first().attr("src"))).getPath();

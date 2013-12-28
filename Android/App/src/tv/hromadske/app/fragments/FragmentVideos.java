@@ -99,9 +99,9 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 				Elements homeUrls = home.select("div.mainnews a");
 				videosUrl = homeUrls.first().attr("abs:href");
 
-				Element aElement = home.select("div.youtube_english a").first();
-				String s = aElement.attr("abs:href");
-				engUrl = s.substring(s.indexOf("=") + 1);
+//				Element aElement = home.select("div.youtube_english a").first();
+//				String s = aElement.attr("abs:href");
+//				engUrl = s.substring(s.indexOf("=") + 1);
 
 				Document doc = Jsoup.connect(videosUrl).get();
 

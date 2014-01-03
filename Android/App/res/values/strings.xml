@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Hromadske.TV</string>
-    <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="about_project">Про проект</string>
     <string name="programs">Програми</string>
@@ -13,11 +12,17 @@
     <string name="youtube_menu">Наш канал на YouTube</string>
     <string name="htv">Громадське телебачення</string>
     <string name="about">Додаток розробив\nЦибровський С.В.\nспеціально для\n http://hromadske.tv/</string>
-    <string name="about_2">Додаток було зроблено за одну нічь :-))</string>
+    <string name="about_2">Додаток було зроблено за одну ніч :-))</string>
     <string name="exit_text">Натисніть ще раз для виходу</string>
     <string name="button_review">Написати відгук</string>
     <string name="share">Розповісти про нас</string>
     <string name="about_menu">Про додаток</string>
     <string name="share_text">"Я дивлюсь HromadskeTV через цей додаток https://play.google.com/store/apps/details?id=tv.hromadske.app"</string>
+    <string name="ukr_translation">Українською мовою</string>
+    <string name="in_english">English version</string>
+    <string name="hromadske_online">Громадське ONLINE</string>
+    <string name="everyday">щодня за київським часом\n(EET) (UTC+2)</string>
+    <string name="working_time">"10:00&#8211;12:00\n15:00&#8211;17:00\n19:00&#8211;22:00"</string>
+    <string name="no_link">Недоступне посилання</string>
     
 </resources>

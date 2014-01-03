@@ -4,13 +4,13 @@
 #define NSLog(...)
 
 #define APP_NAME @"HromadskeTV"
-#define EMAIL_ADDRESS @"Samback@ukr.net"
+#define EMAIL_ADDRESS @"hromadsketv@ukr.net"
 #define EMAIL_SUBJECT @"Поради та пропозиції"
 #define NO_INTERNET_COONECTION @"Будь-ласка, впевніться, що у Вас доступна мережа Internet"
 
 #define EMAIL_ERROR_MESSAGE NSLocalizedString (@"Неможливо надіслати повідомлення. Не налаштовано надсилання почтових повідомлень.", @"Alert error when problem with email configuration")
 
-#define DEVICE_TOKEN_URL @"http://hrom.fedr.co/devices"
+#define DEVICE_TOKEN_URL @"http://hrom.fedr.co"
 #define APP_URL @"http://itunes.apple.com/app/id774631543"
 #define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"

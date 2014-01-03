@@ -27,6 +27,7 @@
     #import <GoogleAnalytics-iOS-SDK/GAIFields.h>   
     #import <AFNetworking/AFHTTPClient.h>
     #import <AFNetworking/AFNetworking.h>
+    #import <XCDYouTubeVideoPlayerViewController/XCDYouTubeVideoPlayerViewController.h>
 
     #import "HTVHelperMethods.h"
 

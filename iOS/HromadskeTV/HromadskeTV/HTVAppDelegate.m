@@ -12,7 +12,6 @@
 #import "HTVWebVC.h"
 
 
-
 @interface HTVAppDelegate()
 @property (nonatomic, strong) UIStoryboard *storyboard;
 @property (nonatomic, strong) AFHTTPClient *client;
@@ -51,7 +50,7 @@
    
     [self detectInternetStatus];
     
-    [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:HOME_SCREEN
+    [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:ONLINE_SCREEN
                                                       forKey:kGAIScreenName] build]];
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
@@ -133,7 +132,7 @@
 {
     HTVCategoriesViewController* leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVCategoriesViewController"];
     HTVWebVC *centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVWebVC"];
-    centerController.URL = [NSURL URLWithString:HOME_URL];
+    centerController.URL = [NSURL URLWithString:ONLINE_URL];
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:[[UINavigationController alloc] initWithRootViewController:centerController]
                                                                                     leftViewController:leftController
                                                                                    rightViewController:nil];
@@ -166,7 +165,6 @@
         }
     }    
 }
-
 
 - (void)spinnerStart
 {

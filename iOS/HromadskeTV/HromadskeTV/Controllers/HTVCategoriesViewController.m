@@ -10,13 +10,12 @@
 
 #define SECTION_MAIN    0
 #define MAIN_PAGES          @"Основні сторінки"
-#define HOME_ROW            @(0)
-#define VIDEO_ROW           @(1)
-#define INTERVIEW_ROW       @(2)
+#define ONLINE_ROW          @(0)
+#define HOME_ROW            @(1)
+#define VIDEO_ROW           @(2)
 #define PROGRAMS_ROW        @(3)
 #define ABOUT_US_ROW        @(4)
 #define YOUTUBE_ROW         @(5)
-#define ONLINE_ROW          @(6)
 
 #define SECTION_SOCIAL  1
 #define SOCIAL_PAGES        @"Соц. мережі"
@@ -76,13 +75,12 @@
 {
     if (!_tableStructure) {
         _tableStructure = @{
+                            ONLINE_ROW : @[@"Громадське онлайн", ONLINE_URL, ONLINE_SCREEN],
                             HOME_ROW : @[@"Головна",HOME_URL, HOME_SCREEN],
                             VIDEO_ROW : @[@"Відеоновини", VIDEO_URL, VIDEO_SCREEN],
-                            INTERVIEW_ROW : @[@"Інтерв'ю", INTERVIEW_URL, INTERVIEW_SCREEN],
                             PROGRAMS_ROW : @[@"Програми", PROGRAMS_URL, PROGRAMS_SCREEN],
                             ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL, ABOUT_SCREEN],
-                            YOUTUBE_ROW : @[@"YouTube канал", YOUTUBE_URL, YOUTUBE_SCREEN],
-                            ONLINE_ROW : @[@"Громадське онлайн"]
+                            YOUTUBE_ROW : @[@"YouTube канал", YOUTUBE_URL, YOUTUBE_SCREEN],                            
                             };
     }
     return _tableStructure;
@@ -153,13 +151,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == SECTION_MAIN) {
-        if (indexPath.row == ONLINE_ROW.integerValue) {
-            XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:@"e1hWbAozSAo#t=74191"];
-            [self.viewDeckController presentMoviePlayerViewControllerAnimated:videoPlayerViewController];
-        }
-        else {
+//        if (indexPath.row == ONLINE_ROW.integerValue) {
+////            XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:@"e1hWbAozSAo#t=74191"];
+//            [DELEGATE pushToCenterDeckControllerLiveYoutubeWithURL:@""];
+//        }
+//        else {
         [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
-        }
+//        }
     }
     else if (indexPath.section == SECTION_SOCIAL) {
         if (indexPath.row == SHARE_FRIENDS_ROW.integerValue) {

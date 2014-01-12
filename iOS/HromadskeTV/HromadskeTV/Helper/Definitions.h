@@ -27,6 +27,7 @@
 #define STORY_BOARD (IS_IPHONE ? @"Main_iPhone" : @"Main_iPad")
 
 #define HOME_URL               @"http://hromadske.tv"
+#define ONLINE_URL    @"http://www.youtube.com/watch?v=393Su5nIls0"//HOME_URL @"/episode/128"
 #define VIDEO_URL     HOME_URL @"/video"
 #define INTERVIEW_URL HOME_URL @"/interview"
 #define PROGRAMS_URL  HOME_URL @"/programs"
@@ -38,6 +39,7 @@
 #define G_PLUS_URL  @"https://plus.google.com/+HromadskeTvUkraine/posts"
 #define RSS_URL     @"http://hromadske.tv/rss"
 
+#define ONLINE_SCREEN @"Online"
 #define HOME_SCREEN @"Home"
 #define VIDEO_SCREEN @"Video"
 #define INTERVIEW_SCREEN @"Interview"

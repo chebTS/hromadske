@@ -1,7 +1,9 @@
 #import "HTVAppDelegate.h"
+#import "HTVHelperMethods.h"
+
 #define DELEGATE ((HTVAppDelegate *)([[UIApplication sharedApplication] delegate]))
 #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
-#define NSLog(...)
+//#define NSLog(...)
 
 #define APP_NAME @"HromadskeTV"
 #define EMAIL_ADDRESS @"hromadsketv@ukr.net"
@@ -11,6 +13,7 @@
 #define EMAIL_ERROR_MESSAGE NSLocalizedString (@"Неможливо надіслати повідомлення. Не налаштовано надсилання почтових повідомлень.", @"Alert error when problem with email configuration")
 
 #define DEVICE_TOKEN_URL @"http://hrom.fedr.co"
+
 #define APP_URL @"http://itunes.apple.com/app/id774631543"
 #define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"
@@ -27,7 +30,8 @@
 #define STORY_BOARD (IS_IPHONE ? @"Main_iPhone" : @"Main_iPad")
 
 #define HOME_URL               @"http://hromadske.tv"
-#define ONLINE_URL    @"http://www.youtube.com/watch?v=393Su5nIls0"//HOME_URL @"/episode/128"
+#define ONLINE_URL_PATH HOME_URL @"/youtube?new"
+#define ONLINE_URL  [HTVHelperMethods fullYoutubeLink]  
 #define VIDEO_URL     HOME_URL @"/video"
 #define INTERVIEW_URL HOME_URL @"/interview"
 #define PROGRAMS_URL  HOME_URL @"/programs"

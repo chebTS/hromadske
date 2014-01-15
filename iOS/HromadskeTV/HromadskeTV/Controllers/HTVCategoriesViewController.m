@@ -171,10 +171,8 @@
         else {
             [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
                                                                                           forKey:kGAIScreenName] build]];
-
             [DELEGATE pushToCenterDeckControllerWithURL:self.socialNetworks[@(indexPath.row)][1]];
-        }
-        
+        }        
     }
     
 }

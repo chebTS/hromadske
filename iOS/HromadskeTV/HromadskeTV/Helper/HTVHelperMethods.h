@@ -12,4 +12,7 @@
 
 
 + (void)callCustomAlertWithMessage:(NSString *)message;
++ (NSString *)youtubeLink;
++ (void)saveYouTubeLink:(NSString *)newLink;
++ (NSString *)fullYoutubeLink;
 @end

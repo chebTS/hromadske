@@ -49,7 +49,7 @@
                                                object:nil];
    
     [self detectInternetStatus];
-    
+    [self youtubePath];
     [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:ONLINE_SCREEN
                                                       forKey:kGAIScreenName] build]];
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
@@ -116,6 +116,34 @@
                  }];
 
 }
+
+- (void)youtubePath
+{
+    NSURL *url = [NSURL URLWithString:ONLINE_URL_PATH];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    [httpClient setParameterEncoding:AFJSONParameterEncoding];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [httpClient getPath:nil
+             parameters:nil
+                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    id json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+                    NSDictionary *result = (NSDictionary *)json;
+                    NSString *youtubeLink = [result objectForKey:@"youtube_link"];
+                    NSString *youtubeTail = [[youtubeLink componentsSeparatedByString:@"embed/"] lastObject];
+                    NSLog(@"Tail %@ ", youtubeTail);
+                    NSString *oldLink = [HTVHelperMethods youtubeLink];
+                    if (![youtubeTail isEqualToString:oldLink]) {
+                        [HTVHelperMethods saveYouTubeLink:youtubeTail];
+                        [DELEGATE pushToCenterDeckControllerWithURL:[HTVHelperMethods fullYoutubeLink]];
+                    }
+                    
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    NSLog(@"Error %@", error);
+                }];
+}
+
+
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
@@ -201,6 +229,8 @@
     }];
 
 }
+
+
 
 
 @end

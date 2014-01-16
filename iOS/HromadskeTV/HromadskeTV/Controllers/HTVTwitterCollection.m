@@ -11,7 +11,6 @@
 #import "HTVTwitt.h"
 #import "HTVWebVC.h"
 
-
 @interface HTVTwitterCollection ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextViewDelegate>
 {
     CGSize twitterCellSize;
@@ -206,22 +205,20 @@
     NSString* myNiceLookingDate = [dateFormatter stringFromDate:twitt.date];
     cell.twitterInfo.text = [myNiceLookingDate stringByAppendingString:twitt.tags];
     cell.twitterText.delegate = self;
+    cell.twitterText.editable = NO;
+    cell.twitterText.userInteractionEnabled = NO;
     return cell;
 }
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-}
-
-- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange
-{
-    NSLog(@"%@", URL);
-    SVModalWebViewController *newCenterVC = [[SVModalWebViewController alloc] initWithURL:URL];
-    [self presentViewController:newCenterVC animated:YES completion:NULL];
-    
-    return NO;
+    HTVTwitt *twitt = self.twittes[indexPath.row];
+    if (twitt.url) {
+        SVModalWebViewController *newCenterVC = [[SVModalWebViewController alloc] initWithAddress:twitt.url];
+        [self presentViewController:newCenterVC animated:YES completion:NULL];
+    }
+   
 }
 
 

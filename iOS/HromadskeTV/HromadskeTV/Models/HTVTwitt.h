@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *tags;
+@property (nonatomic, strong) NSString *url;
 + (HTVTwitt *)initWithDictionary:(NSDictionary *)dictionary;
 @end

@@ -19,6 +19,7 @@
     twitt.date = date;
     twitt.text = dictionary[@"text"];
     twitt.tags = [HTVTwitt tagsFromDictionary:dictionary];
+    twitt.url = dictionary[@"entities"][@"media"][0][@"url"];
     return twitt;
 }
 

@@ -12,10 +12,11 @@
 #define MAIN_PAGES          @"Основні сторінки"
 #define ONLINE_ROW          @(0)
 #define HOT_NEWS_ROW        @(1)
-#define HOME_ROW            @(2)
-#define VIDEO_ROW           @(3)
-#define PROGRAMS_ROW        @(4)
-#define ABOUT_US_ROW        @(5)
+#define TWITTER_NEWS_ROW    @(2)
+#define HOME_ROW            @(3)
+#define VIDEO_ROW           @(4)
+#define PROGRAMS_ROW        @(5)
+#define ABOUT_US_ROW        @(6)
 
 
 #define SECTION_SOCIAL  1
@@ -82,6 +83,7 @@
                             PROGRAMS_ROW : @[@"Програми", PROGRAMS_URL, PROGRAMS_SCREEN],
                             ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL, ABOUT_SCREEN],
                             HOT_NEWS_ROW : @[HOT_NEWS],
+                            TWITTER_NEWS_ROW : @[TWITTER_NEWS],
                             };
     }
     return _tableStructure;
@@ -154,6 +156,9 @@
     if (indexPath.section == SECTION_MAIN) {
         if (indexPath.row == HOT_NEWS_ROW.integerValue) {
             [DELEGATE showVideoCollectionController];
+        }
+        else if (indexPath.row == TWITTER_NEWS_ROW.integerValue) {
+            [DELEGATE showTwitterCollectionController];
         }
         else {
         [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];

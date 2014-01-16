@@ -9,6 +9,7 @@
 #import "HTVHelperMethods.h"
 #import "HTVVideoCollectionVC.h"
 #import "HTVVideo.h"
+#import "HTVTwitt.h"
 
 #define YOUTUBE_KEY @"youtube"
 @implementation HTVHelperMethods
@@ -74,6 +75,15 @@
         [videos addObject:[HTVVideo initWithDictionary:item]];
     }
     return videos;
+}
+
++ (NSArray *)parseArrayFromTwitter:(NSArray *)array
+{
+    NSMutableArray *twittes = @[].mutableCopy;
+    for (NSDictionary *twittDict in array) {
+        [twittes addObject:[HTVTwitt initWithDictionary:twittDict]];
+    }
+    return twittes;
 }
 
 + (NSString *)yotubeTailFromString:(NSString *)path

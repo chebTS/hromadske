@@ -21,6 +21,10 @@
 #define  GA_TIME_INTERVAL 60
 #define  GA_TRACKER_KEY @"UA-46233904-1"
 
+#define TWITTER_CONSUMER_KEY @"TIO5mXdxt3hlanrKuW7Og"
+#define TWITTER_CONSUMER_SECRET_KEY	@"rCrvPNdAtCn5EaWGAZizLz2Cfoy6CiTFxv9TacomYY4"
+#define TWITTER_ACCESS_APP_KEY @"581677616-jZamn159Gd29ZtXP2yOmK67b8AzXHIFeJnEFviNR"
+#define TWITTER_ACCESS_APP_SECRET_KEY @"1e5V6s7Soq1oHCJijmUbEnhSVd1zemhtl9jIiRQzOnedt"
 
 
 #define LEFT_RIGHT_CONTROLLER_SHIFT IS_IPHONE ? 100.0 : 500
@@ -55,5 +59,8 @@
 #define G_PLUS_SCREEN @"G+"
 #define SHARE_SCREEN @"Share"
 #define EMAIL_SCREEN @"Email"
+#define TWITTER_SCREEN @"Twitter list"
+#define TWITTER_NEWS @"Гарячі твіти"
 #define HOT_NEWS @"Гарячі новини"
+
 

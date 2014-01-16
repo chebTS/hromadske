@@ -18,4 +18,5 @@
 + (NSArray *)parseDictionaryFromYoutube:(NSDictionary *)dictionary;
 + (void)fetchNewDataFromYoutubeForController:(HTVVideoCollectionVC *)controller;
 + (NSString *)yotubeTailFromString:(NSString *)string;
++ (NSArray *)parseArrayFromTwitter:(NSArray *)twittes;
 @end

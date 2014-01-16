@@ -16,4 +16,5 @@
 - (void)spinnerEnd;
 - (void)pushToCenterDeckControllerWithURL:(NSString *)url;
 - (void)showVideoCollectionController;
+- (void)showTwitterCollectionController;
 @end

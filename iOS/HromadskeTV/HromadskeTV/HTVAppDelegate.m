@@ -11,6 +11,7 @@
 #import "HTVCategoriesViewController.h"
 #import "HTVWebVC.h"
 #import "HTVVideoCollectionVC.h"
+#import "FHSTwitterEngine.h"
 
 
 @interface HTVAppDelegate()
@@ -49,6 +50,7 @@
                                              selector:@selector(spinnerEnd) name:END_SPINNER
                                                object:nil];
    
+    
     [self detectInternetStatus];
     [self youtubePath];
     [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:ONLINE_SCREEN
@@ -178,6 +180,11 @@
 - (void)showVideoCollectionController
 {
     [self showViewControllerWithIdentifier:@"HTVVideoCollectionVC"];
+}
+
+- (void)showTwitterCollectionController
+{
+    [self showViewControllerWithIdentifier:@"HTVTwitterCollection"];
 }
 
 - (void)showViewControllerWithIdentifier:(NSString *)identifier

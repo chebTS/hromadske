@@ -11,6 +11,14 @@
 		5044E8E41887BD800050E304 /* HTVVideoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8E31887BD800050E304 /* HTVVideoCollectionVC.m */; };
 		5044E8EB1887C0EF0050E304 /* HTVVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8EA1887C0EF0050E304 /* HTVVideoCell.m */; };
 		5044E8EE1887DEF50050E304 /* HTVVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8ED1887DEF50050E304 /* HTVVideo.m */; };
+		5044E8F21887FE330050E304 /* FHSTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8F11887FE330050E304 /* FHSTwitterEngine.m */; };
+		5044E8F51887FE850050E304 /* HTVTwitterCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8F41887FE850050E304 /* HTVTwitterCollection.m */; };
+		5044E8F7188803D70050E304 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5044E8F6188803D70050E304 /* libxml2.dylib */; };
+		5044E8FB188804DA0050E304 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5044E8FA188804DA0050E304 /* Accounts.framework */; };
+		5044E8FD188804E10050E304 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5044E8FC188804E10050E304 /* Twitter.framework */; };
+		5044E8FF188804EC0050E304 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5044E8FE188804EC0050E304 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5044E90218880C2A0050E304 /* HTVTwitterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E90118880C2A0050E304 /* HTVTwitterCell.m */; };
+		5044E90518880E0F0050E304 /* HTVTwitt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E90418880E0F0050E304 /* HTVTwitt.m */; };
 		50687092184E4FD50024624B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50687091184E4FD50024624B /* Foundation.framework */; };
 		50687094184E4FD50024624B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50687093184E4FD50024624B /* CoreGraphics.framework */; };
 		50687096184E4FD50024624B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50687095184E4FD50024624B /* UIKit.framework */; };
@@ -89,6 +97,19 @@
 		5044E8EA1887C0EF0050E304 /* HTVVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTVVideoCell.m; sourceTree = "<group>"; };
 		5044E8EC1887DEF50050E304 /* HTVVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVVideo.h; path = Models/HTVVideo.h; sourceTree = "<group>"; };
 		5044E8ED1887DEF50050E304 /* HTVVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVVideo.m; path = Models/HTVVideo.m; sourceTree = "<group>"; };
+		5044E8F01887FE330050E304 /* FHSTwitterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHSTwitterEngine.h; sourceTree = "<group>"; };
+		5044E8F11887FE330050E304 /* FHSTwitterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHSTwitterEngine.m; sourceTree = "<group>"; };
+		5044E8F31887FE850050E304 /* HTVTwitterCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVTwitterCollection.h; path = Controllers/HTVTwitterCollection.h; sourceTree = "<group>"; };
+		5044E8F41887FE850050E304 /* HTVTwitterCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVTwitterCollection.m; path = Controllers/HTVTwitterCollection.m; sourceTree = "<group>"; };
+		5044E8F6188803D70050E304 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		5044E8F8188803DF0050E304 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5044E8FA188804DA0050E304 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		5044E8FC188804E10050E304 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		5044E8FE188804EC0050E304 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5044E90018880C2A0050E304 /* HTVTwitterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTVTwitterCell.h; sourceTree = "<group>"; };
+		5044E90118880C2A0050E304 /* HTVTwitterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTVTwitterCell.m; sourceTree = "<group>"; };
+		5044E90318880E0F0050E304 /* HTVTwitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVTwitt.h; path = HromadskeTV/Models/HTVTwitt.h; sourceTree = "<group>"; };
+		5044E90418880E0F0050E304 /* HTVTwitt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVTwitt.m; path = HromadskeTV/Models/HTVTwitt.m; sourceTree = "<group>"; };
 		5068708E184E4FD50024624B /* HromadskeTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HromadskeTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50687091184E4FD50024624B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		50687093184E4FD50024624B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +184,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5044E8FF188804EC0050E304 /* Social.framework in Frameworks */,
+				5044E8FD188804E10050E304 /* Twitter.framework in Frameworks */,
+				5044E8FB188804DA0050E304 /* Accounts.framework in Frameworks */,
+				5044E8F7188803D70050E304 /* libxml2.dylib in Frameworks */,
 				50D1EFF61859253500B390CA /* MessageUI.framework in Frameworks */,
 				50D1EFF1185920CE00B390CA /* SystemConfiguration.framework in Frameworks */,
 				50687094184E4FD50024624B /* CoreGraphics.framework in Frameworks */,
@@ -190,13 +215,26 @@
 			children = (
 				5044E8E91887C0EF0050E304 /* HTVVideoCell.h */,
 				5044E8EA1887C0EF0050E304 /* HTVVideoCell.m */,
+				5044E90018880C2A0050E304 /* HTVTwitterCell.h */,
+				5044E90118880C2A0050E304 /* HTVTwitterCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		5044E8EF1887FE330050E304 /* FHSTwitterEngine */ = {
+			isa = PBXGroup;
+			children = (
+				5044E8F01887FE330050E304 /* FHSTwitterEngine.h */,
+				5044E8F11887FE330050E304 /* FHSTwitterEngine.m */,
+			);
+			path = FHSTwitterEngine;
+			sourceTree = SOURCE_ROOT;
+		};
 		50687085184E4FD50024624B = {
 			isa = PBXGroup;
 			children = (
+				5044E90318880E0F0050E304 /* HTVTwitt.h */,
+				5044E90418880E0F0050E304 /* HTVTwitt.m */,
 				50DF6E5918506B8300576DD3 /* Images.xcassets */,
 				50687097184E4FD50024624B /* HromadskeTV */,
 				506870B9184E4FD50024624B /* HromadskeTVTests */,
@@ -218,6 +256,11 @@
 		50687090184E4FD50024624B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5044E8FE188804EC0050E304 /* Social.framework */,
+				5044E8FC188804E10050E304 /* Twitter.framework */,
+				5044E8FA188804DA0050E304 /* Accounts.framework */,
+				5044E8F8188803DF0050E304 /* Security.framework */,
+				5044E8F6188803D70050E304 /* libxml2.dylib */,
 				50D1EFF51859253500B390CA /* MessageUI.framework */,
 				50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */,
 				50687091184E4FD50024624B /* Foundation.framework */,
@@ -232,6 +275,7 @@
 		50687097184E4FD50024624B /* HromadskeTV */ = {
 			isa = PBXGroup;
 			children = (
+				5044E8EF1887FE330050E304 /* FHSTwitterEngine */,
 				5044E8E81887C0EF0050E304 /* Cells */,
 				506870FD184E871F0024624B /* Changes */,
 				506870DC184E57A20024624B /* Helper */,
@@ -294,6 +338,8 @@
 				5044E8E01887BD340050E304 /* HTVParentNativeVC.m */,
 				5044E8E21887BD800050E304 /* HTVVideoCollectionVC.h */,
 				5044E8E31887BD800050E304 /* HTVVideoCollectionVC.m */,
+				5044E8F31887FE850050E304 /* HTVTwitterCollection.h */,
+				5044E8F41887FE850050E304 /* HTVTwitterCollection.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -565,16 +611,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5044E8F51887FE850050E304 /* HTVTwitterCollection.m in Sources */,
 				50687104184FE4E40024624B /* HTVHud.m in Sources */,
 				50D1EFF91859260000B390CA /* HTVHelperMethods.m in Sources */,
 				5044E8EE1887DEF50050E304 /* HTVVideo.m in Sources */,
 				5044E8EB1887C0EF0050E304 /* HTVVideoCell.m in Sources */,
+				5044E90518880E0F0050E304 /* HTVTwitt.m in Sources */,
 				5044E8E11887BD340050E304 /* HTVParentNativeVC.m in Sources */,
 				506870F9184E83F60024624B /* HTVWebVC.m in Sources */,
 				506870D8184E570E0024624B /* HTVParentVC.m in Sources */,
+				5044E8F21887FE330050E304 /* FHSTwitterEngine.m in Sources */,
 				506870EB184E68B30024624B /* HTVCategoriesViewController.m in Sources */,
 				5068709E184E4FD50024624B /* main.m in Sources */,
 				506870A2184E4FD50024624B /* HTVAppDelegate.m in Sources */,
+				5044E90218880C2A0050E304 /* HTVTwitterCell.m in Sources */,
 				5044E8E41887BD800050E304 /* HTVVideoCollectionVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

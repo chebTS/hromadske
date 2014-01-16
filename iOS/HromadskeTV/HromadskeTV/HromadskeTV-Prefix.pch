@@ -28,6 +28,8 @@
     #import <AFNetworking/AFHTTPClient.h>
     #import <AFNetworking/AFNetworking.h>
     #import <XCDYouTubeVideoPlayerViewController/XCDYouTubeVideoPlayerViewController.h>
+    #import <STTwitter/STTwitter.h>
+    #import <STTwitter/STTwitterAPI.h>
 
     #import "HTVHelperMethods.h"
 

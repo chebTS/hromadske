@@ -11,11 +11,12 @@
 #define SECTION_MAIN    0
 #define MAIN_PAGES          @"Основні сторінки"
 #define ONLINE_ROW          @(0)
-#define HOME_ROW            @(1)
-#define VIDEO_ROW           @(2)
-#define PROGRAMS_ROW        @(3)
-#define ABOUT_US_ROW        @(4)
-#define YOUTUBE_ROW         @(5)
+#define HOT_NEWS_ROW        @(1)
+#define HOME_ROW            @(2)
+#define VIDEO_ROW           @(3)
+#define PROGRAMS_ROW        @(4)
+#define ABOUT_US_ROW        @(5)
+
 
 #define SECTION_SOCIAL  1
 #define SOCIAL_PAGES        @"Соц. мережі"
@@ -80,7 +81,7 @@
                             VIDEO_ROW : @[@"Відеоновини", VIDEO_URL, VIDEO_SCREEN],
                             PROGRAMS_ROW : @[@"Програми", PROGRAMS_URL, PROGRAMS_SCREEN],
                             ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL, ABOUT_SCREEN],
-                            YOUTUBE_ROW : @[@"YouTube канал", YOUTUBE_URL, YOUTUBE_SCREEN],                            
+                            HOT_NEWS_ROW : @[HOT_NEWS],
                             };
     }
     return _tableStructure;
@@ -151,13 +152,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == SECTION_MAIN) {
-//        if (indexPath.row == ONLINE_ROW.integerValue) {
-////            XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:@"e1hWbAozSAo#t=74191"];
-//            [DELEGATE pushToCenterDeckControllerLiveYoutubeWithURL:@""];
-//        }
-//        else {
+        if (indexPath.row == HOT_NEWS_ROW.integerValue) {
+            [DELEGATE showVideoCollectionController];
+        }
+        else {
         [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
-//        }
+        }
     }
     else if (indexPath.section == SECTION_SOCIAL) {
         if (indexPath.row == SHARE_FRIENDS_ROW.integerValue) {

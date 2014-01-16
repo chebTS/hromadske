@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class HTVVideoCollectionVC;
 @interface HTVHelperMethods : NSObject
 
 
@@ -15,4 +15,7 @@
 + (NSString *)youtubeLink;
 + (void)saveYouTubeLink:(NSString *)newLink;
 + (NSString *)fullYoutubeLink;
++ (NSArray *)parseDictionaryFromYoutube:(NSDictionary *)dictionary;
++ (void)fetchNewDataFromYoutubeForController:(HTVVideoCollectionVC *)controller;
++ (NSString *)yotubeTailFromString:(NSString *)string;
 @end

@@ -1,23 +1,18 @@
 //
-//  HTVParentVC.m
+//  HTVParentNativeVC.m
 //  HromadskeTV
 //
-//  Created by Max Tymchii on 12/3/13.
-//  Copyright (c) 2013 Max Tymchii. All rights reserved.
+//  Created by Max Tymchii on 1/16/14.
+//  Copyright (c) 2014 Max Tymchii. All rights reserved.
 //
 
-#import "HTVParentVC.h"
+#import "HTVParentNativeVC.h"
 
-@interface HTVParentVC ()
+@interface HTVParentNativeVC ()
 
 @end
 
-@implementation HTVParentVC
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    self.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsOpenInChrome | SVWebViewControllerAvailableActionsMailLink;
-}
+@implementation HTVParentNativeVC
 
 - (void)viewDidLoad
 {
@@ -52,7 +47,8 @@
     
     
     self.navigationItem.leftBarButtonItems = @[negativeSpacerLeft, leftButton];
-
+    
 }
+
 
 @end

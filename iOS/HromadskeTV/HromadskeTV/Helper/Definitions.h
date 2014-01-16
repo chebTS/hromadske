@@ -49,9 +49,11 @@
 #define INTERVIEW_SCREEN @"Interview"
 #define PROGRAMS_SCREEN @"Programs"
 #define ABOUT_SCREEN @"About"
-#define YOUTUBE_SCREEN @"Youtube"
+#define HOT_NEWS_SCREEN @"Hot News"
 #define TWITTER_SCREEN @"TWITTER"
 #define FB_SCREEN @"Facebook"
 #define G_PLUS_SCREEN @"G+"
 #define SHARE_SCREEN @"Share"
 #define EMAIL_SCREEN @"Email"
+#define HOT_NEWS @"Гарячі новини"
+

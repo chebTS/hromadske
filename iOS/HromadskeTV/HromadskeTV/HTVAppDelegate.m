@@ -10,6 +10,7 @@
 #import "HTVAppDelegate.h"
 #import "HTVCategoriesViewController.h"
 #import "HTVWebVC.h"
+#import "HTVVideoCollectionVC.h"
 
 
 @interface HTVAppDelegate()
@@ -174,6 +175,30 @@
 }
 
 
+- (void)showVideoCollectionController
+{
+    [self showViewControllerWithIdentifier:@"HTVVideoCollectionVC"];
+}
+
+- (void)showViewControllerWithIdentifier:(NSString *)identifier
+{
+    IIViewDeckController *deckVC = (IIViewDeckController *)self.window.rootViewController;
+    UIViewController *newCenterVC = nil;
+    @try {
+        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
+    }
+    @catch (NSException *exception) {
+        return;
+    }
+    @finally {
+        if (newCenterVC) {
+            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:newCenterVC];
+            deckVC.centerController = navigationVC;
+            [deckVC closeLeftViewAnimated:YES];
+        }
+    }
+}
 
 - (void)pushToCenterDeckControllerWithURL:(NSString *)url
 {
@@ -194,6 +219,7 @@
         }
     }    
 }
+
 
 - (void)spinnerStart
 {

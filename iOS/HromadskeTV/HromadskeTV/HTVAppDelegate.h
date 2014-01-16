@@ -15,4 +15,5 @@
 - (void)spinnerStart;
 - (void)spinnerEnd;
 - (void)pushToCenterDeckControllerWithURL:(NSString *)url;
+- (void)showVideoCollectionController;
 @end

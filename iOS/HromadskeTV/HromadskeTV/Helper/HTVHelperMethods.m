@@ -7,6 +7,9 @@
 //
 
 #import "HTVHelperMethods.h"
+#import "HTVVideoCollectionVC.h"
+#import "HTVVideo.h"
+
 #define YOUTUBE_KEY @"youtube"
 @implementation HTVHelperMethods
 
@@ -41,5 +44,44 @@
     NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@", [HTVHelperMethods youtubeLink]];
     return link;
 }
+
++ (void)fetchNewDataFromYoutubeForController:(HTVVideoCollectionVC *)controller
+{
+    NSURL *url = [NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/HromadskeTV"];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:@"uploads?alt=json"
+                                                      parameters:nil];
+    NSLog(@"%@", request);
+    AFJSONRequestOperation *operation =
+    [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                        NSDictionary *result = (NSDictionary *)JSON;
+                                                       [controller setVideos:[HTVHelperMethods parseDictionaryFromYoutube:result[@"feed"][@"entry"]]];
+                                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                        NSLog(@"Error %@", error);
+                                                    }];
+    
+    [operation start];
+}
+
+
++ (NSArray *)parseDictionaryFromYoutube:(NSArray *)dictionary
+{
+    NSMutableArray *videos = @[].mutableCopy;
+    for (NSDictionary *item in dictionary) {
+        [videos addObject:[HTVVideo initWithDictionary:item]];
+    }
+    return videos;
+}
+
++ (NSString *)yotubeTailFromString:(NSString *)path
+{
+    NSString *firstClean = [path componentsSeparatedByString:@"="][1];
+    return [firstClean componentsSeparatedByString:@"&"][0];
+}
+
+
 
 @end

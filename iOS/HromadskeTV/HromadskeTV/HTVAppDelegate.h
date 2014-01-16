@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STTwitterAPI.h"
 
 @interface HTVAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, strong) STTwitterAPI *twitter;
 - (void)spinnerStart;
 - (void)spinnerEnd;
 - (void)pushToCenterDeckControllerWithURL:(NSString *)url;

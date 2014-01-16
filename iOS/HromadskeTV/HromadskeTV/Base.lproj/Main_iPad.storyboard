@@ -202,7 +202,93 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZf-h2-FcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2376" y="44"/>
+            <point key="canvasLocation" x="2284" y="32"/>
+        </scene>
+        <!--Twitter Collection-->
+        <scene sceneID="lLA-yG-fM5">
+            <objects>
+                <viewController storyboardIdentifier="HTVTwitterCollection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EIE-Od-yb1" customClass="HTVTwitterCollection" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ROy-Uo-52Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="IME-uU-nMU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G9i-ui-hP5">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sop-GH-IGJ">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GMR-qz-5Fn">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HTVTwitterCell" id="iLo-E2-TCY" customClass="HTVTwitterCell">
+                                        <rect key="frame" x="5" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPj-qy-iOm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ищьу еуче зкщіфідн сщгдв іу зщиеув" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="j2d-Fc-Au4">
+                                                    <rect key="frame" x="5" y="120" width="140" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="iKf-P7-57x"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="j2d-Fc-Au4" secondAttribute="bottom" id="E43-Wf-kQC"/>
+                                            <constraint firstItem="j2d-Fc-Au4" firstAttribute="top" secondItem="RPj-qy-iOm" secondAttribute="bottom" id="HvX-0N-Obr"/>
+                                            <constraint firstItem="RPj-qy-iOm" firstAttribute="leading" secondItem="iLo-E2-TCY" secondAttribute="leading" id="JN7-cJ-BTJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="j2d-Fc-Au4" secondAttribute="trailing" constant="5" id="M0z-Fe-54R"/>
+                                            <constraint firstItem="j2d-Fc-Au4" firstAttribute="leading" secondItem="iLo-E2-TCY" secondAttribute="leading" constant="5" id="bOg-yA-qPe"/>
+                                            <constraint firstAttribute="trailing" secondItem="RPj-qy-iOm" secondAttribute="trailing" id="fxj-tU-MHS"/>
+                                            <constraint firstItem="RPj-qy-iOm" firstAttribute="top" secondItem="iLo-E2-TCY" secondAttribute="top" id="hJh-O5-Uex"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="twitterInfo" destination="j2d-Fc-Au4" id="VuA-hl-Vna"/>
+                                            <outlet property="twitterText" destination="RPj-qy-iOm" id="2Ku-B5-1gx"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sop-GH-IGJ" firstAttribute="leading" secondItem="G9i-ui-hP5" secondAttribute="leading" id="GnB-41-60e"/>
+                            <constraint firstAttribute="trailing" secondItem="sop-GH-IGJ" secondAttribute="trailing" id="Oxt-fb-whN"/>
+                            <constraint firstItem="sop-GH-IGJ" firstAttribute="top" secondItem="G9i-ui-hP5" secondAttribute="top" id="Umb-Xu-xah"/>
+                            <constraint firstItem="IME-uU-nMU" firstAttribute="top" secondItem="sop-GH-IGJ" secondAttribute="bottom" id="khm-Wd-exz"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="collection" destination="sop-GH-IGJ" id="kRU-4T-Ec3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sur-SL-pap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2289" y="976"/>
         </scene>
     </scenes>
     <resources>

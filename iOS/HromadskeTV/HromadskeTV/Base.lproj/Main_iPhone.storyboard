@@ -137,10 +137,9 @@
                                                     <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                                 </textView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ищьу еуче зкщіфідн сщгдв іу зщиеув" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="IxJ-D6-0ri">
-                                                    <rect key="frame" x="0.0" y="120" width="150" height="30"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ищьу еуче зкщіфідн сщгдв іу зщиеув" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="IxJ-D6-0ri">
+                                                    <rect key="frame" x="5" y="120" width="140" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="TfL-dv-jWi"/>
@@ -154,12 +153,12 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Sm2-TN-mDf" firstAttribute="leading" secondItem="QUf-V6-dza" secondAttribute="leading" id="0Q8-88-lAK"/>
-                                            <constraint firstItem="IxJ-D6-0ri" firstAttribute="leading" secondItem="QUf-V6-dza" secondAttribute="leading" id="N9T-wB-QCn"/>
+                                            <constraint firstItem="IxJ-D6-0ri" firstAttribute="leading" secondItem="QUf-V6-dza" secondAttribute="leading" constant="5" id="N9T-wB-QCn"/>
                                             <constraint firstItem="Sm2-TN-mDf" firstAttribute="top" secondItem="QUf-V6-dza" secondAttribute="top" id="R5T-yc-ybH"/>
                                             <constraint firstAttribute="bottom" secondItem="IxJ-D6-0ri" secondAttribute="bottom" id="We8-H9-Sr8"/>
                                             <constraint firstItem="IxJ-D6-0ri" firstAttribute="top" secondItem="Sm2-TN-mDf" secondAttribute="bottom" id="bdL-Y0-4Na"/>
                                             <constraint firstAttribute="trailing" secondItem="Sm2-TN-mDf" secondAttribute="trailing" id="eox-5K-rM3"/>
-                                            <constraint firstAttribute="trailing" secondItem="IxJ-D6-0ri" secondAttribute="trailing" id="jAh-r4-jNe"/>
+                                            <constraint firstAttribute="trailing" secondItem="IxJ-D6-0ri" secondAttribute="trailing" constant="5" id="jAh-r4-jNe"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="twitterInfo" destination="IxJ-D6-0ri" id="Uwz-N3-h0V"/>

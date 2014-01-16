@@ -9,9 +9,10 @@
 #import "HTVTwitterCollection.h"
 #import "HTVTwitterCell.h"
 #import "HTVTwitt.h"
+#import "HTVWebVC.h"
 
 
-@interface HTVTwitterCollection ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface HTVTwitterCollection ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextViewDelegate>
 {
     CGSize twitterCellSize;
 }
@@ -44,9 +45,12 @@
     self.collection.delegate = self;
     self.collection.dataSource = self;
     [self loginWithiOS];
-    
-   
 	// Do any additional setup after loading the view.
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updateVideoCellSizeForOrientation:[UIApplication sharedApplication].statusBarOrientation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,7 +63,6 @@
 - (void)loginWithiOS
 {
     self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
-    
     [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
         [self getTimeLineInfo];
     } errorBlock:^(NSError *error) {
@@ -76,25 +79,25 @@
                                        NSLog(@"Results %@", statuses);
                                        self.twittes = [HTVHelperMethods parseArrayFromTwitter:statuses];
                                    } errorBlock:^(NSError *error) {
-                                       NSLog(@"Error %@", error);
+                                       //                                       NSLog(@"Error %@", error);
+                                       //                                       [self loginWithiOS];
                                    }];
-
+    
 }
 
 - (void)loginWithSafari
 {
-    
     self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:TWITTER_CONSUMER_KEY
                                                  consumerSecret:TWITTER_CONSUMER_SECRET_KEY];
-    
     
     [_twitter postTokenRequest:^(NSURL *url, NSString *oauthToken) {
         NSLog(@"-- url: %@", url);
         NSLog(@"-- oauthToken: %@", oauthToken);
         
         [[UIApplication sharedApplication] openURL:url];
+        //        [self getTimeLineInfo];
         
-    } oauthCallback:@"myapp://twitter_access_tokens/"
+    } oauthCallback:@"HromadskeTV://twitter_access_tokens/"
                     errorBlock:^(NSError *error) {
                         NSLog(@"-- error: %@", error);
                     }];
@@ -121,12 +124,25 @@
 
 - (void)updateVideoCellSizeForOrientation:(UIInterfaceOrientation)orientation
 {
-    twitterCellSize = CGSizeMake(150, 150);
+    twitterCellSize = CGSizeMake(300, 140);
     if (IS_IPHONE) {
-        if (!IS_IPHONE_5) {
+        if (IS_IPHONE_5) {
             if (UIInterfaceOrientationIsLandscape(orientation)) {
-                twitterCellSize = CGSizeMake(150, 150);
+                twitterCellSize = CGSizeMake(265, 140);
             }
+        }
+        else {
+            if (UIInterfaceOrientationIsLandscape(orientation)) {
+                twitterCellSize = CGSizeMake(230, 160);
+            }
+        }
+    }
+    else {
+        if (UIInterfaceOrientationIsLandscape(orientation)) {
+            twitterCellSize = CGSizeMake(310, 120);
+        }
+        else {
+           twitterCellSize = CGSizeMake(330, 120);
         }
     }
     
@@ -159,17 +175,20 @@
     if (IS_IPHONE) {
         if (IS_IPHONE_5) {
             if (UIInterfaceOrientationIsLandscape(orientation)){
-                return UIEdgeInsetsMake(10, 30, 10,30);
+                return UIEdgeInsetsMake(10, 12, 10, 12);
             }
         }
         else {
-            return UIEdgeInsetsMake(10, 15, 10, 15);
+            return UIEdgeInsetsMake(5, 5, 5, 5);
         }
     }
     else
     {
         if (!UIInterfaceOrientationIsLandscape(orientation)) {
-            return UIEdgeInsetsMake(20, 10, 20, 10);
+            return UIEdgeInsetsMake(10, 30, 10, 30);
+        }
+        else {
+           return UIEdgeInsetsMake(10, 15, 10, 15);
         }
     }
     return UIEdgeInsetsMake(10, 10, 10, 10);
@@ -181,14 +200,28 @@
     HTVTwitterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HTVTwitterCell"
                                                                      forIndexPath:indexPath];
     HTVTwitt *twitt = self.twittes[indexPath.row];
+    cell.twitterText.text = twitt.text;
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm dd/MM/yy"];
+    NSString* myNiceLookingDate = [dateFormatter stringFromDate:twitt.date];
+    cell.twitterInfo.text = [myNiceLookingDate stringByAppendingString:twitt.tags];
+    cell.twitterText.delegate = self;
     return cell;
-    
-    }
+}
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange
+{
+    NSLog(@"%@", URL);
+    SVModalWebViewController *newCenterVC = [[SVModalWebViewController alloc] initWithURL:URL];
+    [self presentViewController:newCenterVC animated:YES completion:NULL];
+    
+    return NO;
 }
 
 

@@ -10,5 +10,5 @@
 #import "HTVParentNativeVC.h"
 
 @interface HTVTwitterCollection : HTVParentNativeVC
-
+- (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier ;
 @end

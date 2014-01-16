@@ -10,7 +10,8 @@
 @class HTVTwitt;
 @interface HTVTwitt : NSObject
 @property (nonatomic, strong) NSString *text;
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) NSString *tags;
 + (HTVTwitt *)initWithDictionary:(NSDictionary *)dictionary;
 @end

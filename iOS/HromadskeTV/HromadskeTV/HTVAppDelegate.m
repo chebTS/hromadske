@@ -11,7 +11,7 @@
 #import "HTVCategoriesViewController.h"
 #import "HTVWebVC.h"
 #import "HTVVideoCollectionVC.h"
-#import "FHSTwitterEngine.h"
+#import "HTVTwitterCollection.h"
 
 
 @interface HTVAppDelegate()
@@ -264,6 +264,42 @@
 
 }
 
+- (NSDictionary *)parametersDictionaryFromQueryString:(NSString *)queryString {
+    
+    NSMutableDictionary *md = [NSMutableDictionary dictionary];
+    
+    NSArray *queryComponents = [queryString componentsSeparatedByString:@"&"];
+    
+    for(NSString *s in queryComponents) {
+        NSArray *pair = [s componentsSeparatedByString:@"="];
+        if([pair count] != 2) continue;
+        
+        NSString *key = pair[0];
+        NSString *value = pair[1];
+        
+        md[key] = value;
+    }
+    
+    return md;
+}
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    if ([[url scheme] isEqualToString:@"hromadsketv"] == NO) return NO;
+    
+    NSDictionary *d = [self parametersDictionaryFromQueryString:[url query]];
+    
+    NSString *token = d[@"oauth_token"];
+    NSString *verifier = d[@"oauth_verifier"];
+    
+    IIViewDeckController *vcn = (IIViewDeckController *)self.window.rootViewController;
+    HTVTwitterCollection *vc = (HTVTwitterCollection *)([vcn.centerController childViewControllers][0]);
+    [vc setOAuthToken:token oauthVerifier:verifier];
+    
+    return YES;
+}
 
 
 

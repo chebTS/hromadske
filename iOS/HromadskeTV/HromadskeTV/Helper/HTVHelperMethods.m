@@ -48,6 +48,9 @@
 
 + (void)fetchNewDataFromYoutubeForController:(HTVVideoCollectionVC *)controller
 {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[HTVHud sharedManager] startHUD];
+    });
     NSURL *url = [NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/HromadskeTV"];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
@@ -60,8 +63,14 @@
                                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                         NSDictionary *result = (NSDictionary *)JSON;
                                                        [controller setVideos:[HTVHelperMethods parseDictionaryFromYoutube:result[@"feed"][@"entry"]]];
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            [[HTVHud sharedManager] finishHUD];
+                                                        });
                                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                                                         NSLog(@"Error %@", error);
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            [[HTVHud sharedManager] finishHUD];
+                                                        });
                                                     }];
     
     [operation start];

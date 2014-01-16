@@ -3,7 +3,7 @@
 
 #define DELEGATE ((HTVAppDelegate *)([[UIApplication sharedApplication] delegate]))
 #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
-//#define NSLog(...)
+#define NSLog(...)
 
 #define APP_NAME @"HromadskeTV"
 #define EMAIL_ADDRESS @"hromadsketv@ukr.net"
@@ -59,7 +59,6 @@
 #define G_PLUS_SCREEN @"G+"
 #define SHARE_SCREEN @"Share"
 #define EMAIL_SCREEN @"Email"
-#define TWITTER_SCREEN @"Twitter list"
 #define TWITTER_NEWS @"Гарячі твіти"
 #define HOT_NEWS @"Гарячі новини"
 

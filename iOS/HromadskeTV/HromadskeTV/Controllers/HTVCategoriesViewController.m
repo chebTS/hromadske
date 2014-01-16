@@ -15,18 +15,16 @@
 #define TWITTER_NEWS_ROW    @(2)
 #define HOME_ROW            @(3)
 #define VIDEO_ROW           @(4)
-#define PROGRAMS_ROW        @(5)
-#define ABOUT_US_ROW        @(6)
+#define ABOUT_US_ROW        @(5)
 
 
 #define SECTION_SOCIAL  1
 #define SOCIAL_PAGES        @"Соц. мережі"
-#define TWITTER_ROW         @(0)
-#define FB_ROW              @(1)
-#define GOOGLE_PLUS         @(2)
-#define RSS_ROW             @(3)
-#define SHARE_FRIENDS_ROW   @(4)
-#define WRITE_TO_DEVELOPER  @(5)
+#define FB_ROW              @(0)
+#define GOOGLE_PLUS         @(1)
+#define RSS_ROW             @(2)
+#define SHARE_FRIENDS_ROW   @(3)
+#define WRITE_TO_DEVELOPER  @(4)
 
 #define  SECTIONS_NUMBER 2
 
@@ -80,10 +78,9 @@
                             ONLINE_ROW : @[@"Громадське онлайн", ONLINE_URL, ONLINE_SCREEN],
                             HOME_ROW : @[@"Головна",HOME_URL, HOME_SCREEN],
                             VIDEO_ROW : @[@"Відеоновини", VIDEO_URL, VIDEO_SCREEN],
-                            PROGRAMS_ROW : @[@"Програми", PROGRAMS_URL, PROGRAMS_SCREEN],
                             ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL, ABOUT_SCREEN],
                             HOT_NEWS_ROW : @[HOT_NEWS],
-                            TWITTER_NEWS_ROW : @[TWITTER_NEWS],
+                            TWITTER_NEWS_ROW : @[TWITTER_NEWS, TWITTER_URL,TWITTER_SCREEN]
                             };
     }
     return _tableStructure;
@@ -93,7 +90,7 @@
 - (NSDictionary *)socialNetworks
 {
     if (!_socialNetworks) {
-        _socialNetworks = @{TWITTER_ROW: @[@"Twitter", TWITTER_URL, TWITTER_SCREEN],
+        _socialNetworks = @{
                             FB_ROW : @[@"Facebook", FB_URL, FB_SCREEN],
                             GOOGLE_PLUS : @[@"G+", G_PLUS_URL, G_PLUS_SCREEN],
                             RSS_ROW : @[@"RSS", RSS_URL, RSS_URL],
@@ -156,9 +153,6 @@
     if (indexPath.section == SECTION_MAIN) {
         if (indexPath.row == HOT_NEWS_ROW.integerValue) {
             [DELEGATE showVideoCollectionController];
-        }
-        else if (indexPath.row == TWITTER_NEWS_ROW.integerValue) {
-            [DELEGATE showTwitterCollectionController];
         }
         else {
         [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];

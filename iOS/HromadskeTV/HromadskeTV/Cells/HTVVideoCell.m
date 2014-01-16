@@ -7,6 +7,7 @@
 //
 
 #import "HTVVideoCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation HTVVideoCell
 
@@ -19,13 +20,23 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    [super drawRect:rect];
+    [self setMaskTo:self.thumbnail byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight];
 }
-*/
+
+
+- (void)setMaskTo:(UIView*)view byRoundingCorners:(UIRectCorner)corners
+{
+    UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(5.0, 5.0)];
+    
+    CAShapeLayer* shape = [[CAShapeLayer alloc] init];
+    [shape setPath:rounded.CGPath];
+    
+    view.layer.mask = shape;
+}
+
 
 @end

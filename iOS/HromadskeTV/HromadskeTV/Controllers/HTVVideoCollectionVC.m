@@ -9,7 +9,9 @@
 #import "HTVVideoCollectionVC.h"
 #import "HTVVideoCell.h"
 #import "HTVVideo.h"
- #import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#define VIDEO_IMAGE_PLACE_HOLDER @"placeHolder"
 
 @interface HTVVideoCollectionVC ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 {
@@ -34,6 +36,7 @@
     self.collection.delegate = self;
     self.collection.dataSource = self;
     self.title = HOT_NEWS;
+    [HTVHelperMethods fetchNewDataFromYoutubeForController:self];
 	// Do any additional setup after loading the view.
 }
 
@@ -42,7 +45,9 @@
 {
     [super viewWillAppear:animated];
     [self updateVideoCellSizeForOrientation:[UIApplication sharedApplication].statusBarOrientation];
-    [HTVHelperMethods fetchNewDataFromYoutubeForController:self];
+   
+                   
+    
     [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:HOT_NEWS_SCREEN
                                                                                   forKey:kGAIScreenName] build]];
 
@@ -114,7 +119,7 @@
     HTVVideo *video = self.videos[indexPath.item];
     cell.title.text = video.title;
     [cell.thumbnail setImageWithURL:[NSURL URLWithString:video.thumbnail]
-                   placeholderImage:nil
+                   placeholderImage:[UIImage imageNamed:VIDEO_IMAGE_PLACE_HOLDER]
                             options:SDWebImageProgressiveDownload
                            progress:^(NSUInteger receivedSize, long long expectedSize) {
 

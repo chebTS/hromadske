@@ -562,6 +562,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Max Tymchii";
 				TargetAttributes = {
+					5068708D184E4FD50024624B = {
+						DevelopmentTeam = W3QVKUX47M;
+					};
 					506870B1184E4FD50024624B = {
 						TestTargetID = 5068708D184E4FD50024624B;
 					};
@@ -851,13 +854,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: C R Yevpak (26S7LMSLZ8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = HromadskeTV;
-				PROVISIONING_PROFILE = "724A7E3A-CA6C-41CF-A4FB-ECA032E2EB4F";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -868,14 +872,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: C R Yevpak";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: C R Yevpak";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Fred Cox (W3QVKUX47M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fred Cox (W3QVKUX47M)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = HromadskeTV;
-				PROVISIONING_PROFILE = "8729C85B-CB7A-49C6-B594-62DB9C51B397";
+				PROVISIONING_PROFILE = "B74217F5-B1CF-4A32-A68C-F32C1683AAF2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

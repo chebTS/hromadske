@@ -27,7 +27,7 @@
 #define TWITTER_ACCESS_APP_SECRET_KEY @"1e5V6s7Soq1oHCJijmUbEnhSVd1zemhtl9jIiRQzOnedt"
 
 
-#define LEFT_RIGHT_CONTROLLER_SHIFT IS_IPHONE ? 100.0 : 500
+#define LEFT_RIGHT_CONTROLLER_SHIFT IS_IPHONE ? 50.0 : 500
 #define IS_IPHONE   ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 #define IS_IPHONE_5 ([[UIScreen mainScreen] bounds ].size.height == HEIGHT_IPHONE_5)
 

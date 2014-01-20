@@ -7,6 +7,7 @@
 //
 
 #import "HTVCategoriesViewController.h"
+#import "UIViewController+HTVNavigationController.h"
 
 #define SECTION_MAIN    0
 #define MAIN_PAGES          @"Основні сторінки"
@@ -71,6 +72,43 @@
     return _activityVC;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+}
+
+#pragma mark - TableView Delegate methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == SECTION_MAIN) {
+        if (indexPath.row == HOT_NEWS_ROW.integerValue) {
+            [DELEGATE showVideoCollectionController];
+        }
+        else {
+        [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
+        }
+    }
+    else if (indexPath.section == SECTION_SOCIAL) {
+        if (indexPath.row == SHARE_FRIENDS_ROW.integerValue) {
+            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:SHARE_SCREEN
+                                                                                          forKey:kGAIScreenName] build]];
+            [self showSharing];
+        }
+        else if (indexPath.row == WRITE_TO_DEVELOPER.integerValue) {
+            [self sendEmailToRecipient];
+        }
+        else {
+            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
+                                                                                          forKey:kGAIScreenName] build]];
+            [DELEGATE pushToCenterDeckControllerWithURL:self.socialNetworks[@(indexPath.row)][1]];
+        }        
+    }
+    
+}
+
+#pragma mark - data source
 - (NSDictionary *)tableStructure
 {
     if (!_tableStructure) {
@@ -100,14 +138,6 @@
     return _socialNetworks;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-}
-
-#pragma mark - TableView Delegate methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return SECTIONS_NUMBER;
@@ -148,34 +178,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == SECTION_MAIN) {
-        if (indexPath.row == HOT_NEWS_ROW.integerValue) {
-            [DELEGATE showVideoCollectionController];
-        }
-        else {
-        [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
-        }
-    }
-    else if (indexPath.section == SECTION_SOCIAL) {
-        if (indexPath.row == SHARE_FRIENDS_ROW.integerValue) {
-            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:SHARE_SCREEN
-                                                                                          forKey:kGAIScreenName] build]];
-            [self showSharing];
-        }
-        else if (indexPath.row == WRITE_TO_DEVELOPER.integerValue) {
-            [self sendEmailToRecipient];
-        }
-        else {
-            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
-                                                                                          forKey:kGAIScreenName] build]];
-            [DELEGATE pushToCenterDeckControllerWithURL:self.socialNetworks[@(indexPath.row)][1]];
-        }        
-    }
-    
-}
-
+#pragma mark - Sharing
 - (void)showSharing
 {
     if (IS_IPHONE) {
@@ -201,10 +204,7 @@
 }
 
 
-#pragma mark MFMailComposeViewControllerDelegate
-//**********************************************
-//MFMailComposeViewControllerDelegate
-//**********************************************
+#pragma mark - MFMailComposeViewControllerDelegate
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
     NSString * message;
@@ -230,6 +230,7 @@
     [HTVHelperMethods callCustomAlertWithMessage:message];
 }
 
+#pragma mark - Email
 - (void)sendEmailToRecipient
 {
     if([MFMailComposeViewController canSendMail]){

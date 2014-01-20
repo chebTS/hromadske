@@ -93,6 +93,10 @@
 		50DF6EA218506C8C00576DD3 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8218506C8C00576DD3 /* iTunesArtwork.png */; };
 		50DF6EA318506C8C00576DD3 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */; };
 		50DF6EA5185082E500576DD3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */; };
+		92476638188DCDE700CC05B8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476637188DCDE700CC05B8 /* Utils.m */; };
+		9247663B188DCEF000CC05B8 /* nav-bar-menu-item-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 92476639188DCEF000CC05B8 /* nav-bar-menu-item-icon.png */; };
+		9247663C188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9247663A188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png */; };
+		92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */; };
 		D70C5A50436A43B9950E2E8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE59C3A3614E108E7889A0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +215,12 @@
 		50DF6E8218506C8C00576DD3 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		92476636188DCDE700CC05B8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		92476637188DCDE700CC05B8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		92476639188DCEF000CC05B8 /* nav-bar-menu-item-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bar-menu-item-icon.png"; sourceTree = "<group>"; };
+		9247663A188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bar-menu-item-icon@2x.png"; sourceTree = "<group>"; };
+		92476640188DD3D800CC05B8 /* UIViewController+HTVNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTVNavigationController.h"; sourceTree = "<group>"; };
+		92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTVNavigationController.m"; sourceTree = "<group>"; };
 		BCEE59C3A3614E108E7889A0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC76C99E07E345D78FAD3B32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,7 +256,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5044E8E81887C0EF0050E304 /* Cells */ = {
+		5044E8E81887C0EF0050E304 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				5044E8E91887C0EF0050E304 /* HTVVideoCell.h */,
@@ -254,6 +264,7 @@
 				5044E90018880C2A0050E304 /* HTVTwitterCell.h */,
 				5044E90118880C2A0050E304 /* HTVTwitterCell.m */,
 			);
+			name = ViewCells;
 			path = Cells;
 			sourceTree = "<group>";
 		};
@@ -269,6 +280,8 @@
 		5044E90618887B7F0050E304 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				92476639188DCEF000CC05B8 /* nav-bar-menu-item-icon.png */,
+				9247663A188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png */,
 				5044E90718887B7F0050E304 /* icon */,
 				5044E91918887B7F0050E304 /* logo.png */,
 				5044E91A18887B7F0050E304 /* logo@2x.png */,
@@ -357,13 +370,14 @@
 		50687097184E4FD50024624B /* HromadskeTV */ = {
 			isa = PBXGroup;
 			children = (
-				5044E8EF1887FE330050E304 /* FHSTwitterEngine */,
-				5044E8E81887C0EF0050E304 /* Cells */,
+				9247663E188DD39700CC05B8 /* Categories */,
+				9247663D188DD36500CC05B8 /* Libs */,
+				506870DC184E57A20024624B /* Helpers */,
 				506870FD184E871F0024624B /* Changes */,
-				506870DC184E57A20024624B /* Helper */,
-				506870CC184E504C0024624B /* Controllers */,
+				5044E8E81887C0EF0050E304 /* ViewCells */,
 				506870A0184E4FD50024624B /* HTVAppDelegate.h */,
 				506870A1184E4FD50024624B /* HTVAppDelegate.m */,
+				506870CC184E504C0024624B /* ViewControllers */,
 				506870A3184E4FD50024624B /* Main_iPhone.storyboard */,
 				506870A6184E4FD50024624B /* Main_iPad.storyboard */,
 				50687098184E4FD50024624B /* Supporting Files */,
@@ -405,7 +419,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		506870CC184E504C0024624B /* Controllers */ = {
+		506870CC184E504C0024624B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				50687102184FE4E40024624B /* HTVHud.h */,
@@ -423,17 +437,19 @@
 				5044E8F31887FE850050E304 /* HTVTwitterCollection.h */,
 				5044E8F41887FE850050E304 /* HTVTwitterCollection.m */,
 			);
-			name = Controllers;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		506870DC184E57A20024624B /* Helper */ = {
+		506870DC184E57A20024624B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				506870DE184E59100024624B /* Definitions.h */,
+				92476636188DCDE700CC05B8 /* Utils.h */,
+				92476637188DCDE700CC05B8 /* Utils.m */,
 				50D1EFF71859260000B390CA /* HTVHelperMethods.h */,
 				50D1EFF81859260000B390CA /* HTVHelperMethods.m */,
 			);
-			name = Helper;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		506870FD184E871F0024624B /* Changes */ = {
@@ -510,6 +526,31 @@
 				50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */,
 			);
 			path = ios7;
+			sourceTree = "<group>";
+		};
+		9247663D188DD36500CC05B8 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				5044E8EF1887FE330050E304 /* FHSTwitterEngine */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		9247663E188DD39700CC05B8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9247663F188DD3A000CC05B8 /* HTVNavigationControllerCategory */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		9247663F188DD3A000CC05B8 /* HTVNavigationControllerCategory */ = {
+			isa = PBXGroup;
+			children = (
+				92476640188DD3D800CC05B8 /* UIViewController+HTVNavigationController.h */,
+				92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */,
+			);
+			name = HTVNavigationControllerCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,7 +690,9 @@
 				50DF6EA318506C8C00576DD3 /* iTunesArtwork@2x.png in Resources */,
 				5044E92418887B7F0050E304 /* Icon-72.png in Resources */,
 				50DF6E9518506C8C00576DD3 /* Icon-40@2x.png in Resources */,
+				9247663C188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png in Resources */,
 				50DF6E9B18506C8C00576DD3 /* Icon-76@2x.png in Resources */,
+				9247663B188DCEF000CC05B8 /* nav-bar-menu-item-icon.png in Resources */,
 				50DF6E5218506B5A00576DD3 /* port-ios6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +748,7 @@
 				5044E8F51887FE850050E304 /* HTVTwitterCollection.m in Sources */,
 				50687104184FE4E40024624B /* HTVHud.m in Sources */,
 				50D1EFF91859260000B390CA /* HTVHelperMethods.m in Sources */,
+				92476638188DCDE700CC05B8 /* Utils.m in Sources */,
 				5044E8EE1887DEF50050E304 /* HTVVideo.m in Sources */,
 				5044E8EB1887C0EF0050E304 /* HTVVideoCell.m in Sources */,
 				5044E90518880E0F0050E304 /* HTVTwitt.m in Sources */,
@@ -712,6 +756,7 @@
 				506870F9184E83F60024624B /* HTVWebVC.m in Sources */,
 				506870D8184E570E0024624B /* HTVParentVC.m in Sources */,
 				5044E8F21887FE330050E304 /* FHSTwitterEngine.m in Sources */,
+				92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */,
 				506870EB184E68B30024624B /* HTVCategoriesViewController.m in Sources */,
 				5068709E184E4FD50024624B /* main.m in Sources */,
 				506870A2184E4FD50024624B /* HTVAppDelegate.m in Sources */,

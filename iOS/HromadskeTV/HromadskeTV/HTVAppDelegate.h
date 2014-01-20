@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "STTwitterAPI.h"
+#import "IIViewDeckController.h"
 
-@interface HTVAppDelegate : UIResponder <UIApplicationDelegate>
+@interface HTVAppDelegate : UIResponder <UIApplicationDelegate, IIViewDeckControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) STTwitterAPI *twitter;

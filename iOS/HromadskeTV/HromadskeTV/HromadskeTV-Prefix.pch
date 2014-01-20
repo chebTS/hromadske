@@ -31,6 +31,8 @@
     #import <STTwitter/STTwitter.h>
     #import <STTwitter/STTwitterAPI.h>
 
+    
     #import "HTVHelperMethods.h"
+    #import "Utils.h"
 
 #endif

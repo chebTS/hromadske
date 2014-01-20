@@ -12,7 +12,7 @@
 #import "HTVWebVC.h"
 #import "HTVVideoCollectionVC.h"
 #import "HTVTwitterCollection.h"
-
+#import "UIViewController+HTVNavigationController.h"
 
 @interface HTVAppDelegate()
 @property (nonatomic, strong) UIStoryboard *storyboard;
@@ -172,6 +172,7 @@
     [deckController setRightSize:LEFT_RIGHT_CONTROLLER_SHIFT];
     deckController.elastic = NO;
     deckController.panningMode = IIViewDeckNoPanning;
+    deckController.delegate = self;
     
     self.window.rootViewController = deckController;
 }
@@ -301,6 +302,20 @@
     return YES;
 }
 
-
+#pragma mark - IIViewDeckControllerDelegate
+- (void)viewDeckController:(IIViewDeckController*)viewDeckController willOpenViewSide:(IIViewDeckSide)viewDeckSide animated:(BOOL)animated {
+    IIViewDeckSide _style = (viewDeckSide != IIViewDeckTopSide) ? HTVStatusBarStyleDark : HTVStatusBarStyleLight;
+    [self setupStatusBarAnimated:YES style:_style];
+}
+- (void)viewDeckController:(IIViewDeckController*)viewDeckController willCloseViewSide:(IIViewDeckSide)viewDeckSide animated:(BOOL)animated {
+    IIViewDeckSide _style = (viewDeckSide != IIViewDeckTopSide) ? HTVStatusBarStyleLight : HTVStatusBarStyleDark;
+    [self setupStatusBarAnimated:YES style:_style];
+}
+- (void) setupStatusBarAnimated:(BOOL)animated style:(HTVStatusBarStyle)style {
+    if (IOS_7) {
+        UIStatusBarStyle _style = (style == HTVStatusBarStyleDark) ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
+        [[UIApplication sharedApplication] setStatusBarStyle:_style animated:animated];
+    }
+}
 
 @end

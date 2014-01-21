@@ -13,20 +13,16 @@
 #define MAIN_PAGES          @"Основні сторінки"
 #define ONLINE_ROW          @(0)
 #define HOT_NEWS_ROW        @(1)
-#define TWITTER_NEWS_ROW    @(2)
-#define HOME_ROW            @(3)
-#define VIDEO_ROW           @(4)
-#define ABOUT_US_ROW        @(5)
+#define ABOUT_US_ROW        @(2)
 
 
 #define SECTION_SOCIAL  1
 #define SOCIAL_PAGES        @"Соц. мережі"
-#define FB_ROW              @(0)
-#define GOOGLE_PLUS         @(1)
-#define RSS_ROW             @(2)
+#define TWITTER_NEWS_ROW    @(0)
+#define FB_ROW              @(1)
+#define GOOGLE_PLUS         @(2)
 #define SHARE_FRIENDS_ROW   @(3)
 #define WRITE_TO_DEVELOPER  @(4)
-
 #define  SECTIONS_NUMBER 2
 
 
@@ -65,8 +61,8 @@
         //
         _activityVC = [[REActivityViewController alloc] initWithViewController:self activities:activities];
         _activityVC.userInfo = @{
-                                            @"text":[NSString stringWithFormat:@"Я дивлюсь HromadskeTV через цей додаток %@ #HromadskeTV", APP_URL]
-                                            };
+                                 @"text":[NSString stringWithFormat:@"Я дивлюсь HromadskeTV через цей додаток %@ #HromadskeTV", APP_URL]
+                                 };
     }
     
     return _activityVC;
@@ -87,7 +83,7 @@
             [DELEGATE showVideoCollectionController];
         }
         else {
-        [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
+            [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
         }
     }
     else if (indexPath.section == SECTION_SOCIAL) {
@@ -103,7 +99,7 @@
             [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
                                                                                           forKey:kGAIScreenName] build]];
             [DELEGATE pushToCenterDeckControllerWithURL:self.socialNetworks[@(indexPath.row)][1]];
-        }        
+        }
     }
     
 }
@@ -113,12 +109,9 @@
 {
     if (!_tableStructure) {
         _tableStructure = @{
-                            ONLINE_ROW : @[@"Громадське онлайн", ONLINE_URL, ONLINE_SCREEN],
-                            HOME_ROW : @[@"Головна",HOME_URL, HOME_SCREEN],
-                            VIDEO_ROW : @[@"Відеоновини", VIDEO_URL, VIDEO_SCREEN],
-                            ABOUT_US_ROW  : @[@"Про проект", ABOUT_US_URL, ABOUT_SCREEN],
-                            HOT_NEWS_ROW : @[HOT_NEWS],
-                            TWITTER_NEWS_ROW : @[TWITTER_NEWS, TWITTER_URL,TWITTER_SCREEN]
+                            ONLINE_ROW : @[ONLINE_PAGE, ONLINE_URL, ONLINE_SCREEN],
+                            ABOUT_US_ROW  : @[ABOUT_US_PAGE, ABOUT_US_URL, ABOUT_SCREEN],
+                            HOT_NEWS_ROW : @[HOT_NEWS_PAGE]
                             };
     }
     return _tableStructure;
@@ -129,11 +122,11 @@
 {
     if (!_socialNetworks) {
         _socialNetworks = @{
-                            FB_ROW : @[@"Facebook", FB_URL, FB_SCREEN],
-                            GOOGLE_PLUS : @[@"G+", G_PLUS_URL, G_PLUS_SCREEN],
-                            RSS_ROW : @[@"RSS", RSS_URL, RSS_URL],
-                            SHARE_FRIENDS_ROW : @[@"Розповісти друзям"],
-                            WRITE_TO_DEVELOPER : @[@"Написати розробнику"]};
+                            TWITTER_NEWS_ROW : @[TWITTER_PAGE, TWITTER_URL,TWITTER_SCREEN],
+                            FB_ROW : @[FB_PAGE, FB_URL, FB_SCREEN],
+                            GOOGLE_PLUS : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN],
+                            SHARE_FRIENDS_ROW : @[SHARE_FRIENDS_PAGE],
+                            WRITE_TO_DEVELOPER : @[WRITE_TO_DEVELOPER_PAGE]};
     }
     return _socialNetworks;
 }
@@ -184,7 +177,7 @@
     if (IS_IPHONE) {
         [self.viewDeckController closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
             if (success) {
-                 [self.activityVC presentFromRootViewController];
+                [self.activityVC presentFromRootViewController];
             }
         }];
     }
@@ -243,7 +236,7 @@
         }];
     }
     else {
-           [HTVHelperMethods callCustomAlertWithMessage:EMAIL_ERROR_MESSAGE];
+        [HTVHelperMethods callCustomAlertWithMessage:EMAIL_ERROR_MESSAGE];
     }
 }
 

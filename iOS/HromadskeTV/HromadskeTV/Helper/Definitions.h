@@ -59,7 +59,14 @@
 #define G_PLUS_SCREEN @"G+"
 #define SHARE_SCREEN @"Share"
 #define EMAIL_SCREEN @"Email"
-#define TWITTER_NEWS @"Гарячі твіти"
-#define HOT_NEWS @"Гарячі новини"
+
+#define ONLINE_PAGE @"Громадське онлайн"
+#define ABOUT_US_PAGE @"Про проект"
+#define HOT_NEWS_PAGE @"Гарячі новини"
+#define TWITTER_PAGE @"Twitter"
+#define FB_PAGE @"Facebook"
+#define G_PLUS_PAGE @"G+"
+#define SHARE_FRIENDS_PAGE @"Розповісти друзям"
+#define WRITE_TO_DEVELOPER_PAGE @"Написати розробнику"
 
 

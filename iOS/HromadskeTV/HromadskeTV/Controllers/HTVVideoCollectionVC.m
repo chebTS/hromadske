@@ -35,7 +35,7 @@
     [super viewDidLoad];
     self.collection.delegate = self;
     self.collection.dataSource = self;
-    self.title = HOT_NEWS;
+    self.title = HOT_NEWS_PAGE;
     [HTVHelperMethods fetchNewDataFromYoutubeForController:self];
 	// Do any additional setup after loading the view.
 }

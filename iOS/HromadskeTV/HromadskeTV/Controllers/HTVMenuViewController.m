@@ -10,43 +10,36 @@
 #import "UIViewController+HTVNavigationController.h"
 
 typedef enum {
-    HTVMenuItemLive,
-    HTVMenuItemNews,
-    HTVMenuItemAbout,
-    HTVMenuItemFacebook,
-    HTVMenuItemTwitter,
-    HTVMenuItemGoogle,
-    HTVMenuItemShare,
-    HTVMenuItemFeedback,
-} HTVMenuItem;
-
-typedef enum {
     HTVMenuSectionMain,
     HTVMenuSectionSocial,
+    HTVMenuSectionOther,
 } HTVMenuSection;
+#define  SECTIONS_NUMBER 3
 
-#define SECTION_MAIN    0
+
 #define MAIN_PAGES          @"Основні сторінки"
-#define ONLINE_ROW          @(0)
-#define HOT_NEWS_ROW        @(1)
-#define ABOUT_US_ROW        @(2)
+#define HTVMenuItemLive     @(0)
+#define HTVMenuItemNews     @(1)
+#define HTVMenuItemAbout    @(2)
 
+#define SOCIAL_PAGES        @"Сторінки проекту"
+#define HTVMenuItemFacebook @(0)
+#define HTVMenuItemTwitter  @(1)
+#define HTVMenuItemGoogle   @(2)
 
-#define SECTION_SOCIAL  1
-#define SOCIAL_PAGES        @"Соц. мережі"
-#define TWITTER_NEWS_ROW    @(0)
-#define FB_ROW              @(1)
-#define GOOGLE_PLUS         @(2)
-#define SHARE_FRIENDS_ROW   @(3)
-#define WRITE_TO_DEVELOPER  @(4)
-#define  SECTIONS_NUMBER 2
+#define OTHER_PAGES         @"Інеше"
+#define HTVMenuItemShare    @(0)
+#define HTVMenuItemFeedback @(1)
 
 
 
 @interface HTVMenuViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+{
+    NSDictionary *_mainPageItems;
+    NSDictionary *_socialPageItems;
+    NSDictionary *_otherPageItems;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSDictionary *tableStructure;
-@property (nonatomic, strong) NSDictionary *socialNetworks;
 @property (nonatomic, strong) REActivityViewController *activityVC;
 @property (nonatomic, strong) UIPopoverController *popoverVC;
 @property (nonatomic, strong) MFMailComposeViewController *picker;
@@ -87,74 +80,86 @@ typedef enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    [self setupData];
+    [self setupView];
+}
+
+- (void)setupView {
+    if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [_tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    _tableView.backgroundColor = [Utils colorFromHtmlSting:@"#F5F5F5"];
+    [_tableView reloadData];
 }
 
 #pragma mark - TableView Delegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     HTVMenuSection section = indexPath.section;
-    HTVMenuItem row = indexPath.row;
+    NSNumber *row = @(indexPath.row);
         
     switch (section) {
         case HTVMenuSectionMain:
-            if (indexPath.row == HOT_NEWS_ROW.integerValue) {
+            if (indexPath.row == HTVMenuItemNews.integerValue) {
                 [DELEGATE showVideoCollectionController];
             }
             else {
-                [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
+                [DELEGATE pushToCenterDeckControllerWithURL:_mainPageItems[@(indexPath.row)][1]];
             }
 
             break;
         case HTVMenuSectionSocial:
-
-            if (row == HTVMenuItemShare) {
+            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:_socialPageItems[@(indexPath.row)][2] forKey:kGAIScreenName] build]];
+            [DELEGATE pushToCenterDeckControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
+            break;
+        case HTVMenuSectionOther:
+            if ([row isEqualToNumber:HTVMenuItemShare]) {
                 [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:SHARE_SCREEN
                                                                                               forKey:kGAIScreenName] build]];
                 [self showSharing];
             }
-            else if (row == HTVMenuItemFeedback) {
+            else if ([row isEqualToNumber:HTVMenuItemFeedback]) {
                 [self sendEmailToRecipient];
             }
-            else {
-                [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
-                                                                                              forKey:kGAIScreenName] build]];
-                [DELEGATE pushToCenterDeckControllerWithURL:self.socialNetworks[@(indexPath.row)][1]];
-            }        
-            break;
-            
-        default:
-            break;
+        break;
     }
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0 , tableView.frame.size.width, 21)];
+    sectionView.backgroundColor = [Utils colorFromHtmlSting:@"#B2B2B2"];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(9, 2, tableView.frame.size.width, 17)];
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:14];
+    label.text = [self tableView:tableView titleForHeaderInSection:section];
+    
+    [sectionView addSubview:label];
+
+    return sectionView;
 }
 
 #pragma mark - data source
-- (NSDictionary *)tableStructure
+- (void)setupData
 {
-    if (!_tableStructure) {
-        _tableStructure = @{
-                            ONLINE_ROW : @[ONLINE_PAGE, ONLINE_URL, ONLINE_SCREEN],
-                            ABOUT_US_ROW  : @[ABOUT_US_PAGE, ABOUT_US_URL, ABOUT_SCREEN],
-                            HOT_NEWS_ROW : @[HOT_NEWS_PAGE]
-                            };
-    }
-    return _tableStructure;
+    _mainPageItems = @{
+                        HTVMenuItemLive : @[ONLINE_PAGE, ONLINE_URL, ONLINE_SCREEN],
+                        HTVMenuItemAbout  : @[ABOUT_US_PAGE, ABOUT_US_URL, ABOUT_SCREEN],
+                        HTVMenuItemNews : @[HOT_NEWS_PAGE]
+                        };
+    _socialPageItems = @{
+                         HTVMenuItemTwitter : @[TWITTER_PAGE, TWITTER_URL,TWITTER_SCREEN],
+                         HTVMenuItemFacebook : @[FB_PAGE, FB_URL, FB_SCREEN],
+                         HTVMenuItemGoogle : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN]};
+    _otherPageItems = @{HTVMenuItemShare : @[SHARE_FRIENDS_PAGE],
+                        HTVMenuItemFeedback : @[WRITE_TO_DEVELOPER_PAGE]};
 }
 
-
-- (NSDictionary *)socialNetworks
-{
-    if (!_socialNetworks) {
-        _socialNetworks = @{
-                            TWITTER_NEWS_ROW : @[TWITTER_PAGE, TWITTER_URL,TWITTER_SCREEN],
-                            FB_ROW : @[FB_PAGE, FB_URL, FB_SCREEN],
-                            GOOGLE_PLUS : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN],
-                            SHARE_FRIENDS_ROW : @[SHARE_FRIENDS_PAGE],
-                            WRITE_TO_DEVELOPER : @[WRITE_TO_DEVELOPER_PAGE]};
-    }
-    return _socialNetworks;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -163,22 +168,28 @@ typedef enum {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == SECTION_MAIN) {
-        return self.tableStructure.allKeys.count;
-    }
-    else if (section == SECTION_SOCIAL) {
-        return self.socialNetworks.allKeys.count;
+    HTVMenuSection _section = (HTVMenuSection)section;
+    switch (_section) {
+        case HTVMenuSectionMain:
+            return _mainPageItems.allKeys.count;
+        case HTVMenuSectionSocial:
+            return _socialPageItems.allKeys.count;
+        case HTVMenuSectionOther:
+            return _otherPageItems.allKeys.count;
     }
     return 0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == SECTION_MAIN) {
-        return MAIN_PAGES;
-    }
-    else {
-        return SOCIAL_PAGES;
+    HTVMenuSection _section = (HTVMenuSection)section;
+    switch (_section) {
+        case HTVMenuSectionMain:
+            return MAIN_PAGES;
+        case HTVMenuSectionSocial:
+            return SOCIAL_PAGES;
+        case HTVMenuSectionOther:
+            return OTHER_PAGES;
     }
 }
 
@@ -186,15 +197,24 @@ typedef enum {
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SimpleCell"
                                                             forIndexPath:indexPath];
-    if (indexPath.section == SECTION_MAIN) {
-        cell.textLabel.text = self.tableStructure[@(indexPath.row)][0];
+    HTVMenuSection _section = indexPath.section;
+
+    switch (_section) {
+        case HTVMenuSectionMain:
+            cell.textLabel.text = _mainPageItems[@(indexPath.row)][0];
+            break;
+        case HTVMenuSectionSocial:
+            cell.textLabel.text = _socialPageItems[@(indexPath.row)][0];
+            break;
+        case HTVMenuSectionOther:
+            cell.textLabel.text = _otherPageItems[@(indexPath.row)][0];
+            break;
     }
-    else if (indexPath.section == SECTION_SOCIAL) {
-        cell.textLabel.text = self.socialNetworks[@(indexPath.row)][0];
-    }
+    cell.backgroundColor = [Utils colorFromHtmlSting:@"#F5F5F5"];
     
     return cell;
 }
+
 
 #pragma mark - Sharing
 - (void)showSharing

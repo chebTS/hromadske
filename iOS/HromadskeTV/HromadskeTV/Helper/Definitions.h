@@ -62,10 +62,10 @@
 
 #define ONLINE_PAGE @"Громадське онлайн"
 #define ABOUT_US_PAGE @"Про проект"
-#define HOT_NEWS_PAGE @"Гарячі новини"
+#define HOT_NEWS_PAGE @"Новини"
 #define TWITTER_PAGE @"Twitter"
 #define FB_PAGE @"Facebook"
-#define G_PLUS_PAGE @"G+"
+#define G_PLUS_PAGE @"Google+"
 #define SHARE_FRIENDS_PAGE @"Розповісти друзям"
 #define WRITE_TO_DEVELOPER_PAGE @"Написати розробнику"
 

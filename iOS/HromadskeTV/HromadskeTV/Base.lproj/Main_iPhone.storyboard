@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="656" y="32"/>
         </scene>
-        <!--Categories View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="Oef-ob-SSj">
             <objects>
-                <viewController storyboardIdentifier="HTVCategoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMQ-gK-9X9" customClass="HTVCategoriesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HTVCategoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMQ-gK-9X9" customClass="HTVMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cEI-w2-z3x"/>
                         <viewControllerLayoutGuide type="bottom" id="06T-eF-CYD"/>
@@ -39,8 +39,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoLarge.png" translatesAutoresizingMaskIntoConstraints="NO" id="9dx-Vv-eqr">
-                                        <rect key="frame" x="20" y="24" width="136" height="40"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hromadske-logo" translatesAutoresizingMaskIntoConstraints="NO" id="9dx-Vv-eqr">
+                                        <rect key="frame" x="10" y="20" width="136" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="136" id="GL2-ol-tMY"/>
@@ -50,25 +50,26 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="9dx-Vv-eqr" firstAttribute="top" secondItem="n9z-YG-dv2" secondAttribute="top" constant="24" id="gAu-gJ-Us0"/>
-                                    <constraint firstAttribute="bottom" secondItem="9dx-Vv-eqr" secondAttribute="bottom" id="lQ0-Go-FUe"/>
-                                    <constraint firstItem="9dx-Vv-eqr" firstAttribute="leading" secondItem="n9z-YG-dv2" secondAttribute="leading" constant="20" id="ubj-O3-VKU"/>
+                                    <constraint firstItem="9dx-Vv-eqr" firstAttribute="top" secondItem="n9z-YG-dv2" secondAttribute="top" constant="20" id="gAu-gJ-Us0"/>
+                                    <constraint firstAttribute="bottom" secondItem="9dx-Vv-eqr" secondAttribute="bottom" constant="4" id="lQ0-Go-FUe"/>
+                                    <constraint firstItem="9dx-Vv-eqr" firstAttribute="leading" secondItem="n9z-YG-dv2" secondAttribute="leading" constant="10" id="ubj-O3-VKU"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7GV-NC-etI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7GV-NC-etI">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.89803928136825562" green="0.89803928136825562" blue="0.89803928136825562" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SimpleCell" textLabel="a6x-0R-AaE" style="IBUITableViewCellStyleDefault" id="jgS-ha-saj">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jgS-ha-saj" id="EeB-d8-My7">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a6x-0R-AaE">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="44"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -291,7 +292,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logoLarge.png" width="136" height="40"/>
+        <image name="hromadske-logo" width="201" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

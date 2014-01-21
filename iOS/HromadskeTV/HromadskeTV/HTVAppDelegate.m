@@ -8,7 +8,7 @@
 
 
 #import "HTVAppDelegate.h"
-#import "HTVCategoriesViewController.h"
+#import "HTVMenuViewController.h"
 #import "HTVWebVC.h"
 #import "HTVVideoCollectionVC.h"
 #import "HTVTwitterCollection.h"
@@ -162,7 +162,7 @@
 
 - (void)makeDeckRootViewController
 {
-    HTVCategoriesViewController* leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVCategoriesViewController"];
+    HTVMenuViewController* leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVCategoriesViewController"];
     HTVWebVC *centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVWebVC"];
     centerController.URL = [NSURL URLWithString:ONLINE_URL];
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:[[UINavigationController alloc] initWithRootViewController:centerController]

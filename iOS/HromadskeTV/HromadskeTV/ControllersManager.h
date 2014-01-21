@@ -8,6 +8,32 @@
 
 #import <Foundation/Foundation.h>
 
+//controllers
+#import "IIViewDeckController.h"
+#import "LiveViewController.h"
+#import "HTVMenuViewController.h"
+#import "HTVWebVC.h"
+#import "HTVVideoCollectionVC.h"
+#import "HTVTwitterCollection.h"
+
 @interface ControllersManager : NSObject
+{
+}
+
++ (ControllersManager *) sharedManager;
+
+- (HTVMenuViewController *) menu;
+- (LiveViewController *) live;
+- (IIViewDeckController *) deck;
+
+- (void) openMenu;
+- (void) closeMenu;
+
+- (UIStoryboard *)storyboard;
+
+
+- (void)pushToCenterDeckControllerWithURL:(NSString *)url;
+- (void)showVideoCollectionController;
+- (void)showTwitterCollectionController;
 
 @end

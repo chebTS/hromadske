@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface RemoteManager : NSObject
++ (RemoteManager *) sharedManager;
+
+- (void)showRemoteActivity;
+- (void)hideRemoteActivity;
 
 @end

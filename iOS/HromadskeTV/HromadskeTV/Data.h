@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Data : NSObject
++ (Data *) sharedData;
+
+- (void)updateLivePathWithCompletion:(void(^)(NSString *path, BOOL isNew))completion;
 
 @end

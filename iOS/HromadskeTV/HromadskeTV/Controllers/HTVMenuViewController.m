@@ -7,6 +7,7 @@
 //
 
 #import "HTVMenuViewController.h"
+#import "ControllersManager.h"
 #import "UIViewController+HTVNavigationController.h"
 
 typedef enum {
@@ -106,16 +107,16 @@ typedef enum {
     switch (section) {
         case HTVMenuSectionMain:
             if (indexPath.row == HTVMenuItemNews.integerValue) {
-                [DELEGATE showVideoCollectionController];
+                [[ControllersManager sharedManager] showVideoCollectionController];
             }
             else {
-                [DELEGATE pushToCenterDeckControllerWithURL:_mainPageItems[@(indexPath.row)][1]];
+                [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_mainPageItems[@(indexPath.row)][1]];
             }
 
             break;
         case HTVMenuSectionSocial:
             [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:_socialPageItems[@(indexPath.row)][2] forKey:kGAIScreenName] build]];
-            [DELEGATE pushToCenterDeckControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
+            [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
             break;
         case HTVMenuSectionOther:
             if ([row isEqualToNumber:HTVMenuItemShare]) {

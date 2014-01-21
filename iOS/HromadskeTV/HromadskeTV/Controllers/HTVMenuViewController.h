@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HTVCategoriesViewController : UIViewController
+@interface HTVMenuViewController : UIViewController
 
 @end

@@ -6,8 +6,24 @@
 //  Copyright (c) 2013 Max Tymchii. All rights reserved.
 //
 
-#import "HTVCategoriesViewController.h"
+#import "HTVMenuViewController.h"
 #import "UIViewController+HTVNavigationController.h"
+
+typedef enum {
+    HTVMenuItemLive,
+    HTVMenuItemNews,
+    HTVMenuItemAbout,
+    HTVMenuItemFacebook,
+    HTVMenuItemTwitter,
+    HTVMenuItemGoogle,
+    HTVMenuItemShare,
+    HTVMenuItemFeedback,
+} HTVMenuItem;
+
+typedef enum {
+    HTVMenuSectionMain,
+    HTVMenuSectionSocial,
+} HTVMenuSection;
 
 #define SECTION_MAIN    0
 #define MAIN_PAGES          @"Основні сторінки"
@@ -27,7 +43,7 @@
 
 
 
-@interface HTVCategoriesViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+@interface HTVMenuViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSDictionary *tableStructure;
 @property (nonatomic, strong) NSDictionary *socialNetworks;
@@ -36,7 +52,7 @@
 @property (nonatomic, strong) MFMailComposeViewController *picker;
 @end
 
-@implementation HTVCategoriesViewController
+@implementation HTVMenuViewController
 
 - (REActivityViewController *)activityVC
 {
@@ -78,30 +94,39 @@
 #pragma mark - TableView Delegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == SECTION_MAIN) {
-        if (indexPath.row == HOT_NEWS_ROW.integerValue) {
-            [DELEGATE showVideoCollectionController];
-        }
-        else {
-            [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
-        }
+    HTVMenuSection section = indexPath.section;
+    HTVMenuItem row = indexPath.row;
+        
+    switch (section) {
+        case HTVMenuSectionMain:
+            if (indexPath.row == HOT_NEWS_ROW.integerValue) {
+                [DELEGATE showVideoCollectionController];
+            }
+            else {
+                [DELEGATE pushToCenterDeckControllerWithURL:self.tableStructure[@(indexPath.row)][1]];
+            }
+
+            break;
+        case HTVMenuSectionSocial:
+
+            if (row == HTVMenuItemShare) {
+                [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:SHARE_SCREEN
+                                                                                              forKey:kGAIScreenName] build]];
+                [self showSharing];
+            }
+            else if (row == HTVMenuItemFeedback) {
+                [self sendEmailToRecipient];
+            }
+            else {
+                [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
+                                                                                              forKey:kGAIScreenName] build]];
+                [DELEGATE pushToCenterDeckControllerWithURL:self.socialNetworks[@(indexPath.row)][1]];
+            }        
+            break;
+            
+        default:
+            break;
     }
-    else if (indexPath.section == SECTION_SOCIAL) {
-        if (indexPath.row == SHARE_FRIENDS_ROW.integerValue) {
-            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:SHARE_SCREEN
-                                                                                          forKey:kGAIScreenName] build]];
-            [self showSharing];
-        }
-        else if (indexPath.row == WRITE_TO_DEVELOPER.integerValue) {
-            [self sendEmailToRecipient];
-        }
-        else {
-            [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:self.socialNetworks[@(indexPath.row)][2]
-                                                                                          forKey:kGAIScreenName] build]];
-            [DELEGATE pushToCenterDeckControllerWithURL:self.socialNetworks[@(indexPath.row)][1]];
-        }
-    }
-    
 }
 
 #pragma mark - data source

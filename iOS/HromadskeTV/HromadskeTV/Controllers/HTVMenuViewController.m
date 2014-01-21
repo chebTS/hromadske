@@ -27,7 +27,7 @@ typedef enum {
 #define HTVMenuItemTwitter  @(1)
 #define HTVMenuItemGoogle   @(2)
 
-#define OTHER_PAGES         @"Інеше"
+#define OTHER_PAGES         @"Інше"
 #define HTVMenuItemShare    @(0)
 #define HTVMenuItemFeedback @(1)
 
@@ -211,7 +211,6 @@ typedef enum {
             break;
     }
     cell.backgroundColor = [Utils colorFromHtmlSting:@"#F5F5F5"];
-    
     return cell;
 }
 

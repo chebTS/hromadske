@@ -94,8 +94,6 @@
 		50DF6EA318506C8C00576DD3 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */; };
 		50DF6EA5185082E500576DD3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */; };
 		92476638188DCDE700CC05B8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476637188DCDE700CC05B8 /* Utils.m */; };
-		9247663B188DCEF000CC05B8 /* nav-bar-menu-item-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 92476639188DCEF000CC05B8 /* nav-bar-menu-item-icon.png */; };
-		9247663C188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9247663A188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png */; };
 		92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */; };
 		D70C5A50436A43B9950E2E8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEE59C3A3614E108E7889A0 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -130,8 +128,8 @@
 		5044E8FE188804EC0050E304 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5044E90018880C2A0050E304 /* HTVTwitterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTVTwitterCell.h; sourceTree = "<group>"; };
 		5044E90118880C2A0050E304 /* HTVTwitterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTVTwitterCell.m; sourceTree = "<group>"; };
-		5044E90318880E0F0050E304 /* HTVTwitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVTwitt.h; path = HromadskeTV/Models/HTVTwitt.h; sourceTree = "<group>"; };
-		5044E90418880E0F0050E304 /* HTVTwitt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVTwitt.m; path = HromadskeTV/Models/HTVTwitt.m; sourceTree = "<group>"; };
+		5044E90318880E0F0050E304 /* HTVTwitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVTwitt.h; path = Models/HTVTwitt.h; sourceTree = "<group>"; };
+		5044E90418880E0F0050E304 /* HTVTwitt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVTwitt.m; path = Models/HTVTwitt.m; sourceTree = "<group>"; };
 		5044E90918887B7F0050E304 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		5044E90A18887B7F0050E304 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
 		5044E90B18887B7F0050E304 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
@@ -198,7 +196,7 @@
 		50DF6E4B18506B5A00576DD3 /* ios6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios6.png; sourceTree = "<group>"; };
 		50DF6E4C18506B5A00576DD3 /* ios7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7@2x.png"; sourceTree = "<group>"; };
 		50DF6E4D18506B5A00576DD3 /* ip5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ip5@2x.png"; sourceTree = "<group>"; };
-		50DF6E5918506B8300576DD3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Hromadske/Images.xcassets; sourceTree = "<group>"; };
+		50DF6E5918506B8300576DD3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Hromadske/Images.xcassets; sourceTree = "<group>"; };
 		50DF6E7418506C8C00576DD3 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		50DF6E7518506C8C00576DD3 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
 		50DF6E7618506C8C00576DD3 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
@@ -217,8 +215,6 @@
 		50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		92476636188DCDE700CC05B8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		92476637188DCDE700CC05B8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		92476639188DCEF000CC05B8 /* nav-bar-menu-item-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bar-menu-item-icon.png"; sourceTree = "<group>"; };
-		9247663A188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-bar-menu-item-icon@2x.png"; sourceTree = "<group>"; };
 		92476640188DD3D800CC05B8 /* UIViewController+HTVNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTVNavigationController.h"; sourceTree = "<group>"; };
 		92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTVNavigationController.m"; sourceTree = "<group>"; };
 		BCEE59C3A3614E108E7889A0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,8 +276,6 @@
 		5044E90618887B7F0050E304 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				92476639188DCEF000CC05B8 /* nav-bar-menu-item-icon.png */,
-				9247663A188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png */,
 				5044E90718887B7F0050E304 /* icon */,
 				5044E91918887B7F0050E304 /* logo.png */,
 				5044E91A18887B7F0050E304 /* logo@2x.png */,
@@ -328,9 +322,6 @@
 		50687085184E4FD50024624B = {
 			isa = PBXGroup;
 			children = (
-				5044E90318880E0F0050E304 /* HTVTwitt.h */,
-				5044E90418880E0F0050E304 /* HTVTwitt.m */,
-				50DF6E5918506B8300576DD3 /* Images.xcassets */,
 				50687097184E4FD50024624B /* HromadskeTV */,
 				506870B9184E4FD50024624B /* HromadskeTVTests */,
 				50687090184E4FD50024624B /* Frameworks */,
@@ -370,6 +361,7 @@
 		50687097184E4FD50024624B /* HromadskeTV */ = {
 			isa = PBXGroup;
 			children = (
+				92476647188DE4CF00CC05B8 /* Models */,
 				9247663E188DD39700CC05B8 /* Categories */,
 				9247663D188DD36500CC05B8 /* Libs */,
 				506870DC184E57A20024624B /* Helpers */,
@@ -380,9 +372,8 @@
 				506870CC184E504C0024624B /* ViewControllers */,
 				506870A3184E4FD50024624B /* Main_iPhone.storyboard */,
 				506870A6184E4FD50024624B /* Main_iPad.storyboard */,
+				50DF6E5918506B8300576DD3 /* Images.xcassets */,
 				50687098184E4FD50024624B /* Supporting Files */,
-				5044E8EC1887DEF50050E304 /* HTVVideo.h */,
-				5044E8ED1887DEF50050E304 /* HTVVideo.m */,
 			);
 			path = HromadskeTV;
 			sourceTree = "<group>";
@@ -553,6 +544,17 @@
 			name = HTVNavigationControllerCategory;
 			sourceTree = "<group>";
 		};
+		92476647188DE4CF00CC05B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5044E8EC1887DEF50050E304 /* HTVVideo.h */,
+				5044E8ED1887DEF50050E304 /* HTVVideo.m */,
+				5044E90318880E0F0050E304 /* HTVTwitt.h */,
+				5044E90418880E0F0050E304 /* HTVTwitt.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -690,9 +692,7 @@
 				50DF6EA318506C8C00576DD3 /* iTunesArtwork@2x.png in Resources */,
 				5044E92418887B7F0050E304 /* Icon-72.png in Resources */,
 				50DF6E9518506C8C00576DD3 /* Icon-40@2x.png in Resources */,
-				9247663C188DCEF000CC05B8 /* nav-bar-menu-item-icon@2x.png in Resources */,
 				50DF6E9B18506C8C00576DD3 /* Icon-76@2x.png in Resources */,
-				9247663B188DCEF000CC05B8 /* nav-bar-menu-item-icon.png in Resources */,
 				50DF6E5218506B5A00576DD3 /* port-ios6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

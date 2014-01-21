@@ -30,7 +30,7 @@
 
 - (void)addMenuButton
 {
-    UIImage *sliderButtonImage = [UIImage imageNamed:@"nav-bar-menu-item-icon"];
+    UIImage *sliderButtonImage = [UIImage imageNamed:@"nav-bar-menu-icon"];
     CGSize sliderSize = sliderButtonImage.size;
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0,
                                                                   sliderSize.width,

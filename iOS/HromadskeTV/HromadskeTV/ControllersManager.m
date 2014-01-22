@@ -150,7 +150,7 @@
     }
     @finally {
         if (newCenterVC) {
-            [self showViewConteroller:newCenterVC];
+            [self showViewController:newCenterVC];
         }
     }
 }
@@ -167,13 +167,13 @@
     @finally {
         if (newCenterVC) {
             newCenterVC.URL = [NSURL URLWithString:url];
-            [self showViewConteroller:newCenterVC];
+            [self showViewController:newCenterVC];
         }
     }
 }
 
 - (void)showLiveViewController {
-    [self showViewConteroller:[self live]];
+    [self showViewController:[self live]];
 }
 
 
@@ -182,9 +182,16 @@
     [self closeMenu];
 }
 
-- (void) showViewConteroller:(UIViewController *)c {
+- (void)showViewController:(UIViewController *)c {
     _deck.centerController = [self controllerWithRoot:c];
     [self closeMenu];
+}
+
+- (void)showUserVoiceController
+{
+    UVConfig *config = [UVConfig configWithSite:USER_VOICE_URL];
+    [UserVoice initialize:config];
+    [UserVoice presentUserVoiceInterfaceForParentViewController:_deck];
 }
 
 

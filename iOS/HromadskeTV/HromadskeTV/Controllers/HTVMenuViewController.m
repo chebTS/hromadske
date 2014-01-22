@@ -128,7 +128,7 @@ typedef enum {
                 [self showSharing];
             }
             else if ([row isEqualToNumber:HTVMenuItemFeedback]) {
-                [self sendEmailToRecipient];
+                [[ControllersManager sharedManager] showUserVoiceController];
             }
         break;
     }
@@ -244,50 +244,6 @@ typedef enum {
                 [self.popoverVC presentPopoverFromRect:CGRectMake(0, shift, 1, 1) inView:self.viewDeckController.centerController.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
             }
         }];
-    }
-}
-
-
-#pragma mark - MFMailComposeViewControllerDelegate
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
-{
-    NSString * message;
-    switch (result)
-    {
-        case MFMailComposeResultCancelled:
-            message = @"Відправку листа скасовано";
-            break;
-        case MFMailComposeResultSaved:
-            message = @"Повідомлення збережено";
-            break;
-        case MFMailComposeResultSent:
-            message = @"Повідомлення відправлено";
-            break;
-        case MFMailComposeResultFailed:
-            message = @"Повідомлення не відправлено";
-            break;
-        default:
-            message = @"Повідомлення не відправлено";
-            break;
-    }
-    [self.picker dismissViewControllerAnimated:YES completion:NULL];
-    [HTVHelperMethods callCustomAlertWithMessage:message];
-}
-
-#pragma mark - Email
-- (void)sendEmailToRecipient
-{
-    if([MFMailComposeViewController canSendMail]){
-        self.picker = [[MFMailComposeViewController alloc] init];
-        self.picker.mailComposeDelegate = self;
-        [self.picker setToRecipients:@[EMAIL_ADDRESS]];
-        [self.picker setSubject:EMAIL_SUBJECT];
-        [self presentViewController:self.picker animated:YES completion:^{
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        }];
-    }
-    else {
-        [HTVHelperMethods callCustomAlertWithMessage:EMAIL_ERROR_MESSAGE];
     }
 }
 

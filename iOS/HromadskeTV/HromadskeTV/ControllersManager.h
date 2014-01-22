@@ -45,4 +45,6 @@
 
 - (void)showLiveViewController;
 - (void)showNewsViewController;
+
+- (void)showUserVoiceController;
 @end

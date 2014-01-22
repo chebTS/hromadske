@@ -14,6 +14,7 @@
 
 #define DEVICE_TOKEN_URL @"http://hrom.fedr.co"
 
+#define USER_VOICE_URL @"hromadsketv.uservoice.com"
 #define APP_URL @"http://itunes.apple.com/app/id774631543"
 #define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"
@@ -69,7 +70,7 @@
 #define G_PLUS_PAGE @"Google+"
 #define YOUTUBE_PAGE @"Youtube"
 #define SHARE_FRIENDS_PAGE @"Розповісти друзям"
-#define WRITE_TO_DEVELOPER_PAGE @"Написати розробнику"
+#define WRITE_TO_DEVELOPER_PAGE @"Поради та пропозиції"
 
 
 

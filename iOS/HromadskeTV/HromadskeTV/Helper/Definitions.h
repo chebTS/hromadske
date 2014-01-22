@@ -72,3 +72,14 @@
 #define WRITE_TO_DEVELOPER_PAGE @"Написати розробнику"
 
 
+
+
+
+
+#define URL_BASE                        @"http://hromadske.tv"
+#define URL_PATH_VIDEO_ALL              @"video/rss"
+#define URL_PATH_VIDEO_INVASTIGATIONS   @"slidstvo.info/rss"
+#define URL_PATH_VIDEO_H2O              @"h2o/rss"
+#define URL_PATH_VIDEO_GUESTS           @"starring/rss"
+
+

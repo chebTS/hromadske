@@ -7,6 +7,7 @@
 //
 
 #import "Video.h"
+#import <AFKissXMLRequestOperation.h>
 
 @implementation Video
 
@@ -27,6 +28,29 @@
     NSString *tail = [HTVHelperMethods yotubeTailFromString:dictionary[@"media$group"][@"media$player"][0][@"url"]];
 
     video.url = tail;
+    return video;
+}
+
++ (Video *)videoWithNode:(DDXMLElement *)node {
+    Video *video = [Video new];
+    
+    NSArray *nodes = [node children];
+    for ( DDXMLElement *_node in nodes) {
+        NSString *name = [_node name];
+        NSString *val = [_node stringValue];
+        if ([name isEqualToString:@"title"]) {
+            video.title = val;
+        } else if ([name isEqualToString:@"link"]) {
+            video.url = val;
+        } else if ([name isEqualToString:@"description"]) {
+            video.description = val;
+        } else if ([name isEqualToString:@"pubDate"]) {
+            video.date = val;
+        } else if ([name isEqualToString:@"enclosure"]) {
+            video.thumbnail = [[_node attributeForName:@"url"] stringValue];
+        }
+    }
+
     return video;
 }
 @end

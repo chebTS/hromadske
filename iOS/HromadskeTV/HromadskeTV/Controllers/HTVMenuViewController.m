@@ -89,8 +89,6 @@ typedef enum {
     if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [_tableView setSeparatorInset:UIEdgeInsetsZero];
     }
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
     
     _tableView.backgroundColor = [Utils colorFromHtmlSting:@"#F5F5F5"];
     [_tableView reloadData];

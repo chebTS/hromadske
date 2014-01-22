@@ -7,6 +7,7 @@
 //
 
 #import "Data.h"
+#import <AFKissXMLRequestOperation.h>
 
 @implementation Data
 + (Data *)sharedData {
@@ -74,4 +75,60 @@
         }
     }];
 }
+
+
+
+- (void)videoForCategory:(HTVVideoCategory)cat completion:(void(^)(NSMutableArray *result))completion {
+    NSURL *url = [NSURL URLWithString:URL_BASE];
+    NSString *path = nil;
+    switch (cat) {
+        case HTVVideoCategoryAll:
+            path = URL_PATH_VIDEO_ALL;
+            break;
+        case HTVVideoCategoryInvestigation:
+            path = URL_PATH_VIDEO_INVASTIGATIONS;
+            break;
+        case HTVVideoCategoryH2o:
+            path = URL_PATH_VIDEO_H2O;
+            break;
+        case HTVVideoCategoryGuests:
+            path = URL_PATH_VIDEO_GUESTS;
+            break;
+    }
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
+    [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [client setDefaultHeader:@"Content-type" value:@"text/plain"];
+    [client setDefaultHeader:@"Accept" value:@"text/plain"];
+    
+    NSMutableURLRequest *req = [client requestWithMethod:@"GET" path:path parameters:nil];
+    AFKissXMLRequestOperation *op = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
+        NSLog(@"%@", XMLDocument);
+        NSArray *array = [XMLDocument nodesForXPath:@"//item" error:nil];
+        NSArray *videos = [self videosWithNodes:array];
+        
+        if (completion) {
+            completion(videos);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
+        NSLog(@"%@", error);
+        NSString *_error = error;
+        if (completion) {
+            completion(nil);
+        }
+    }];
+
+    [AFKissXMLRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:@"application/rss+xml", nil]];
+    [client enqueueHTTPRequestOperation:op];
+}
+
+- (NSArray *) videosWithNodes:(NSArray *)array {
+    NSMutableArray *videos = [NSMutableArray array];
+    for(DDXMLElement* resultElement in array)
+    {
+        [videos addObject:[Video videoWithNode:resultElement]];
+    }
+    return videos;
+}
 @end
+

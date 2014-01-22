@@ -93,6 +93,7 @@
 		50DF6EA218506C8C00576DD3 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8218506C8C00576DD3 /* iTunesArtwork.png */; };
 		50DF6EA318506C8C00576DD3 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */; };
 		50DF6EA5185082E500576DD3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */; };
+		920FEA301890589600942D72 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 920FEA2F1890589600942D72 /* VideoTableViewCell.m */; };
 		92476638188DCDE700CC05B8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476637188DCDE700CC05B8 /* Utils.m */; };
 		92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */; };
 		92F96568188EF012003F93EA /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F96567188EF012003F93EA /* LiveViewController.m */; };
@@ -230,6 +231,8 @@
 		50DF6E8218506C8C00576DD3 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		920FEA2E1890589600942D72 /* VideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
+		920FEA2F1890589600942D72 /* VideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
 		92476636188DCDE700CC05B8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		92476637188DCDE700CC05B8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		92476640188DD3D800CC05B8 /* UIViewController+HTVNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTVNavigationController.h"; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				5044E8EA1887C0EF0050E304 /* VideoCollectionViewCell.m */,
 				5044E90018880C2A0050E304 /* TwitterCollectionViewCell.h */,
 				5044E90118880C2A0050E304 /* TwitterCollectionViewCell.m */,
+				920FEA2E1890589600942D72 /* VideoTableViewCell.h */,
+				920FEA2F1890589600942D72 /* VideoTableViewCell.m */,
 			);
 			name = ViewCells;
 			path = Cells;
@@ -896,6 +901,7 @@
 				5044E90518880E0F0050E304 /* Twitt.m in Sources */,
 				92F96570188F1E06003F93EA /* ControllersManager.m in Sources */,
 				92F9659318902900003F93EA /* SIMenuButton.m in Sources */,
+				920FEA301890589600942D72 /* VideoTableViewCell.m in Sources */,
 				5044E8E11887BD340050E304 /* HTVParentNativeVC.m in Sources */,
 				506870F9184E83F60024624B /* HTVWebVC.m in Sources */,
 				506870D8184E570E0024624B /* HTVParentVC.m in Sources */,

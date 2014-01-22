@@ -11,6 +11,7 @@
 #import "UIViewController+HTVNavigationController.h"
 #import "Data.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "VideoTableViewCell.h"
 
 @interface NewsViewController ()<SINavigationMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 {
@@ -78,11 +79,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     int row = indexPath.row;
     Video *video = [[self dataSource] objectAtIndex:row];
-    static NSString *ident = @"VideoCell";
+    static NSString *ident = @"VideoTableViewCell";
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident];
-    cell.textLabel.text = video.title;
-    [cell.imageView setImageWithURL:[NSURL URLWithString:video.thumbnail]
+    VideoTableViewCell *cell = (VideoTableViewCell *)[tableView dequeueReusableCellWithIdentifier:ident];
+    cell.title.text = video.title;
+    [cell.thumbnail setImageWithURL:[NSURL URLWithString:video.thumbnail]
                    placeholderImage:[UIImage imageNamed:@"Icon-40"]];
     
     return cell;
@@ -95,7 +96,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 55;
+    return 90;
 }
 
 @end

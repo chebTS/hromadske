@@ -29,11 +29,9 @@
 	// Do any additional setup after loading the view.
     [self setup];
     [self didSelectItemAtIndex:HTVVideoCategoryAll];
-}
-
-- (void) viewWillAppear:(BOOL)animated {
     [self setupView];
 }
+
 - (void) setup {
     _cache = [NSMutableArray arrayWithObjects:[NSNull null],[NSNull null],[NSNull null],[NSNull null], nil];
 

@@ -20,6 +20,8 @@
     LiveViewController *_live;
     NewsViewController *_news;
     HTVWebVC *_liveTmp;
+    
+    UINavigationController *_newsNavigation;
 }
 
 
@@ -82,6 +84,13 @@
         _live = [_storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([LiveViewController class])];
     }
     return _live;
+}
+- (UINavigationController *) newsNavigationController
+{
+    if (!_newsNavigation) {
+        _newsNavigation = [self controllerWithRoot:[self news]];
+    }
+    return _newsNavigation;
 }
 - (IIViewDeckController *) deck {
     if (!_deck) {
@@ -164,12 +173,13 @@
 }
 
 - (void)showLiveViewController {
-    [self showViewConteroller:_live];
+    [self showViewConteroller:[self live]];
 }
 
 
 - (void)showNewsViewController {
-    [self showViewConteroller:[self news]];
+    _deck.centerController = [self newsNavigationController];
+    [self closeMenu];
 }
 
 - (void) showViewConteroller:(UIViewController *)c {

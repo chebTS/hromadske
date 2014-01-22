@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Max Tymchii. All rights reserved.
 //
 
-#import "HTVMenuViewController.h"
 #import "ControllersManager.h"
 #import "UIViewController+HTVNavigationController.h"
 
@@ -108,6 +107,9 @@ typedef enum {
         case HTVMenuSectionMain:
             if (indexPath.row == HTVMenuItemNews.integerValue) {
                 [[ControllersManager sharedManager] showVideoCollectionController];
+            }
+            else if (indexPath.row == HTVMenuItemLive.integerValue) {
+                [[ControllersManager sharedManager] showLiveViewController];
             }
             else {
                 [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_mainPageItems[@(indexPath.row)][1]];
@@ -211,6 +213,8 @@ typedef enum {
             cell.textLabel.text = _otherPageItems[@(indexPath.row)][0];
             break;
     }
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:18];
+//    cell.textLabel.textColor = [Utils colorFromHtmlSting:@"#33a9dc"];
     cell.backgroundColor = [Utils colorFromHtmlSting:@"#F5F5F5"];
     return cell;
 }

@@ -42,7 +42,8 @@
 
 + (NSString *)fullYoutubeLink
 {
-    NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@", [HTVHelperMethods youtubeLink]];
+//    http://www.youtube.com/watch?v=%@&autoplay=0&ios=1
+    NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@?ios=1&autoplay=0&html5=1&controls=0&showinfo=0", [HTVHelperMethods youtubeLink]];
     return link;
 }
 

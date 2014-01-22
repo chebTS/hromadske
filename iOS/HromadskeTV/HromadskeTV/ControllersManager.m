@@ -84,7 +84,7 @@
 }
 - (IIViewDeckController *) deck {
     if (!_deck) {
-        _deck = [[IIViewDeckController alloc] initWithCenterViewController:[[UINavigationController alloc] initWithRootViewController:[self liveTmp]]
+        _deck = [[IIViewDeckController alloc] initWithCenterViewController:[self controllerWithRoot:[self live]]
                                                         leftViewController:[self menu]
                                                        rightViewController:nil];
         [_deck setLeftSize:LEFT_RIGHT_CONTROLLER_SHIFT];
@@ -106,6 +106,10 @@
 
 
 #pragma mark - Update methods
+- (void) setNewLiveUrl:(NSURL *)url {
+    [[self live] setLiveUrl:url];
+}
+
 
 - (void)showVideoCollectionController
 {
@@ -128,9 +132,7 @@
     }
     @finally {
         if (newCenterVC) {
-            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:newCenterVC];
-            _deck.centerController = navigationVC;
-            [self closeMenu];
+            [self showViewConteroller:newCenterVC];
         }
     }
 }
@@ -147,11 +149,24 @@
     @finally {
         if (newCenterVC) {
             newCenterVC.URL = [NSURL URLWithString:url];
-            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:newCenterVC];
-            _deck.centerController = navigationVC;
-            [self closeMenu];
+            [self showViewConteroller:newCenterVC];
         }
     }
+}
+
+- (void)showLiveViewController {
+    [self showViewConteroller:_live];
+}
+
+
+- (void) showViewConteroller:(UIViewController *)c {
+    _deck.centerController = [self controllerWithRoot:c];
+    [self closeMenu];
+}
+
+
+- (UINavigationController *) controllerWithRoot:(UIViewController *)c {
+    return [[UINavigationController alloc] initWithRootViewController:c];
 }
 
 

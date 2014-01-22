@@ -290,6 +290,46 @@
             </objects>
             <point key="canvasLocation" x="1040" y="32"/>
         </scene>
+        <!--Live View Controller-->
+        <scene sceneID="cyM-YF-kTk">
+            <objects>
+                <viewController storyboardIdentifier="LiveViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rWo-XC-Q2h" customClass="LiveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="09w-p7-mCA"/>
+                        <viewControllerLayoutGuide type="bottom" id="rwf-x0-wfx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xOM-zH-oBC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnb-ZD-8a6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="K4Y-6z-Q7d"/>
+                                    <constraint firstAttribute="height" constant="214" id="tnk-pW-s3B"/>
+                                </constraints>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="Bnb-ZD-8a6" firstAttribute="top" secondItem="09w-p7-mCA" secondAttribute="bottom" id="VZk-EY-kQh"/>
+                            <constraint firstItem="Bnb-ZD-8a6" firstAttribute="leading" secondItem="xOM-zH-oBC" secondAttribute="leading" id="qPe-PL-71K"/>
+                            <constraint firstAttribute="trailing" secondItem="Bnb-ZD-8a6" secondAttribute="trailing" id="sd5-60-2rn"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="_webView" destination="Bnb-ZD-8a6" id="SDp-Gf-LMU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jK-dc-4vZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="700"/>
+        </scene>
     </scenes>
     <resources>
         <image name="hromadske-logo" width="201" height="40"/>

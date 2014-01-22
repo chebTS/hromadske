@@ -26,6 +26,9 @@
 - (LiveViewController *) live;
 - (IIViewDeckController *) deck;
 
+
+- (void) setNewLiveUrl:(NSURL *)url;
+
 - (void) openMenu;
 - (void) closeMenu;
 
@@ -36,4 +39,5 @@
 - (void)showVideoCollectionController;
 - (void)showTwitterCollectionController;
 
+- (void)showLiveViewController;
 @end

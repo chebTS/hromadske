@@ -7,11 +7,12 @@
 //
 
 #import "LiveViewController.h"
-#import <MediaPlayer/MediaPlayer.h>
+#import "UIViewController+HTVNavigationController.h"
+#import "RemoteManager.h"
 
-@interface LiveViewController ()
+@interface LiveViewController () <UIWebViewDelegate>
 {
-    MPMoviePlayerController *_videoController;
+    __weak IBOutlet UIWebView *_webView;
 }
 
 @end
@@ -31,17 +32,46 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setup];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [self setupView];
+}
+
+- (void) setup {
+    self.title = ONLINE_PAGE;
+    _webView.delegate = self;
+    
+    for (id subview in _webView.subviews){
+        if ([[subview class] isSubclassOfClass: [UIScrollView class]])
+            ((UIScrollView *)subview).bounces = NO;
+    }
 }
 
 
-- (void) setup {
-    _videoController = [[MPMoviePlayerController alloc] initWithContentURL:nil];
-    _videoController.view.frame = self.view.bounds;
-    _videoController.controlStyle = MPMovieControlStyleNone;
-    _videoController.shouldAutoplay = NO;
-    _videoController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [_videoController prepareToPlay];
-    [self.view addSubview:_videoController.view];
+- (void)setLiveUrl:(NSURL *)url {
+    
+    if(![_webView.request.URL.absoluteString isEqualToString:url.absoluteString])
+    {
+        NSURLRequest *req = [NSURLRequest requestWithURL:url];
+        [_webView loadRequest:req];
+    }
+}
+
+
+
+
+
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [[RemoteManager sharedManager] showRemoteActivity];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[RemoteManager sharedManager] hideRemoteActivity];
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [[RemoteManager sharedManager] hideRemoteActivity];
 }
 
 @end

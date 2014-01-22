@@ -384,6 +384,7 @@
 				506870FD184E871F0024624B /* Changes */,
 				5044E8E81887C0EF0050E304 /* ViewCells */,
 				92F9656D188F1DC8003F93EA /* Managers */,
+				506870DE184E59100024624B /* Definitions.h */,
 				506870A0184E4FD50024624B /* HTVAppDelegate.h */,
 				506870A1184E4FD50024624B /* HTVAppDelegate.m */,
 				506870CC184E504C0024624B /* ViewControllers */,
@@ -451,7 +452,6 @@
 			children = (
 				50687102184FE4E40024624B /* HTVHud.h */,
 				50687103184FE4E40024624B /* HTVHud.m */,
-				506870DE184E59100024624B /* Definitions.h */,
 				92476636188DCDE700CC05B8 /* Utils.h */,
 				92476637188DCDE700CC05B8 /* Utils.m */,
 				50D1EFF71859260000B390CA /* HTVHelperMethods.h */,
@@ -951,8 +951,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Timophiy Kozak (4836Z36Z53)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Timophiy Kozak (4836Z36Z53)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
@@ -969,14 +969,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Fred Cox (W3QVKUX47M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fred Cox (W3QVKUX47M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Timophiy Kozak (4836Z36Z53)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Timophiy Kozak (4836Z36Z53)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = HromadskeTV;
-				PROVISIONING_PROFILE = "B74217F5-B1CF-4A32-A68C-F32C1683AAF2";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

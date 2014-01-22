@@ -58,9 +58,7 @@
 
 - (void) updateLiveStatus {
     [[Data sharedData] updateLivePathWithCompletion:^(NSString *path, BOOL isNew) {
-        if (isNew) {
-            [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:[HTVHelperMethods fullYoutubeLink]];
-        }
+        [[ControllersManager sharedManager] setNewLiveUrl:[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];
     }];
 }
 

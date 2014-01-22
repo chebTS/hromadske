@@ -10,4 +10,5 @@
 
 @interface LiveViewController : UIViewController
 
+- (void)setLiveUrl:(NSURL *)url;
 @end

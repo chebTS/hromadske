@@ -23,6 +23,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
+    [self updateToolbarItems];
 }
 
 @end

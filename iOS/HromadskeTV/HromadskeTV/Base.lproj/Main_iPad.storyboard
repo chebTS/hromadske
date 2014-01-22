@@ -290,6 +290,46 @@
             </objects>
             <point key="canvasLocation" x="2289" y="976"/>
         </scene>
+        <!--Live View Controller-->
+        <scene sceneID="nYn-Ch-W24">
+            <objects>
+                <viewController storyboardIdentifier="LiveViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iHg-iO-Efr" customClass="LiveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Zc-yw-z1C"/>
+                        <viewControllerLayoutGuide type="bottom" id="B1K-H9-JrN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4tb-wG-qPI">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scalesPageToFit="YES" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngy-gh-fn1">
+                                <rect key="frame" x="0.0" y="177" width="768" height="670"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="NqK-O8-guk"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="214" id="z6b-Lg-Ji6"/>
+                                </constraints>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="ngy-gh-fn1" firstAttribute="centerY" secondItem="4tb-wG-qPI" secondAttribute="centerY" id="2oY-IB-WKZ"/>
+                            <constraint firstItem="ngy-gh-fn1" firstAttribute="leading" secondItem="4tb-wG-qPI" secondAttribute="leading" id="DCg-0Y-LjY"/>
+                            <constraint firstAttribute="trailing" secondItem="ngy-gh-fn1" secondAttribute="trailing" id="pK4-Jo-Hdd"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="_webView" destination="ngy-gh-fn1" id="4Nt-kF-YkD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOX-4M-rpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="1256"/>
+        </scene>
     </scenes>
     <resources>
         <image name="hromadske-logo" width="201" height="40"/>

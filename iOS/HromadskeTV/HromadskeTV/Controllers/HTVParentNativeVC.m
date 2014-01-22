@@ -18,7 +18,6 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
-    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 @end

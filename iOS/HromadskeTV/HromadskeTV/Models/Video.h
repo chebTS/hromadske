@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HTVVideo : NSObject
+@interface Video : NSObject
 @property (nonatomic, strong) NSString *thumbnail;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *date;
 
-+ (HTVVideo *)initWithDictionary:(NSDictionary *)dictionary;
++ (Video *)videoWithDictionary:(NSDictionary *)dictionary;
 @end

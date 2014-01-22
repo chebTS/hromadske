@@ -81,6 +81,8 @@
 #pragma mark Delegate methods
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
+    self.menuButton.title.text = [self.items objectAtIndex:index];
+
     self.menuButton.isActive = !self.menuButton.isActive;
     [self onHandleMenuTap:nil];
     [self.delegate didSelectItemAtIndex:index];

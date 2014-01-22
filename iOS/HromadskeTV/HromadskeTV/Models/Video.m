@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Max Tymchii. All rights reserved.
 //
 
-#import "HTVVideo.h"
+#import "Video.h"
 
-@implementation HTVVideo
+@implementation Video
 
 - (id)init
 {
@@ -18,9 +18,9 @@
     return self;
 }
 
-+ (HTVVideo *)initWithDictionary:(NSDictionary *)dictionary
++ (Video *)videoWithDictionary:(NSDictionary *)dictionary
 {
-    HTVVideo *video = [HTVVideo generateInstance];
+    Video *video = [Video new];
     video.thumbnail = dictionary[@"media$group"][@"media$thumbnail"][0][@"url"];
     video.title = dictionary[@"title"][@"$t"];
     video.date = dictionary[@"updated"][@"$t"];
@@ -28,12 +28,5 @@
 
     video.url = tail;
     return video;
-}
-
-
-
-+ (HTVVideo *)generateInstance
-{
-    return [[HTVVideo alloc] init];
 }
 @end

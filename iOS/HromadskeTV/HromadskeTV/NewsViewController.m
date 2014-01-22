@@ -7,8 +7,10 @@
 //
 
 #import "NewsViewController.h"
+#import "SINavigationMenuView.h"
+#import "UIViewController+HTVNavigationController.h"
 
-@interface NewsViewController ()
+@interface NewsViewController ()<SINavigationMenuDelegate>
 
 @end
 
@@ -27,12 +29,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
+    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"Всі відео"];
+    [menu displayMenuInView:self.navigationController.view];
+    menu.items = @[@"Всі відео", @"Слідство.Інфо", @"H2O", @"Гості студії"];
+    menu.delegate = self;
+    self.navigationItem.titleView = menu;
 }
 
-- (void)didReceiveMemoryWarning
+- (void) viewWillAppear:(BOOL)animated {
+    [self setupView];
+}
+
+
+- (void)didSelectItemAtIndex:(NSUInteger)index
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"did selected item at index %d", index);
 }
 
 @end

@@ -8,6 +8,6 @@
 
 #import "HTVParentNativeVC.h"
 
-@interface HTVVideoCollectionVC : HTVParentNativeVC
+@interface YoutubeViewController : HTVParentNativeVC
 - (void)setVideos:(NSArray *)videos;
 @end

@@ -29,8 +29,8 @@
         self.title.textAlignment = NSTextAlignmentCenter;
         self.title.backgroundColor = [UIColor clearColor];
         NSDictionary *currentStyle = [[UINavigationBar appearance] titleTextAttributes];
-        self.title.textColor = currentStyle[UITextAttributeTextColor];
-        self.title.font = currentStyle[UITextAttributeFont];
+        self.title.textColor = [UIColor whiteColor];
+        self.title.font = [UIFont boldSystemFontOfSize:16];
         self.title.shadowColor = currentStyle[UITextAttributeTextShadowColor];
         NSValue *shadowOffset = currentStyle[UITextAttributeTextShadowOffset];
         self.title.shadowOffset = shadowOffset.CGSizeValue;

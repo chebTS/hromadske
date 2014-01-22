@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Max Tymchii. All rights reserved.
 //
 
-#import "HTVVideoCollectionVC.h"
-#import "HTVVideoCell.h"
-#import "HTVVideo.h"
+#import "YoutubeViewController.h"
+#import "VideoCollectionViewCell.h"
+#import "Video.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #define VIDEO_IMAGE_PLACE_HOLDER @"placeHolder"
 
-@interface HTVVideoCollectionVC ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface YoutubeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 {
     CGSize videoCellSize;
 }
@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSArray *videos;
 @end
 
-@implementation HTVVideoCollectionVC
+@implementation YoutubeViewController
 
 
 - (void)setVideos:(NSArray *)videos
@@ -35,7 +35,7 @@
     [super viewDidLoad];
     self.collection.delegate = self;
     self.collection.dataSource = self;
-    self.title = HOT_NEWS_PAGE;
+    self.title = YOUTUBE_PAGE;
     [HTVHelperMethods fetchNewDataFromYoutubeForController:self];
 	// Do any additional setup after loading the view.
 }
@@ -115,8 +115,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HTVVideoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HTVVideoCell" forIndexPath:indexPath];
-    HTVVideo *video = self.videos[indexPath.item];
+    VideoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HTVVideoCell" forIndexPath:indexPath];
+    Video *video = self.videos[indexPath.item];
     cell.title.text = video.title;
     [cell.thumbnail setImageWithURL:[NSURL URLWithString:video.thumbnail]
                    placeholderImage:[UIImage imageNamed:VIDEO_IMAGE_PLACE_HOLDER]
@@ -133,7 +133,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HTVVideo *video = self.videos[indexPath.item];
+    Video *video = self.videos[indexPath.item];
     NSLog(@"path %@", video.url);
     XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:video.url];
     [self presentMoviePlayerViewControllerAnimated:videoPlayerViewController];

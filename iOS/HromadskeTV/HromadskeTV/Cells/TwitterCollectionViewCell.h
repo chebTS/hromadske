@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HTVTwitterCell : UICollectionViewCell
+@interface TwitterCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UITextView *twitterText;
 @property (weak, nonatomic) IBOutlet UILabel *twitterInfo;
 

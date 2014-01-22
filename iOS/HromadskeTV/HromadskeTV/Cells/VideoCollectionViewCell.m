@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Max Tymchii. All rights reserved.
 //
 
-#import "HTVVideoCell.h"
+#import "VideoCollectionViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation HTVVideoCell
+@implementation VideoCollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
 {

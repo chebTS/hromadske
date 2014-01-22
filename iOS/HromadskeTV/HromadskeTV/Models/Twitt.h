@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HTVTwitt;
-@interface HTVTwitt : NSObject
+@class Twitt;
+@interface Twitt : NSObject
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *tags;
 @property (nonatomic, strong) NSString *url;
-+ (HTVTwitt *)initWithDictionary:(NSDictionary *)dictionary;
++ (Twitt *)initWithDictionary:(NSDictionary *)dictionary;
 @end

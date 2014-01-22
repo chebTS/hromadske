@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Max Tymchii. All rights reserved.
 //
 
-#import "HTVTwitterCell.h"
+#import "TwitterCollectionViewCell.h"
 
-@implementation HTVTwitterCell
+@implementation TwitterCollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
 {

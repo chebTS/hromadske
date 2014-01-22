@@ -6,19 +6,19 @@
 //  Copyright (c) 2014 Max Tymchii. All rights reserved.
 //
 
-#import "HTVTwitt.h"
+#import "Twitt.h"
 #import <STTwitter/NSDateFormatter+STTwitter.h>
 
-@implementation HTVTwitt
-+ (HTVTwitt *)initWithDictionary:(NSDictionary *)dictionary
+@implementation Twitt
++ (Twitt *)initWithDictionary:(NSDictionary *)dictionary
 {
-    HTVTwitt *twitt = [[HTVTwitt alloc] init];
+    Twitt *twitt = [[Twitt alloc] init];
     NSDateFormatter *df = [NSDateFormatter stTwitterDateFormatter];
     NSString *dateString = [dictionary valueForKey:@"created_at"];
     NSDate *date = [df dateFromString:dateString];
     twitt.date = date;
     twitt.text = dictionary[@"text"];
-    twitt.tags = [HTVTwitt tagsFromDictionary:dictionary];
+    twitt.tags = [Twitt tagsFromDictionary:dictionary];
     twitt.url = dictionary[@"entities"][@"media"][0][@"url"];
     return twitt;
 }

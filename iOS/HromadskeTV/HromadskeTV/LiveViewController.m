@@ -43,12 +43,20 @@
     self.title = ONLINE_PAGE;
     _webView.delegate = self;
     
+    UIBarButtonItem *item =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+    [item setTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = item;
+    
     for (id subview in _webView.subviews){
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])
             ((UIScrollView *)subview).bounces = NO;
     }
 }
 
+
+- (void) refresh {
+    [_webView reload];
+}
 
 - (void)setLiveUrl:(NSURL *)url {
     

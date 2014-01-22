@@ -18,6 +18,7 @@
     HTVMenuViewController *_menu;
     IIViewDeckController *_deck;
     LiveViewController *_live;
+    NewsViewController *_news;
     HTVWebVC *_liveTmp;
 }
 
@@ -65,7 +66,7 @@
 
 - (HTVMenuViewController *) menu {
     if (!_menu) {
-        _menu = [_storyboard instantiateViewControllerWithIdentifier:@"HTVCategoriesViewController"];
+        _menu = [_storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([HTVMenuViewController class])];
     }
     return _menu;
 }
@@ -95,6 +96,14 @@
     }
     
     return _deck;
+}
+
+- (NewsViewController *) news {
+    if (!_news) {
+        _news = [_storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([NewsViewController class])];
+    }
+    return _news;
+
 }
 
 - (void) openMenu {
@@ -158,6 +167,10 @@
     [self showViewConteroller:_live];
 }
 
+
+- (void)showNewsViewController {
+    [self showViewConteroller:[self news]];
+}
 
 - (void) showViewConteroller:(UIViewController *)c {
     _deck.centerController = [self controllerWithRoot:c];

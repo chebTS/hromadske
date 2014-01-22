@@ -44,8 +44,13 @@
     _webView.delegate = self;
     
     UIBarButtonItem *item =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
-    [item setTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = item;
+    
+    if (IOS_7)
+    {
+        [item setTintColor:[UIColor whiteColor]];
+    }
+
     
     for (id subview in _webView.subviews){
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])

@@ -25,7 +25,8 @@ typedef enum {
 #define SOCIAL_PAGES        @"Сторінки проекту"
 #define HTVMenuItemFacebook @(0)
 #define HTVMenuItemTwitter  @(1)
-#define HTVMenuItemGoogle   @(2)
+#define HTVMenuItemYoutube  @(2)
+#define HTVMenuItemGoogle   @(3)
 
 #define OTHER_PAGES         @"Інше"
 #define HTVMenuItemShare    @(0)
@@ -105,20 +106,22 @@ typedef enum {
         
     switch (section) {
         case HTVMenuSectionMain:
-            if (indexPath.row == HTVMenuItemNews.integerValue) {
-                [[ControllersManager sharedManager] showVideoCollectionController];
-            }
-            else if (indexPath.row == HTVMenuItemLive.integerValue) {
+            if (indexPath.row == HTVMenuItemLive.integerValue) {
                 [[ControllersManager sharedManager] showLiveViewController];
-            }
-            else {
+            } else if (indexPath.row == HTVMenuItemNews.integerValue) {
+                [[ControllersManager sharedManager] showNewsViewController];
+            } else {
                 [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_mainPageItems[@(indexPath.row)][1]];
             }
 
             break;
         case HTVMenuSectionSocial:
             [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:_socialPageItems[@(indexPath.row)][2] forKey:kGAIScreenName] build]];
-            [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
+            if (indexPath.row == HTVMenuItemYoutube.integerValue) {
+                [[ControllersManager sharedManager] showVideoCollectionController];
+            } else {
+                [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
+            }
             break;
         case HTVMenuSectionOther:
             if ([row isEqualToNumber:HTVMenuItemShare]) {
@@ -158,6 +161,7 @@ typedef enum {
     _socialPageItems = @{
                          HTVMenuItemTwitter : @[TWITTER_PAGE, TWITTER_URL,TWITTER_SCREEN],
                          HTVMenuItemFacebook : @[FB_PAGE, FB_URL, FB_SCREEN],
+                         HTVMenuItemYoutube : @[YOUTUBE_PAGE,@"",YOUTUBE_SCREEN],
                          HTVMenuItemGoogle : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN]};
     _otherPageItems = @{HTVMenuItemShare : @[SHARE_FRIENDS_PAGE],
                         HTVMenuItemFeedback : @[WRITE_TO_DEVELOPER_PAGE]};

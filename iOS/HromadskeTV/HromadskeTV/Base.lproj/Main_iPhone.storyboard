@@ -21,12 +21,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zx0-Ef-Sq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="656" y="32"/>
+            <point key="canvasLocation" x="640" y="40"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Oef-ob-SSj">
             <objects>
-                <viewController storyboardIdentifier="HTVCategoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMQ-gK-9X9" customClass="HTVMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HTVMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMQ-gK-9X9" customClass="HTVMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cEI-w2-z3x"/>
                         <viewControllerLayoutGuide type="bottom" id="06T-eF-CYD"/>
@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqI-kY-soD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="32"/>
+            <point key="canvasLocation" x="-232" y="384"/>
         </scene>
         <!--Twitter Collection-->
         <scene sceneID="O18-H2-qWM">
@@ -124,7 +124,7 @@
                                     <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HTVTwitterCell" id="QUf-V6-dza" customClass="HTVTwitterCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HTVTwitterCell" id="QUf-V6-dza" customClass="TwitterCollectionViewCell">
                                         <rect key="frame" x="5" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -184,12 +184,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1g-1X-R7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681" y="32"/>
+            <point key="canvasLocation" x="645" y="736"/>
         </scene>
-        <!--Video CollectionVC-->
+        <!--Youtube View Controller-->
         <scene sceneID="YcM-Fa-PF1">
             <objects>
-                <viewController storyboardIdentifier="HTVVideoCollectionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uen-gf-3p9" customClass="HTVVideoCollectionVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HTVVideoCollectionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uen-gf-3p9" customClass="YoutubeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R4A-JK-AnL"/>
                         <viewControllerLayoutGuide type="bottom" id="Fin-ni-XpX"/>
@@ -209,7 +209,7 @@
                                     <inset key="sectionInset" minX="30" minY="10" maxX="30" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HTVVideoCell" id="Ir9-A7-el8" customClass="HTVVideoCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HTVVideoCell" id="Ir9-A7-el8" customClass="VideoCollectionViewCell">
                                         <rect key="frame" x="30" y="10" width="240" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -328,7 +328,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jK-dc-4vZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="700"/>
+            <point key="canvasLocation" x="156" y="40"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="QAu-p7-wj0">
+            <objects>
+                <viewController storyboardIdentifier="NewsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qRy-qD-A6f" customClass="NewsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i2y-nO-lIe"/>
+                        <viewControllerLayoutGuide type="bottom" id="bdE-Qv-S97"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u0b-1c-emj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlR-Te-dPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="156" y="736"/>
         </scene>
     </scenes>
     <resources>

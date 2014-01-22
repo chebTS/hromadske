@@ -12,8 +12,11 @@
 #import "IIViewDeckController.h"
 #import "LiveViewController.h"
 #import "HTVMenuViewController.h"
+#import "NewsViewController.h"
+
+
 #import "HTVWebVC.h"
-#import "HTVVideoCollectionVC.h"
+#import "YoutubeViewController.h"
 #import "HTVTwitterCollection.h"
 
 @interface ControllersManager : NSObject
@@ -25,6 +28,7 @@
 - (HTVMenuViewController *) menu;
 - (LiveViewController *) live;
 - (IIViewDeckController *) deck;
+- (NewsViewController *) news;
 
 
 - (void) setNewLiveUrl:(NSURL *)url;
@@ -40,4 +44,5 @@
 - (void)showTwitterCollectionController;
 
 - (void)showLiveViewController;
+- (void)showNewsViewController;
 @end

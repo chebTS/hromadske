@@ -51,7 +51,7 @@
         negativeSpacerLeft.width = -5;// it was 0 in iOS 6
     }
     else {
-        negativeSpacerLeft.width = 0;
+        negativeSpacerLeft.width = 5;
     }
     
     

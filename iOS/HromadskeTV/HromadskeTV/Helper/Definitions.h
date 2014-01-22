@@ -57,6 +57,7 @@
 #define TWITTER_SCREEN @"TWITTER"
 #define FB_SCREEN @"Facebook"
 #define G_PLUS_SCREEN @"G+"
+#define YOUTUBE_SCREEN @"Youtube"
 #define SHARE_SCREEN @"Share"
 #define EMAIL_SCREEN @"Email"
 
@@ -66,6 +67,7 @@
 #define TWITTER_PAGE @"Twitter"
 #define FB_PAGE @"Facebook"
 #define G_PLUS_PAGE @"Google+"
+#define YOUTUBE_PAGE @"Youtube"
 #define SHARE_FRIENDS_PAGE @"Розповісти друзям"
 #define WRITE_TO_DEVELOPER_PAGE @"Написати розробнику"
 

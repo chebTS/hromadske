@@ -7,8 +7,8 @@
 //
 
 #import "HTVTwitterCollection.h"
-#import "HTVTwitterCell.h"
-#import "HTVTwitt.h"
+#import "TwitterCollectionViewCell.h"
+#import "Twitt.h"
 #import "HTVWebVC.h"
 
 @interface HTVTwitterCollection ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextViewDelegate>
@@ -196,9 +196,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HTVTwitterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HTVTwitterCell"
+    TwitterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HTVTwitterCell"
                                                                      forIndexPath:indexPath];
-    HTVTwitt *twitt = self.twittes[indexPath.row];
+    Twitt *twitt = self.twittes[indexPath.row];
     cell.twitterText.text = twitt.text;
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH:mm dd/MM/yy"];
@@ -213,7 +213,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HTVTwitt *twitt = self.twittes[indexPath.row];
+    Twitt *twitt = self.twittes[indexPath.row];
     if (twitt.url) {
         SVModalWebViewController *newCenterVC = [[SVModalWebViewController alloc] initWithAddress:twitt.url];
         [self presentViewController:newCenterVC animated:YES completion:NULL];

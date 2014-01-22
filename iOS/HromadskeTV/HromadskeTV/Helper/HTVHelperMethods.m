@@ -7,9 +7,9 @@
 //
 
 #import "HTVHelperMethods.h"
-#import "HTVVideoCollectionVC.h"
-#import "HTVVideo.h"
-#import "HTVTwitt.h"
+#import "YoutubeViewController.h"
+#import "Video.h"
+#import "Twitt.h"
 
 #define YOUTUBE_KEY @"youtube"
 @implementation HTVHelperMethods
@@ -47,7 +47,7 @@
     return link;
 }
 
-+ (void)fetchNewDataFromYoutubeForController:(HTVVideoCollectionVC *)controller
++ (void)fetchNewDataFromYoutubeForController:(YoutubeViewController *)controller
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [[HTVHud sharedManager] startHUD];
@@ -82,7 +82,7 @@
 {
     NSMutableArray *videos = @[].mutableCopy;
     for (NSDictionary *item in dictionary) {
-        [videos addObject:[HTVVideo initWithDictionary:item]];
+        [videos addObject:[Video videoWithDictionary:item]];
     }
     return videos;
 }
@@ -91,7 +91,7 @@
 {
     NSMutableArray *twittes = @[].mutableCopy;
     for (NSDictionary *twittDict in array) {
-        [twittes addObject:[HTVTwitt initWithDictionary:twittDict]];
+        [twittes addObject:[Twitt initWithDictionary:twittDict]];
     }
     return twittes;
 }

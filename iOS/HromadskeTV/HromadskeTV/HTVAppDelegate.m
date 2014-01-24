@@ -11,6 +11,7 @@
 #import "ControllersManager.h"
 #import "Data.h"
 #import "RemoteManager.h"
+#import "Harpy.h"
 
 #import "HTVTwitterCollection.h"
 
@@ -50,6 +51,14 @@
 #pragma mark - Stuff
 - (void)initAnalytics
 {
+    [[Harpy sharedInstance] setAppID:@"774631543"];
+    [[Harpy sharedInstance] setAppName:@"HromadskeTV"];
+    [[Harpy sharedInstance] setAlertType:HarpyAlertTypeOption];
+    [[Harpy sharedInstance] setForceLanguageLocalization:HarpyLanguageRussian];
+    [[Harpy sharedInstance] checkVersionDaily];
+    
+    
+    
     UVConfig *config = [UVConfig configWithSite:USER_VOICE_URL];
     [UserVoice initialize:config];
 

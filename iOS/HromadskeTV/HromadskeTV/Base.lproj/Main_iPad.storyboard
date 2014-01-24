@@ -26,7 +26,7 @@
         <!--Menu View Controller-->
         <scene sceneID="fDP-AD-J04">
             <objects>
-                <viewController storyboardIdentifier="HTVMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gn1-Sr-cV4" customClass="HTVMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gn1-Sr-cV4" customClass="MenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DXr-hn-HOn"/>
                         <viewControllerLayoutGuide type="bottom" id="kmY-dq-x9c"/>
@@ -420,6 +420,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AoZ-7u-FJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1228" y="1162"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Ns8-WQ-gl4">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T7D-F6-iu9" customClass="AboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oCQ-Rf-ij9"/>
+                        <viewControllerLayoutGuide type="bottom" id="0wO-uB-kEO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4JM-1m-td9">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjX-LZ-uQ7">
+                                <rect key="frame" x="224" y="0.0" width="320" height="351"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3n-o5-Cov">
+                                <rect key="frame" x="255" y="351" width="258" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99215692280000001" green="0.58431375029999999" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Допомогти Громадському">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleHelp:" destination="T7D-F6-iu9" eventType="touchUpInside" id="G5g-uU-Lz2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGb-Jt-Ek8">
+                                <rect key="frame" x="271" y="409" width="226" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Розповісти про додаток">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleShare:" destination="T7D-F6-iu9" eventType="touchUpInside" id="sdl-1I-kq8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="DjX-LZ-uQ7" secondAttribute="centerX" id="FeW-O4-HDJ"/>
+                            <constraint firstAttribute="centerX" secondItem="n3n-o5-Cov" secondAttribute="centerX" id="Jp1-O6-Vzd"/>
+                            <constraint firstAttribute="centerX" secondItem="UGb-Jt-Ek8" secondAttribute="centerX" id="z8A-ZA-RrZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="_webView" destination="DjX-LZ-uQ7" id="2ee-Za-8dx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNK-Re-ASS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="642" y="2390"/>
         </scene>
     </scenes>
     <resources>

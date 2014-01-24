@@ -13,7 +13,6 @@
 #import "HTVWebVC.h"
 #import "ControllersManager.h"
 #import "RemoteManager.h"
-#import "Data.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface NewsViewController ()<SINavigationMenuDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -39,9 +38,9 @@
     _cache = [NSMutableArray arrayWithObjects:[NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null], nil];
 
     CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
-    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"Гарячі відео"];
+    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:[NewsViewController categories][0]];
     [menu displayMenuInView:self.navigationController.view];
-    menu.items = @[@"Гарячі відео", @"Відеоновини", @"Слідство.Інфо", @"H2O", @"Гості студії"];
+    menu.items = [NewsViewController categories];
     menu.delegate = self;
     self.navigationItem.titleView = menu;
     
@@ -61,6 +60,10 @@
 {
     HTVVideoCategory cat = _currentCategory = index;
     
+    if ([_delegate respondsToSelector:@selector(newsViewController:didChangeItem:)]) {
+        [_delegate newsViewController:self didChangeItem:_currentCategory];
+    }
+
     if (_cache[_currentCategory] == [NSNull null]) {
         [[RemoteManager sharedManager] showRemoteActivity];
     } else {
@@ -133,6 +136,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 90;
+}
+
+
++ (NSArray *) categories {
+    return @[@"Гарячі відео", @"Відеоновини", @"Слідство.Інфо", @"H2O", @"Гості студії"];
+}
++ (NSString *) nameForCategory:(HTVVideoCategory)cat {
+    NSArray *ar = [NewsViewController categories];
+    return ar[cat];
 }
 
 @end

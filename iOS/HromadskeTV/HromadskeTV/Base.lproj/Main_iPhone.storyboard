@@ -26,7 +26,7 @@
         <!--Menu View Controller-->
         <scene sceneID="Oef-ob-SSj">
             <objects>
-                <viewController storyboardIdentifier="HTVMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMQ-gK-9X9" customClass="HTVMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tMQ-gK-9X9" customClass="MenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cEI-w2-z3x"/>
                         <viewControllerLayoutGuide type="bottom" id="06T-eF-CYD"/>
@@ -189,6 +189,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1g-1X-R7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="645" y="736"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="iW9-ZJ-ANl">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pby-4p-pQm" customClass="AboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hQ3-mV-sl4"/>
+                        <viewControllerLayoutGuide type="bottom" id="APM-Vt-0Eq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HZI-T1-liq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej1-dd-j5f">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="351"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAH-qZ-U6R">
+                                <rect key="frame" x="31" y="351" width="258" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99215692280000001" green="0.58431375029999999" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Допомогти Громадському">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleHelp:" destination="pby-4p-pQm" eventType="touchUpInside" id="1il-GE-YJM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-po-bbC">
+                                <rect key="frame" x="47" y="409" width="226" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Розповісти про додаток">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleShare:" destination="pby-4p-pQm" eventType="touchUpInside" id="uvh-r7-WGH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="IvS-po-bbC" secondAttribute="centerX" id="hk2-Jt-sp0"/>
+                            <constraint firstAttribute="centerX" secondItem="ej1-dd-j5f" secondAttribute="centerX" id="r3T-Z1-Qds"/>
+                            <constraint firstAttribute="centerX" secondItem="uAH-qZ-U6R" secondAttribute="centerX" id="sjD-3P-RYp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="_webView" destination="ej1-dd-j5f" id="lZ9-Ya-NtR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="swb-9W-weH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="742"/>
         </scene>
         <!--Youtube View Controller-->
         <scene sceneID="YcM-Fa-PF1">
@@ -359,7 +416,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apW-zN-TpN">
-                                                    <rect key="frame" x="121" y="8" width="187" height="56"/>
+                                                    <rect key="frame" x="121" y="8" width="158" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

@@ -8,6 +8,7 @@
 
 #import "ControllersManager.h"
 #import "UIViewController+HTVNavigationController.h"
+#import "NewsViewController.h"
 
 typedef enum {
     HTVMenuSectionMain,
@@ -35,55 +36,26 @@ typedef enum {
 
 
 
-@interface HTVMenuViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+@interface MenuViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
     NSDictionary *_mainPageItems;
     NSDictionary *_socialPageItems;
     NSDictionary *_otherPageItems;
+    
+    NSString *_newsCategory;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) REActivityViewController *activityVC;
-@property (nonatomic, strong) UIPopoverController *popoverVC;
-@property (nonatomic, strong) MFMailComposeViewController *picker;
+
 @end
 
-@implementation HTVMenuViewController
-
-- (REActivityViewController *)activityVC
-{
-    if (!_activityVC) {
-        REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
-        RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
-        REVKActivity *vkActivity = [[REVKActivity alloc] initWithClientId:VK_API_KEY];
-        REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
-        REMailActivity *mailActivity = [[REMailActivity alloc] init];
-        REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
-        REKipptActivity *kipptActivity = [[REKipptActivity alloc] init];
-        
-        
-        // Compile activities into an array, we will pass that array to
-        // REActivityViewController on the next step
-        //
-        NSArray *activities = @[facebookActivity, twitterActivity, vkActivity,
-                                messageActivity, mailActivity,  instapaperActivity,
-                                kipptActivity];
-        
-        // Create REActivityViewController controller and assign data source
-        //
-        _activityVC = [[REActivityViewController alloc] initWithViewController:self activities:activities];
-        _activityVC.userInfo = @{
-                                 @"text":[NSString stringWithFormat:@"Я дивлюсь HromadskeTV через цей додаток %@ #HromadskeTV", APP_URL]
-                                 };
-    }
-    
-    return _activityVC;
-}
+@implementation MenuViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupData];
     [self setupView];
+    _newsCategory = [NewsViewController nameForCategory:HTVVideoCategoryHot];
 }
 
 - (void)setupView {
@@ -110,19 +82,19 @@ typedef enum {
             } else if (indexPath.row == HTVMenuItemNews.integerValue) {
                 [[ControllersManager sharedManager] showNewsViewController];
             } else {
-                [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_mainPageItems[@(indexPath.row)][1]];
+                [[ControllersManager sharedManager] showAboutViewController];
             }
 
             break;
         case HTVMenuSectionSocial:
             [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:_socialPageItems[@(indexPath.row)][2] forKey:kGAIScreenName] build]];
-            [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
+            [[ControllersManager sharedManager] showWebViewControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
             break;
         case HTVMenuSectionOther:
             if ([row isEqualToNumber:HTVMenuItemShare]) {
                 [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:SHARE_SCREEN
                                                                                               forKey:kGAIScreenName] build]];
-                [self showSharing];
+                [[ControllersManager sharedManager] showSharing];
             }
             else if ([row isEqualToNumber:HTVMenuItemIdeas]) {
                 [[ControllersManager sharedManager] showUserVoiceController];
@@ -203,16 +175,20 @@ typedef enum {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SimpleCell"
                                                             forIndexPath:indexPath];
     HTVMenuSection _section = indexPath.section;
-
+    int row = indexPath.row;
     switch (_section) {
         case HTVMenuSectionMain:
-            cell.textLabel.text = _mainPageItems[@(indexPath.row)][0];
+            if (row == HTVMenuItemNews.intValue) {
+                cell.textLabel.text = _newsCategory;
+            } else {
+                cell.textLabel.text = _mainPageItems[@(row)][0];
+            }
             break;
         case HTVMenuSectionSocial:
-            cell.textLabel.text = _socialPageItems[@(indexPath.row)][0];
+            cell.textLabel.text = _socialPageItems[@(row)][0];
             break;
         case HTVMenuSectionOther:
-            cell.textLabel.text = _otherPageItems[@(indexPath.row)][0];
+            cell.textLabel.text = _otherPageItems[@(row)][0];
             break;
     }
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:18];
@@ -222,29 +198,10 @@ typedef enum {
 }
 
 
-#pragma mark - Sharing
-- (void)showSharing
-{
-    if (IS_IPHONE) {
-        [self.viewDeckController closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
-            if (success) {
-                [self.activityVC presentFromRootViewController];
-            }
-        }];
-    }
-    else {
-        self.popoverVC = [[UIPopoverController alloc] initWithContentViewController:self.activityVC];
-        self.activityVC.presentingPopoverController = self.popoverVC;
-        [self.viewDeckController closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
-            if (success) {
-                CGFloat shift = 48;
-                if (IOS_7) {
-                    shift = 68;
-                }
-                [self.popoverVC presentPopoverFromRect:CGRectMake(0, shift, 1, 1) inView:self.viewDeckController.centerController.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-            }
-        }];
-    }
+#pragma mark - NewsViewControllerDelagate
+- (void) newsViewController:(NewsViewController *)vc didChangeItem:(HTVVideoCategory)category {
+    _newsCategory = [NewsViewController nameForCategory:category];
+    [_tableView reloadData];
 }
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "ControllersManager.h"
-
+#import "AboutViewController.h"
+#import "REActivityViewController.h"
 
 #import "UIViewController+HTVNavigationController.h"
 
@@ -15,14 +16,16 @@
 @interface ControllersManager()<IIViewDeckControllerDelegate>
 {
     UIStoryboard *_storyboard;
-    HTVMenuViewController *_menu;
+    MenuViewController *_menu;
     IIViewDeckController *_deck;
     LiveViewController *_live;
     NewsViewController *_news;
     HTVWebVC *_liveTmp;
+    REActivityViewController *_sharing;
     
     UINavigationController *_newsNavigation;
 }
+@property (nonatomic,strong) UIPopoverController *pop;
 
 
 @end
@@ -66,9 +69,9 @@
     return _storyboard;
 }
 
-- (HTVMenuViewController *) menu {
+- (MenuViewController *) menu {
     if (!_menu) {
-        _menu = [_storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([HTVMenuViewController class])];
+        _menu = [_storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([MenuViewController class])];
     }
     return _menu;
 }
@@ -110,9 +113,15 @@
 - (NewsViewController *) news {
     if (!_news) {
         _news = [_storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([NewsViewController class])];
+        _news.delegate = [self menu];
     }
     return _news;
 
+}
+
+#pragma mark - Update methods
+- (void) setNewLiveUrl:(NSURL *)url {
+    [[self live] setLiveUrl:url];
 }
 
 - (void) openMenu {
@@ -122,12 +131,27 @@
     [_deck closeLeftViewAnimated:YES];
 }
 
-
-#pragma mark - Update methods
-- (void) setNewLiveUrl:(NSURL *)url {
-    [[self live] setLiveUrl:url];
+- (UINavigationController *) controllerWithRoot:(UIViewController *)c {
+    return [[UINavigationController alloc] initWithRootViewController:c];
 }
 
+
+
+#pragma mark - SHOW
+
+- (void)showLiveViewController {
+    [self showViewController:[self live]];
+}
+
+
+- (void)showNewsViewController {
+    _deck.centerController = [self newsNavigationController];
+    [self closeMenu];
+}
+
+- (void)showAboutViewController {
+    [self showViewControllerWithIdentifier:NSStringFromClass([AboutViewController class])];
+}
 
 - (void)showVideoCollectionController
 {
@@ -143,7 +167,7 @@
 {
     UIViewController *newCenterVC = nil;
     @try {
-        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        newCenterVC = [[self storyboard] instantiateViewControllerWithIdentifier:identifier];
     }
     @catch (NSException *exception) {
         return;
@@ -155,11 +179,11 @@
     }
 }
 
-- (void)pushToCenterDeckControllerWithURL:(NSString *)url
+- (void)showWebViewControllerWithURL:(NSString *)url
 {
     HTVWebVC *newCenterVC = nil;
     @try {
-        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVWebVC"];
+        newCenterVC = [[self storyboard] instantiateViewControllerWithIdentifier:@"HTVWebVC"];
     }
     @catch (NSException *exception) {
         return;
@@ -170,16 +194,6 @@
             [self showViewController:newCenterVC];
         }
     }
-}
-
-- (void)showLiveViewController {
-    [self showViewController:[self live]];
-}
-
-
-- (void)showNewsViewController {
-    _deck.centerController = [self newsNavigationController];
-    [self closeMenu];
 }
 
 - (void)showViewController:(UIViewController *)c {
@@ -196,9 +210,55 @@
 }
 
 
-- (UINavigationController *) controllerWithRoot:(UIViewController *)c {
-    return [[UINavigationController alloc] initWithRootViewController:c];
+
+#pragma mark - Sharing
+- (void)showSharing
+{
+    if (IS_IPHONE) {
+        [self closeMenu];
+        [[self sharing] presentFromRootViewController];
+    }
+    else {
+        _pop = [[UIPopoverController alloc] initWithContentViewController:[self sharing]];
+        [self sharing].presentingPopoverController = _pop;
+        [[self deck] closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
+            if (success) {
+                CGFloat shift = 48;
+                if (IOS_7) {
+                    shift = 68;
+                }
+                [_pop presentPopoverFromRect:CGRectMake(0, shift, 1, 1) inView:_deck.centerController.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            }
+        }];
+    }
 }
+- (REActivityViewController *)sharing
+{
+    if (!_sharing) {
+        REFacebookActivity *facebookActivity = [[REFacebookActivity alloc] init];
+        RETwitterActivity *twitterActivity = [[RETwitterActivity alloc] init];
+        REVKActivity *vkActivity = [[REVKActivity alloc] initWithClientId:VK_API_KEY];
+        REMessageActivity *messageActivity = [[REMessageActivity alloc] init];
+        REMailActivity *mailActivity = [[REMailActivity alloc] init];
+//        REInstapaperActivity *instapaperActivity = [[REInstapaperActivity alloc] init];
+//        REKipptActivity *kipptActivity = [[REKipptActivity alloc] init];
+        
+        
+        // Compile activities into an array, we will pass that array to
+        // REActivityViewController on the next step
+        //
+        NSArray *activities = @[facebookActivity, twitterActivity, vkActivity,
+                                messageActivity, mailActivity];
+        
+        // Create REActivityViewController controller and assign data source
+        //
+        _sharing = [[REActivityViewController alloc] initWithViewController:[self deck] activities:activities];
+        _sharing.userInfo = @{ @"text":[NSString stringWithFormat:@"Я дивлюсь HromadskeTV через цей додаток %@ #HromadskeTV", APP_URL] };
+    }
+    
+    return _sharing;
+}
+
 
 
 #pragma mark - IIViewDeckControllerDelegate

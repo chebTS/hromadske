@@ -57,7 +57,7 @@
 		506870C0184E4FD50024624B /* HromadskeTVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870BF184E4FD50024624B /* HromadskeTVTests.m */; };
 		506870D8184E570E0024624B /* HTVParentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870D7184E570E0024624B /* HTVParentVC.m */; };
 		506870DF184E59100024624B /* Definitions.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870DE184E59100024624B /* Definitions.h */; };
-		506870EB184E68B30024624B /* HTVMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870EA184E68B30024624B /* HTVMenuViewController.m */; };
+		506870EB184E68B30024624B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870EA184E68B30024624B /* MenuViewController.m */; };
 		506870F9184E83F60024624B /* HTVWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870F8184E83F60024624B /* HTVWebVC.m */; };
 		50687100184E872D0024624B /* SVWebViewChanges.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870FE184E872D0024624B /* SVWebViewChanges.h */; };
 		50687101184E872D0024624B /* SVWebViewChanges.m in Resources */ = {isa = PBXBuildFile; fileRef = 506870FF184E872D0024624B /* SVWebViewChanges.m */; };
@@ -99,6 +99,8 @@
 		921D1EEC1892CCB000B92101 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE91892CCB000B92101 /* XPathQuery.m */; };
 		92476638188DCDE700CC05B8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476637188DCDE700CC05B8 /* Utils.m */; };
 		92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */; };
+		92DC63F01892EDF900ADC2F7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 92DC63EF1892EDF900ADC2F7 /* about.html */; };
+		92DC63F41892EE3500ADC2F7 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DC63F31892EE3500ADC2F7 /* AboutViewController.m */; };
 		92F96568188EF012003F93EA /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F96567188EF012003F93EA /* LiveViewController.m */; };
 		92F9656A188EF0D6003F93EA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F96569188EF0D6003F93EA /* MediaPlayer.framework */; };
 		92F96570188F1E06003F93EA /* ControllersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F9656F188F1E06003F93EA /* ControllersManager.m */; };
@@ -194,8 +196,8 @@
 		506870D6184E570E0024624B /* HTVParentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVParentVC.h; path = Controllers/HTVParentVC.h; sourceTree = "<group>"; };
 		506870D7184E570E0024624B /* HTVParentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVParentVC.m; path = Controllers/HTVParentVC.m; sourceTree = "<group>"; };
 		506870DE184E59100024624B /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Definitions.h; path = Helper/Definitions.h; sourceTree = "<group>"; };
-		506870E9184E68B30024624B /* HTVMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVMenuViewController.h; path = Controllers/HTVMenuViewController.h; sourceTree = "<group>"; };
-		506870EA184E68B30024624B /* HTVMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVMenuViewController.m; path = Controllers/HTVMenuViewController.m; sourceTree = "<group>"; };
+		506870E9184E68B30024624B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = Controllers/MenuViewController.h; sourceTree = "<group>"; };
+		506870EA184E68B30024624B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = Controllers/MenuViewController.m; sourceTree = "<group>"; };
 		506870F7184E83F60024624B /* HTVWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVWebVC.h; path = Controllers/HTVWebVC.h; sourceTree = "<group>"; };
 		506870F8184E83F60024624B /* HTVWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVWebVC.m; path = Controllers/HTVWebVC.m; sourceTree = "<group>"; };
 		506870FE184E872D0024624B /* SVWebViewChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVWebViewChanges.h; path = Changes/SVWebViewChanges.h; sourceTree = "<group>"; };
@@ -246,6 +248,9 @@
 		92476637188DCDE700CC05B8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		92476640188DD3D800CC05B8 /* UIViewController+HTVNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTVNavigationController.h"; sourceTree = "<group>"; };
 		92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTVNavigationController.m"; sourceTree = "<group>"; };
+		92DC63EF1892EDF900ADC2F7 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		92DC63F21892EE3500ADC2F7 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		92DC63F31892EE3500ADC2F7 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		92F96566188EF012003F93EA /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
 		92F96567188EF012003F93EA /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
 		92F96569188EF0D6003F93EA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -481,6 +486,7 @@
 				92F96564188EEFBE003F93EA /* LiveViewContoller */,
 				92F9657A189026BA003F93EA /* NewsViewController */,
 				92F9659D18903524003F93EA /* YoutubeViewConteroller */,
+				92DC63F11892EE0000ADC2F7 /* AboutViewConteroller */,
 				506870D6184E570E0024624B /* HTVParentVC.h */,
 				506870D7184E570E0024624B /* HTVParentVC.m */,
 				5044E8DF1887BD340050E304 /* HTVParentNativeVC.h */,
@@ -633,6 +639,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		92DC63F11892EE0000ADC2F7 /* AboutViewConteroller */ = {
+			isa = PBXGroup;
+			children = (
+				92DC63EF1892EDF900ADC2F7 /* about.html */,
+				92DC63F21892EE3500ADC2F7 /* AboutViewController.h */,
+				92DC63F31892EE3500ADC2F7 /* AboutViewController.m */,
+			);
+			name = AboutViewConteroller;
+			sourceTree = "<group>";
+		};
 		92F96564188EEFBE003F93EA /* LiveViewContoller */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,8 +661,8 @@
 		92F96565188EEFD0003F93EA /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
-				506870E9184E68B30024624B /* HTVMenuViewController.h */,
-				506870EA184E68B30024624B /* HTVMenuViewController.m */,
+				506870E9184E68B30024624B /* MenuViewController.h */,
+				506870EA184E68B30024624B /* MenuViewController.m */,
 			);
 			name = MenuViewController;
 			sourceTree = "<group>";
@@ -766,7 +782,7 @@
 				ORGANIZATIONNAME = "Max Tymchii";
 				TargetAttributes = {
 					5068708D184E4FD50024624B = {
-						DevelopmentTeam = W3QVKUX47M;
+						DevelopmentTeam = KLU94V4U4X;
 					};
 					506870B1184E4FD50024624B = {
 						TestTargetID = 5068708D184E4FD50024624B;
@@ -807,6 +823,7 @@
 				5044E92518887B7F0050E304 /* Icon-72@2x.png in Resources */,
 				5044E93018887B7F0050E304 /* logo.png in Resources */,
 				506870DF184E59100024624B /* Definitions.h in Resources */,
+				92DC63F01892EDF900ADC2F7 /* about.html in Resources */,
 				92F965991890290A003F93EA /* arrow_down1.png in Resources */,
 				5044E92718887B7F0050E304 /* Icon-76@2x.png in Resources */,
 				50DF6E4E18506B5A00576DD3 /* landscape-io6.png in Resources */,
@@ -935,7 +952,8 @@
 				92F9659218902900003F93EA /* SICellSelection.m in Sources */,
 				92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */,
 				92F9659018902900003F93EA /* SIMenuTable.m in Sources */,
-				506870EB184E68B30024624B /* HTVMenuViewController.m in Sources */,
+				92DC63F41892EE3500ADC2F7 /* AboutViewController.m in Sources */,
+				506870EB184E68B30024624B /* MenuViewController.m in Sources */,
 				92F9659118902900003F93EA /* SIMenuCell.m in Sources */,
 				92F96573188F27A3003F93EA /* Data.m in Sources */,
 				5068709E184E4FD50024624B /* main.m in Sources */,
@@ -1079,8 +1097,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Timophiy Kozak (4836Z36Z53)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Timophiy Kozak (4836Z36Z53)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
@@ -1097,8 +1115,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Timophiy Kozak (4836Z36Z53)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Timophiy Kozak (4836Z36Z53)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";

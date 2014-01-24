@@ -11,7 +11,7 @@
 //controllers
 #import "IIViewDeckController.h"
 #import "LiveViewController.h"
-#import "HTVMenuViewController.h"
+#import "MenuViewController.h"
 #import "NewsViewController.h"
 
 
@@ -25,7 +25,7 @@
 
 + (ControllersManager *) sharedManager;
 
-- (HTVMenuViewController *) menu;
+- (MenuViewController *) menu;
 - (LiveViewController *) live;
 - (IIViewDeckController *) deck;
 - (NewsViewController *) news;
@@ -39,12 +39,14 @@
 - (UIStoryboard *)storyboard;
 
 
-- (void)pushToCenterDeckControllerWithURL:(NSString *)url;
+- (void)showWebViewControllerWithURL:(NSString *)url;
 - (void)showVideoCollectionController;
 - (void)showTwitterCollectionController;
 
 - (void)showLiveViewController;
 - (void)showNewsViewController;
+- (void)showAboutViewController;
+- (void)showSharing;
 
 - (void)showUserVoiceController;
 - (void)showUserVoiceFeedbackController;

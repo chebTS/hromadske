@@ -15,7 +15,7 @@
 #define DEVICE_TOKEN_URL @"http://hrom.fedr.co"
 
 #define USER_VOICE_URL @"hromadsketv.uservoice.com"
-#define APP_URL @"http://itunes.apple.com/app/id774631543"
+#define APP_URL @"http://appstore.com/fredcox/hromadsketv"
 #define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"
 #define END_SPINNER @"End spinner"
@@ -84,5 +84,5 @@
 #define URL_PATH_VIDEO_GUESTS           @"starring/rss"
 
 
-#define URL_HROMADSKE_YOUTUBE            @"http://www.youtube.com/user/HromadskeTV/featured"
-
+#define URL_HROMADSKE_YOUTUBE           @"http://www.youtube.com/user/HromadskeTV/featured"
+#define URL_HROMADSKE_HELP              @"http://hromadske.tv/donate?"

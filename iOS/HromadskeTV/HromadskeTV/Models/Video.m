@@ -45,7 +45,7 @@
         } else if ([name isEqualToString:@"description"]) {
             video.description = val;
         } else if ([name isEqualToString:@"pubDate"]) {
-            video.date = val;
+            video.date = [Utils dateFromString:val withFormat:@"ccc, d LLL yyyy hh:mm:ss Z"];
         } else if ([name isEqualToString:@"enclosure"]) {
             video.thumbnail = [[_node attributeForName:@"url"] stringValue];
         }

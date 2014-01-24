@@ -81,8 +81,11 @@
 
     VideoTableViewCell *cell = (VideoTableViewCell *)[tableView dequeueReusableCellWithIdentifier:ident];
     cell.title.text = video.title;
+    cell.date.text = [Utils stringHumanRecognizableFromDate:video.date];
     [cell.thumbnail setImageWithURL:[NSURL URLWithString:video.thumbnail]
-                   placeholderImage:[UIImage imageNamed:@"Icon-40"]];
+                   placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
+    [cell setup];
+    
     
     return cell;
 }

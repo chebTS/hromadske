@@ -47,4 +47,5 @@
 - (void)showNewsViewController;
 
 - (void)showUserVoiceController;
+- (void)showUserVoiceFeedbackController;
 @end

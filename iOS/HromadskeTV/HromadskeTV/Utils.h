@@ -28,7 +28,7 @@
 + (NSString *) timeToEventHumanRecognizable:(NSDate *)eventDate eventName:(NSString *)name;
 + (NSString *) timeShortToEventHumanRecognizable:(NSDate *)eventDate;
 + (NSString *) timeExactHumanRecognizible:(NSDate *)eventDate;
-+ (NSString *) timeToDateShortHumanRecognizable:(NSDate *)eventDate;
++ (NSString *) stringHumanRecognizableFromDate:(NSDate *)eventDate;
 
 + (UIImage*)imageByCropping:(UIImage *)imageToCrop toRect:(CGRect)rect;
 + (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)targetSize;
@@ -48,4 +48,6 @@
 
 +(void) dimmScreen:(BOOL) yes;
 +(BOOL) isSlowDevice;
+
++ (void) updateFrameForLabel:(UILabel *)detailTextLabel;
 @end

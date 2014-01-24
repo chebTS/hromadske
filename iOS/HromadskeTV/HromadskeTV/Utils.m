@@ -12,14 +12,15 @@
 #import <QuartzCore/QuartzCore.h>
 #import <sys/utsname.h>
 @implementation Utils
-static NSDateFormatter *__df = nil;
-
 
 #pragma mark - Dates
 + (NSDateFormatter *)df
 {
-    if (__df == nil)
+    static NSDateFormatter *__df = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         __df = [[NSDateFormatter alloc] init];
+    });
     
     return __df;
 }
@@ -38,12 +39,14 @@ static NSDateFormatter *__df = nil;
     
     return [NSString stringWithFormat:@"%@:%@",min,sec];
 }
+
 + (NSString *) stringFromDate:(NSDate *)date withFormat:(NSString *)format
 {
     [[Utils df] setDateFormat:format];
     NSString *dateFromString = [[Utils df] stringFromDate:date];
     return dateFromString;
 }
+
 + (NSDate *) dateFromString:(NSString *)string withFormat:(NSString *)format
 {
     [[Utils df] setDateFormat:format];
@@ -168,15 +171,13 @@ static NSDateFormatter *__df = nil;
 		}	
 	}
 }
-+ (NSString *) timeToDateShortHumanRecognizable:(NSDate *)eventDate 
++ (NSString *) stringHumanRecognizableFromDate:(NSDate *)eventDate 
 {
     if (eventDate == nil)
         return @"";
 
 //    NSLog(@"%@",eventDate);
     BOOL future = NO;
-    BOOL today = NO;
-    
 
 	NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:eventDate];
 	if (interval < 0 )
@@ -196,43 +197,35 @@ static NSDateFormatter *__df = nil;
     NSString *result = @"";
     
     if (hours < 24) {
-        
-        today = YES;
-
         if (hours == 1) {
-            result = [NSString stringWithFormat:@"1 hour %d minutes",toMinutes];
+            result = [NSString stringWithFormat:@"година %d хв.",toMinutes];
         } else if (hours < 1) {
-            result = [NSString stringWithFormat:@"%d minutes",toMinutes];
+            result = [NSString stringWithFormat:@"%d хв.",toMinutes];
         } else 
-            result = [NSString stringWithFormat:@"%d hours %d minutes",hours,toMinutes];
+            result = [NSString stringWithFormat:@"%d год. %d хв.",hours,toMinutes];
     } else if (hours >= 24 && weeks <= 1)
     {
         if(days == 1) 
         {
-            result = [NSString stringWithFormat:@"1 day"];
+            result = [NSString stringWithFormat:@"Вчора"];
         } else 
-            result = [NSString stringWithFormat:@"%d days",days];
+            result = [NSString stringWithFormat:@"%d дн.",days];
     } else if (weeks == 1) {
-        result = [NSString stringWithFormat:@"%d week",weeks];
+        result = [NSString stringWithFormat:@"Тиждень"];
     } else {
         if (month == 0)
         {
-            result = [NSString stringWithFormat:@"%d weeks",weeks];
+            result = [NSString stringWithFormat:@"%d тиж.",weeks];
         } else if (month == 1) 
-            result = [NSString stringWithFormat:@"1 month"];
+            result = [NSString stringWithFormat:@"1 місяць"];
         else 
-            result = [NSString stringWithFormat:@"%d months",month];
-    }
-    
-    if (today)
-    {
-        return @"Today";
+            result = [NSString stringWithFormat:@"%d міс.",month];
     }
     
     if (future)
-        result = [NSString stringWithFormat:@"in %@",result];
+        result = [NSString stringWithFormat:@"через %@",result];
     else 
-        result = [result stringByAppendingString:@" ago"];
+        result = [result stringByAppendingString:@" тому"];
 
     return result;
 }
@@ -687,6 +680,20 @@ void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWidth, fl
     }
     
     return NO;
+}
+
+
++ (void) updateFrameForLabel:(UILabel *)detailTextLabel
+{
+    CGSize maximumSize = CGSizeMake(300, 9999);
+    NSString *dateString = @"The date today is January 1st, 1999";
+    UIFont *dateFont = [UIFont fontWithName:@"Helvetica" size:14];
+    CGSize dateStringSize = [dateString sizeWithFont:dateFont
+                                   constrainedToSize:maximumSize
+                                       lineBreakMode:detailTextLabel.lineBreakMode];
+    
+    CGRect dateFrame = CGRectMake(10, 10, 300, dateStringSize.height);
+    detailTextLabel.frame = dateFrame;
 }
 @end
 

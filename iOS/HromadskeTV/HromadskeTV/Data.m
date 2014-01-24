@@ -105,24 +105,27 @@
     AFKissXMLRequestOperation *op = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
         NSLog(@"%@", XMLDocument);
         NSArray *array = [XMLDocument nodesForXPath:@"//item" error:nil];
-        NSArray *videos = [self videosWithNodes:array];
+        NSMutableArray *videos = [self videosWithNodes:array];
         
-        if (completion) {
-            completion(videos);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(videos);
+            }
+        });
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
-        NSLog(@"%@", error);
-        NSString *_error = error;
-        if (completion) {
-            completion(nil);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"%@", error);
+            if (completion) {
+                completion(nil);
+            }
+        });
     }];
 
     [AFKissXMLRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:@"application/rss+xml", nil]];
     [client enqueueHTTPRequestOperation:op];
 }
 
-- (NSArray *) videosWithNodes:(NSArray *)array {
+- (NSMutableArray *) videosWithNodes:(NSArray *)array {
     NSMutableArray *videos = [NSMutableArray array];
     for(DDXMLElement* resultElement in array)
     {

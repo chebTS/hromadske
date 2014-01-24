@@ -189,9 +189,10 @@
 
 - (void)showUserVoiceController
 {
-    UVConfig *config = [UVConfig configWithSite:USER_VOICE_URL];
-    [UserVoice initialize:config];
-    [UserVoice presentUserVoiceInterfaceForParentViewController:_deck];
+    [UserVoice presentUserVoiceForumForParentViewController:_deck];
+}
+- (void)showUserVoiceFeedbackController {
+    [UserVoice presentUserVoiceContactUsFormForParentViewController:_deck];
 }
 
 

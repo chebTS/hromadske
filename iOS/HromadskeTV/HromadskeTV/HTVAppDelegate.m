@@ -50,6 +50,10 @@
 #pragma mark - Stuff
 - (void)initAnalytics
 {
+    UVConfig *config = [UVConfig configWithSite:USER_VOICE_URL];
+    [UserVoice initialize:config];
+
+    
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     [GAI sharedInstance].dispatchInterval = GA_TIME_INTERVAL; // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelNone]; // Optional: set Logger to VERBOSE for debug information.

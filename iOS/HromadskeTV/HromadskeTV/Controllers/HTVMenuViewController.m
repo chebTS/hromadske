@@ -30,7 +30,8 @@ typedef enum {
 
 #define OTHER_PAGES         @"Інше"
 #define HTVMenuItemShare    @(0)
-#define HTVMenuItemFeedback @(1)
+#define HTVMenuItemIdeas    @(1)
+#define HTVMenuItemFeedback @(2)
 
 
 
@@ -127,8 +128,10 @@ typedef enum {
                                                                                               forKey:kGAIScreenName] build]];
                 [self showSharing];
             }
-            else if ([row isEqualToNumber:HTVMenuItemFeedback]) {
+            else if ([row isEqualToNumber:HTVMenuItemIdeas]) {
                 [[ControllersManager sharedManager] showUserVoiceController];
+            } else if ([row isEqualToNumber:HTVMenuItemFeedback]) {
+                [[ControllersManager sharedManager] showUserVoiceFeedbackController];
             }
         break;
     }
@@ -162,6 +165,7 @@ typedef enum {
                          HTVMenuItemYoutube : @[YOUTUBE_PAGE,@"",YOUTUBE_SCREEN],
                          HTVMenuItemGoogle : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN]};
     _otherPageItems = @{HTVMenuItemShare : @[SHARE_FRIENDS_PAGE],
+                        HTVMenuItemIdeas : @[ADD_IDEAS],
                         HTVMenuItemFeedback : @[WRITE_TO_DEVELOPER_PAGE]};
 }
 

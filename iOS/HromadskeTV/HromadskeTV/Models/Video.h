@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSDate *date;
 
 + (Video *)videoWithDictionary:(NSDictionary *)dictionary;
 + (Video *)videoWithNode:(DDXMLElement *)node;

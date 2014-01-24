@@ -9,6 +9,7 @@
 
 typedef enum
 {
+    HTVVideoCategoryHot,
     HTVVideoCategoryAll,
     HTVVideoCategoryInvestigation,
     HTVVideoCategoryH2o,
@@ -28,5 +29,4 @@ typedef enum
 - (void)updateLivePathWithCompletion:(void(^)(NSString *path, BOOL isNew))completion;
 
 - (void)videoForCategory:(HTVVideoCategory)cat completion:(void(^)(NSMutableArray *result))completion;
-
 @end

@@ -24,7 +24,10 @@
     Video *video = [Video new];
     video.thumbnail = dictionary[@"media$group"][@"media$thumbnail"][0][@"url"];
     video.title = dictionary[@"title"][@"$t"];
-    video.date = dictionary[@"updated"][@"$t"];
+    video.description = dictionary[@"media$description"][@"$t"];
+    NSString *str = [[dictionary[@"updated"][@"$t"] stringByReplacingOccurrencesOfString:@"T" withString:@" "] stringByReplacingOccurrencesOfString:@".000Z" withString:@" +0000"];
+    video.date = [Utils dateFromString:str withFormat:@"yyyy-MM-d hh:mm:ss ZZZZ"];
+
     NSString *tail = [HTVHelperMethods yotubeTailFromString:dictionary[@"media$group"][@"media$player"][0][@"url"]];
 
     video.url = tail;

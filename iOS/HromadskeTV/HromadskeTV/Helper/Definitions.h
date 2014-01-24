@@ -84,3 +84,5 @@
 #define URL_PATH_VIDEO_GUESTS           @"starring/rss"
 
 
+#define URL_HROMADSKE_YOUTUBE            @"http://www.youtube.com/user/HromadskeTV/featured"
+

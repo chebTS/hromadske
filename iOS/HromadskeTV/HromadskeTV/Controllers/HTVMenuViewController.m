@@ -116,11 +116,7 @@ typedef enum {
             break;
         case HTVMenuSectionSocial:
             [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:_socialPageItems[@(indexPath.row)][2] forKey:kGAIScreenName] build]];
-            if (indexPath.row == HTVMenuItemYoutube.integerValue) {
-                [[ControllersManager sharedManager] showVideoCollectionController];
-            } else {
-                [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
-            }
+            [[ControllersManager sharedManager] pushToCenterDeckControllerWithURL:_socialPageItems[@(indexPath.row)][1]];
             break;
         case HTVMenuSectionOther:
             if ([row isEqualToNumber:HTVMenuItemShare]) {
@@ -162,7 +158,7 @@ typedef enum {
     _socialPageItems = @{
                          HTVMenuItemTwitter : @[TWITTER_PAGE, TWITTER_URL,TWITTER_SCREEN],
                          HTVMenuItemFacebook : @[FB_PAGE, FB_URL, FB_SCREEN],
-                         HTVMenuItemYoutube : @[YOUTUBE_PAGE,@"",YOUTUBE_SCREEN],
+                         HTVMenuItemYoutube : @[YOUTUBE_PAGE,URL_HROMADSKE_YOUTUBE,YOUTUBE_SCREEN],
                          HTVMenuItemGoogle : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN]};
     _otherPageItems = @{HTVMenuItemShare : @[SHARE_FRIENDS_PAGE],
                         HTVMenuItemIdeas : @[ADD_IDEAS],

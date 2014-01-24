@@ -82,6 +82,9 @@
     NSURL *url = [NSURL URLWithString:URL_BASE];
     NSString *path = nil;
     switch (cat) {
+        case HTVVideoCategoryHot:
+            path = URL_PATH_VIDEO_ALL;
+            break;
         case HTVVideoCategoryAll:
             path = URL_PATH_VIDEO_ALL;
             break;
@@ -96,35 +99,77 @@
             break;
     }
     
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
-    [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-    [client setDefaultHeader:@"Content-type" value:@"text/plain"];
-    [client setDefaultHeader:@"Accept" value:@"text/plain"];
-    
-    NSMutableURLRequest *req = [client requestWithMethod:@"GET" path:path parameters:nil];
-    AFKissXMLRequestOperation *op = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
-        NSLog(@"%@", XMLDocument);
-        NSArray *array = [XMLDocument nodesForXPath:@"//item" error:nil];
-        NSMutableArray *videos = [self videosWithNodes:array];
+    if (cat == HTVVideoCategoryHot) {
+        [self youtubeVideosCompletion:^(NSMutableArray *videos) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completion) {
+                    completion(videos);
+                }
+            });
+        }];
+        return;
+    } else {
+        AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
+        [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+        [client setDefaultHeader:@"Content-type" value:@"text/plain"];
+        [client setDefaultHeader:@"Accept" value:@"text/plain"];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (completion) {
-                completion(videos);
-            }
-        });
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"%@", error);
-            if (completion) {
-                completion(nil);
-            }
-        });
-    }];
-
-    [AFKissXMLRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:@"application/rss+xml", nil]];
-    [client enqueueHTTPRequestOperation:op];
+        NSMutableURLRequest *req = [client requestWithMethod:@"GET" path:path parameters:nil];
+        AFKissXMLRequestOperation *op = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
+            NSLog(@"%@", XMLDocument);
+            NSArray *array = [XMLDocument nodesForXPath:@"//item" error:nil];
+            NSMutableArray *videos = [self videosWithNodes:array];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completion) {
+                    completion(videos);
+                }
+            });
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"%@", error);
+                if (completion) {
+                    completion(nil);
+                }
+            });
+        }];
+        
+        [AFKissXMLRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:@"application/rss+xml", nil]];
+        [client enqueueHTTPRequestOperation:op];
+    }
 }
 
+- (void) youtubeVideosCompletion:(void(^)(NSMutableArray *result))completion
+{
+    NSURL *url = [NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/HromadskeTV"];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:@"uploads?alt=json"
+                                                      parameters:nil];
+    AFJSONRequestOperation *operation =
+    [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                        NSMutableArray * videos = [self videosFromYouTube:JSON[@"feed"][@"entry"]];
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            if (completion) {
+                                                                completion(videos);
+                                                            }
+                                                        });
+                                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            NSLog(@"%@", error);
+                                                            if (completion) {
+                                                                completion(nil);
+                                                            }
+                                                        });
+                                                    }];
+    
+    [operation start];
+}
+
+
+#pragma mark - fabricators
 - (NSMutableArray *) videosWithNodes:(NSArray *)array {
     NSMutableArray *videos = [NSMutableArray array];
     for(DDXMLElement* resultElement in array)
@@ -133,5 +178,13 @@
     }
     return videos;
 }
+- (NSMutableArray *) videosFromYouTube:(NSArray *)array {
+    NSMutableArray *videos = [NSMutableArray array];
+    for (NSDictionary *item in array) {
+        [videos addObject:[Video videoWithDictionary:item]];
+    }
+    return videos;
+}
+
 @end
 

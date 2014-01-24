@@ -28,17 +28,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setup];
-    [self didSelectItemAtIndex:HTVVideoCategoryAll];
+    [self didSelectItemAtIndex:HTVVideoCategoryHot];
     [self setupView];
 }
 
 - (void) setup {
-    _cache = [NSMutableArray arrayWithObjects:[NSNull null],[NSNull null],[NSNull null],[NSNull null], nil];
+    _cache = [NSMutableArray arrayWithObjects:[NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null], nil];
 
     CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
-    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"Всі відео"];
+    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"Гарячі відео"];
     [menu displayMenuInView:self.navigationController.view];
-    menu.items = @[@"Всі відео", @"Слідство.Інфо", @"H2O", @"Гості студії"];
+    menu.items = @[@"Гарячі відео", @"Відеоновини", @"Слідство.Інфо", @"H2O", @"Гості студії"];
     menu.delegate = self;
     self.navigationItem.titleView = menu;
     
@@ -57,6 +57,7 @@
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
     HTVVideoCategory cat = _currentCategory = index;
+    [_table reloadData];
     
     [[Data sharedData] videoForCategory:cat completion:^(NSArray *result) {
         if (result.count > 0) {

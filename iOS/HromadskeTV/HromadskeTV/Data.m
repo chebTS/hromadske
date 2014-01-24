@@ -8,6 +8,8 @@
 
 #import "Data.h"
 #import <AFKissXMLRequestOperation.h>
+#import "TFHpple.h"
+
 
 @implementation Data
 + (Data *)sharedData {
@@ -166,6 +168,65 @@
                                                     }];
     
     [operation start];
+}
+
+
+- (void) youTubeURLFromHromadskeUrl:(NSURL *)url completion:(void(^)(NSString *resultString))completion {
+    
+    NSString *path = [url.absoluteString componentsSeparatedByString:URL_BASE][1];
+    
+//    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE]];
+//    [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+//    [client setDefaultHeader:@"Content-type" value:@"text/plain"];
+//    [client setDefaultHeader:@"Accept" value:@"text/plain"];
+//    
+//    NSMutableURLRequest *req = [client requestWithMethod:@"GET" path:path parameters:nil];
+//    AFKissXMLRequestOperation *op = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
+//        NSArray *array = [XMLDocument nodesForXPath:@".video_player //iframe" error:nil];
+//        NSString *str = [[array[0] attributeForName:@"src"] stringValue];
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (completion) {
+//                completion([NSURL URLWithString:str]);
+//            }
+//        });
+//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (completion) {
+//                completion(nil);
+//            }
+//        });
+//    }];
+//    
+//    [AFKissXMLRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:@"application/rss+xml", nil]];
+//    [client enqueueHTTPRequestOperation:op];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE]];
+    [httpClient setParameterEncoding:AFJSONParameterEncoding];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+
+    [httpClient getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:responseObject];
+        
+        NSString *tutorialsXpathQueryString = @"//div[@class='video_player']/iframe";
+        NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
+        TFHppleElement *elem = tutorialsNodes[0];
+        NSString *str = [elem description];
+        
+        NSString *address = [str componentsSeparatedByString:@"nodeContent = \"//"][1];
+        NSString *cleanAddress = [address componentsSeparatedByString:@"?"][0];
+        NSString *httpString = [NSString stringWithFormat:@"http://%@",cleanAddress];
+
+        if (completion) {
+            completion(httpString);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error %@", error);
+        if (completion) {
+            completion(nil);
+        }
+    }];
 }
 
 

@@ -98,8 +98,16 @@
 
 + (NSString *)yotubeTailFromString:(NSString *)path
 {
-    NSString *firstClean = [path componentsSeparatedByString:@"="][1];
-    return [firstClean componentsSeparatedByString:@"&"][0];
+    NSArray *components = [path componentsSeparatedByString:@"="];
+    NSString *tail = nil;
+    if (components.count > 1) {
+        tail = components[1];
+        tail = [tail componentsSeparatedByString:@"&"][0];
+    } else {
+        NSArray *embedComponents = [path componentsSeparatedByString:@"embed/"];
+        tail = embedComponents[1];
+    }
+    return tail;
 }
 
 

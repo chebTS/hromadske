@@ -94,6 +94,9 @@
 		50DF6EA318506C8C00576DD3 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */; };
 		50DF6EA5185082E500576DD3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */; };
 		920FEA301890589600942D72 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 920FEA2F1890589600942D72 /* VideoTableViewCell.m */; };
+		921D1EEA1892CCB000B92101 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE51892CCB000B92101 /* TFHpple.m */; };
+		921D1EEB1892CCB000B92101 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE71892CCB000B92101 /* TFHppleElement.m */; };
+		921D1EEC1892CCB000B92101 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE91892CCB000B92101 /* XPathQuery.m */; };
 		92476638188DCDE700CC05B8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476637188DCDE700CC05B8 /* Utils.m */; };
 		92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */; };
 		92F96568188EF012003F93EA /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F96567188EF012003F93EA /* LiveViewController.m */; };
@@ -233,6 +236,12 @@
 		50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		920FEA2E1890589600942D72 /* VideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
 		920FEA2F1890589600942D72 /* VideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
+		921D1EE41892CCB000B92101 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		921D1EE51892CCB000B92101 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		921D1EE61892CCB000B92101 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		921D1EE71892CCB000B92101 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		921D1EE81892CCB000B92101 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		921D1EE91892CCB000B92101 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		92476636188DCDE700CC05B8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		92476637188DCDE700CC05B8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		92476640188DD3D800CC05B8 /* UIViewController+HTVNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTVNavigationController.h"; sourceTree = "<group>"; };
@@ -487,6 +496,7 @@
 		506870DC184E57A20024624B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				921D1EE31892CC9E00B92101 /* HTMLParser */,
 				50687102184FE4E40024624B /* HTVHud.h */,
 				50687103184FE4E40024624B /* HTVHud.m */,
 				92476636188DCDE700CC05B8 /* Utils.h */,
@@ -571,6 +581,19 @@
 				50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */,
 			);
 			path = ios7;
+			sourceTree = "<group>";
+		};
+		921D1EE31892CC9E00B92101 /* HTMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				921D1EE41892CCB000B92101 /* TFHpple.h */,
+				921D1EE51892CCB000B92101 /* TFHpple.m */,
+				921D1EE61892CCB000B92101 /* TFHppleElement.h */,
+				921D1EE71892CCB000B92101 /* TFHppleElement.m */,
+				921D1EE81892CCB000B92101 /* XPathQuery.h */,
+				921D1EE91892CCB000B92101 /* XPathQuery.m */,
+			);
+			name = HTMLParser;
 			sourceTree = "<group>";
 		};
 		9247663D188DD36500CC05B8 /* Libs */ = {
@@ -890,14 +913,17 @@
 				50687104184FE4E40024624B /* HTVHud.m in Sources */,
 				92F96576188F2D98003F93EA /* RemoteManager.m in Sources */,
 				50D1EFF91859260000B390CA /* HTVHelperMethods.m in Sources */,
+				921D1EEC1892CCB000B92101 /* XPathQuery.m in Sources */,
 				92476638188DCDE700CC05B8 /* Utils.m in Sources */,
 				92F9658E18902900003F93EA /* SINavigationMenuView.m in Sources */,
 				92F9657D189026D6003F93EA /* NewsViewController.m in Sources */,
 				92F9658D18902900003F93EA /* UIColor+Extension.m in Sources */,
+				921D1EEB1892CCB000B92101 /* TFHppleElement.m in Sources */,
 				5044E8EE1887DEF50050E304 /* Video.m in Sources */,
 				92F9658F18902900003F93EA /* SIMenuConfiguration.m in Sources */,
 				5044E8EB1887C0EF0050E304 /* VideoCollectionViewCell.m in Sources */,
 				92F96568188EF012003F93EA /* LiveViewController.m in Sources */,
+				921D1EEA1892CCB000B92101 /* TFHpple.m in Sources */,
 				5044E90518880E0F0050E304 /* Twitt.m in Sources */,
 				92F96570188F1E06003F93EA /* ControllersManager.m in Sources */,
 				92F9659318902900003F93EA /* SIMenuButton.m in Sources */,

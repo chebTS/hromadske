@@ -695,6 +695,7 @@ void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWidth, fl
     CGRect dateFrame = CGRectMake(10, 10, 300, dateStringSize.height);
     detailTextLabel.frame = dateFrame;
 }
+
 @end
 
 

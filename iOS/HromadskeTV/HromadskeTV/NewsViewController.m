@@ -9,9 +9,12 @@
 #import "NewsViewController.h"
 #import "SINavigationMenuView.h"
 #import "UIViewController+HTVNavigationController.h"
+#import "VideoTableViewCell.h"
+#import "HTVWebVC.h"
+#import "ControllersManager.h"
+#import "RemoteManager.h"
 #import "Data.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "VideoTableViewCell.h"
 
 @interface NewsViewController ()<SINavigationMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 {
@@ -57,9 +60,16 @@
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
     HTVVideoCategory cat = _currentCategory = index;
-    [_table reloadData];
+    
+    if (_cache[_currentCategory] == [NSNull null]) {
+        [[RemoteManager sharedManager] showRemoteActivity];
+    } else {
+        [_table reloadData];
+    }
     
     [[Data sharedData] videoForCategory:cat completion:^(NSArray *result) {
+        [[RemoteManager sharedManager] hideRemoteActivity];
+
         if (result.count > 0) {
             [_cache replaceObjectAtIndex:cat withObject:result];
         }
@@ -95,6 +105,30 @@
 #pragma mark - TABLE VIEW Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Video *v = _cache[_currentCategory][indexPath.row];
+
+    if (_currentCategory == HTVVideoCategoryHot) {
+        XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:v.url];
+        [self presentMoviePlayerViewControllerAnimated:videoPlayerViewController];
+    } else {
+        [[RemoteManager sharedManager] showRemoteActivity];
+
+        [[Data sharedData] youTubeURLFromHromadskeUrl:[NSURL URLWithString:v.url] completion:^(NSString *resultURL) {
+
+            [[RemoteManager sharedManager] hideRemoteActivity];
+            
+            if (resultURL) {
+                NSString *tail = [HTVHelperMethods yotubeTailFromString:resultURL];
+                XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:tail];
+                [self presentMoviePlayerViewControllerAnimated:videoPlayerViewController];
+            } else {
+                HTVWebVC *c = [[[ControllersManager sharedManager] storyboard] instantiateViewControllerWithIdentifier:NSStringFromClass([HTVWebVC class])];
+                c.URL = [NSURL URLWithString:v.url];
+                [self.navigationController pushViewController:c animated:YES];
+            }
+
+        }];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

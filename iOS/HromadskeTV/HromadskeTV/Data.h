@@ -29,4 +29,7 @@ typedef enum
 - (void)updateLivePathWithCompletion:(void(^)(NSString *path, BOOL isNew))completion;
 
 - (void)videoForCategory:(HTVVideoCategory)cat completion:(void(^)(NSMutableArray *result))completion;
+
+- (void) youTubeURLFromHromadskeUrl:(NSURL *)url completion:(void(^)(NSString *resultString))completion;
+
 @end

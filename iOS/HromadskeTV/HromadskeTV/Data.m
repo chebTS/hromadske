@@ -48,38 +48,8 @@
     
 }
 
-- (void)updateLivePathWithCompletion:(void(^)(NSString *path, BOOL isNew))completion {
-    NSURL *url = [NSURL URLWithString:ONLINE_URL_PATH];
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    [httpClient setParameterEncoding:AFJSONParameterEncoding];
-    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    [httpClient getPath:nil parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-        id json = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        NSDictionary *result = (NSDictionary *)json;
-        NSString *youtubeLink = [result objectForKey:@"youtube_link"];
-        NSString *youtubeTail = [[youtubeLink componentsSeparatedByString:@"embed/"] lastObject];
-        
-        BOOL needUpdate = NO;
-        NSString *oldLink = [HTVHelperMethods youtubeLink];
-        if (![youtubeTail isEqualToString:oldLink]) {
-            [HTVHelperMethods saveYouTubeLink:youtubeTail];
-            needUpdate = YES;
-        }
-
-        if (completion) {
-            completion(youtubeTail,needUpdate);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error %@", error);
-        if (completion) {
-            completion(nil,NO);
-        }
-    }];
-}
-
-
-
+#pragma mark - videos from rss
 - (void)videoForCategory:(HTVVideoCategory)cat completion:(void(^)(NSMutableArray *result))completion {
     NSURL *url = [NSURL URLWithString:URL_BASE];
     NSString *path = nil;
@@ -246,6 +216,95 @@
     }
     return videos;
 }
+
+
+
+
+
+
+
+#pragma mark - online links
+- (void)updateLivePathTailFromSource:(HTVLiveLinkSource)source withCompletion:(void(^)(NSString *path, BOOL isNew))completion {
+    HTVLiveLinkSource _source = (source == HTVLiveLinkSourceDefault) ? HTVLiveLinkSourceAPI : source;
+    
+    NSURL *url = nil;
+    NSString *path = nil;
+    switch (_source) {
+        case HTVLiveLinkSourceAPI:
+            url = [NSURL URLWithString:URL_BASE];
+            path = URL_PATH_ONLINE;
+            break;
+        case HTVLiveLinkSourceGdata:
+            url = [NSURL URLWithString:URL_BASE_GDATA];
+            path = URL_GDATA_PATH_ONLINE;
+            break;
+    }
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    [httpClient setParameterEncoding:AFJSONParameterEncoding];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [httpClient getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *tail = nil;
+        switch (_source) {
+            case HTVLiveLinkSourceAPI:
+                tail = [self tailFromHromadskeAPI:responseObject];
+                break;
+            case HTVLiveLinkSourceGdata:
+                tail = [self tailFromGdataAPI:responseObject];
+                break;
+        }
+        
+        if (!tail) {
+            [self updateLivePathTailFromSource:HTVLiveLinkSourceGdata withCompletion:^(NSString *_path, BOOL _isNew) {
+                if (completion) {
+                    completion(_path,_isNew);
+                }
+            }];
+            return;
+        }
+        
+        BOOL needUpdate = NO;
+        NSString *oldLink = [HTVHelperMethods youtubeLiveLinkTail];
+        if (![tail isEqualToString:oldLink]) {
+            [HTVHelperMethods saveYoutubeLiveLinkTail:tail];
+            needUpdate = YES;
+        }
+        
+        if (completion) {
+            completion(tail,needUpdate);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(nil,NO);
+        }
+    }];
+}
+
+- (NSString *) tailFromHromadskeAPI:(id)response {
+//    NSString *str = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves | NSJSONReadingAllowFragments error:&error];
+    NSDictionary *result = (NSDictionary *)json;
+    NSString *youtubeLink = [result objectForKey:@"youtube_link"];
+    NSString *youtubeTail = [[youtubeLink componentsSeparatedByString:@"embed/"] lastObject];
+    
+    return youtubeTail;
+}
+
+- (NSString *) tailFromGdataAPI:(id)response {
+//    NSString *str = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves | NSJSONReadingAllowFragments error:&error];
+    NSDictionary *result = (NSDictionary *)json;
+    NSString *youtubeLink = [result[@"feed"][@"entry"] firstObject][@"content"][@"src"];
+    NSString *youtubeTailDirty = [[youtubeLink componentsSeparatedByString:@"live/videos/"] lastObject];
+    NSString *youtubeTail = [[youtubeTailDirty componentsSeparatedByString:@"?"] firstObject];
+    
+    return youtubeTail;
+}
+
 
 @end
 

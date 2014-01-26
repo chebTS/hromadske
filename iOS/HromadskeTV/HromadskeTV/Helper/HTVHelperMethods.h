@@ -12,8 +12,8 @@
 
 
 + (void)callCustomAlertWithMessage:(NSString *)message;
-+ (NSString *)youtubeLink;
-+ (void)saveYouTubeLink:(NSString *)newLink;
++ (NSString *)youtubeLiveLinkTail;
++ (void)saveYoutubeLiveLinkTail:(NSString *)newLink;
 + (NSString *)fullYoutubeLink;
 + (NSArray *)parseDictionaryFromYoutube:(NSDictionary *)dictionary;
 + (void)fetchNewDataFromYoutubeForController:(YoutubeViewController *)controller;

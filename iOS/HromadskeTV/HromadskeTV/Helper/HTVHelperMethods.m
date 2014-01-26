@@ -23,7 +23,7 @@
                       otherButtonTitles: nil] show];
 }
 
-+ (NSString *)youtubeLink
++ (NSString *)youtubeLiveLinkTail
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSString *youtubeLink = [prefs objectForKey:YOUTUBE_KEY];
@@ -33,7 +33,7 @@
     return @"";
 }
 
-+ (void)saveYouTubeLink:(NSString *)newLink
++ (void)saveYoutubeLiveLinkTail:(NSString *)newLink
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject:newLink forKey:YOUTUBE_KEY];
@@ -43,7 +43,7 @@
 + (NSString *)fullYoutubeLink
 {
 //    http://www.youtube.com/watch?v=%@&autoplay=0&ios=1
-    NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@?ios=1&autoplay=0&html5=1&controls=0&showinfo=0", [HTVHelperMethods youtubeLink]];
+    NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@?ios=1&autoplay=0&html5=1&controls=0&showinfo=0", [HTVHelperMethods youtubeLiveLinkTail]];
     return link;
 }
 

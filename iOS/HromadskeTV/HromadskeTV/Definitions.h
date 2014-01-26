@@ -35,8 +35,7 @@
 #define STORY_BOARD (IS_IPHONE ? @"Main_iPhone" : @"Main_iPad")
 
 #define HOME_URL               @"http://hromadske.tv"
-#define ONLINE_URL_PATH HOME_URL @"/youtube?new"
-#define ONLINE_URL  [HTVHelperMethods fullYoutubeLink]  
+#define ONLINE_URL  [HTVHelperMethods fullYoutubeLink]
 #define VIDEO_URL     HOME_URL @"/video"
 #define INTERVIEW_URL HOME_URL @"/interview"
 #define PROGRAMS_URL  HOME_URL @"/programs"
@@ -78,10 +77,15 @@
 
 
 #define URL_BASE                        @"http://hromadske.tv"
+#define URL_BASE_GDATA                  @"http://gdata.youtube.com/"
+
 #define URL_PATH_VIDEO_ALL              @"video/rss"
 #define URL_PATH_VIDEO_INVASTIGATIONS   @"slidstvo.info/rss"
 #define URL_PATH_VIDEO_H2O              @"h2o/rss"
 #define URL_PATH_VIDEO_GUESTS           @"starring/rss"
+#define URL_PATH_ONLINE                 @"/youtube?new"
+
+#define URL_GDATA_PATH_ONLINE           @"/feeds/api/users/HromadskeTV/live/events?v=2&status=active&fields=entry(content)&alt=json"
 
 
 #define URL_HROMADSKE_YOUTUBE           @"http://www.youtube.com/user/HromadskeTV/featured"

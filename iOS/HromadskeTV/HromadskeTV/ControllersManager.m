@@ -103,6 +103,7 @@
         [_deck setLeftSize:LEFT_RIGHT_CONTROLLER_SHIFT];
         [_deck setRightSize:LEFT_RIGHT_CONTROLLER_SHIFT];
         _deck.elastic = NO;
+        _deck.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose;
         _deck.panningMode = IIViewDeckFullViewPanning;
         _deck.delegate = self;
     }

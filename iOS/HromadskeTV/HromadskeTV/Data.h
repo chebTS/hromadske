@@ -17,6 +17,13 @@ typedef enum
 } HTVVideoCategory;
 
 
+typedef enum
+{
+    HTVLiveLinkSourceDefault,
+    HTVLiveLinkSourceAPI,
+    HTVLiveLinkSourceGdata,
+} HTVLiveLinkSource;
+
 
 
 #import <Foundation/Foundation.h>
@@ -26,7 +33,7 @@ typedef enum
 @interface Data : NSObject
 + (Data *) sharedData;
 
-- (void)updateLivePathWithCompletion:(void(^)(NSString *path, BOOL isNew))completion;
+- (void)updateLivePathTailFromSource:(HTVLiveLinkSource)source withCompletion:(void(^)(NSString *path, BOOL isNew))completion;
 
 - (void)videoForCategory:(HTVVideoCategory)cat completion:(void(^)(NSMutableArray *result))completion;
 

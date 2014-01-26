@@ -12,8 +12,17 @@
 #import "Data.h"
 #import "RemoteManager.h"
 #import "Harpy.h"
+#import <AVFoundation/AVFoundation.h>
 
 #import "HTVTwitterCollection.h"
+#import "STTwitterAPI.h"
+
+@interface HTVAppDelegate()
+{
+    NSDate *_lastOpened;
+}
+@property (nonatomic, strong) STTwitterAPI *twitter;
+@end
 
 @implementation HTVAppDelegate
 
@@ -27,6 +36,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    
     // Override point for customization after application launch.
     self.window.rootViewController = [[ControllersManager sharedManager] deck];
 
@@ -44,8 +56,13 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    NSTimeInterval time = abs([_lastOpened timeIntervalSinceNow]);
+    if (time > 1800) {
+        [self updateLiveStatus];
+    }
+    _lastOpened = [NSDate date];
+    
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    [self updateLiveStatus];
 }
 
 #pragma mark - Stuff
@@ -70,7 +87,7 @@
 }
 
 - (void) updateLiveStatus {
-    [[Data sharedData] updateLivePathWithCompletion:^(NSString *path, BOOL isNew) {
+    [[Data sharedData] updateLivePathTailFromSource:HTVLiveLinkSourceDefault withCompletion:^(NSString *path, BOOL isNew) {
         [[ControllersManager sharedManager] setNewLiveUrl:[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];
     }];
 }

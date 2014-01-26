@@ -43,7 +43,6 @@
     self.window.rootViewController = [[ControllersManager sharedManager] deck];
 
     [self initAnalytics];
-    [self updateLiveStatus];
     [RemoteManager sharedManager];
 
     [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:ONLINE_SCREEN forKey:kGAIScreenName] build]];
@@ -57,10 +56,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     NSTimeInterval time = abs([_lastOpened timeIntervalSinceNow]);
-    if (time > 1800) {
+    if (time > 1800 || !_lastOpened) {
         [self updateLiveStatus];
+        _lastOpened = [NSDate date];
     }
-    _lastOpened = [NSDate date];
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }

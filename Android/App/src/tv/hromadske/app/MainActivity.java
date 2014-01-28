@@ -38,12 +38,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		if (savedInstanceState != null) {
 			pos = savedInstanceState.getInt("pos");
 		}
-		
-		try {
-			bar.setHomeButtonEnabled(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		Tab tab = bar.newTab();
 		tab.setText("Β³δεξ");
@@ -115,9 +109,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			getActionBar().setSelectedNavigationItem(0);
-			break;
 		case R.id.action_help:
 			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://hromadske.tv/donate")));
 			break;

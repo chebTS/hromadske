@@ -1,11 +1,10 @@
 package tv.hromadske.app.fragments;
 
-import java.net.URL;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import tv.hromadske.app.R;
 import tv.hromadske.app.VideoUkrActivity;
@@ -46,8 +45,8 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		containerLoad.setOnClickListener(this);
 		btnUkr.setOnClickListener(this);
 		btnEng.setOnClickListener(this);
-		DownloadDoc downloadDoc = new DownloadDoc(containerLoad);
-		downloadDoc.execute();
+		GetYoutubeUrlTask getYoutubeUrlTask = new GetYoutubeUrlTask(containerLoad);
+		getYoutubeUrlTask.execute();
 	}
 
 	@Override
@@ -76,12 +75,10 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		}
 	}
 
-	private class DownloadDoc extends AsyncTask<Void, Void, String> {
-
+	public class GetYoutubeUrlTask extends AsyncTask<Void, Void, Boolean> {
 		private View loadView;
-		private String videosUrl;
 
-		public DownloadDoc(View loadView) {
+		public GetYoutubeUrlTask(View loadView) {
 			super();
 			this.loadView = loadView;
 		}
@@ -93,29 +90,34 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		}
 
 		@Override
-		protected String doInBackground(Void... params) {
+		protected Boolean doInBackground(Void... params) {
 			try {
-				Document home = Jsoup.connect("http://hromadske.tv").get();
-				Elements homeUrls = home.select("div.mainnews a");
-				videosUrl = homeUrls.first().attr("abs:href");
-
-//				Element aElement = home.select("div.youtube_english a").first();
-//				String s = aElement.attr("abs:href");
-//				engUrl = s.substring(s.indexOf("=") + 1);
-
-				Document doc = Jsoup.connect(videosUrl).get();
-
-				Elements ukrLink = doc.select("div.video_player iframe");
-				String path = (new URL("http:" + ukrLink.first().attr("src"))).getPath();
-				ukrUrl = path.substring(path.lastIndexOf("/") + 1);
+				HttpGet httpGet = new HttpGet(String.format(SystemUtils.GDATA_URL));
+				DefaultHttpClient mHttpClient = new DefaultHttpClient();
+				HttpResponse dresponse = mHttpClient.execute(httpGet);
+				int status = dresponse.getStatusLine().getStatusCode();
+				if (status == 200) {
+					String res = SystemUtils.streamToString(dresponse.getEntity().getContent());
+					JSONObject jRoot = new JSONObject(res);
+					JSONArray jArray = jRoot.optJSONObject("feed").optJSONArray("entry");
+					String str = jArray.optJSONObject(0).optJSONObject("content").optString("src");
+					str = str.substring(str.lastIndexOf('/') + 1);
+					int index = str.lastIndexOf("?");
+					if (index > 0){
+						str = str.substring(0, index);
+					}
+					//Log.i("GDATA", " " + str);
+					ukrUrl = str;
+					return true;
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return null;
+			return false;
 		}
 
 		@Override
-		protected void onPostExecute(String result) {
+		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
 			loadView.setVisibility(View.GONE);
 		}

@@ -10,14 +10,14 @@
 
 @implementation SVWebViewChanges
 /*
-//
-//  SVWebViewController.m
-//
-//  Created by Sam Vermette on 08.11.10.
-//  Copyright 2010 Sam Vermette. All rights reserved.
-//
-//  https://github.com/samvermette/SVWebViewController
-
+ //
+ //  SVWebViewController.m
+ //
+ //  Created by Sam Vermette on 08.11.10.
+ //  Copyright 2010 Sam Vermette. All rights reserved.
+ //
+ //  https://github.com/samvermette/SVWebViewController
+ 
  #define IS_IPHONE   ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
  #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
  #define START_SPINNER @"Start spinner"
@@ -248,6 +248,7 @@
  UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
  
  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+ return;
  NSArray *items;
  CGFloat toolbarWidth = 250.0f;
  
@@ -463,7 +464,9 @@
  {
  [[NSNotificationCenter defaultCenter] postNotificationName:END_SPINNER object:nil];
  }
-
+ 
+ 
+ @end
 */
 @end
 

@@ -35,7 +35,7 @@
 - (void)startHUD
 {
     self.hud.mode = MBProgressHUDModeIndeterminate;
-    self.hud.labelText = @"";
+    self.hud.labelText = @"Завантаження";
 //    int numberOfwindows =  [[UIApplication sharedApplication].windows count] - 2;
 //    [[[UIApplication sharedApplication].windows objectAtIndex:numberOfwindows] addSubview:self.hud];
     [DELEGATE.window.rootViewController.view addSubview:self.hud];
@@ -45,8 +45,7 @@
 - (void)finishHUD
 {
     self.hud.mode = MBProgressHUDModeIndeterminate;
-    self.hud.labelText = @"";
-    [self.hud hide:YES];
+     [self.hud hide:YES];
     [self.hud removeFromSuperViewOnHide];
 }
 

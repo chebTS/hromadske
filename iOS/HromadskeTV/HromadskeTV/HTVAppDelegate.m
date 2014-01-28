@@ -8,26 +8,23 @@
 
 
 #import "HTVAppDelegate.h"
-#import "HTVCategoriesViewController.h"
-#import "HTVWebVC.h"
+#import "ControllersManager.h"
+#import "Data.h"
+#import "RemoteManager.h"
+#import "Harpy.h"
+#import <AVFoundation/AVFoundation.h>
 
-
+#import "HTVTwitterCollection.h"
+#import "STTwitterAPI.h"
 
 @interface HTVAppDelegate()
-@property (nonatomic, strong) UIStoryboard *storyboard;
-@property (nonatomic, strong) AFHTTPClient *client;
+{
+    NSDate *_lastOpened;
+}
+@property (nonatomic, strong) STTwitterAPI *twitter;
 @end
 
 @implementation HTVAppDelegate
-
-
-- (UIStoryboard *)storyboard
-{
-    if(!_storyboard) {
-        _storyboard = [UIStoryboard storyboardWithName:STORY_BOARD bundle:[NSBundle mainBundle]];
-    }
-    return _storyboard;
-}
 
 - (UIWindow *)window
 {
@@ -39,56 +36,64 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+//    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    
     // Override point for customization after application launch.
-    [self makeDeckRootViewController];
-    [self initGoogleAnalytics];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(spinnerStart) name:START_SPINNER object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(spinnerEnd) name:END_SPINNER
-                                               object:nil];
-   
-    [self detectInternetStatus];
-    
-    [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:HOME_SCREEN
-                                                      forKey:kGAIScreenName] build]];
+    self.window.rootViewController = [[ControllersManager sharedManager] deck];
+
+    [self initAnalytics];
+    [RemoteManager sharedManager];
+
+    [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:ONLINE_SCREEN forKey:kGAIScreenName] build]];
+
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    NSTimeInterval time = abs([_lastOpened timeIntervalSinceNow]);
+    if (time > 1800 || !_lastOpened) {
+        [self updateLiveStatus];
+        _lastOpened = [NSDate date];
+    }
+    
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
+#pragma mark - Stuff
+- (void)initAnalytics
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[Harpy sharedInstance] setAppID:@"774631543"];
+    [[Harpy sharedInstance] setAppName:@"HromadskeTV"];
+    [[Harpy sharedInstance] setAlertType:HarpyAlertTypeOption];
+    [[Harpy sharedInstance] setForceLanguageLocalization:HarpyLanguageRussian];
+    [[Harpy sharedInstance] checkVersionDaily];
+    
+    
+    
+    UVConfig *config = [UVConfig configWithSite:USER_VOICE_URL];
+    [UserVoice initialize:config];
+
+    
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = GA_TIME_INTERVAL; // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelNone]; // Optional: set Logger to VERBOSE for debug information.
+    [[GAI sharedInstance] trackerWithTrackingId:GA_TRACKER_KEY]; // Initialize tracker.
 }
 
+- (void) updateLiveStatus {
+    [[Data sharedData] updateLivePathTailFromSource:HTVLiveLinkSourceDefault withCompletion:^(NSString *path, BOOL isNew) {
+        [[ControllersManager sharedManager] setNewLiveUrl:[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];
+    }];
+}
+
+
+#pragma mark - push
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Updates the device token and registers the token with UA. This won't occur until
-    // push is enabled if the outlined process is followed. This call is required.
     [self sendDeviceToken:deviceToken];
 }
 
@@ -118,90 +123,42 @@
 
 }
 
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
-{
-}
 
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
+#pragma mark - Scheme
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-}
-
-
-- (void)makeDeckRootViewController
-{
-    HTVCategoriesViewController* leftController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVCategoriesViewController"];
-    HTVWebVC *centerController = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVWebVC"];
-    centerController.URL = [NSURL URLWithString:HOME_URL];
-    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:[[UINavigationController alloc] initWithRootViewController:centerController]
-                                                                                    leftViewController:leftController
-                                                                                   rightViewController:nil];
-    [deckController setLeftSize:LEFT_RIGHT_CONTROLLER_SHIFT];
-    [deckController setRightSize:LEFT_RIGHT_CONTROLLER_SHIFT];
-    deckController.elastic = NO;
-    deckController.panningMode = IIViewDeckNoPanning;
+    if ([[url scheme] isEqualToString:@"hromadsketv"] == NO) return NO;
     
-    self.window.rootViewController = deckController;
+    NSDictionary *d = [self parametersDictionaryFromQueryString:[url query]];
+    
+    NSString *token = d[@"oauth_token"];
+    NSString *verifier = d[@"oauth_verifier"];
+    
+    IIViewDeckController *vcn = (IIViewDeckController *)self.window.rootViewController;
+    HTVTwitterCollection *vc = (HTVTwitterCollection *)([vcn.centerController childViewControllers][0]);
+    [vc setOAuthToken:token oauthVerifier:verifier];
+    
+    return YES;
 }
 
-
-
-- (void)pushToCenterDeckControllerWithURL:(NSString *)url
-{
-    IIViewDeckController *deckVC = (IIViewDeckController *)self.window.rootViewController;
-    HTVWebVC *newCenterVC = nil;
-    @try {
-        newCenterVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HTVWebVC"];
-        ((HTVWebVC *)newCenterVC).URL = [NSURL URLWithString:url];
+- (NSDictionary *)parametersDictionaryFromQueryString:(NSString *)queryString {
+    
+    NSMutableDictionary *md = [NSMutableDictionary dictionary];
+    
+    NSArray *queryComponents = [queryString componentsSeparatedByString:@"&"];
+    
+    for(NSString *s in queryComponents) {
+        NSArray *pair = [s componentsSeparatedByString:@"="];
+        if([pair count] != 2) continue;
+        
+        NSString *key = pair[0];
+        NSString *value = pair[1];
+        
+        md[key] = value;
     }
-    @catch (NSException *exception) {
-        return;
-    }
-    @finally {
-        if (newCenterVC) {
-            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:newCenterVC];
-            deckVC.centerController = navigationVC;
-            [deckVC closeLeftViewAnimated:YES];
-        }
-    }    
-}
-
-
-- (void)spinnerStart
-{
-    [[HTVHud sharedManager] startHUD];
-}
-
-- (void)spinnerEnd
-{
-    [[HTVHud sharedManager] finishHUD];
-}
-
-- (void)initGoogleAnalytics
-{
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
     
-    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-    [GAI sharedInstance].dispatchInterval = GA_TIME_INTERVAL;
-    
-    // Optional: set Logger to VERBOSE for debug information.
-    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelNone];
-    
-    // Initialize tracker.
-    [[GAI sharedInstance] trackerWithTrackingId:GA_TRACKER_KEY];
-}
-
-
-- (void)detectInternetStatus
-{
-    self.client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://google.com"]];
-    [self.client setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        if (status == AFNetworkReachabilityStatusNotReachable) {
-            [HTVHelperMethods callCustomAlertWithMessage:NO_INTERNET_COONECTION];
-        }
-    }];
-
+    return md;
 }
 
 

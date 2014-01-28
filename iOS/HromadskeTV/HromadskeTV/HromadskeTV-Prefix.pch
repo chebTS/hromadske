@@ -17,6 +17,7 @@
     #import "Definitions.h"
     #import "HTVHud.h"
     #import <SVWebViewController/SVWebViewController.h>
+    #import <SVWebViewController/SVModalWebViewController.h>
     #import <ViewDeck/IIViewDeckController.h>
     #import <MBProgressHUD/MBProgressHUD.h>
     #import <REActivityViewController/REActivityViewController.h>
@@ -27,7 +28,13 @@
     #import <GoogleAnalytics-iOS-SDK/GAIFields.h>   
     #import <AFNetworking/AFHTTPClient.h>
     #import <AFNetworking/AFNetworking.h>
+    #import <XCDYouTubeVideoPlayerViewController/XCDYouTubeVideoPlayerViewController.h>
+    #import <STTwitter/STTwitter.h>
+    #import <STTwitter/STTwitterAPI.h>
+    #import <uservoice-iphone-sdk/UserVoice.h>
+
 
     #import "HTVHelperMethods.h"
+    #import "Utils.h"
 
 #endif

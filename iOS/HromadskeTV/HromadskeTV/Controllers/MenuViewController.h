@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsViewController.h"
 
-@interface HTVCategoriesViewController : UIViewController
+@interface MenuViewController : UIViewController<NewsViewControllerDelagate>
 
 @end

@@ -38,7 +38,7 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		containerLoad = v.findViewById(R.id.container_load);
 		return v;
 	}
-
+	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);

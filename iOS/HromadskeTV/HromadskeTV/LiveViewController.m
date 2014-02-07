@@ -11,38 +11,26 @@
 #import "RemoteManager.h"
 
 @interface LiveViewController () <UIWebViewDelegate>
-{
-    __weak IBOutlet UIWebView *_webView;
-}
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
 @implementation LiveViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     [self setup];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self setupView];
 }
 
 - (void) setup {
     self.title = ONLINE_PAGE;
-    _webView.delegate = self;
-    
+    self.webView.delegate = self;
     UIBarButtonItem *item =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
     self.navigationItem.rightBarButtonItem = item;
     
@@ -52,7 +40,7 @@
     }
 
     
-    for (id subview in _webView.subviews){
+    for (id subview in self.webView.subviews){
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])
             ((UIScrollView *)subview).bounces = NO;
     }
@@ -60,15 +48,15 @@
 
 
 - (void) refresh {
-    [_webView reload];
+    [self.webView reload];
 }
 
 - (void)setLiveUrl:(NSURL *)url {
     
-    if(![_webView.request.URL.absoluteString isEqualToString:url.absoluteString])
+    if(![self.webView.request.URL.absoluteString isEqualToString:url.absoluteString])
     {
         NSURLRequest *req = [NSURLRequest requestWithURL:url];
-        [_webView loadRequest:req];
+        [self.webView loadRequest:req];
     }
 }
 

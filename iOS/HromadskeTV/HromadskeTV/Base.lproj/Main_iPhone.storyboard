@@ -402,7 +402,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="_webView" destination="Bnb-ZD-8a6" id="SDp-Gf-LMU"/>
+                        <outlet property="webView" destination="Bnb-ZD-8a6" id="JgP-Sb-z7L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jK-dc-4vZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

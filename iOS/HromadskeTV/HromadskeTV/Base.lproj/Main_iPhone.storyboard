@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tMQ-gK-9X9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tMQ-gK-9X9">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--WebVC-->
@@ -202,16 +202,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej1-dd-j5f">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="351"/>
+                            <webView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej1-dd-j5f">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="447"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAH-qZ-U6R">
-                                <rect key="frame" x="31" y="351" width="258" height="53"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAH-qZ-U6R">
+                                <rect key="frame" x="31" y="455" width="258" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99215692280000001" green="0.58431375029999999" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="GdC-35-urL"/>
+                                    <constraint firstAttribute="width" constant="258" id="Ybf-2T-20A"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Допомогти Громадському">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -221,9 +225,13 @@
                                     <action selector="handleHelp:" destination="pby-4p-pQm" eventType="touchUpInside" id="1il-GE-YJM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-po-bbC">
-                                <rect key="frame" x="47" y="409" width="226" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-po-bbC">
+                                <rect key="frame" x="47" y="516" width="226" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="RTT-tR-NB3"/>
+                                    <constraint firstAttribute="height" constant="32" id="e0h-0N-Mlz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Розповісти про додаток">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,11 +243,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ej1-dd-j5f" firstAttribute="leading" secondItem="HZI-T1-liq" secondAttribute="leading" id="P5E-ub-W97"/>
+                            <constraint firstItem="uAH-qZ-U6R" firstAttribute="top" secondItem="ej1-dd-j5f" secondAttribute="bottom" constant="8" symbolic="YES" id="RGu-hb-FEJ"/>
+                            <constraint firstAttribute="trailing" secondItem="ej1-dd-j5f" secondAttribute="trailing" id="Vat-lN-JVd"/>
+                            <constraint firstAttribute="centerX" secondItem="IvS-po-bbC" secondAttribute="centerX" id="ca4-2x-qWC"/>
                             <constraint firstAttribute="centerX" secondItem="IvS-po-bbC" secondAttribute="centerX" id="hk2-Jt-sp0"/>
+                            <constraint firstItem="ej1-dd-j5f" firstAttribute="top" secondItem="HZI-T1-liq" secondAttribute="top" id="lD9-Kt-gAC"/>
+                            <constraint firstItem="APM-Vt-0Eq" firstAttribute="top" secondItem="IvS-po-bbC" secondAttribute="bottom" constant="20" id="mtE-jS-WbW"/>
+                            <constraint firstAttribute="centerX" secondItem="uAH-qZ-U6R" secondAttribute="centerX" id="qnX-Wm-oeO"/>
                             <constraint firstAttribute="centerX" secondItem="ej1-dd-j5f" secondAttribute="centerX" id="r3T-Z1-Qds"/>
                             <constraint firstAttribute="centerX" secondItem="uAH-qZ-U6R" secondAttribute="centerX" id="sjD-3P-RYp"/>
+                            <constraint firstItem="IvS-po-bbC" firstAttribute="top" secondItem="uAH-qZ-U6R" secondAttribute="bottom" constant="8" symbolic="YES" id="uk0-oZ-jfe"/>
                         </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="_webView" destination="ej1-dd-j5f" id="lZ9-Ya-NtR"/>
                     </connections>
@@ -364,21 +381,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" ambiguous="YES" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnb-ZD-8a6">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnb-ZD-8a6">
                                 <rect key="frame" x="0.0" y="177" width="320" height="214"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="28c-tO-bhJ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="214" id="Hwf-N9-nLT"/>
+                                    <constraint firstAttribute="height" constant="214" id="d5L-qO-F7Z"/>
                                 </constraints>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Bnb-ZD-8a6" secondAttribute="trailing" id="Gcw-O0-2ns"/>
-                            <constraint firstItem="Bnb-ZD-8a6" firstAttribute="leading" secondItem="xOM-zH-oBC" secondAttribute="leading" id="VrD-ZW-V3Z"/>
+                            <constraint firstAttribute="centerX" secondItem="Bnb-ZD-8a6" secondAttribute="centerX" id="KGC-aD-Uqr"/>
+                            <constraint firstAttribute="trailing" secondItem="Bnb-ZD-8a6" secondAttribute="trailing" id="WxF-z1-WrI"/>
+                            <constraint firstItem="Bnb-ZD-8a6" firstAttribute="leading" secondItem="xOM-zH-oBC" secondAttribute="leading" id="cem-Rr-zll"/>
                             <constraint firstItem="Bnb-ZD-8a6" firstAttribute="centerY" secondItem="xOM-zH-oBC" secondAttribute="centerY" id="tbe-yD-uv9"/>
                         </constraints>
                     </view>
@@ -416,7 +433,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apW-zN-TpN">
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apW-zN-TpN">
                                                     <rect key="frame" x="121" y="8" width="188" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -424,9 +441,12 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6h-XQ-kLA">
-                                                    <rect key="frame" x="115" y="62" width="194" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6h-XQ-kLA">
+                                                    <rect key="frame" x="121" y="62" width="188" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Qeo-rY-bgH"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -441,13 +461,16 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="S6h-XQ-kLA" firstAttribute="top" secondItem="apW-zN-TpN" secondAttribute="bottom" constant="-2" id="5VY-ic-pTV"/>
                                                 <constraint firstItem="apW-zN-TpN" firstAttribute="leading" secondItem="crc-3o-8hr" secondAttribute="leading" constant="121" id="ATJ-58-MVE"/>
-                                                <constraint firstItem="S6h-XQ-kLA" firstAttribute="top" secondItem="crc-3o-8hr" secondAttribute="top" constant="62" id="IWh-Eu-aMW"/>
-                                                <constraint firstAttribute="trailing" secondItem="apW-zN-TpN" secondAttribute="trailing" constant="12" id="KgF-G2-hfp"/>
+                                                <constraint firstAttribute="trailing" secondItem="apW-zN-TpN" secondAttribute="trailing" constant="11" id="KgF-G2-hfp"/>
+                                                <constraint firstItem="S6h-XQ-kLA" firstAttribute="top" secondItem="apW-zN-TpN" secondAttribute="bottom" constant="-2" id="LdA-3t-ZEv"/>
+                                                <constraint firstItem="apW-zN-TpN" firstAttribute="leading" secondItem="S6h-XQ-kLA" secondAttribute="leading" id="MVp-WJ-dE5"/>
                                                 <constraint firstAttribute="trailing" secondItem="S6h-XQ-kLA" secondAttribute="trailing" constant="11" id="QQX-5o-aFH"/>
                                                 <constraint firstAttribute="bottom" secondItem="S6h-XQ-kLA" secondAttribute="bottom" constant="6" id="mCF-3m-48i"/>
                                                 <constraint firstItem="oKw-fc-V7f" firstAttribute="top" secondItem="crc-3o-8hr" secondAttribute="top" id="o9D-Vm-cU8"/>
                                                 <constraint firstItem="oKw-fc-V7f" firstAttribute="leading" secondItem="crc-3o-8hr" secondAttribute="leading" id="x5m-Li-wYY"/>
+                                                <constraint firstItem="apW-zN-TpN" firstAttribute="top" secondItem="crc-3o-8hr" secondAttribute="top" constant="8" id="xLc-AP-Kzx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

@@ -16,6 +16,7 @@
 
 #define USER_VOICE_URL @"hromadsketv.uservoice.com"
 #define APP_URL @"http://appstore.com/fredcox/hromadsketv"
+#define APP_STORE_ID 774631543
 #define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"
 #define END_SPINNER @"End spinner"
@@ -71,8 +72,8 @@
 #define SHARE_FRIENDS_PAGE @"Розповісти друзям"
 #define ADD_IDEAS @"Додати пропозицію"
 #define WRITE_TO_DEVELOPER_PAGE @"Написати розробникам"
-
-
+#define WRITE_TO_EDITORIAL_OFFICE @"Редакція громадського"
+#define RATE_IN_APP_STORE @"Оцінить в App Store"
 
 
 
@@ -90,3 +91,4 @@
 
 #define URL_HROMADSKE_YOUTUBE           @"http://www.youtube.com/user/HromadskeTV/featured"
 #define URL_HROMADSKE_HELP              @"http://hromadske.tv/donate?"
+#define EMAIL_HROMADSKE_TV                 @"hromadsketv@gmail.com"

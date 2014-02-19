@@ -25,16 +25,16 @@
 
 + (ControllersManager *) sharedManager;
 
-- (MenuViewController *) menu;
-- (LiveViewController *) live;
-- (IIViewDeckController *) deck;
-- (NewsViewController *) news;
+- (MenuViewController *)menu;
+- (LiveViewController *)live;
+- (IIViewDeckController *)deck;
+- (NewsViewController *)news;
 
 
-- (void) setNewLiveUrl:(NSURL *)url;
+- (void)setNewLiveUrl:(NSURL *)url;
 
-- (void) openMenu;
-- (void) closeMenu;
+- (void)openMenu;
+- (void)closeMenu;
 
 - (UIStoryboard *)storyboard;
 
@@ -50,4 +50,7 @@
 
 - (void)showUserVoiceController;
 - (void)showUserVoiceFeedbackController;
+
+- (void)showRateInAppStore;
+- (void)showEmailToHromadskeController;
 @end

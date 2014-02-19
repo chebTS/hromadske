@@ -13,7 +13,7 @@
 #import "UIViewController+HTVNavigationController.h"
 
 
-@interface ControllersManager()<IIViewDeckControllerDelegate>
+@interface ControllersManager()<IIViewDeckControllerDelegate, MFMailComposeViewControllerDelegate>
 {
     UIStoryboard *_storyboard;
     MenuViewController *_menu;
@@ -22,11 +22,11 @@
     NewsViewController *_news;
     HTVWebVC *_liveTmp;
     REActivityViewController *_sharing;
-    
     UINavigationController *_newsNavigation;
+    
 }
 @property (nonatomic,strong) UIPopoverController *pop;
-
+@property (nonatomic, strong) MFMailComposeViewController *picker;
 
 @end
 
@@ -210,6 +210,28 @@
     [UserVoice presentUserVoiceContactUsFormForParentViewController:_deck];
 }
 
+- (void)showEmailToHromadskeController
+{
+    if([MFMailComposeViewController canSendMail]){
+        self.picker = [[MFMailComposeViewController alloc] init];
+        self.picker.mailComposeDelegate = self;
+        [self.picker setToRecipients:@[EMAIL_HROMADSKE_TV]];
+        [self.picker setSubject:EMAIL_SUBJECT];
+        [self.deck presentViewController:self.picker animated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        }];
+    }
+    else {
+        [HTVHelperMethods callCustomAlertWithMessage:EMAIL_ERROR_MESSAGE];
+    }
+ 
+}
+
+- (void)showRateInAppStore
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_STORE_PATH(APP_STORE_ID)]];
+}
+
 
 
 #pragma mark - Sharing
@@ -278,5 +300,32 @@
     }
 }
 
+
+#pragma mark - Email Methods
+#pragma mark - MFMailComposeViewControllerDelegate
+-(void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    NSString * message;
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            message = @"Відправку листа скасовано";
+            break;
+        case MFMailComposeResultSaved:
+            message = @"Повідомлення збережено";
+            break;
+        case MFMailComposeResultSent:
+            message = @"Повідомлення відправлено";
+            break;
+        case MFMailComposeResultFailed:
+            message = @"Повідомлення не відправлено";
+            break;
+        default:
+            message = @"Повідомлення не відправлено";
+            break;
+    }
+    [self.picker dismissViewControllerAnimated:YES completion:NULL];
+    [HTVHelperMethods callCustomAlertWithMessage:message];
+}
 
 @end

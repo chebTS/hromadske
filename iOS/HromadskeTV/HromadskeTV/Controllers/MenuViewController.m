@@ -33,10 +33,13 @@ typedef enum {
 #define HTVMenuItemShare    @(0)
 #define HTVMenuItemIdeas    @(1)
 #define HTVMenuItemFeedback @(2)
+#define HTVMenuItemEmail    @(3)
+#define HTVMenuItemRate     @(4)
 
 
 
-@interface MenuViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+
+@interface MenuViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     NSDictionary *_mainPageItems;
     NSDictionary *_socialPageItems;
@@ -45,7 +48,6 @@ typedef enum {
     NSString *_newsCategory;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation MenuViewController
@@ -71,10 +73,10 @@ typedef enum {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     HTVMenuSection section = indexPath.section;
     NSNumber *row = @(indexPath.row);
-        
+    
     switch (section) {
         case HTVMenuSectionMain:
             if (indexPath.row == HTVMenuItemLive.integerValue) {
@@ -84,7 +86,7 @@ typedef enum {
             } else {
                 [[ControllersManager sharedManager] showAboutViewController];
             }
-
+            
             break;
         case HTVMenuSectionSocial:
             [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:_socialPageItems[@(indexPath.row)][2] forKey:kGAIScreenName] build]];
@@ -101,7 +103,13 @@ typedef enum {
             } else if ([row isEqualToNumber:HTVMenuItemFeedback]) {
                 [[ControllersManager sharedManager] showUserVoiceFeedbackController];
             }
-        break;
+            else if ([row isEqualToNumber:HTVMenuItemEmail]) {
+                [[ControllersManager sharedManager] showEmailToHromadskeController];
+            }
+            else if ([row isEqualToNumber:HTVMenuItemRate]) {
+                [[ControllersManager sharedManager] showRateInAppStore];
+            }
+            break;
     }
 }
 
@@ -115,7 +123,7 @@ typedef enum {
     label.text = [self tableView:tableView titleForHeaderInSection:section];
     
     [sectionView addSubview:label];
-
+    
     return sectionView;
 }
 
@@ -123,10 +131,10 @@ typedef enum {
 - (void)setupData
 {
     _mainPageItems = @{
-                        HTVMenuItemLive : @[ONLINE_PAGE, ONLINE_URL, ONLINE_SCREEN],
-                        HTVMenuItemAbout  : @[ABOUT_US_PAGE, ABOUT_US_URL, ABOUT_SCREEN],
-                        HTVMenuItemNews : @[HOT_NEWS_PAGE]
-                        };
+                       HTVMenuItemLive : @[ONLINE_PAGE, ONLINE_URL, ONLINE_SCREEN],
+                       HTVMenuItemAbout  : @[ABOUT_US_PAGE, ABOUT_US_URL, ABOUT_SCREEN],
+                       HTVMenuItemNews : @[HOT_NEWS_PAGE]
+                       };
     _socialPageItems = @{
                          HTVMenuItemTwitter : @[TWITTER_PAGE, TWITTER_URL,TWITTER_SCREEN],
                          HTVMenuItemFacebook : @[FB_PAGE, FB_URL, FB_SCREEN],
@@ -134,7 +142,9 @@ typedef enum {
                          HTVMenuItemGoogle : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN]};
     _otherPageItems = @{HTVMenuItemShare : @[SHARE_FRIENDS_PAGE],
                         HTVMenuItemIdeas : @[ADD_IDEAS],
-                        HTVMenuItemFeedback : @[WRITE_TO_DEVELOPER_PAGE]};
+                        HTVMenuItemFeedback : @[WRITE_TO_DEVELOPER_PAGE],
+                        HTVMenuItemEmail : @[WRITE_TO_EDITORIAL_OFFICE],
+                        HTVMenuItemRate : @[RATE_IN_APP_STORE]};
 }
 
 
@@ -192,7 +202,7 @@ typedef enum {
             break;
     }
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:18];
-//    cell.textLabel.textColor = [Utils colorFromHtmlSting:@"#33a9dc"];
+    //    cell.textLabel.textColor = [Utils colorFromHtmlSting:@"#33a9dc"];
     cell.backgroundColor = [Utils colorFromHtmlSting:@"#F5F5F5"];
     return cell;
 }

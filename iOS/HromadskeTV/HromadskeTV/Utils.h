@@ -13,6 +13,9 @@
 
 	
 }
+
+#define APP_STORE_PATH(APP_ID)  ([NSString stringWithFormat:@"http://itunes.apple.com/app/id%d", APP_ID])
+
 #pragma mark - dates
 + (NSString *) timeStringFormSeconds:(float)seconds;
 + (NSString *) stringFromDate:(NSDate *)date withFormat:(NSString *)format;

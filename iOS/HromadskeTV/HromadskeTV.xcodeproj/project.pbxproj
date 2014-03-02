@@ -58,8 +58,6 @@
 		506870D8184E570E0024624B /* HTVParentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870D7184E570E0024624B /* HTVParentVC.m */; };
 		506870EB184E68B30024624B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870EA184E68B30024624B /* MenuViewController.m */; };
 		506870F9184E83F60024624B /* HTVWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870F8184E83F60024624B /* HTVWebVC.m */; };
-		50687100184E872D0024624B /* SVWebViewChanges.h in Resources */ = {isa = PBXBuildFile; fileRef = 506870FE184E872D0024624B /* SVWebViewChanges.h */; };
-		50687101184E872D0024624B /* SVWebViewChanges.m in Resources */ = {isa = PBXBuildFile; fileRef = 506870FF184E872D0024624B /* SVWebViewChanges.m */; };
 		50687104184FE4E40024624B /* HTVHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 50687103184FE4E40024624B /* HTVHud.m */; };
 		50D1EFF1185920CE00B390CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */; };
 		50D1EFF61859253500B390CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF51859253500B390CA /* MessageUI.framework */; };
@@ -198,8 +196,6 @@
 		506870EA184E68B30024624B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = Controllers/MenuViewController.m; sourceTree = "<group>"; };
 		506870F7184E83F60024624B /* HTVWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVWebVC.h; path = Controllers/HTVWebVC.h; sourceTree = "<group>"; };
 		506870F8184E83F60024624B /* HTVWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVWebVC.m; path = Controllers/HTVWebVC.m; sourceTree = "<group>"; };
-		506870FE184E872D0024624B /* SVWebViewChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVWebViewChanges.h; path = Changes/SVWebViewChanges.h; sourceTree = "<group>"; };
-		506870FF184E872D0024624B /* SVWebViewChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVWebViewChanges.m; path = Changes/SVWebViewChanges.m; sourceTree = "<group>"; };
 		50687102184FE4E40024624B /* HTVHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHud.h; path = Controllers/HTVHud.h; sourceTree = "<group>"; };
 		50687103184FE4E40024624B /* HTVHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHud.m; path = Controllers/HTVHud.m; sourceTree = "<group>"; };
 		50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -431,7 +427,6 @@
 				9247663E188DD39700CC05B8 /* Categories */,
 				9247663D188DD36500CC05B8 /* Libs */,
 				506870DC184E57A20024624B /* Helpers */,
-				506870FD184E871F0024624B /* Changes */,
 				5044E8E81887C0EF0050E304 /* ViewCells */,
 				92F9656D188F1DC8003F93EA /* Managers */,
 				9215D26A18955B2E00992628 /* Definitions.h */,
@@ -510,15 +505,6 @@
 				50D1EFF81859260000B390CA /* HTVHelperMethods.m */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		506870FD184E871F0024624B /* Changes */ = {
-			isa = PBXGroup;
-			children = (
-				506870FE184E872D0024624B /* SVWebViewChanges.h */,
-				506870FF184E872D0024624B /* SVWebViewChanges.m */,
-			);
-			name = Changes;
 			sourceTree = "<group>";
 		};
 		50DF6E4018506B5A00576DD3 /* Archive.2 */ = {
@@ -830,7 +816,6 @@
 				92F965991890290A003F93EA /* arrow_down1.png in Resources */,
 				5044E92718887B7F0050E304 /* Icon-76@2x.png in Resources */,
 				50DF6E4E18506B5A00576DD3 /* landscape-io6.png in Resources */,
-				50687100184E872D0024624B /* SVWebViewChanges.h in Resources */,
 				50DF6E9918506C8C00576DD3 /* Icon-72@2x.png in Resources */,
 				5044E92A18887B7F0050E304 /* Icon-Small.png in Resources */,
 				5044E92F18887B7F0050E304 /* iTunesArtwork@2x.png in Resources */,
@@ -844,7 +829,6 @@
 				50DF6E5518506B5A00576DD3 /* port-ios7@2x.png in Resources */,
 				50DF6E9718506C8C00576DD3 /* Icon-60@2x.png in Resources */,
 				50DF6E5A18506B8300576DD3 /* Images.xcassets in Resources */,
-				50687101184E872D0024624B /* SVWebViewChanges.m in Resources */,
 				50DF6EA018506C8C00576DD3 /* Icon.png in Resources */,
 				50DF6E5118506B5A00576DD3 /* landscape-io7@2x.png in Resources */,
 				50DF6E9D18506C8C00576DD3 /* Icon-Small-50@2x.png in Resources */,

@@ -39,7 +39,12 @@
 //    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
 //    [[AVAudioSession sharedInstance] setActive: YES error: nil];
     
-    // Override point for customization after application launch.
+    //Launch urls/twitter if the user came from a push
+    NSDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (notification) {
+        [self handlePush:notification];
+    }
+    
     self.window.rootViewController = [[ControllersManager sharedManager] deck];
 
     [self initAnalytics];
@@ -62,6 +67,25 @@
     }
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    if (application.applicationState != UIApplicationStateActive) {
+        [self handlePush:userInfo];
+    }
+}
+
+- (void)handlePush:(NSDictionary *)userInfo
+{
+    NSString *url = [userInfo objectForKey:@"u"];
+    if (url) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    }
+    NSString *tweetID = [userInfo objectForKey:@"i"];
+    if (tweetID) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/t/status/%@", tweetID]]];
+    }
 }
 
 #pragma mark - Stuff

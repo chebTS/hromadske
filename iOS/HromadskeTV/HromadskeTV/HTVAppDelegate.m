@@ -84,7 +84,13 @@
     }
     NSString *tweetID = [userInfo objectForKey:@"i"];
     if (tweetID) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/t/status/%@", tweetID]]];
+        NSURL *twitterApp = [NSURL URLWithString:[NSString stringWithFormat:@"twitter://status?id=%@", tweetID]];
+        if ([[UIApplication sharedApplication] canOpenURL:twitterApp]) {
+            [[UIApplication sharedApplication] openURL:twitterApp];
+        }
+        else {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/t/status/%@", tweetID]]];
+        }
     }
 }
 
@@ -134,8 +140,14 @@
     [httpClient setParameterEncoding:AFJSONParameterEncoding];
     [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
     
+#if DEBUG
+    NSString *platform = @"iodev";
+#else
+    NSString *platform = @"ios";
+#endif
+    
     NSDictionary *params = @{@"deviceID" : deviceToken,
-                             @"platform": @"ios"};
+                             @"platform": platform};
     
     [httpClient postPath:@"/devices"
               parameters:params

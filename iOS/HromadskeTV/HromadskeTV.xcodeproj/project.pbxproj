@@ -1085,13 +1085,13 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fred Cox (P966N76K7J)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = HromadskeTV;
-				PROVISIONING_PROFILE = "B74217F5-B1CF-4A32-A68C-F32C1683AAF2";
+				PROVISIONING_PROFILE = "DDA094E4-1DD5-4C76-AFA1-08B87D923838";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1102,7 +1102,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fred Cox (W3QVKUX47M)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";

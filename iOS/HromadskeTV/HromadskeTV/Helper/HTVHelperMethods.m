@@ -10,6 +10,7 @@
 #import "YoutubeViewController.h"
 #import "Video.h"
 #import "Twitt.h"
+#import "OnlineStream.h"
 
 #define YOUTUBE_KEY @"youtube"
 @implementation HTVHelperMethods
@@ -23,6 +24,24 @@
                       otherButtonTitles: nil] show];
 }
 
+
++ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters languageKey:(NSString *)language
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:parameters forKey:language];
+    [prefs synchronize];
+}
+
++ (OnlineStream *)onlineStreamForLanguage:(NSString *)language
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSDictionary *parameters = [prefs objectForKey:language];
+    if (parameters) {
+        return [OnlineStream onlineStreamWithParameters:parameters];
+    }
+    return nil;
+}
+
 + (NSString *)youtubeLiveLinkTail
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -32,6 +51,7 @@
     }
     return @"";
 }
+
 
 + (void)saveYoutubeLiveLinkTail:(NSString *)newLink
 {

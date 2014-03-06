@@ -9,10 +9,11 @@
 #import "LiveViewController.h"
 #import "UIViewController+HTVNavigationController.h"
 #import "RemoteManager.h"
+#import "SINavigationMenuView.h"
+#import "OnlineStream.h"
 
-@interface LiveViewController () <UIWebViewDelegate>
+@interface LiveViewController () <UIWebViewDelegate, SINavigationMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-
 @end
 
 @implementation LiveViewController
@@ -46,7 +47,6 @@
     }
 }
 
-
 - (void) refresh {
     [self.webView reload];
 }
@@ -55,13 +55,11 @@
     
     if(![self.webView.request.URL.absoluteString isEqualToString:url.absoluteString])
     {
+        [self setupDropDownTable];
         NSURLRequest *req = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:req];
     }
 }
-
-
-
 
 
 #pragma mark - UIWebViewDelegate
@@ -75,4 +73,26 @@
     [[RemoteManager sharedManager] hideRemoteActivity];
 }
 
+#pragma mark - SINavigationMenu methods
+
+- (void)setupDropDownTable
+{
+    CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
+    OnlineStream *currentStream = [HTVHelperMethods onlineStreamForKey:[HTVHelperMethods  keyForOnlineWithPosition:[HTVHelperMethods defaultLiveChanel]]];
+    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:currentStream.name];
+    //Set in which view we will display a menu
+    [menu displayMenuInView:self.view];
+    //Create array of items
+    
+    menu.items = [[OnlineStream allOnlineStreams] valueForKey:@"name"];
+    menu.delegate = self;
+    self.navigationItem.titleView = menu;
+}
+
+
+- (void)didSelectItemAtIndex:(NSUInteger)index
+{
+    [HTVHelperMethods saveDefaultLiveChanelPosition:index];
+    [self setLiveUrl:[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];
+}
 @end

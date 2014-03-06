@@ -22,4 +22,21 @@
     stream.liveTailPath = parameters[kVideoIdKey];
     return stream;
 }
+
++ (NSArray *)allOnlineStreams
+{
+    NSMutableArray *allStreams = @[].mutableCopy;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    int position = 0;
+    NSDictionary *parameters = nil;
+    do {
+        NSString *key = [HTVHelperMethods keyForOnlineWithPosition:position];
+        parameters = [prefs valueForKey:key];
+        if (parameters) {
+            [allStreams addObject:[OnlineStream onlineStreamWithParameters:parameters]];
+        }
+        position++;
+    } while (parameters);
+    return allStreams;
+}
 @end

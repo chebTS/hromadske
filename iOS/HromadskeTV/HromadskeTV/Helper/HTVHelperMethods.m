@@ -80,7 +80,6 @@ static NSString *const kDefaultLanguageKey = @"default language";
     [prefs setObject:@(position) forKey:kDefaultLanguageKey];
     [prefs synchronize];
 }
-
 + (NSString *)youtubeLiveLinkTail
 {
     OnlineStream *stream = [HTVHelperMethods onlineStreamForKey: [HTVHelperMethods keyForOnlineWithPosition:[HTVHelperMethods defaultLiveChanel]]];

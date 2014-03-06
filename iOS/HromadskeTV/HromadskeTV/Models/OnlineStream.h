@@ -13,4 +13,5 @@
 @property (nonatomic, readonly) NSString *liveTailPath;
 
 + (instancetype)onlineStreamWithParameters:(NSDictionary *)parameters;
++ (NSArray *)allOnlineStreams;
 @end

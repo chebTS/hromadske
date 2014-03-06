@@ -59,6 +59,7 @@
 		506870EB184E68B30024624B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870EA184E68B30024624B /* MenuViewController.m */; };
 		506870F9184E83F60024624B /* HTVWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870F8184E83F60024624B /* HTVWebVC.m */; };
 		50687104184FE4E40024624B /* HTVHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 50687103184FE4E40024624B /* HTVHud.m */; };
+		50771F7618C8A8C9008BA7D2 /* OnlineStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 50771F7518C8A8C9008BA7D2 /* OnlineStream.m */; };
 		50D1EFF1185920CE00B390CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */; };
 		50D1EFF61859253500B390CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF51859253500B390CA /* MessageUI.framework */; };
 		50D1EFF91859260000B390CA /* HTVHelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D1EFF81859260000B390CA /* HTVHelperMethods.m */; };
@@ -198,6 +199,8 @@
 		506870F8184E83F60024624B /* HTVWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVWebVC.m; path = Controllers/HTVWebVC.m; sourceTree = "<group>"; };
 		50687102184FE4E40024624B /* HTVHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHud.h; path = Controllers/HTVHud.h; sourceTree = "<group>"; };
 		50687103184FE4E40024624B /* HTVHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHud.m; path = Controllers/HTVHud.m; sourceTree = "<group>"; };
+		50771F7418C8A8C9008BA7D2 /* OnlineStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnlineStream.h; path = Models/OnlineStream.h; sourceTree = "<group>"; };
+		50771F7518C8A8C9008BA7D2 /* OnlineStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineStream.m; path = Models/OnlineStream.m; sourceTree = "<group>"; };
 		50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		50D1EFF51859253500B390CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		50D1EFF71859260000B390CA /* HTVHelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHelperMethods.h; path = Helper/HTVHelperMethods.h; sourceTree = "<group>"; };
@@ -620,6 +623,8 @@
 				5044E8ED1887DEF50050E304 /* Video.m */,
 				5044E90318880E0F0050E304 /* Twitt.h */,
 				5044E90418880E0F0050E304 /* Twitt.m */,
+				50771F7418C8A8C9008BA7D2 /* OnlineStream.h */,
+				50771F7518C8A8C9008BA7D2 /* OnlineStream.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -938,6 +943,7 @@
 				5044E8F21887FE330050E304 /* FHSTwitterEngine.m in Sources */,
 				92F9659218902900003F93EA /* SICellSelection.m in Sources */,
 				92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */,
+				50771F7618C8A8C9008BA7D2 /* OnlineStream.m in Sources */,
 				92F9659018902900003F93EA /* SIMenuTable.m in Sources */,
 				92DC63F41892EE3500ADC2F7 /* AboutViewController.m in Sources */,
 				506870EB184E68B30024624B /* MenuViewController.m in Sources */,

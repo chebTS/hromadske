@@ -25,21 +25,26 @@
 }
 
 
-+ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters languageKey:(NSString *)language
++ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters key:(NSString *)key
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:parameters forKey:language];
+    [prefs setObject:parameters forKey:key];
     [prefs synchronize];
 }
 
-+ (OnlineStream *)onlineStreamForLanguage:(NSString *)language
++ (OnlineStream *)onlineStreamForKey:(NSString *)key
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSDictionary *parameters = [prefs objectForKey:language];
+    NSDictionary *parameters = [prefs objectForKey:key];
     if (parameters) {
         return [OnlineStream onlineStreamWithParameters:parameters];
     }
     return nil;
+}
+
++ (NSString *)keyForOnlineWithPosition:(int)position
+{
+    return [kHromadskeOnlineKey stringByAppendingString:@(position).description];
 }
 
 + (NSString *)youtubeLiveLinkTail

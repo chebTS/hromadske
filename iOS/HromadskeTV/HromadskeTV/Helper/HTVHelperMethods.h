@@ -22,6 +22,7 @@
 + (NSArray *)parseArrayFromTwitter:(NSArray *)twittes;
 
 
-+ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters languageKey:(NSString *)language;
++ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters key:(NSString *)key;
 + (OnlineStream *)onlineStreamForLanguage:(NSString *)language;
++ (NSString *)keyForOnlineWithPosition:(int)position;
 @end

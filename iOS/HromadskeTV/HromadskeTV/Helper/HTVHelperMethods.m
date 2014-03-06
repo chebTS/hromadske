@@ -27,7 +27,7 @@ static NSString *const kDefaultLanguageKey = @"default language";
 }
 
 
-+ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters key:(NSString *)key
++ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters chanel:(NSString *)key
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject:parameters forKey:key];
@@ -63,27 +63,27 @@ static NSString *const kDefaultLanguageKey = @"default language";
     return [kHromadskeOnlineKey stringByAppendingString:@(position).description];
 }
 
-+ (NSString *)defaultLiveLanguageKey
++ (int)defaultLiveChanel
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSString *youtubeDefaultLink = [prefs objectForKey:kDefaultLanguageKey];
-    if (!youtubeDefaultLink) {
-        [HTVHelperMethods saveDefaultLiveLanguageAtPosition:0];
-        return [HTVHelperMethods keyForOnlineWithPosition:0];
+    NSNumber *youtubeDefaultChanel = [prefs objectForKey:kDefaultLanguageKey];
+    if (!youtubeDefaultChanel) {
+        [HTVHelperMethods saveDefaultLiveChanelPosition:0];
+        return 0;
     }
-    return youtubeDefaultLink;
+    return youtubeDefaultChanel.intValue;
 }
 
-+ (void)saveDefaultLiveLanguageAtPosition:(int)position
++ (void)saveDefaultLiveChanelPosition:(int)position
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:[HTVHelperMethods keyForOnlineWithPosition:position] forKey:kDefaultLanguageKey];
+    [prefs setObject:@(position) forKey:kDefaultLanguageKey];
     [prefs synchronize];
 }
 
 + (NSString *)youtubeLiveLinkTail
 {
-    OnlineStream *stream = [HTVHelperMethods onlineStreamForKey: [HTVHelperMethods defaultLiveLanguageKey]];
+    OnlineStream *stream = [HTVHelperMethods onlineStreamForKey: [HTVHelperMethods keyForOnlineWithPosition:[HTVHelperMethods defaultLiveChanel]]];
     NSString *youtubeLink = stream.liveTailPath;
     if (youtubeLink) {
         return youtubeLink;

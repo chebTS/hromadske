@@ -217,8 +217,6 @@ static NSString *const kStreamsKey = @"streams";
     return videos;
 }
 
-
-
 #pragma mark - online links
 - (void)updateLivePathTailFromSource:(HTVLiveLinkSource)source withCompletion:(void(^)(NSString *path, BOOL isNew))completion {
     HTVLiveLinkSource _source = (source == HTVLiveLinkSourceDefault) ? HTVLiveLinkSourceAPI : source;
@@ -284,7 +282,7 @@ static NSString *const kStreamsKey = @"streams";
     NSArray *result = ((NSDictionary *)json)[kStreamsKey];
     for (int i = 0; i < result.count; i++) {
         [HTVHelperMethods saveHromadskeOnlineWithParameters:result[i]
-                                                        key:[HTVHelperMethods keyForOnlineWithPosition:i]];
+                                                        chanel:[HTVHelperMethods keyForOnlineWithPosition:i]];
     }
     
     NSString *youtubeTail = result[0][kVideoIdKey];
@@ -304,7 +302,7 @@ static NSString *const kStreamsKey = @"streams";
     [HTVHelperMethods clearLiveLinks];
     [HTVHelperMethods saveHromadskeOnlineWithParameters:@{kNameKey : @"Громадське Online",
                                                           kVideoIdKey : youtubeTail}
-                                                    key:[HTVHelperMethods keyForOnlineWithPosition:0]];
+                                                    chanel:[HTVHelperMethods keyForOnlineWithPosition:0]];
     return youtubeTail;
 }
 

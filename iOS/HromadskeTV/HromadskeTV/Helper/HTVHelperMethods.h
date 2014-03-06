@@ -21,8 +21,8 @@
 + (NSString *)yotubeTailFromString:(NSString *)string;
 + (NSArray *)parseArrayFromTwitter:(NSArray *)twittes;
 
-
++ (void)clearLiveLinks;
 + (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters key:(NSString *)key;
-+ (OnlineStream *)onlineStreamForLanguage:(NSString *)language;
++ (OnlineStream *)onlineStreamForKey:(NSString *)key;
 + (NSString *)keyForOnlineWithPosition:(int)position;
 @end

@@ -32,6 +32,20 @@
     [prefs synchronize];
 }
 
++ (void)clearLiveLinks
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    int position = 0;
+    NSDictionary *parameters = nil;
+    do {
+        NSString *key = [HTVHelperMethods keyForOnlineWithPosition:position];
+        parameters = [prefs valueForKey:key];
+        [prefs removeObjectForKey:key];
+        position++;
+    } while (parameters);
+    [prefs synchronize];
+}
+
 + (OnlineStream *)onlineStreamForKey:(NSString *)key
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];

@@ -2,6 +2,8 @@
 #import "HTVHelperMethods.h"
 
 static NSString *const kHromadskeOnlineKey = @"hromadske_online";
+static NSString *const kNameKey = @"name";
+static NSString *const kVideoIdKey = @"videoId";
 
 #define DELEGATE ((HTVAppDelegate *)([[UIApplication sharedApplication] delegate]))
 #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)

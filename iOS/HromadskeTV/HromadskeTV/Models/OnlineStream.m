@@ -7,8 +7,7 @@
 //
 
 #import "OnlineStream.h"
-static NSString *const name = @"name";
-static NSString *const videoId = @"videoId";
+
 @interface  OnlineStream ()
 @property (nonatomic, readwrite) NSString *name;
 @property (nonatomic, readwrite) NSString *liveTailPath;
@@ -19,8 +18,8 @@ static NSString *const videoId = @"videoId";
 + (instancetype)onlineStreamParameters:(NSDictionary *)parameters
 {
     OnlineStream *stream = [[OnlineStream alloc] init];
-    stream.name = parameters[name];
-    stream.liveTailPath = parameters[videoId];
+    stream.name = parameters[kNameKey];
+    stream.liveTailPath = parameters[kVideoIdKey];
     return stream;
 }
 @end

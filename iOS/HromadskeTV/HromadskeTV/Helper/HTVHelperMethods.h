@@ -25,4 +25,7 @@
 + (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters key:(NSString *)key;
 + (OnlineStream *)onlineStreamForKey:(NSString *)key;
 + (NSString *)keyForOnlineWithPosition:(int)position;
++ (NSString *)defaultLiveLanguageKey;
++ (void)saveDefaultLiveLanguageAtPosition:(int)position;
+
 @end

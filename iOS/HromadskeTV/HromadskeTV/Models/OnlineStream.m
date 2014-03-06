@@ -15,7 +15,7 @@
 
 @implementation OnlineStream
 
-+ (instancetype)onlineStreamParameters:(NSDictionary *)parameters
++ (instancetype)onlineStreamWithParameters:(NSDictionary *)parameters
 {
     OnlineStream *stream = [[OnlineStream alloc] init];
     stream.name = parameters[kNameKey];

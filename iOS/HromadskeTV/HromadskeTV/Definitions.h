@@ -82,7 +82,7 @@ static NSString *const kVideoIdKey = @"videoId";
 
 
 #define URL_BASE                        @"http://hromadske.tv"
-#define FREDY_BASE_URL                  @"http://hrom.fred.ekreative.com/"
+#define FREDY_BASE_URL                  @"http://hrom.fedr.co/"
 #define URL_BASE_GDATA                  @"http://gdata.youtube.com/"
 
 #define URL_PATH_VIDEO_ALL              @"video/rss"

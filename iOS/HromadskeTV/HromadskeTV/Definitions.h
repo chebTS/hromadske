@@ -77,7 +77,7 @@ static NSString *const kVideoIdKey = @"videoId";
 #define ADD_IDEAS @"Додати пропозицію"
 #define WRITE_TO_DEVELOPER_PAGE @"Написати розробникам"
 #define WRITE_TO_EDITORIAL_OFFICE @"Редакція громадського"
-#define RATE_IN_APP_STORE @"Оцінить в App Store"
+#define RATE_IN_APP_STORE @"Оцінити в App Store"
 
 
 

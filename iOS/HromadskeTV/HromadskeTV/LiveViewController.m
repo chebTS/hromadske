@@ -32,13 +32,13 @@
 - (void) setup {
     self.title = ONLINE_PAGE;
     self.webView.delegate = self;
-    UIBarButtonItem *item =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
-    self.navigationItem.rightBarButtonItem = item;
+//    UIBarButtonItem *item =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+//    self.navigationItem.rightBarButtonItem = item;
     
-    if (IOS_7)
-    {
-        [item setTintColor:[UIColor whiteColor]];
-    }
+//    if (IOS_7)
+//    {
+//        [item setTintColor:[UIColor whiteColor]];
+//    }
 
     
     for (id subview in self.webView.subviews){

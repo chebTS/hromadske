@@ -30,11 +30,11 @@ typedef enum {
 #define HTVMenuItemGoogle   @(3)
 
 #define OTHER_PAGES         @"Інше"
-#define HTVMenuItemShare    @(0)
-#define HTVMenuItemIdeas    @(1)
+#define HTVMenuItemIdeas    @(0)
+#define HTVMenuItemEmail    @(1)
 #define HTVMenuItemFeedback @(2)
-#define HTVMenuItemEmail    @(3)
-#define HTVMenuItemRate     @(4)
+#define HTVMenuItemRate     @(3)
+#define HTVMenuItemShare    @(4)
 
 
 
@@ -135,16 +135,18 @@ typedef enum {
                        HTVMenuItemAbout  : @[ABOUT_US_PAGE, ABOUT_US_URL, ABOUT_SCREEN],
                        HTVMenuItemNews : @[HOT_NEWS_PAGE]
                        };
+
     _socialPageItems = @{
                          HTVMenuItemTwitter : @[TWITTER_PAGE, TWITTER_URL,TWITTER_SCREEN],
                          HTVMenuItemFacebook : @[FB_PAGE, FB_URL, FB_SCREEN],
                          HTVMenuItemYoutube : @[YOUTUBE_PAGE,URL_HROMADSKE_YOUTUBE,YOUTUBE_SCREEN],
                          HTVMenuItemGoogle : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN]};
-    _otherPageItems = @{HTVMenuItemShare : @[SHARE_FRIENDS_PAGE],
-                        HTVMenuItemIdeas : @[ADD_IDEAS],
-                        HTVMenuItemFeedback : @[WRITE_TO_DEVELOPER_PAGE],
+
+    _otherPageItems = @{HTVMenuItemIdeas : @[ADD_IDEAS],
                         HTVMenuItemEmail : @[WRITE_TO_EDITORIAL_OFFICE],
-                        HTVMenuItemRate : @[RATE_IN_APP_STORE]};
+                        HTVMenuItemFeedback : @[WRITE_TO_DEVELOPER_PAGE],
+                        HTVMenuItemRate : @[RATE_IN_APP_STORE],
+                        HTVMenuItemShare : @[SHARE_FRIENDS_PAGE]};
 }
 
 

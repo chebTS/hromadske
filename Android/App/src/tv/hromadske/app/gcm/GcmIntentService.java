@@ -61,7 +61,8 @@ public class GcmIntentService extends IntentService {
 							.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher))
 							.setContentTitle(getApplicationContext().getString(R.string.app_name))
 							.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-							.setContentText(msg);
+							.setContentText(msg)
+							.setAutoCancel(true);
 					
 					PendingIntent contentIntent = PendingIntent.getActivity(this, 0, urlIntent, 0);
 					mBuilder.setContentIntent(contentIntent);
@@ -72,8 +73,6 @@ public class GcmIntentService extends IntentService {
 				Log.i(TAG, "Received: " + extras.toString());
 			}
 		}
-		// Release the wake lock provided by the WakefulBroadcastReceiver.
-		GcmBroadcastReceiver.completeWakefulIntent(intent);
 	}
 	
 	protected boolean getPushEnabled()

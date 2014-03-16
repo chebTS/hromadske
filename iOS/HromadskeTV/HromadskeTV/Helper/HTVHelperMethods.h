@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class YoutubeViewController;
+@class OnlineStream;
 @interface HTVHelperMethods : NSObject
 
 
@@ -19,4 +20,12 @@
 + (void)fetchNewDataFromYoutubeForController:(YoutubeViewController *)controller;
 + (NSString *)yotubeTailFromString:(NSString *)string;
 + (NSArray *)parseArrayFromTwitter:(NSArray *)twittes;
+
++ (void)clearLiveLinks;
++ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters chanel:(NSString *)key;
++ (OnlineStream *)onlineStreamForKey:(NSString *)key;
++ (NSString *)keyForOnlineWithPosition:(int)position;
++ (int)defaultLiveChanel;
++ (void)saveDefaultLiveChanelPosition:(int)position;
+
 @end

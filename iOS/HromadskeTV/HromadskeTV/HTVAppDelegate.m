@@ -80,16 +80,24 @@
 {
     NSString *url = [userInfo objectForKey:@"u"];
     if (url) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        });
     }
-    NSString *tweetID = [userInfo objectForKey:@"i"];
-    if (tweetID) {
-        NSURL *twitterApp = [NSURL URLWithString:[NSString stringWithFormat:@"twitter://status?id=%@", tweetID]];
-        if ([[UIApplication sharedApplication] canOpenURL:twitterApp]) {
-            [[UIApplication sharedApplication] openURL:twitterApp];
-        }
-        else {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/t/status/%@", tweetID]]];
+    else {
+        NSString *tweetID = [userInfo objectForKey:@"i"];
+        if (tweetID) {
+            NSURL *twitterApp = [NSURL URLWithString:[NSString stringWithFormat:@"twitter://status?id=%@", tweetID]];
+            if ([[UIApplication sharedApplication] canOpenURL:twitterApp]) {
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    [[UIApplication sharedApplication] openURL:twitterApp];
+                });
+            }
+            else {
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/t/status/%@", tweetID]]];
+                });
+            }
         }
     }
 }

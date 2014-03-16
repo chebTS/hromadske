@@ -1,6 +1,10 @@
 #import "HTVAppDelegate.h"
 #import "HTVHelperMethods.h"
 
+static NSString *const kHromadskeOnlineKey = @"hromadske_online";
+static NSString *const kNameKey = @"name";
+static NSString *const kVideoIdKey = @"videoId";
+
 #define DELEGATE ((HTVAppDelegate *)([[UIApplication sharedApplication] delegate]))
 #define IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1 ? YES : NO)
 #define NSLog(...)
@@ -73,11 +77,12 @@
 #define ADD_IDEAS @"Додати пропозицію"
 #define WRITE_TO_DEVELOPER_PAGE @"Написати розробникам"
 #define WRITE_TO_EDITORIAL_OFFICE @"Редакція громадського"
-#define RATE_IN_APP_STORE @"Оцінить в App Store"
+#define RATE_IN_APP_STORE @"Оцінити в App Store"
 
 
 
 #define URL_BASE                        @"http://hromadske.tv"
+#define FREDY_BASE_URL                  @"http://hrom.fedr.co/"
 #define URL_BASE_GDATA                  @"http://gdata.youtube.com/"
 
 #define URL_PATH_VIDEO_ALL              @"video/rss"
@@ -87,7 +92,7 @@
 #define URL_PATH_ONLINE                 @"/youtube?new"
 
 #define URL_GDATA_PATH_ONLINE           @"/feeds/api/users/HromadskeTV/live/events?v=2&status=active&fields=entry(content)&alt=json"
-
+#define URL_PATH_STREAM                 @"streams"
 
 #define URL_HROMADSKE_YOUTUBE           @"http://www.youtube.com/user/HromadskeTV/featured"
 #define URL_HROMADSKE_HELP              @"http://hromadske.tv/donate?"

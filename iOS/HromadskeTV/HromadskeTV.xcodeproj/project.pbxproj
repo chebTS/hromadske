@@ -33,8 +33,6 @@
 		5044E92B18887B7F0050E304 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5044E91418887B7F0050E304 /* Icon-Small@2x.png */; };
 		5044E92C18887B7F0050E304 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5044E91518887B7F0050E304 /* Icon.png */; };
 		5044E92D18887B7F0050E304 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5044E91618887B7F0050E304 /* Icon@2x.png */; };
-		5044E92E18887B7F0050E304 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 5044E91718887B7F0050E304 /* iTunesArtwork.png */; };
-		5044E92F18887B7F0050E304 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5044E91818887B7F0050E304 /* iTunesArtwork@2x.png */; };
 		5044E93018887B7F0050E304 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5044E91918887B7F0050E304 /* logo.png */; };
 		5044E93118887B7F0050E304 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5044E91A18887B7F0050E304 /* logo@2x.png */; };
 		5044E93218887B7F0050E304 /* logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5044E91B18887B7F0050E304 /* logo_small.png */; };
@@ -59,6 +57,7 @@
 		506870EB184E68B30024624B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870EA184E68B30024624B /* MenuViewController.m */; };
 		506870F9184E83F60024624B /* HTVWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870F8184E83F60024624B /* HTVWebVC.m */; };
 		50687104184FE4E40024624B /* HTVHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 50687103184FE4E40024624B /* HTVHud.m */; };
+		50771F7618C8A8C9008BA7D2 /* OnlineStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 50771F7518C8A8C9008BA7D2 /* OnlineStream.m */; };
 		50D1EFF1185920CE00B390CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */; };
 		50D1EFF61859253500B390CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D1EFF51859253500B390CA /* MessageUI.framework */; };
 		50D1EFF91859260000B390CA /* HTVHelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D1EFF81859260000B390CA /* HTVHelperMethods.m */; };
@@ -87,8 +86,6 @@
 		50DF6E9E18506C8C00576DD3 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E7E18506C8C00576DD3 /* Icon-Small.png */; };
 		50DF6EA018506C8C00576DD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8018506C8C00576DD3 /* Icon.png */; };
 		50DF6EA118506C8C00576DD3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8118506C8C00576DD3 /* Icon@2x.png */; };
-		50DF6EA218506C8C00576DD3 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8218506C8C00576DD3 /* iTunesArtwork.png */; };
-		50DF6EA318506C8C00576DD3 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6E8318506C8C00576DD3 /* iTunesArtwork@2x.png */; };
 		50DF6EA5185082E500576DD3 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50DF6EA4185082E500576DD3 /* Icon-Small@2x.png */; };
 		920FEA301890589600942D72 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 920FEA2F1890589600942D72 /* VideoTableViewCell.m */; };
 		921D1EEA1892CCB000B92101 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE51892CCB000B92101 /* TFHpple.m */; };
@@ -164,8 +161,6 @@
 		5044E91418887B7F0050E304 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		5044E91518887B7F0050E304 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		5044E91618887B7F0050E304 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		5044E91718887B7F0050E304 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
-		5044E91818887B7F0050E304 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		5044E91918887B7F0050E304 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		5044E91A18887B7F0050E304 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		5044E91B18887B7F0050E304 /* logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_small.png; sourceTree = "<group>"; };
@@ -198,6 +193,8 @@
 		506870F8184E83F60024624B /* HTVWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVWebVC.m; path = Controllers/HTVWebVC.m; sourceTree = "<group>"; };
 		50687102184FE4E40024624B /* HTVHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHud.h; path = Controllers/HTVHud.h; sourceTree = "<group>"; };
 		50687103184FE4E40024624B /* HTVHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVHud.m; path = Controllers/HTVHud.m; sourceTree = "<group>"; };
+		50771F7418C8A8C9008BA7D2 /* OnlineStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnlineStream.h; path = Models/OnlineStream.h; sourceTree = "<group>"; };
+		50771F7518C8A8C9008BA7D2 /* OnlineStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineStream.m; path = Models/OnlineStream.m; sourceTree = "<group>"; };
 		50D1EFF0185920CE00B390CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		50D1EFF51859253500B390CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		50D1EFF71859260000B390CA /* HTVHelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVHelperMethods.h; path = Helper/HTVHelperMethods.h; sourceTree = "<group>"; };
@@ -374,8 +371,6 @@
 				5044E91418887B7F0050E304 /* Icon-Small@2x.png */,
 				5044E91518887B7F0050E304 /* Icon.png */,
 				5044E91618887B7F0050E304 /* Icon@2x.png */,
-				5044E91718887B7F0050E304 /* iTunesArtwork.png */,
-				5044E91818887B7F0050E304 /* iTunesArtwork@2x.png */,
 			);
 			path = ios7;
 			sourceTree = "<group>";
@@ -620,6 +615,8 @@
 				5044E8ED1887DEF50050E304 /* Video.m */,
 				5044E90318880E0F0050E304 /* Twitt.h */,
 				5044E90418880E0F0050E304 /* Twitt.m */,
+				50771F7418C8A8C9008BA7D2 /* OnlineStream.h */,
+				50771F7518C8A8C9008BA7D2 /* OnlineStream.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -809,7 +806,6 @@
 				5044E92D18887B7F0050E304 /* Icon@2x.png in Resources */,
 				5044E93318887B7F0050E304 /* logoLarge.png in Resources */,
 				506870A8184E4FD50024624B /* Main_iPad.storyboard in Resources */,
-				5044E92E18887B7F0050E304 /* iTunesArtwork.png in Resources */,
 				5044E92518887B7F0050E304 /* Icon-72@2x.png in Resources */,
 				5044E93018887B7F0050E304 /* logo.png in Resources */,
 				92DC63F01892EDF900ADC2F7 /* about.html in Resources */,
@@ -818,7 +814,6 @@
 				50DF6E4E18506B5A00576DD3 /* landscape-io6.png in Resources */,
 				50DF6E9918506C8C00576DD3 /* Icon-72@2x.png in Resources */,
 				5044E92A18887B7F0050E304 /* Icon-Small.png in Resources */,
-				5044E92F18887B7F0050E304 /* iTunesArtwork@2x.png in Resources */,
 				50DF6E4F18506B5A00576DD3 /* landscape-io6@2x.png in Resources */,
 				50DF6E9818506C8C00576DD3 /* Icon-72.png in Resources */,
 				92F965981890290A003F93EA /* arrow_down1@2x.png in Resources */,
@@ -834,7 +829,6 @@
 				50DF6E9D18506C8C00576DD3 /* Icon-Small-50@2x.png in Resources */,
 				50DF6EA5185082E500576DD3 /* Icon-Small@2x.png in Resources */,
 				5044E92318887B7F0050E304 /* Icon-60@2x.png in Resources */,
-				50DF6EA218506C8C00576DD3 /* iTunesArtwork.png in Resources */,
 				5044E92618887B7F0050E304 /* Icon-76.png in Resources */,
 				50DF6E5418506B5A00576DD3 /* port-ios7.png in Resources */,
 				50DF6E9A18506C8C00576DD3 /* Icon-76.png in Resources */,
@@ -857,7 +851,6 @@
 				5044E92818887B7F0050E304 /* Icon-Small-50.png in Resources */,
 				50DF6E9C18506C8C00576DD3 /* Icon-Small-50.png in Resources */,
 				50DF6E5818506B5A00576DD3 /* ip5@2x.png in Resources */,
-				50DF6EA318506C8C00576DD3 /* iTunesArtwork@2x.png in Resources */,
 				5044E92418887B7F0050E304 /* Icon-72.png in Resources */,
 				50DF6E9518506C8C00576DD3 /* Icon-40@2x.png in Resources */,
 				50DF6E9B18506C8C00576DD3 /* Icon-76@2x.png in Resources */,
@@ -938,6 +931,7 @@
 				5044E8F21887FE330050E304 /* FHSTwitterEngine.m in Sources */,
 				92F9659218902900003F93EA /* SICellSelection.m in Sources */,
 				92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */,
+				50771F7618C8A8C9008BA7D2 /* OnlineStream.m in Sources */,
 				92F9659018902900003F93EA /* SIMenuTable.m in Sources */,
 				92DC63F41892EE3500ADC2F7 /* AboutViewController.m in Sources */,
 				506870EB184E68B30024624B /* MenuViewController.m in Sources */,
@@ -1085,13 +1079,13 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fred Cox (P966N76K7J)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = HromadskeTV;
-				PROVISIONING_PROFILE = "B74217F5-B1CF-4A32-A68C-F32C1683AAF2";
+				PROVISIONING_PROFILE = "DDA094E4-1DD5-4C76-AFA1-08B87D923838";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1102,7 +1096,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fred Cox (W3QVKUX47M)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";

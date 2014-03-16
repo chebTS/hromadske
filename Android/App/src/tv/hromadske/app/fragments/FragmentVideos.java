@@ -15,6 +15,7 @@ import tv.hromadske.app.R;
 import tv.hromadske.app.VideoUkrActivity;
 import tv.hromadske.app.utils.SystemUtils;
 import tv.hromadske.app.utils.Video;
+import android.app.ActionBar.LayoutParams;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -71,7 +72,7 @@ public class FragmentVideos extends Fragment {
 		
 		buttons = new Button[videos.length];
 		
-		for (int i = 0;i < videos.length;i++) {
+		for (int i = videos.length - 1;i >= 0;i--) {
 			Button button = buttons[i] = (Button) inflater.inflate(R.layout.btn_stream, null);
 			button.setText(videos[i].name);
 			final Video video = videos[i];
@@ -82,7 +83,11 @@ public class FragmentVideos extends Fragment {
 					startActivity(intent);
 				}
 			});
-			list.addView(button);
+			
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			params.setMargins(0, 10, 0, 0);
+			button.setLayoutParams(params);
+			list.addView(button, 0);
 		}
 	}
 

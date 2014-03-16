@@ -51,6 +51,8 @@ public class GcmIntentService extends IntentService {
 					if (msg == null) {
 						msg = extras.getString("https://twitter.com/status/" + extras.getString("i"));
 					}
+				} else {
+					urlIntent = new Intent(this, MainActivity.class);
 				}
 
 				if (msg != null) {					
@@ -61,11 +63,8 @@ public class GcmIntentService extends IntentService {
 							.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
 							.setContentText(msg);
 					
-					if (urlIntent != null) {
-						PendingIntent contentIntent = PendingIntent.getActivity(this,
-							0, urlIntent, 0);
-						mBuilder.setContentIntent(contentIntent);
-					}
+					PendingIntent contentIntent = PendingIntent.getActivity(this, 0, urlIntent, 0);
+					mBuilder.setContentIntent(contentIntent);
 					
 					mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 				}

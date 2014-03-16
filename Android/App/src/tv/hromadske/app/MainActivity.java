@@ -37,6 +37,7 @@ import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.android.gms.internal.ed;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 	private final String urlSite = "http://hromadske.tv/";
@@ -133,6 +134,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		inflater.inflate(R.menu.main2, menu);
 		mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.action_share).getActionProvider();
 		mShareActionProvider.setShareIntent(creatShareIntent());
+		menu.findItem(R.id.enable_push).setChecked(getPushEnabled());
 		return true;
 	}
 
@@ -181,6 +183,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			FragmentAbout fragmentAbout = new FragmentAbout();
 			fragmentAbout.show(getFragmentManager(), "about");
 			break;
+		case R.id.enable_push:
+			boolean checked = item.isChecked();
+			setPushEnabled(!checked);
+			item.setChecked(!checked);
+			break;
 		default:
 			break;
 		}
@@ -220,6 +227,17 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
     String regid;
     Context context;
     AtomicInteger msgId = new AtomicInteger();
+    
+    protected void setPushEnabled(boolean enabled)
+    {
+    	SharedPreferences.Editor editor = getGCMPreferences(getApplicationContext()).edit();
+    	editor.putBoolean("push_enabled", enabled);
+    	editor.commit();
+	}
+    
+    protected boolean getPushEnabled() {
+		return getGCMPreferences(getApplicationContext()).getBoolean("push_enabled", true);
+	}
     
     protected void setupPush() {
     	if (checkPlayServices()) {

@@ -1,5 +1,6 @@
 package tv.hromadske.app.gcm;
 
+import tv.hromadske.app.MainActivity;
 import tv.hromadske.app.R;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -32,7 +33,7 @@ public class GcmIntentService extends IntentService {
 		GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
 		String messageType = gcm.getMessageType(intent);
 
-		if (!extras.isEmpty()) { // has effect of unparcelling Bundle
+		if (getPushEnabled() && !extras.isEmpty()) { // has effect of unparcelling Bundle
 			if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
 				mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 				
@@ -75,5 +76,11 @@ public class GcmIntentService extends IntentService {
 		// Release the wake lock provided by the WakefulBroadcastReceiver.
 		GcmBroadcastReceiver.completeWakefulIntent(intent);
 	}
-
+	
+	protected boolean getPushEnabled()
+	{
+		return getSharedPreferences(MainActivity.class.getSimpleName(),
+	            Context.MODE_PRIVATE).getBoolean("push_enabled", true);
+	}
+	
 }

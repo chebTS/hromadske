@@ -38,5 +38,10 @@
         android:id="@+id/action_about"
         android:showAsAction="never"
         android:title="About"/>
+    
+    <item android:id="@+id/enable_push" 
+         android:titleCondensed="Push"
+         android:title="Enable Push Notifications" 
+         android:checkable="true" />
 
 </menu>

@@ -9,6 +9,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -29,48 +30,44 @@ public class GcmIntentService extends IntentService {
 	protected void onHandleIntent(Intent intent) {
 		Bundle extras = intent.getExtras();
 		GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
-		// The getMessageType() intent parameter must be the intent you received
-		// in your BroadcastReceiver.
 		String messageType = gcm.getMessageType(intent);
 
 		if (!extras.isEmpty()) { // has effect of unparcelling Bundle
-			/*
-			 * Filter messages based on message type. Since it is likely that
-			 * GCM will be extended in the future with new message types, just
-			 * ignore any message types you're not interested in, or that you
-			 * don't recognize.
-			 */
 			if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
-				// Post notification of received message.
-				mNotificationManager = (NotificationManager) this
-						.getSystemService(Context.NOTIFICATION_SERVICE);
-
-				Intent urlIntent = new Intent(Intent.ACTION_VIEW);
+				mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+				
+				String msg = extras.getString("message");
+				Intent urlIntent = null;
 				if (extras.containsKey("u")) {
+					urlIntent = new Intent(Intent.ACTION_VIEW);
 					urlIntent.setData(Uri.parse(extras.getString("u")));
+					if (msg == null) {
+						msg = extras.getString("u");
+					}
 				} else if (extras.containsKey("i")) {
-					urlIntent.setData(Uri
-							.parse("https://twitter.com/HromadskeTV/status/"
-									+ extras.getString("i")));
+					urlIntent = new Intent(Intent.ACTION_VIEW);
+					urlIntent.setData(Uri.parse("https://twitter.com/HromadskeTV/status/" + extras.getString("i")));
+					if (msg == null) {
+						msg = extras.getString("https://twitter.com/status/" + extras.getString("i"));
+					}
 				}
 
-				PendingIntent contentIntent = PendingIntent.getActivity(this,
-						0, urlIntent, 0);
-
-				String msg = extras.getString("message");
-
-				NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-						this)
-						.setSmallIcon(R.drawable.ic_launcher)
-						.setContentTitle(
-								getApplicationContext().getString(
-										R.string.app_name))
-						.setStyle(
-								new NotificationCompat.BigTextStyle()
-										.bigText(msg)).setContentText(msg);
-
-				mBuilder.setContentIntent(contentIntent);
-				mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+				if (msg != null) {					
+					NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+							.setSmallIcon(R.drawable.logo_notification)
+							.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher))
+							.setContentTitle(getApplicationContext().getString(R.string.app_name))
+							.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+							.setContentText(msg);
+					
+					if (urlIntent != null) {
+						PendingIntent contentIntent = PendingIntent.getActivity(this,
+							0, urlIntent, 0);
+						mBuilder.setContentIntent(contentIntent);
+					}
+					
+					mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+				}
 
 				Log.i(TAG, "Received: " + extras.toString());
 			}

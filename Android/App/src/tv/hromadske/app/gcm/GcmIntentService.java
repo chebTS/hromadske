@@ -6,6 +6,7 @@ import tv.hromadske.app.R;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -19,7 +20,7 @@ import android.util.Log;
 public class GcmIntentService extends IntentService {
 
 	private static final String TAG = "HromGCM";
-	public static final int NOTIFICATION_ID = 1;
+	public static int notificationId = 1;
 	private NotificationManager mNotificationManager;
 	NotificationCompat.Builder builder;
 
@@ -62,12 +63,13 @@ public class GcmIntentService extends IntentService {
 							.setContentTitle(getApplicationContext().getString(R.string.app_name))
 							.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
 							.setContentText(msg)
-							.setAutoCancel(true);
+							.setAutoCancel(true)
+							.setDefaults(Notification.DEFAULT_SOUND);
 					
 					PendingIntent contentIntent = PendingIntent.getActivity(this, 0, urlIntent, 0);
 					mBuilder.setContentIntent(contentIntent);
 					
-					mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+					mNotificationManager.notify(notificationId++, mBuilder.build());
 				}
 
 				Log.i(TAG, "Received: " + extras.toString());

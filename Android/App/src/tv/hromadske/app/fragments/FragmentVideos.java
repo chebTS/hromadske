@@ -51,7 +51,7 @@ public class FragmentVideos extends Fragment {
 	public void onStart() {
 		super.onStart();
 		Tracker tracker = EasyTracker.getInstance(getActivity());
-		tracker.set(Fields.SCREEN_NAME, "Videos");
+		tracker.set(Fields.SCREEN_NAME, "Home");
 		tracker.send(MapBuilder.createAppView().build());
 	}
 	

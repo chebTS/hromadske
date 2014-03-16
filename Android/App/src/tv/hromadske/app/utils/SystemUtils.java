@@ -19,6 +19,7 @@ public class SystemUtils {
 	//productDetails+=String.format("%-20s%10.2s%10s",this.name,this.banner);
 	
 	public static final String STREAMS_URL = "http://hrom.fedr.co/streams";
+	public static final String DEVICES_URL = "http://hrom.fedr.co/devices";
 	
 	public static boolean isAppInstalledOrNot(String uri, Context context) {
 		PackageManager pm = context.getPackageManager();

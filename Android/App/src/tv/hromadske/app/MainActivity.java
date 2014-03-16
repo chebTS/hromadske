@@ -18,12 +18,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ShareActionProvider;
 import android.widget.Toast;
+import com.google.analytics.tracking.android.EasyTracker;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 	private final String urlSite = "http://hromadske.tv/";
 
 	private FragmentVideos fragmentVideos = new FragmentVideos();
-	private FragmentWeb fragmentSite = new FragmentWeb(urlSite);
+	private FragmentWeb fragmentSite = new FragmentWeb();
 	private FragmentLinks fragmentLinks = new FragmentLinks();
 	private boolean exitApp = false;
 	private int pos = 0;
@@ -32,6 +33,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		Bundle args = new Bundle();
+	    args.putString("url", urlSite);
+		fragmentSite.setArguments(args);
+		
 		setContentView(R.layout.activity_main);
 		ActionBar bar = getActionBar();
 
@@ -40,22 +46,34 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		}
 
 		Tab tab = bar.newTab();
-		tab.setText("Відео");
+		tab.setText(R.string.main_tab);
 		tab.setTabListener(this);
 		bar.addTab(tab);
 
 		tab = bar.newTab();
-		tab.setText("Сайт");
+		tab.setText(R.string.online_tab);
 		tab.setTabListener(this);
 		bar.addTab(tab);
 
 		tab = bar.newTab();
-		tab.setText("Посилання");
+		tab.setText(R.string.share_tab);
 		tab.setTabListener(this);
 		bar.addTab(tab);
 
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		bar.setSelectedNavigationItem(pos);
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
 	}
 
 	@Override

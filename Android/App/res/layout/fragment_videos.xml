@@ -12,32 +12,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/btn_ukr"
+            <LinearLayout
+                android:id="@+id/btns_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/btn_video_selector"
-                android:drawableLeft="@drawable/ukraine_flag"
-                android:padding="5dp"
-                android:text="@string/ukr_translation"
-                android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/btn_eng"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/btn_video_selector"
-                android:drawableLeft="@drawable/uk_flag"
-                android:padding="5dp"
-                android:text="@string/in_english"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:visibility="gone" />
+            </LinearLayout>
 
             <include layout="@layout/working_time" />
+
         </LinearLayout>
     </ScrollView>
 

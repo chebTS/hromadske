@@ -1,5 +1,10 @@
 package tv.hromadske.app.fragments;
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
+
 import tv.hromadske.app.R;
 import android.app.Fragment;
 import android.content.Intent;
@@ -19,7 +24,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 public class FragmentWeb extends Fragment implements OnClickListener {
-	private String url;
 	private ProgressBar progressBar;
 	private ImageButton btnBack, btnForward, btnRefresh;
 	private Boolean isLoading;
@@ -30,9 +34,17 @@ public class FragmentWeb extends Fragment implements OnClickListener {
 		super();
 	}
 
-	public FragmentWeb(String url) {
-		super();
-		this.url = url;
+	protected String getUrl()
+	{
+		return getArguments().getString("url");
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		Tracker tracker = EasyTracker.getInstance(getActivity());
+		tracker.set(Fields.SCREEN_NAME, getUrl());
+		tracker.send(MapBuilder.createAppView().build());
 	}
 
 	@Override
@@ -49,7 +61,7 @@ public class FragmentWeb extends Fragment implements OnClickListener {
 		settings.setJavaScriptEnabled(true);
 		settings.setLoadWithOverviewMode(true);
 		wv.setWebViewClient(new CustomWebViewClient());
-		wv.loadUrl(url);
+		wv.loadUrl(getUrl());
 		btnBack = (ImageButton) v.findViewById(R.id.btnBack);
 		btnBack.setOnClickListener(this);
 		btnForward = (ImageButton) v.findViewById(R.id.btnForward);

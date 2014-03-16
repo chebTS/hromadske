@@ -1,5 +1,10 @@
 package tv.hromadske.app.fragments;
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
+
 import tv.hromadske.app.R;
 import android.app.DialogFragment;
 import android.content.Intent;
@@ -24,6 +29,14 @@ public class FragmentAbout extends DialogFragment implements OnClickListener {
 		btnDevelopers.setOnClickListener(this);
 		getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 		return v;
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		Tracker tracker = EasyTracker.getInstance(getActivity());
+		tracker.set(Fields.SCREEN_NAME, "About");
+		tracker.send(MapBuilder.createAppView().build());
 	}
 
 	@Override

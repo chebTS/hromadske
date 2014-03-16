@@ -1,5 +1,10 @@
 package tv.hromadske.app.fragments;
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
+
 import tv.hromadske.app.R;
 import tv.hromadske.app.utils.SystemUtils;
 import android.app.Fragment;
@@ -30,6 +35,14 @@ public class FragmentLinks extends Fragment implements OnClickListener {
 		((Button) v.findViewById(R.id.btn_g_plus)).setOnClickListener(this);
 		((Button) v.findViewById(R.id.btn_email)).setOnClickListener(this);
 		return v;
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		Tracker tracker = EasyTracker.getInstance(getActivity());
+		tracker.set(Fields.SCREEN_NAME, "Links");
+		tracker.send(MapBuilder.createAppView().build());
 	}
 
 	@Override

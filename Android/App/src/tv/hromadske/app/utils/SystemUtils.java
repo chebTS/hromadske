@@ -18,6 +18,8 @@ public class SystemUtils {
 	//String s = "http://gdata.youtube.com/feeds/api/users/HromadskeTV/live/events?v=2&status=active&fields=entry%28content%29&alt=json";
 	//productDetails+=String.format("%-20s%10.2s%10s",this.name,this.banner);
 	
+	public static final String STREAMS_URL = "http://hrom.fedr.co/streams";
+	
 	public static boolean isAppInstalledOrNot(String uri, Context context) {
 		PackageManager pm = context.getPackageManager();
 		boolean app_installed = false;

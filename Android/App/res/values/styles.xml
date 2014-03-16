@@ -17,4 +17,11 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="stream_btn_style" parent="android:Widget.Holo.Light.Button">
+        <item name="android:background">@drawable/btn_video_selector</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+		<item name="android:layout_marginBottom">10dp</item>
+    </style>
 </resources>

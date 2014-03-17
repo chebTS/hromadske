@@ -37,7 +37,7 @@ public class GcmIntentService extends IntentService {
 		if (getPushEnabled() && !extras.isEmpty()) { // has effect of unparcelling Bundle
 			if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
 				mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-				
+				Intent hromIndent = new Intent(this, MainActivity.class);
 				String msg = extras.getString("message");
 				Intent urlIntent = null;
 				if (extras.containsKey("u")) {
@@ -53,7 +53,7 @@ public class GcmIntentService extends IntentService {
 						msg = extras.getString("https://twitter.com/status/" + extras.getString("i"));
 					}
 				} else {
-					urlIntent = new Intent(this, MainActivity.class);
+					urlIntent = hromIndent;
 				}
 
 				if (msg != null) {					
@@ -64,10 +64,10 @@ public class GcmIntentService extends IntentService {
 							.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
 							.setContentText(msg)
 							.setAutoCancel(true)
-							.setDefaults(Notification.DEFAULT_SOUND);
+							.setDefaults(Notification.DEFAULT_SOUND)
+							.addAction(R.drawable.logo_notification, "Watch Now", PendingIntent.getActivity(this, 0, hromIndent, 0));
 					
-					PendingIntent contentIntent = PendingIntent.getActivity(this, 0, urlIntent, 0);
-					mBuilder.setContentIntent(contentIntent);
+					mBuilder.setContentIntent(PendingIntent.getActivity(this, 0, urlIntent, 0));
 					
 					mNotificationManager.notify(notificationId++, mBuilder.build());
 				}

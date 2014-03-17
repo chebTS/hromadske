@@ -3,8 +3,6 @@ package tv.hromadske.app;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -37,7 +35,6 @@ import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.google.android.gms.internal.ed;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 	private final String urlSite = "http://hromadske.tv/";
@@ -75,7 +72,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		bar.addTab(tab);
 
 		tab = bar.newTab();
-		tab.setText(R.string.share_tab);
+		tab.setText(R.string.more_tab);
 		tab.setTabListener(this);
 		bar.addTab(tab);
 
@@ -154,6 +151,9 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 			break;
 		case R.id.action_youtube:
 			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/user/HromadskeTV/featured")));
+			break;
+		case R.id.action_web:
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://hromadske.tv")));
 			break;
 		case R.id.action_twitter:
 			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/HromadskeTV")));

@@ -26,6 +26,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class FragmentVideos extends Fragment {
 	private View containerLoad;
@@ -46,7 +47,7 @@ public class FragmentVideos extends Fragment {
 		inflater = inflate;
 		return v;
 	}
-	
+
 	@Override
 	public void onStart() {
 		super.onStart();
@@ -54,26 +55,28 @@ public class FragmentVideos extends Fragment {
 		tracker.set(Fields.SCREEN_NAME, "Home");
 		tracker.send(MapBuilder.createAppView().build());
 	}
-	
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		GetYoutubeUrlTask getYoutubeUrlTask = new GetYoutubeUrlTask(containerLoad);
-		getYoutubeUrlTask.execute();
+		if (SystemUtils.isOnline(getActivity())) {
+			(new GetYoutubeUrlTask(containerLoad)).execute();
+		}else{
+			Toast.makeText(getActivity(), "No internet connection", Toast.LENGTH_LONG).show();
+		}
 	}
-	
-	protected void createButtons()
-	{
+
+	protected void createButtons() {
 		if (buttons != null) {
 			for (Button button : buttons) {
 				list.removeView(button);
 			}
 		}
-		
+
 		buttons = new Button[videos.length];
-		
-		for (int i = videos.length - 1;i >= 0;i--) {
-			Button button = buttons[i] = (Button) inflater.inflate(R.layout.btn_stream, null);
+
+		for (int i = videos.length - 1; i >= 0; i--) {
+			Button button = buttons[i] = (Button) inflater.inflate(R.layout.btn_stream, null);//pervert
 			button.setText(videos[i].name);
 			final Video video = videos[i];
 			button.setOnClickListener(new OnClickListener() {
@@ -83,7 +86,7 @@ public class FragmentVideos extends Fragment {
 					startActivity(intent);
 				}
 			});
-			
+
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 			params.setMargins(0, 10, 0, 0);
 			button.setLayoutParams(params);
@@ -116,12 +119,13 @@ public class FragmentVideos extends Fragment {
 					String res = SystemUtils.streamToString(dresponse.getEntity().getContent());
 					JSONArray streams = new JSONObject(res).optJSONArray("streams");
 					videos = new Video[streams.length()];
-					
+
 					for (int i = 0; i < videos.length; i++) {
 						JSONObject stream = streams.optJSONObject(i);
-						videos[i] = new Video(stream.getString("name"), stream.getString("videoId"), stream.getString("thumb"));
+						videos[i] = new Video(stream.getString("name"), stream.getString("videoId"),
+								stream.getString("thumb"));
 					}
-					
+
 					return true;
 				}
 			} catch (Exception e) {

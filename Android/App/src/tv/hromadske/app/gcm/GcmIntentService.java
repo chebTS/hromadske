@@ -64,8 +64,11 @@ public class GcmIntentService extends IntentService {
 							.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
 							.setContentText(msg)
 							.setAutoCancel(true)
-							.setDefaults(Notification.DEFAULT_SOUND)
-							.addAction(R.drawable.logo_notification, "Watch Now", PendingIntent.getActivity(this, 0, hromIndent, 0));
+							.setDefaults(Notification.DEFAULT_SOUND);
+					
+					if (urlIntent != hromIndent) {
+						mBuilder.addAction(R.drawable.logo_notification, "Watch Now", PendingIntent.getActivity(this, 0, hromIndent, 0));
+					}
 					
 					mBuilder.setContentIntent(PendingIntent.getActivity(this, 0, urlIntent, 0));
 					

@@ -2,6 +2,7 @@ package tv.hromadske.app.gcm;
 
 import tv.hromadske.app.MainActivity;
 import tv.hromadske.app.R;
+import tv.hromadske.app.utils.SystemUtils;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
@@ -48,7 +49,12 @@ public class GcmIntentService extends IntentService {
 					}
 				} else if (extras.containsKey("i")) {
 					urlIntent = new Intent(Intent.ACTION_VIEW);
-					urlIntent.setData(Uri.parse("https://twitter.com/HromadskeTV/status/" + extras.getString("i")));
+					if (SystemUtils.isAppInstalledOrNot("com.twitter.android", this)) {
+						urlIntent.setData(Uri.parse("twitter://status?status_id=" + extras.getString("i")));
+					}
+					else {
+						urlIntent.setData(Uri.parse("https://twitter.com/HromadskeTV/status/" + extras.getString("i")));
+					}
 					if (msg == null) {
 						msg = extras.getString("https://twitter.com/status/" + extras.getString("i"));
 					}

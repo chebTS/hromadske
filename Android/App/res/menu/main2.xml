@@ -43,7 +43,7 @@
         android:title="@string/about_menu"/>    
     <item
         android:id="@+id/action_share"
-        android:showAsAction="never"
+        android:showAsAction="always"
         android:actionProviderClass= "android.widget.ShareActionProvider"
         android:title="@string/share"/>
     

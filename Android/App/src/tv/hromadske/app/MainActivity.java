@@ -9,14 +9,9 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
 
 import tv.hromadske.app.fragments.FragmentAbout;
-import tv.hromadske.app.fragments.FragmentLinks;
 import tv.hromadske.app.fragments.FragmentVideos;
-import tv.hromadske.app.fragments.FragmentWeb;
 import tv.hromadske.app.utils.SystemUtils;
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,48 +31,20 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-public class MainActivity extends Activity implements ActionBar.TabListener {
-	private final String urlSite = "http://hromadske.tv/";
+public class MainActivity extends Activity {
 
 	private FragmentVideos fragmentVideos = new FragmentVideos();
-	private FragmentWeb fragmentSite = new FragmentWeb();
-	private FragmentLinks fragmentLinks = new FragmentLinks();
 	private boolean exitApp = false;
-	private int pos = 0;
 	private ShareActionProvider mShareActionProvider;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		Bundle args = new Bundle();
-	    args.putString("url", urlSite);
-		fragmentSite.setArguments(args);
-		
 		setContentView(R.layout.activity_main);
-		ActionBar bar = getActionBar();
 
-		if (savedInstanceState != null) {
-			pos = savedInstanceState.getInt("pos");
-		}
-
-		Tab tab = bar.newTab();
-		tab.setText(R.string.main_tab);
-		tab.setTabListener(this);
-		bar.addTab(tab);
-
-		tab = bar.newTab();
-		tab.setText(R.string.online_tab);
-		tab.setTabListener(this);
-		bar.addTab(tab);
-
-		tab = bar.newTab();
-		tab.setText(R.string.more_tab);
-		tab.setTabListener(this);
-		bar.addTab(tab);
-
-		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		bar.setSelectedNavigationItem(pos);
+		getFragmentManager().beginTransaction()
+        .add(R.id.fragment_container, fragmentVideos).commit();
 		
 		setupPush();
 	}
@@ -98,31 +65,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt("pos", getActionBar().getSelectedNavigationIndex());
-	}
-
-	@Override
-	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-		switch (tab.getPosition()) {
-		case 0:
-			ft.replace(R.id.fragment_container, fragmentVideos);
-			break;
-		case 1:
-			ft.replace(R.id.fragment_container, fragmentSite);
-			break;
-		case 2:
-			ft.replace(R.id.fragment_container, fragmentLinks);
-			break;
-		default:
-			break;
-		}
-	}
-
-	@Override
-	public void onTabReselected(Tab tab, FragmentTransaction ft) {
-	}
-
-	@Override
-	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
 
 	@Override

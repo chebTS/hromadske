@@ -13,7 +13,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <include layout="@layout/working_time" />
+            <include
+                layout="@layout/working_time"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>

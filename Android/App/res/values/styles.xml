@@ -26,7 +26,6 @@
     
     <style 
         name="stream_txt_style" parent="android:Widget.Holo.Light.TextView">
-        <item name="android:background">@drawable/txt_stream_bg</item>
         <item name="android:padding">15dp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>

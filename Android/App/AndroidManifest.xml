@@ -5,18 +5,21 @@
     android:versionName="1.5.0" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-	<permission android:name="tv.hromadske.app.permission.C2D_MESSAGE"
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="tv.hromadske.app.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-	<uses-permission android:name="tv.hromadske.app.permission.C2D_MESSAGE"/>
-	
+
+    <uses-permission android:name="tv.hromadske.app.permission.C2D_MESSAGE" />
+
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
-    
 
     <application
+        android:name="tv.hromadske.app.HromadskeApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
@@ -33,20 +36,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="tv.hromadske.app.VideoUkrActivity"            
+            android:name="tv.hromadske.app.VideoUkrActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
-        <meta-data android:name="com.google.android.gms.version"
-           android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <receiver
             android:name="tv.hromadske.app.gcm.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="tv.hromadske.app" />
             </intent-filter>
         </receiver>
+
         <service android:name="tv.hromadske.app.gcm.GcmIntentService" />
     </application>
 

@@ -6,11 +6,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.Fields;
-import com.google.analytics.tracking.android.MapBuilder;
-import com.google.analytics.tracking.android.Tracker;
-
 import tv.hromadske.app.R;
 import tv.hromadske.app.VideoUkrActivity;
 import tv.hromadske.app.utils.SystemUtils;
@@ -24,15 +19,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 
 public class FragmentVideos extends Fragment {
 	private View containerLoad;
 	protected LinearLayout list;
 	protected Video[] videos;
-	protected Button[] buttons;
+	protected View[] buttons;
 	protected LayoutInflater inflater;
 
 	public FragmentVideos() {
@@ -68,17 +69,19 @@ public class FragmentVideos extends Fragment {
 
 	protected void createButtons() {
 		if (buttons != null) {
-			for (Button button : buttons) {
+			for (View button : buttons) {
 				list.removeView(button);
 			}
 		}
 
-		buttons = new Button[videos.length];
+		buttons = new View[videos.length];
 
 		for (int i = videos.length - 1; i >= 0; i--) {
-			Button button = buttons[i] = (Button) inflater.inflate(R.layout.btn_stream, null);//pervert
-			button.setText(videos[i].name);
+			View button = buttons[i] = inflater.inflate(R.layout.item_stream, null);//pervert
+
 			final Video video = videos[i];
+			((TextView)button.findViewById(R.id.txt_stream_name)).setText(video.name);
+			SystemUtils.IMAGELOADER.displayImage(video.thumbUrl, (ImageView)button.findViewById(R.id.img_stream_cover));
 			button.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 					Intent intent = new Intent(getActivity(), VideoUkrActivity.class);

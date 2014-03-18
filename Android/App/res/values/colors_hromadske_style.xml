@@ -6,5 +6,6 @@
     <color name="bg_active">#EE7829</color>
     <color name="bg_not_active">#F8A13A</color>
     <color name="working_red">#E6212A</color>
+    <color name="txt_background">#BC000000</color>
     
 </resources>

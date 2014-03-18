@@ -3,6 +3,8 @@ package tv.hromadske.app.utils;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
@@ -14,6 +16,7 @@ public class SystemUtils {
 	 * dev AIzaSyAn9DDnBL7i6Chq2myHvU3YQEGVnGtDJlA public static final String
 	 * DEVELOPER_KEY = "AIzaSyAn9DDnBL7i6Chq2myHvU3YQEGVnGtDJlA";
 	 */
+	public static ImageLoader IMAGELOADER = null;
 	public static final int EXIT_DELAY = 2000;
 	public static final String UKR_URL = "ukr_url";
 	public static final String GDATA_URL = "http://gdata.youtube.com/feeds/api/users/HromadskeTV/live/events?v=2&status=active&fields=entry(content)&alt=json";

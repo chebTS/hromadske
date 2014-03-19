@@ -1,4 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/enable_push"
+        android:checkable="true"
+        android:showAsAction="never"
+        android:title="@string/menu_push"/>
     <item
         android:id="@+id/action_help"
         android:showAsAction="never"
@@ -40,19 +46,15 @@
     <item
         android:id="@+id/action_about"
         android:showAsAction="never"
-        android:title="@string/about_menu"/>    
+        android:title="@string/about_menu"/>
     <item
         android:id="@+id/action_share"
+        android:actionProviderClass="android.widget.ShareActionProvider"
         android:showAsAction="always"
-        android:actionProviderClass= "android.widget.ShareActionProvider"
         android:title="@string/share"/>
-    
-    <item android:id="@+id/enable_push"
-         android:showAsAction="never" 
-         android:title="@string/menu_push" 
-         android:checkable="true" />
-</menu>
 
-<!--  android:actionProviderClass= "android.widget.ShareActionProvider"
+</menu>
+<!--
+android:actionProviderClass= "android.widget.ShareActionProvider"
 android:actionProviderClass="android.support.v7.widget.ShareActionProvider"
- -->
+-->

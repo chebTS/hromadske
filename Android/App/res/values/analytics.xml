@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<resources>
+  <!--Replace placeholder ID with your tracking ID-->
+  <string name="ga_trackingId">UA-46233904-1</string>
+
+    <!--Enable automatic exception tracking-->
+  <bool name="ga_reportUncaughtExceptions">true</bool>
+  
+  <string name="tv.hromadske.app.MainActivity">Home</string>
+  <string name="tv.hromadske.app.VideoUkrActivity">Online</string>
+  <!-- <string name="ga_logLevel">verbose</string> -->
+</resources>

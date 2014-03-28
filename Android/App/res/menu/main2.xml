@@ -1,4 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/enable_push"
+        android:checkable="true"
+        android:showAsAction="never"
+        android:title="@string/menu_push"/>
     <item
         android:id="@+id/action_help"
         android:showAsAction="never"
@@ -9,41 +15,46 @@
         android:showAsAction="always"
         android:title="@string/youtube_menu"/>
     <item
+        android:id="@+id/action_web"
+        android:showAsAction="never"
+        android:title="@string/menu_website"/>
+    <item
         android:id="@+id/action_twitter"
         android:icon="@drawable/menu_icon_twitter"
         android:showAsAction="never"
-        android:title="Twitter"/>
+        android:title="@string/menu_twitter"/>
     <item
         android:id="@+id/action_facebook"
         android:icon="@drawable/menu_icon_facebook"
         android:showAsAction="never"
-        android:title="Facebook"/>
+        android:title="@string/menu_facebook"/>
     <item
         android:id="@+id/action_rss"
         android:icon="@drawable/menu_icon_rss"
         android:showAsAction="never"
-        android:title="RSS"/>
+        android:title="@string/menu_rss"/>
     <item
         android:id="@+id/action_plus"
         android:icon="@drawable/menu_icon_gplus"
         android:showAsAction="never"
-        android:title="G+"/>
+        android:title="@string/menu_gplus"/>
     <item
         android:id="@+id/action_mail"
         android:icon="@drawable/menu_icon_mail"
         android:showAsAction="never"
-        android:title="E-mail"/>
+        android:title="@string/menu_email"/>
     <item
         android:id="@+id/action_about"
         android:showAsAction="never"
-        android:title="@string/about_menu"/>    
+        android:title="@string/about_menu"/>
     <item
         android:id="@+id/action_share"
-        android:showAsAction="never"
-        android:actionProviderClass= "android.widget.ShareActionProvider"
-        android:title="@string/share"/>    
-</menu>
+        android:actionProviderClass="android.widget.ShareActionProvider"
+        android:showAsAction="always"
+        android:title="@string/share"/>
 
-<!--  android:actionProviderClass= "android.widget.ShareActionProvider"
+</menu>
+<!--
+android:actionProviderClass= "android.widget.ShareActionProvider"
 android:actionProviderClass="android.support.v7.widget.ShareActionProvider"
- -->
+-->

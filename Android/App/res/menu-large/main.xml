@@ -13,30 +13,34 @@
         android:id="@+id/action_twitter"
         android:icon="@drawable/menu_icon_twitter"
         android:showAsAction="never"
-        android:title="Twitter"/>
+        android:title="@string/menu_twitter"/>
     <item
         android:id="@+id/action_facebook"
         android:icon="@drawable/menu_icon_facebook"
         android:showAsAction="never"
-        android:title="Facebook"/>
+        android:title="@string/menu_facebook"/>
     <item
         android:id="@+id/action_rss"
         android:icon="@drawable/menu_icon_rss"
         android:showAsAction="never"
-        android:title="RSS"/>
+        android:title="@string/menu_rss"/>
     <item
         android:id="@+id/action_plus"
         android:icon="@drawable/menu_icon_gplus"
         android:showAsAction="never"
-        android:title="G+"/>
+        android:title="@string/menu_gplus"/>
     <item
         android:id="@+id/action_mail"
         android:icon="@drawable/menu_icon_mail"
         android:showAsAction="never"
-        android:title="E-mail"/>
+        android:title="@string/menu_email"/>
     <item
         android:id="@+id/action_about"
         android:showAsAction="never"
-        android:title="About"/>
+        android:title="@string/about_menu"/>
+    
+    <item android:id="@+id/enable_push" 
+         android:title="@string/menu_push" 
+         android:checkable="true" />
 
 </menu>

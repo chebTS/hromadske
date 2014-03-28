@@ -3,6 +3,7 @@ package tv.hromadske.app;
 import tv.hromadske.app.utils.SystemUtils;
 import android.os.Bundle;
 
+import com.google.analytics.tracking.android.EasyTracker;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 
@@ -25,6 +26,18 @@ public class VideoUkrActivity extends YouTubeFailureRecoveryActivity {
 		if (!wasRestored) {
 			player.cueVideo(url);
 		}
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
 	}
 
 	@Override

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hromadske.TV</string>
+    <string name="about_project">Про проект</string>
+    <string name="programs">Програми</string>
+    <string name="interview">Інтерв\'ю</string>
+    <string name="videonews">Відеоновини</string>
+    <string name="help">"+ Допомогти\n проекту"</string>
+    
+    <string name="htv">Громадське телебачення</string>
+    <string name="about">Додаток розробив\nЦибровський С.В.\nспеціально для\n http://hromadske.tv/</string>
+    <string name="about_2">Додаток було зроблено за одну ніч :-))</string>
+    <string name="exit_text">Натисніть ще раз для виходу</string>
+    <string name="button_review">Написати відгук</string>
+    <string name="share">Розповісти про нас</string>
+    
+    <string name="share_text">"Я дивлюсь HromadskeTV через цей додаток https://play.google.com/store/apps/details?id=tv.hromadske.app"</string>
+    <string name="ukr_translation">Українською мовою</string>
+    <string name="in_english">English version</string>
+    <string name="hromadske_online">Громадське ONLINE</string>
+    <string name="everyday">щодня за київським часом\n(EET)</string>
+    <string name="working_time">"10:00&#8211;12:00\n15:00&#8211;17:00\n19:00&#8211;22:00"</string>
+    <string name="no_link">Недоступне посилання</string>
+    
+    <string name="about_menu">Про додаток</string>
+    <string name="youtube_menu">Наш канал на YouTube</string>
+    <string name="menu_website">Website</string>
+    <string name="menu_twitter">Twitter</string>
+    <string name="menu_facebook">Facebook</string>
+    <string name="menu_rss">RSS</string>
+    <string name="menu_gplus">Google+</string>
+    <string name="menu_email">Email</string>
+    <string name="menu_push">Push Notifications</string>
+</resources>

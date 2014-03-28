@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import tv.hromadske.app.R;
 import tv.hromadske.app.VideoUkrActivity;
 import tv.hromadske.app.utils.SystemUtils;
+import tv.hromadske.app.utils.Video;
+import android.app.ActionBar.LayoutParams;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -17,61 +19,81 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class FragmentVideos extends Fragment implements OnClickListener {
-	private Button btnEng, btnUkr;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
+
+public class FragmentVideos extends Fragment {
 	private View containerLoad;
-	private String engUrl = "";
-	private String ukrUrl = "";
+	protected LinearLayout list;
+	protected Video[] videos;
+	protected View[] buttons;
+	protected LayoutInflater inflater;
 
 	public FragmentVideos() {
 		super();
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_videos, null);
-		btnUkr = (Button) v.findViewById(R.id.btn_ukr);
-		btnEng = (Button) v.findViewById(R.id.btn_eng);
+	public View onCreateView(LayoutInflater inflate, ViewGroup container, Bundle savedInstanceState) {
+		View v = inflate.inflate(R.layout.fragment_videos, null);
+		list = (LinearLayout) v.findViewById(R.id.btns_list);
 		containerLoad = v.findViewById(R.id.container_load);
+		inflater = inflate;
 		return v;
-	}
-	
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		containerLoad.setOnClickListener(this);
-		btnUkr.setOnClickListener(this);
-		btnEng.setOnClickListener(this);
-		GetYoutubeUrlTask getYoutubeUrlTask = new GetYoutubeUrlTask(containerLoad);
-		getYoutubeUrlTask.execute();
 	}
 
 	@Override
-	public void onClick(View v) {
-		Intent intent;
-		intent = new Intent(getActivity(), VideoUkrActivity.class);
-		switch (v.getId()) {
-		case R.id.btn_ukr:
-			if (!ukrUrl.isEmpty()) {
-				intent.putExtra(SystemUtils.UKR_URL, ukrUrl);
-				startActivity(intent);
-			} else {
-				Toast.makeText(getActivity(), R.string.no_link, Toast.LENGTH_LONG).show();
+	public void onStart() {
+		super.onStart();
+		Tracker tracker = EasyTracker.getInstance(getActivity());
+		tracker.set(Fields.SCREEN_NAME, "Home");
+		tracker.send(MapBuilder.createAppView().build());
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		if (SystemUtils.isOnline(getActivity())) {
+			(new GetYoutubeUrlTask(containerLoad)).execute();
+		}else{
+			Toast.makeText(getActivity(), "No internet connection", Toast.LENGTH_LONG).show();
+		}
+	}
+
+	protected void createButtons() {
+		if (buttons != null) {
+			for (View button : buttons) {
+				list.removeView(button);
 			}
-			break;
-		case R.id.btn_eng:
-			if (!engUrl.isEmpty()) {
-				intent.putExtra(SystemUtils.UKR_URL, engUrl);
-				startActivity(intent);
-			} else {
-				Toast.makeText(getActivity(), R.string.no_link, Toast.LENGTH_LONG).show();
-			}
-			break;
-		default:
-			break;
+		}
+
+		buttons = new View[videos.length];
+
+		for (int i = videos.length - 1; i >= 0; i--) {
+			View button = buttons[i] = inflater.inflate(R.layout.item_stream, null);//pervert
+
+			final Video video = videos[i];
+			((TextView)button.findViewById(R.id.txt_stream_name)).setText(video.name);
+			SystemUtils.IMAGELOADER.displayImage(video.thumbUrl, (ImageView)button.findViewById(R.id.img_stream_cover));
+			button.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					Intent intent = new Intent(getActivity(), VideoUkrActivity.class);
+					intent.putExtra(SystemUtils.UKR_URL, video.videoId);
+					startActivity(intent);
+				}
+			});
+
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			params.setMargins(0, 10, 0, 0);
+			button.setLayoutParams(params);
+			list.addView(button, 0);
 		}
 	}
 
@@ -92,22 +114,21 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		@Override
 		protected Boolean doInBackground(Void... params) {
 			try {
-				HttpGet httpGet = new HttpGet(String.format(SystemUtils.GDATA_URL));
+				HttpGet httpGet = new HttpGet(SystemUtils.STREAMS_URL);
 				DefaultHttpClient mHttpClient = new DefaultHttpClient();
 				HttpResponse dresponse = mHttpClient.execute(httpGet);
 				int status = dresponse.getStatusLine().getStatusCode();
 				if (status == 200) {
 					String res = SystemUtils.streamToString(dresponse.getEntity().getContent());
-					JSONObject jRoot = new JSONObject(res);
-					JSONArray jArray = jRoot.optJSONObject("feed").optJSONArray("entry");
-					String str = jArray.optJSONObject(0).optJSONObject("content").optString("src");
-					str = str.substring(str.lastIndexOf('/') + 1);
-					int index = str.lastIndexOf("?");
-					if (index > 0){
-						str = str.substring(0, index);
+					JSONArray streams = new JSONObject(res).optJSONArray("streams");
+					videos = new Video[streams.length()];
+
+					for (int i = 0; i < videos.length; i++) {
+						JSONObject stream = streams.optJSONObject(i);
+						videos[i] = new Video(stream.getString("name"), stream.getString("videoId"),
+								stream.getString("thumb"));
 					}
-					//Log.i("GDATA", " " + str);
-					ukrUrl = str;
+
 					return true;
 				}
 			} catch (Exception e) {
@@ -119,6 +140,7 @@ public class FragmentVideos extends Fragment implements OnClickListener {
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
+			createButtons();
 			loadView.setVisibility(View.GONE);
 		}
 	}

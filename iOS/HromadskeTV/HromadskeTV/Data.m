@@ -185,7 +185,7 @@ static NSString *const kStreamsKey = @"streams";
         
         TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:responseObject];
         
-        NSString *tutorialsXpathQueryString = @"//div[@class='video_player']/iframe";
+        NSString *tutorialsXpathQueryString = @"//div[@class='article-media']/iframe";
         NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
 		if (tutorialsNodes.count == 0 ) {
 			if (completion) {
@@ -197,7 +197,7 @@ static NSString *const kStreamsKey = @"streams";
         NSString *str = [elem description];
         
         NSString *address = [str componentsSeparatedByString:@"nodeContent = \"//"][1];
-        NSString *cleanAddress = [address componentsSeparatedByString:@"?"][0];
+        NSString *cleanAddress = [address componentsSeparatedByString:@"\";"][0];
         NSString *httpString = [NSString stringWithFormat:@"http://%@",cleanAddress];
 
         if (completion) {

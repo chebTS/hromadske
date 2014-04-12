@@ -435,7 +435,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2F-UW-thv">
-                                        <rect key="frame" x="198" y="20" width="40" height="40"/>
+                                        <rect key="frame" x="218" y="20" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="eQf-Qj-4aj"/>
@@ -461,7 +461,7 @@
                                 <constraints>
                                     <constraint firstItem="z2F-UW-thv" firstAttribute="bottom" secondItem="1Pd-VG-xLk" secondAttribute="bottom" id="Adn-6H-wJt"/>
                                     <constraint firstItem="1Pd-VG-xLk" firstAttribute="leading" secondItem="3X0-rR-Ytu" secondAttribute="leading" constant="10" id="NVc-LC-4TW"/>
-                                    <constraint firstAttribute="trailing" secondItem="z2F-UW-thv" secondAttribute="trailing" constant="530" id="Xyj-dR-D0k"/>
+                                    <constraint firstAttribute="trailing" secondItem="z2F-UW-thv" secondAttribute="trailing" constant="510" id="Xyj-dR-D0k"/>
                                     <constraint firstItem="1Pd-VG-xLk" firstAttribute="top" secondItem="3X0-rR-Ytu" secondAttribute="top" constant="20" id="r5V-6y-hOD"/>
                                     <constraint firstAttribute="bottom" secondItem="1Pd-VG-xLk" secondAttribute="bottom" constant="4" id="rfq-v1-MOQ"/>
                                     <constraint firstItem="z2F-UW-thv" firstAttribute="top" secondItem="1Pd-VG-xLk" secondAttribute="top" id="wvd-kB-GUE"/>

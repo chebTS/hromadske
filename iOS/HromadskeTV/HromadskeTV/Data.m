@@ -55,19 +55,25 @@ static NSString *const kStreamsKey = @"streams";
     NSString *path = nil;
     switch (cat) {
         case HTVVideoCategoryHot:
-            path = URL_PATH_VIDEO_ALL;
+            path = URL_PATH_NEWS_ALL;
             break;
         case HTVVideoCategoryAll:
-            path = URL_PATH_VIDEO_ALL;
+            path = URL_PATH_NEWS_ALL;
             break;
-        case HTVVideoCategoryInvestigation:
-            path = URL_PATH_VIDEO_INVASTIGATIONS;
+        case HTVVideoCategoryCulture:
+            path = URL_PATH_NEWS_CULTURE;
             break;
-        case HTVVideoCategoryH2o:
-            path = URL_PATH_VIDEO_H2O;
+        case HTVVideoCategoryEconomics:
+            path = URL_PATH_NEWS_ECOMONICS;
             break;
-        case HTVVideoCategoryGuests:
-            path = URL_PATH_VIDEO_GUESTS;
+        case HTVVideoCategoryPolitics:
+            path = URL_PATH_NEWS_POLITICS;
+            break;
+        case HTVVideoCategorySociety:
+            path = URL_PATH_NEWS_SOCIETY;
+            break;
+        case HTVVideoCategoryWorld:
+            path = URL_PATH_NEWS_WORLD;
             break;
     }
     
@@ -181,6 +187,12 @@ static NSString *const kStreamsKey = @"streams";
         
         NSString *tutorialsXpathQueryString = @"//div[@class='video_player']/iframe";
         NSArray *tutorialsNodes = [tutorialsParser searchWithXPathQuery:tutorialsXpathQueryString];
+		if (tutorialsNodes.count == 0 ) {
+			if (completion) {
+				completion(nil);
+			}
+			return;
+		}
         TFHppleElement *elem = tutorialsNodes[0];
         NSString *str = [elem description];
         

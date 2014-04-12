@@ -9,6 +9,7 @@
 #import "ControllersManager.h"
 #import "AboutViewController.h"
 #import "REActivityViewController.h"
+#import <Appirater.h>
 
 #import "UIViewController+HTVNavigationController.h"
 
@@ -229,7 +230,7 @@
 
 - (void)showRateInAppStore
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_STORE_PATH(APP_STORE_ID)]];
+	[Appirater rateApp];
 }
 
 

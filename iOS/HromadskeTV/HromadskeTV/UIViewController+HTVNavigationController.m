@@ -23,9 +23,9 @@
         
         self.navigationController.navigationBar.titleTextAttributes = textAttributes;
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        self.navigationController.navigationBar.barTintColor = [Utils colorFromHtmlSting:@"#5A646D"];
+        self.navigationController.navigationBar.barTintColor = [Utils colorFromHtmlSting:@"#ee7829"];
     } else {
-        self.navigationController.navigationBar.tintColor = [Utils colorFromHtmlSting:@"#5A646D"];
+        self.navigationController.navigationBar.tintColor = [Utils colorFromHtmlSting:@"#ee7829"];
     }
 }
 

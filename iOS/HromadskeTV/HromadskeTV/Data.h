@@ -11,9 +11,11 @@ typedef enum
 {
     HTVVideoCategoryHot,
     HTVVideoCategoryAll,
-    HTVVideoCategoryInvestigation,
-    HTVVideoCategoryH2o,
-    HTVVideoCategoryGuests,
+    HTVVideoCategoryPolitics,
+    HTVVideoCategoryEconomics,
+    HTVVideoCategorySociety,
+    HTVVideoCategoryCulture,
+    HTVVideoCategoryWorld
 } HTVVideoCategory;
 
 

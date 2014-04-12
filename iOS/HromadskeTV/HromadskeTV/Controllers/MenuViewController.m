@@ -9,6 +9,7 @@
 #import "ControllersManager.h"
 #import "UIViewController+HTVNavigationController.h"
 #import "NewsViewController.h"
+#import <Appirater.h>
 
 typedef enum {
     HTVMenuSectionMain,
@@ -18,7 +19,7 @@ typedef enum {
 #define  SECTIONS_NUMBER 3
 
 
-#define MAIN_PAGES          @"Основні сторінки"
+#define MAIN_PAGES          @"Основні"
 #define HTVMenuItemLive     @(0)
 #define HTVMenuItemNews     @(1)
 #define HTVMenuItemAbout    @(2)
@@ -31,8 +32,8 @@ typedef enum {
 
 #define OTHER_PAGES         @"Інше"
 #define HTVMenuItemIdeas    @(0)
-#define HTVMenuItemEmail    @(1)
-#define HTVMenuItemFeedback @(2)
+#define HTVMenuItemFeedback @(1)
+#define HTVMenuItemEmail    @(2)
 #define HTVMenuItemRate     @(3)
 #define HTVMenuItemShare    @(4)
 
@@ -46,8 +47,12 @@ typedef enum {
     NSDictionary *_otherPageItems;
     
     NSString *_newsCategory;
+	__weak IBOutlet UIButton *_ratingStar;
 }
+- (IBAction)handleRating:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation MenuViewController
@@ -65,8 +70,32 @@ typedef enum {
         [_tableView setSeparatorInset:UIEdgeInsetsZero];
     }
     
-    _tableView.backgroundColor = [Utils colorFromHtmlSting:@"#F5F5F5"];
+    _tableView.backgroundColor = [Utils colorFromHtmlSting:@"#252323"];
+	_tableView.separatorColor = [Utils colorFromHtmlSting:@"#292929"];
     [_tableView reloadData];
+	
+	NSNumber *rated = [[NSUserDefaults standardUserDefaults] objectForKey:IS_RATED_IN_STORE];
+	if (!rated || [rated boolValue] == NO) {
+		[self setRaingActive:NO];
+	} else {
+		[self setRaingActive:YES];
+	}
+}
+
+- (IBAction) handleRating:(id)sender {
+	
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:IS_RATED_IN_STORE];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+	
+	[self setRaingActive:YES];
+	[[ControllersManager sharedManager] showRateInAppStore];
+}
+- (void) setRaingActive:(BOOL)yes {
+	UIImage *img = [UIImage imageNamed:@"settings-rating-star"];
+	if (yes) {
+		img = [UIImage imageNamed:@"settings-rating-star-active"];
+	}
+	[_ratingStar setImage:img forState:UIControlStateNormal];
 }
 
 #pragma mark - TableView Delegate methods
@@ -107,7 +136,7 @@ typedef enum {
                 [[ControllersManager sharedManager] showEmailToHromadskeController];
             }
             else if ([row isEqualToNumber:HTVMenuItemRate]) {
-                [[ControllersManager sharedManager] showRateInAppStore];
+				[self handleRating:nil];
             }
             break;
     }
@@ -115,11 +144,11 @@ typedef enum {
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0 , tableView.frame.size.width, 21)];
-    sectionView.backgroundColor = [Utils colorFromHtmlSting:@"#B2B2B2"];
+    sectionView.backgroundColor = [Utils colorFromHtmlSting:@"#ec6a13"];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(9, 2, tableView.frame.size.width, 17)];
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:14];
+    label.font = [UIFont fontWithName:@"Helvetica" size:12];
     label.text = [self tableView:tableView titleForHeaderInSection:section];
     
     [sectionView addSubview:label];
@@ -143,8 +172,8 @@ typedef enum {
                          HTVMenuItemGoogle : @[G_PLUS_PAGE, G_PLUS_URL, G_PLUS_SCREEN]};
 
     _otherPageItems = @{HTVMenuItemIdeas : @[ADD_IDEAS],
-                        HTVMenuItemEmail : @[WRITE_TO_EDITORIAL_OFFICE],
                         HTVMenuItemFeedback : @[WRITE_TO_DEVELOPER_PAGE],
+                        HTVMenuItemEmail : @[WRITE_TO_EDITORIAL_OFFICE],
                         HTVMenuItemRate : @[RATE_IN_APP_STORE],
                         HTVMenuItemShare : @[SHARE_FRIENDS_PAGE]};
 }
@@ -203,9 +232,15 @@ typedef enum {
             cell.textLabel.text = _otherPageItems[@(row)][0];
             break;
     }
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:18];
-    //    cell.textLabel.textColor = [Utils colorFromHtmlSting:@"#33a9dc"];
-    cell.backgroundColor = [Utils colorFromHtmlSting:@"#F5F5F5"];
+    
+	cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:18];
+	if (_section == HTVMenuSectionMain) {
+		cell.textLabel.textColor = [Utils colorFromHtmlSting:@"#FFFFFF"];
+	} else {
+		cell.textLabel.textColor = [Utils colorFromHtmlSting:@"#999999"];
+	}
+    cell.backgroundColor = [Utils colorFromHtmlSting:@"#252323"];
+	
     return cell;
 }
 

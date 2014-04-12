@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tMQ-gK-9X9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tMQ-gK-9X9">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--WebVC-->
@@ -39,6 +39,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzz-F7-eQW">
+                                        <rect key="frame" x="220" y="20" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0jl-R5-KGD"/>
+                                            <constraint firstAttribute="width" constant="40" id="r3p-aw-8aT"/>
+                                        </constraints>
+                                        <state key="normal" image="settings-rating-star">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleRating:" destination="tMQ-gK-9X9" eventType="touchUpInside" id="Ifi-Rm-7DI"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hromadske-logo" translatesAutoresizingMaskIntoConstraints="NO" id="9dx-Vv-eqr">
                                         <rect key="frame" x="10" y="20" width="136" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,6 +64,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Vzz-F7-eQW" firstAttribute="bottom" secondItem="9dx-Vv-eqr" secondAttribute="bottom" id="HTI-mx-ovM"/>
+                                    <constraint firstItem="Vzz-F7-eQW" firstAttribute="top" secondItem="9dx-Vv-eqr" secondAttribute="top" id="Nmi-sH-RPj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vzz-F7-eQW" secondAttribute="trailing" constant="60" id="VJa-33-Oc7"/>
                                     <constraint firstItem="9dx-Vv-eqr" firstAttribute="top" secondItem="n9z-YG-dv2" secondAttribute="top" constant="20" id="gAu-gJ-Us0"/>
                                     <constraint firstAttribute="bottom" secondItem="9dx-Vv-eqr" secondAttribute="bottom" constant="4" id="lQ0-Go-FUe"/>
                                     <constraint firstItem="9dx-Vv-eqr" firstAttribute="leading" secondItem="n9z-YG-dv2" secondAttribute="leading" constant="10" id="ubj-O3-VKU"/>
@@ -98,12 +115,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="_ratingStar" destination="Vzz-F7-eQW" id="9hn-cn-c3f"/>
                         <outlet property="tableView" destination="7GV-NC-etI" id="Nda-Mw-LfH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqI-kY-soD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-232" y="384"/>
+            <point key="canvasLocation" x="-276" y="347"/>
         </scene>
         <!--Twitter Collection-->
         <scene sceneID="O18-H2-qWM">
@@ -505,6 +523,7 @@
     </scenes>
     <resources>
         <image name="hromadske-logo" width="201" height="40"/>
+        <image name="settings-rating-star" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

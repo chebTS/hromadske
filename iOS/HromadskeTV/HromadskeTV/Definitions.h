@@ -20,7 +20,8 @@ static NSString *const kVideoIdKey = @"videoId";
 
 #define USER_VOICE_URL @"hromadsketv.uservoice.com"
 #define APP_URL @"http://appstore.com/fredcox/hromadsketv"
-#define APP_STORE_ID 774631543
+#define APP_STORE_ID @"774631543"
+#define IS_RATED_IN_STORE @"kAppiraterRatedCurrentVersion"
 #define VK_API_KEY @"4038987"
 #define START_SPINNER @"Start spinner"
 #define END_SPINNER @"End spinner"
@@ -74,9 +75,9 @@ static NSString *const kVideoIdKey = @"videoId";
 #define G_PLUS_PAGE @"Google+"
 #define YOUTUBE_PAGE @"Youtube"
 #define SHARE_FRIENDS_PAGE @"Розповісти друзям"
-#define ADD_IDEAS @"Додати пропозицію"
+#define ADD_IDEAS @"Додати/оцінити пропозиції"
 #define WRITE_TO_DEVELOPER_PAGE @"Написати розробникам"
-#define WRITE_TO_EDITORIAL_OFFICE @"Редакція громадського"
+#define WRITE_TO_EDITORIAL_OFFICE @"Редакції громадського"
 #define RATE_IN_APP_STORE @"Оцінити в App Store"
 
 
@@ -85,10 +86,14 @@ static NSString *const kVideoIdKey = @"videoId";
 #define FREDY_BASE_URL                  @"http://hrom.fedr.co/"
 #define URL_BASE_GDATA                  @"http://gdata.youtube.com/"
 
-#define URL_PATH_VIDEO_ALL              @"video/rss"
-#define URL_PATH_VIDEO_INVASTIGATIONS   @"slidstvo.info/rss"
-#define URL_PATH_VIDEO_H2O              @"h2o/rss"
-#define URL_PATH_VIDEO_GUESTS           @"starring/rss"
+#define URL_PATH_NEWS_ALL               @"rssfeed/?query=all-chapters"
+#define URL_PATH_NEWS_POLITICS			@"rssfeed/?query=politics"
+#define URL_PATH_NEWS_ECOMONICS         @"rssfeed/?query=economics"
+#define URL_PATH_NEWS_SOCIETY           @"rssfeed/?query=society"
+#define URL_PATH_NEWS_CULTURE           @"rssfeed/?query=culture"
+#define URL_PATH_NEWS_WORLD             @"rssfeed/?query=world"
+
+
 #define URL_PATH_ONLINE                 @"/youtube?new"
 
 #define URL_GDATA_PATH_ONLINE           @"/feeds/api/users/HromadskeTV/live/events?v=2&status=active&fields=entry(content)&alt=json"

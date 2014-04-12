@@ -12,6 +12,7 @@
 #import "Data.h"
 #import "RemoteManager.h"
 #import "Harpy.h"
+#import <Appirater.h>
 #import <AVFoundation/AVFoundation.h>
 
 #import "HTVTwitterCollection.h"
@@ -48,6 +49,8 @@
     self.window.rootViewController = [[ControllersManager sharedManager] deck];
 
     [self initAnalytics];
+	[self initHelpers];
+	
     [RemoteManager sharedManager];
 
     [[GAI sharedInstance].defaultTracker send:[[[GAIDictionaryBuilder createAppView] set:ONLINE_SCREEN forKey:kGAIScreenName] build]];
@@ -105,7 +108,24 @@
 #pragma mark - Stuff
 - (void)initAnalytics
 {
-    [[Harpy sharedInstance] setAppID:@"774631543"];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = GA_TIME_INTERVAL; // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelNone]; // Optional: set Logger to VERBOSE for debug information.
+    [[GAI sharedInstance] trackerWithTrackingId:GA_TRACKER_KEY]; // Initialize tracker.
+}
+- (void) initHelpers {
+	[Appirater setAppId:APP_STORE_ID];
+	[Appirater setDaysUntilPrompt:3];
+	[Appirater setUsesUntilPrompt:2];
+	[Appirater setSignificantEventsUntilPrompt:-1];
+	[Appirater setTimeBeforeReminding:2];
+	[Appirater setDebug:NO];
+	[Appirater setOpenInAppStore:NO];
+
+	[Appirater appLaunched:YES];
+	
+	
+    [[Harpy sharedInstance] setAppID:APP_STORE_ID];
     [[Harpy sharedInstance] setAppName:@"HromadskeTV"];
     [[Harpy sharedInstance] setAlertType:HarpyAlertTypeOption];
     [[Harpy sharedInstance] setForceLanguageLocalization:HarpyLanguageRussian];
@@ -115,14 +135,7 @@
     
     UVConfig *config = [UVConfig configWithSite:USER_VOICE_URL];
     [UserVoice initialize:config];
-
-    
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    [GAI sharedInstance].dispatchInterval = GA_TIME_INTERVAL; // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelNone]; // Optional: set Logger to VERBOSE for debug information.
-    [[GAI sharedInstance] trackerWithTrackingId:GA_TRACKER_KEY]; // Initialize tracker.
 }
-
 - (void) updateLiveStatus {
     [[Data sharedData] updateLivePathTailFromSource:HTVLiveLinkSourceDefault withCompletion:^(NSString *path, BOOL isNew) {
         [[ControllersManager sharedManager] setNewLiveUrl:[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];

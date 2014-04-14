@@ -128,6 +128,9 @@ typedef enum {
                 [[ControllersManager sharedManager] showSharing];
             }
             else if ([row isEqualToNumber:HTVMenuItemIdeas]) {
+
+				[[[UIAlertView alloc] initWithTitle:@"Зверніть увагу" message:@"Ваші пропозиції повинні стосуватися суто цього мобільного додатку." delegate:nil cancelButtonTitle:@"Зрозуміло" otherButtonTitles:nil] show];
+				
                 [[ControllersManager sharedManager] showUserVoiceController];
             } else if ([row isEqualToNumber:HTVMenuItemFeedback]) {
                 [[ControllersManager sharedManager] showUserVoiceFeedbackController];

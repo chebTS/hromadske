@@ -84,7 +84,7 @@
     NSString *url = [userInfo objectForKey:@"u"];
     if (url) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+			[[ControllersManager sharedManager] showWebViewControllerWithURL:[NSURL URLWithString:url]];
         });
     }
     else {
@@ -98,7 +98,9 @@
             }
             else {
                 dispatch_async(dispatch_get_main_queue(), ^(void){
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/t/status/%@", tweetID]]];
+					NSString *string = [NSString stringWithFormat:@"https://twitter.com/t/status/%@", tweetID];
+					NSURL *url = [NSURL URLWithString:string];
+					[[ControllersManager sharedManager] showWebViewControllerWithURL:url];
                 });
             }
         }

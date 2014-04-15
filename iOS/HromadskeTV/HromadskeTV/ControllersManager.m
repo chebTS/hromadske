@@ -140,7 +140,6 @@
 
 
 #pragma mark - SHOW
-
 - (void)showLiveViewController {
     [self showViewController:[self live]];
 }
@@ -180,7 +179,21 @@
         }
     }
 }
-
+- (void)pushWebViewControllerToLiveWithURL:(NSString *)url {
+    HTVWebVC *newCenterVC = nil;
+    @try {
+        newCenterVC = [[self storyboard] instantiateViewControllerWithIdentifier:@"HTVWebVC"];
+    }
+    @catch (NSException *exception) {
+        return;
+    }
+    @finally {
+        if (newCenterVC) {
+            newCenterVC.URL = [NSURL URLWithString:url];
+            [self showLiveViewController];
+			[[[self live] navigationController] pushViewController:newCenterVC animated:NO];
+        }
+    }}
 - (void)showWebViewControllerWithURL:(NSString *)url
 {
     HTVWebVC *newCenterVC = nil;

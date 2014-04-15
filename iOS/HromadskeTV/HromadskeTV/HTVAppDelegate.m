@@ -84,7 +84,7 @@
     NSString *url = [userInfo objectForKey:@"u"];
     if (url) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
-			[[ControllersManager sharedManager] showWebViewControllerWithURL:url];
+			[[ControllersManager sharedManager] pushWebViewControllerToLiveWithURL:url];
         });
     }
     else {
@@ -99,7 +99,7 @@
             else {
                 dispatch_async(dispatch_get_main_queue(), ^(void){
 					NSString *stringURL = [NSString stringWithFormat:@"https://twitter.com/t/status/%@", tweetID];
-					[[ControllersManager sharedManager] showWebViewControllerWithURL:stringURL];
+					[[ControllersManager sharedManager] pushWebViewControllerToLiveWithURL:stringURL];
                 });
             }
         }

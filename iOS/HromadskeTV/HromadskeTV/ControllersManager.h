@@ -40,6 +40,7 @@
 
 
 - (void)showWebViewControllerWithURL:(NSString *)url;
+- (void)pushWebViewControllerToLiveWithURL:(NSString *)url;
 - (void)showVideoCollectionController;
 - (void)showTwitterCollectionController;
 

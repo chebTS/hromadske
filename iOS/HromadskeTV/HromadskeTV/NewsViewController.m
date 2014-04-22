@@ -34,6 +34,10 @@
     [self setupView];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+	[[RemoteManager sharedManager] hideRemoteActivity];
+}
+
 - (void) setup {
     _cache = [NSMutableArray arrayWithObjects:[NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null], nil];
 
@@ -96,6 +100,13 @@
     VideoTableViewCell *cell = (VideoTableViewCell *)[tableView dequeueReusableCellWithIdentifier:ident];
     cell.title.text = video.title;
     cell.date.text = [Utils stringHumanRecognizableFromDate:video.date];
+	
+	if (_currentCategory != HTVVideoCategoryHot) {
+		cell.accessoryType = UITableViewCellAccessoryDetailButton;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
+	
     [cell.thumbnail setImageWithURL:[NSURL URLWithString:video.thumbnail]
                    placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
     [cell setup];
@@ -106,8 +117,17 @@
 
 
 #pragma mark - TABLE VIEW Delegate
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    Video *v = _cache[_currentCategory][indexPath.row];
+
+	HTVWebVC *c = [[[ControllersManager sharedManager] storyboard] instantiateViewControllerWithIdentifier:NSStringFromClass([HTVWebVC class])];
+	c.URL = [NSURL URLWithString:v.url];
+	[self.navigationController pushViewController:c animated:YES];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
     Video *v = _cache[_currentCategory][indexPath.row];
 
     if (_currentCategory == HTVVideoCategoryHot) {

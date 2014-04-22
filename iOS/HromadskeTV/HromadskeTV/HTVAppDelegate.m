@@ -37,8 +37,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-//    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+	UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    AudioSessionSetProperty(kAudioSessionProperty_AudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
     
     //Launch urls/twitter if the user came from a push
     NSDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -121,7 +123,6 @@
 	[Appirater setSignificantEventsUntilPrompt:-1];
 	[Appirater setTimeBeforeReminding:2];
 	[Appirater setDebug:NO];
-	[Appirater setOpenInAppStore:NO];
 
 	[Appirater appLaunched:YES];
 	

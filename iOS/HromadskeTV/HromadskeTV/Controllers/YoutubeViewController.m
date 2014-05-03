@@ -10,6 +10,7 @@
 #import "VideoCollectionViewCell.h"
 #import "Video.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIViewController+HTVNavigationController.h"
 
 #define VIDEO_IMAGE_PLACE_HOLDER @"placeHolder"
 
@@ -33,6 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+	[self setupView];
+
     self.collection.delegate = self;
     self.collection.dataSource = self;
     self.title = YOUTUBE_PAGE;

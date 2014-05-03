@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Max Tymchii. All rights reserved.
 //
 
-#import "HTVParentNativeVC.h"
-
-@interface YoutubeViewController : HTVParentNativeVC
+@interface YoutubeViewController : UIViewController
 - (void)setVideos:(NSArray *)videos;
 @end

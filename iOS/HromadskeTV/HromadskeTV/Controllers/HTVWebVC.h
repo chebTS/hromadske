@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Max Tymchii. All rights reserved.
 //
 
-#import "HTVParentVC.h"
+#import "SVWebViewController.h"
 
-@interface HTVWebVC : HTVParentVC
+@interface HTVWebVC : SVWebViewController
 
 @end

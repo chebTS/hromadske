@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HTVParentNativeVC.h"
 
-@interface HTVTwitterCollection : HTVParentNativeVC
+@interface HTVTwitterCollection : UIViewController
 - (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier ;
 @end

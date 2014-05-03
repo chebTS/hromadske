@@ -10,6 +10,8 @@
 #import "TwitterCollectionViewCell.h"
 #import "Twitt.h"
 #import "HTVWebVC.h"
+#import "UIViewController+HTVNavigationController.h"
+
 
 @interface HTVTwitterCollection ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextViewDelegate>
 {
@@ -41,9 +43,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+	[self setupView];
+	
     self.collection.delegate = self;
     self.collection.dataSource = self;
     [self loginWithiOS];
+	
 	// Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated

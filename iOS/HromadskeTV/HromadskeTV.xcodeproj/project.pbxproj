@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5044E8E11887BD340050E304 /* HTVParentNativeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8E01887BD340050E304 /* HTVParentNativeVC.m */; };
 		5044E8E41887BD800050E304 /* YoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8E31887BD800050E304 /* YoutubeViewController.m */; };
 		5044E8EB1887C0EF0050E304 /* VideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8EA1887C0EF0050E304 /* VideoCollectionViewCell.m */; };
 		5044E8EE1887DEF50050E304 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 5044E8ED1887DEF50050E304 /* Video.m */; };
@@ -53,7 +52,6 @@
 		506870B6184E4FD50024624B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50687095184E4FD50024624B /* UIKit.framework */; };
 		506870BE184E4FD50024624B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 506870BC184E4FD50024624B /* InfoPlist.strings */; };
 		506870C0184E4FD50024624B /* HromadskeTVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870BF184E4FD50024624B /* HromadskeTVTests.m */; };
-		506870D8184E570E0024624B /* HTVParentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870D7184E570E0024624B /* HTVParentVC.m */; };
 		506870EB184E68B30024624B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870EA184E68B30024624B /* MenuViewController.m */; };
 		506870F9184E83F60024624B /* HTVWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 506870F8184E83F60024624B /* HTVWebVC.m */; };
 		50687104184FE4E40024624B /* HTVHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 50687103184FE4E40024624B /* HTVHud.m */; };
@@ -127,8 +125,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5044E8DF1887BD340050E304 /* HTVParentNativeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVParentNativeVC.h; path = Controllers/HTVParentNativeVC.h; sourceTree = "<group>"; };
-		5044E8E01887BD340050E304 /* HTVParentNativeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVParentNativeVC.m; path = Controllers/HTVParentNativeVC.m; sourceTree = "<group>"; };
 		5044E8E21887BD800050E304 /* YoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YoutubeViewController.h; path = Controllers/YoutubeViewController.h; sourceTree = "<group>"; };
 		5044E8E31887BD800050E304 /* YoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YoutubeViewController.m; path = Controllers/YoutubeViewController.m; sourceTree = "<group>"; };
 		5044E8E91887C0EF0050E304 /* VideoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -186,8 +182,6 @@
 		506870BB184E4FD50024624B /* HromadskeTVTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HromadskeTVTests-Info.plist"; sourceTree = "<group>"; };
 		506870BD184E4FD50024624B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		506870BF184E4FD50024624B /* HromadskeTVTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HromadskeTVTests.m; sourceTree = "<group>"; };
-		506870D6184E570E0024624B /* HTVParentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVParentVC.h; path = Controllers/HTVParentVC.h; sourceTree = "<group>"; };
-		506870D7184E570E0024624B /* HTVParentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTVParentVC.m; path = Controllers/HTVParentVC.m; sourceTree = "<group>"; };
 		506870E9184E68B30024624B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = Controllers/MenuViewController.h; sourceTree = "<group>"; };
 		506870EA184E68B30024624B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = Controllers/MenuViewController.m; sourceTree = "<group>"; };
 		506870F7184E83F60024624B /* HTVWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTVWebVC.h; path = Controllers/HTVWebVC.h; sourceTree = "<group>"; };
@@ -478,10 +472,6 @@
 				92F9657A189026BA003F93EA /* NewsViewController */,
 				92F9659D18903524003F93EA /* YoutubeViewConteroller */,
 				92DC63F11892EE0000ADC2F7 /* AboutViewConteroller */,
-				506870D6184E570E0024624B /* HTVParentVC.h */,
-				506870D7184E570E0024624B /* HTVParentVC.m */,
-				5044E8DF1887BD340050E304 /* HTVParentNativeVC.h */,
-				5044E8E01887BD340050E304 /* HTVParentNativeVC.m */,
 				506870F7184E83F60024624B /* HTVWebVC.h */,
 				506870F8184E83F60024624B /* HTVWebVC.m */,
 				5044E8F31887FE850050E304 /* HTVTwitterCollection.h */,
@@ -929,9 +919,7 @@
 				92F96570188F1E06003F93EA /* ControllersManager.m in Sources */,
 				92F9659318902900003F93EA /* SIMenuButton.m in Sources */,
 				920FEA301890589600942D72 /* VideoTableViewCell.m in Sources */,
-				5044E8E11887BD340050E304 /* HTVParentNativeVC.m in Sources */,
 				506870F9184E83F60024624B /* HTVWebVC.m in Sources */,
-				506870D8184E570E0024624B /* HTVParentVC.m in Sources */,
 				5044E8F21887FE330050E304 /* FHSTwitterEngine.m in Sources */,
 				92F9659218902900003F93EA /* SICellSelection.m in Sources */,
 				92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */,

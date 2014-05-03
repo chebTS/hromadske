@@ -15,6 +15,7 @@
 @interface LiveViewController () <UIWebViewDelegate, SINavigationMenuDelegate>
 {
 	__weak IBOutlet UISegmentedControl *_switcher;
+	UIActivityIndicatorView *_indicator;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
@@ -35,8 +36,12 @@
 - (void) setup {
     self.title = ONLINE_PAGE;
     self.webView.delegate = self;
+
+	_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+	UIBarButtonItem *loader = [[UIBarButtonItem alloc] initWithCustomView:_indicator];
 //    UIBarButtonItem *item =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
-//    self.navigationItem.rightBarButtonItem = item;
+
+    self.navigationItem.rightBarButtonItem = loader;
     
 //    if (IOS_7)
 //    {
@@ -91,13 +96,16 @@
 
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    [[RemoteManager sharedManager] showRemoteActivity];
+	[_indicator startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [[RemoteManager sharedManager] hideRemoteActivity];
+
+	[webView stringByEvaluatingJavaScriptFromString:@""];
+	
+	[_indicator stopAnimating];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    [[RemoteManager sharedManager] hideRemoteActivity];
+	[_indicator stopAnimating];
 }
 
 #pragma mark - SINavigationMenu methods

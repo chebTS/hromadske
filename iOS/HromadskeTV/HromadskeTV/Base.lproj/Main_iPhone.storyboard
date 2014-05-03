@@ -399,13 +399,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnb-ZD-8a6">
-                                <rect key="frame" x="0.0" y="177" width="320" height="214"/>
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnb-ZD-8a6">
+                                <rect key="frame" x="0.0" y="178" width="320" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="214" id="d5L-qO-F7Z"/>
-                                </constraints>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2sP-9U-qYR">
@@ -424,11 +421,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="2sP-9U-qYR" secondAttribute="centerX" id="JR5-7O-hEr"/>
-                            <constraint firstAttribute="centerX" secondItem="Bnb-ZD-8a6" secondAttribute="centerX" id="KGC-aD-Uqr"/>
                             <constraint firstAttribute="trailing" secondItem="Bnb-ZD-8a6" secondAttribute="trailing" id="WxF-z1-WrI"/>
                             <constraint firstItem="Bnb-ZD-8a6" firstAttribute="leading" secondItem="xOM-zH-oBC" secondAttribute="leading" id="cem-Rr-zll"/>
+                            <constraint firstAttribute="centerY" secondItem="Bnb-ZD-8a6" secondAttribute="centerY" id="gPg-OM-bnw"/>
                             <constraint firstItem="2sP-9U-qYR" firstAttribute="top" secondItem="09w-p7-mCA" secondAttribute="bottom" constant="20" id="oXy-ZE-DtH"/>
-                            <constraint firstItem="Bnb-ZD-8a6" firstAttribute="centerY" secondItem="xOM-zH-oBC" secondAttribute="centerY" id="tbe-yD-uv9"/>
+                            <constraint firstAttribute="centerX" secondItem="Bnb-ZD-8a6" secondAttribute="centerX" id="sm3-ER-qL8"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>

@@ -92,6 +92,7 @@
 		92476638188DCDE700CC05B8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476637188DCDE700CC05B8 /* Utils.m */; };
 		92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */; };
 		9294822D1914E9A100D95C43 /* liveAudio.html in Resources */ = {isa = PBXBuildFile; fileRef = 9294822C1914E9A100D95C43 /* liveAudio.html */; };
+		929B9AB41915866400E58254 /* HromadskeRadioLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 929B9AB31915866400E58254 /* HromadskeRadioLogo.png */; };
 		92DC63F01892EDF900ADC2F7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 92DC63EF1892EDF900ADC2F7 /* about.html */; };
 		92DC63F41892EE3500ADC2F7 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DC63F31892EE3500ADC2F7 /* AboutViewController.m */; };
 		92F96568188EF012003F93EA /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F96567188EF012003F93EA /* LiveViewController.m */; };
@@ -236,6 +237,7 @@
 		92476640188DD3D800CC05B8 /* UIViewController+HTVNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTVNavigationController.h"; sourceTree = "<group>"; };
 		92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTVNavigationController.m"; sourceTree = "<group>"; };
 		9294822C1914E9A100D95C43 /* liveAudio.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = liveAudio.html; sourceTree = "<group>"; };
+		929B9AB31915866400E58254 /* HromadskeRadioLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HromadskeRadioLogo.png; sourceTree = "<group>"; };
 		92DC63EF1892EDF900ADC2F7 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		92DC63F21892EE3500ADC2F7 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		92DC63F31892EE3500ADC2F7 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				9294822C1914E9A100D95C43 /* liveAudio.html */,
+				929B9AB31915866400E58254 /* HromadskeRadioLogo.png */,
 				92F96566188EF012003F93EA /* LiveViewController.h */,
 				92F96567188EF012003F93EA /* LiveViewController.m */,
 			);
@@ -849,6 +852,7 @@
 				50DF6E9518506C8C00576DD3 /* Icon-40@2x.png in Resources */,
 				50DF6E9B18506C8C00576DD3 /* Icon-76@2x.png in Resources */,
 				50DF6E5218506B5A00576DD3 /* port-ios6.png in Resources */,
+				929B9AB41915866400E58254 /* HromadskeRadioLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

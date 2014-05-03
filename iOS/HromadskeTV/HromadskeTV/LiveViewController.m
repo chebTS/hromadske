@@ -100,7 +100,7 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
 
-	[webView stringByEvaluatingJavaScriptFromString:@""];
+	[webView stringByEvaluatingJavaScriptFromString:@"var meta = document.createElement('meta');meta.name = 'viewport';meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui';document.getElementsByTagName('head')[0].appendChild(meta);"];
 	
 	[_indicator stopAnimating];
 }
@@ -114,10 +114,10 @@
 {
     CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
     OnlineStream *currentStream = [HTVHelperMethods onlineStreamForKey:[HTVHelperMethods  keyForOnlineWithPosition:[HTVHelperMethods defaultLiveChanel]]];
-    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:currentStream.name];
+
     //Set in which view we will display a menu
+    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:currentStream.name];
     [menu displayMenuInView:self.view];
-    //Create array of items
     
     menu.items = [[OnlineStream allOnlineStreams] valueForKey:@"name"];
     menu.delegate = self;

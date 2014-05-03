@@ -91,8 +91,10 @@
 		921D1EEA1892CCB000B92101 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE51892CCB000B92101 /* TFHpple.m */; };
 		921D1EEB1892CCB000B92101 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE71892CCB000B92101 /* TFHppleElement.m */; };
 		921D1EEC1892CCB000B92101 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE91892CCB000B92101 /* XPathQuery.m */; };
+		923C99C81914D45500C7DF0C /* libRTMPClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 923C99C71914D45500C7DF0C /* libRTMPClient.a */; };
 		92476638188DCDE700CC05B8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476637188DCDE700CC05B8 /* Utils.m */; };
 		92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */; };
+		9294822D1914E9A100D95C43 /* liveAudio.html in Resources */ = {isa = PBXBuildFile; fileRef = 9294822C1914E9A100D95C43 /* liveAudio.html */; };
 		92DC63F01892EDF900ADC2F7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 92DC63EF1892EDF900ADC2F7 /* about.html */; };
 		92DC63F41892EE3500ADC2F7 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DC63F31892EE3500ADC2F7 /* AboutViewController.m */; };
 		92F96568188EF012003F93EA /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F96567188EF012003F93EA /* LiveViewController.m */; };
@@ -236,10 +238,21 @@
 		921D1EE71892CCB000B92101 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		921D1EE81892CCB000B92101 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		921D1EE91892CCB000B92101 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		923C99BE1914D45500C7DF0C /* IAttributeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAttributeStore.h; sourceTree = "<group>"; };
+		923C99BF1914D45500C7DF0C /* IClientSharedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IClientSharedObject.h; sourceTree = "<group>"; };
+		923C99C01914D45500C7DF0C /* IClientSharedObjectDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IClientSharedObjectDelegate.h; sourceTree = "<group>"; };
+		923C99C11914D45500C7DF0C /* IPendingServiceCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPendingServiceCallback.h; sourceTree = "<group>"; };
+		923C99C21914D45500C7DF0C /* IPersistable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPersistable.h; sourceTree = "<group>"; };
+		923C99C31914D45500C7DF0C /* IRTMProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTMProtocol.h; sourceTree = "<group>"; };
+		923C99C41914D45500C7DF0C /* IServiceCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServiceCall.h; sourceTree = "<group>"; };
+		923C99C51914D45500C7DF0C /* ISharedObjectListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISharedObjectListener.h; sourceTree = "<group>"; };
+		923C99C61914D45500C7DF0C /* RTMPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMPClient.h; sourceTree = "<group>"; };
+		923C99C71914D45500C7DF0C /* libRTMPClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRTMPClient.a; sourceTree = "<group>"; };
 		92476636188DCDE700CC05B8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		92476637188DCDE700CC05B8 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		92476640188DD3D800CC05B8 /* UIViewController+HTVNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTVNavigationController.h"; sourceTree = "<group>"; };
 		92476641188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTVNavigationController.m"; sourceTree = "<group>"; };
+		9294822C1914E9A100D95C43 /* liveAudio.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = liveAudio.html; sourceTree = "<group>"; };
 		92DC63EF1892EDF900ADC2F7 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		92DC63F21892EE3500ADC2F7 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		92DC63F31892EE3500ADC2F7 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
@@ -292,6 +305,7 @@
 				50687096184E4FD50024624B /* UIKit.framework in Frameworks */,
 				50687092184E4FD50024624B /* Foundation.framework in Frameworks */,
 				D70C5A50436A43B9950E2E8C /* libPods.a in Frameworks */,
+				923C99C81914D45500C7DF0C /* libRTMPClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +432,7 @@
 		50687097184E4FD50024624B /* HromadskeTV */ = {
 			isa = PBXGroup;
 			children = (
+				923C99BD1914D44400C7DF0C /* rtmp */,
 				92476647188DE4CF00CC05B8 /* Models */,
 				9247663E188DD39700CC05B8 /* Categories */,
 				9247663D188DD36500CC05B8 /* Libs */,
@@ -582,6 +597,23 @@
 			name = HTMLParser;
 			sourceTree = "<group>";
 		};
+		923C99BD1914D44400C7DF0C /* rtmp */ = {
+			isa = PBXGroup;
+			children = (
+				923C99BE1914D45500C7DF0C /* IAttributeStore.h */,
+				923C99BF1914D45500C7DF0C /* IClientSharedObject.h */,
+				923C99C01914D45500C7DF0C /* IClientSharedObjectDelegate.h */,
+				923C99C11914D45500C7DF0C /* IPendingServiceCallback.h */,
+				923C99C21914D45500C7DF0C /* IPersistable.h */,
+				923C99C31914D45500C7DF0C /* IRTMProtocol.h */,
+				923C99C41914D45500C7DF0C /* IServiceCall.h */,
+				923C99C51914D45500C7DF0C /* ISharedObjectListener.h */,
+				923C99C61914D45500C7DF0C /* RTMPClient.h */,
+				923C99C71914D45500C7DF0C /* libRTMPClient.a */,
+			);
+			name = rtmp;
+			sourceTree = "<group>";
+		};
 		9247663D188DD36500CC05B8 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +666,7 @@
 		92F96564188EEFBE003F93EA /* LiveViewContoller */ = {
 			isa = PBXGroup;
 			children = (
+				9294822C1914E9A100D95C43 /* liveAudio.html */,
 				92F96566188EF012003F93EA /* LiveViewController.h */,
 				92F96567188EF012003F93EA /* LiveViewController.m */,
 			);
@@ -821,6 +854,7 @@
 				5044E93418887B7F0050E304 /* logoLarge@2x.png in Resources */,
 				50DF6E9418506C8C00576DD3 /* Icon-40.png in Resources */,
 				5044E92B18887B7F0050E304 /* Icon-Small@2x.png in Resources */,
+				9294822D1914E9A100D95C43 /* liveAudio.html in Resources */,
 				50DF6E5518506B5A00576DD3 /* port-ios7@2x.png in Resources */,
 				50DF6E9718506C8C00576DD3 /* Icon-60@2x.png in Resources */,
 				50DF6E5A18506B8300576DD3 /* Images.xcassets in Resources */,
@@ -1084,6 +1118,10 @@
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HromadskeTV",
+				);
 				PRODUCT_NAME = HromadskeTV;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1102,6 +1140,10 @@
 				GCC_PREFIX_HEADER = "HromadskeTV/HromadskeTV-Prefix.pch";
 				INFOPLIST_FILE = "HromadskeTV/HromadskeTV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HromadskeTV",
+				);
 				PRODUCT_NAME = HromadskeTV;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

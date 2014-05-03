@@ -13,6 +13,9 @@
 #import "OnlineStream.h"
 
 @interface LiveViewController () <UIWebViewDelegate, SINavigationMenuDelegate>
+{
+	__weak IBOutlet UISegmentedControl *_switcher;
+}
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
@@ -58,9 +61,33 @@
         [self setupDropDownTable];
         NSURLRequest *req = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:req];
+
+		_switcher.selectedSegmentIndex = 0;
     }
 }
+- (void) loadVideoStream {
+	NSURLRequest *req = [NSURLRequest requestWithURL:	[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];
+	[self.webView loadRequest:req];
+}
+- (void) loadAudioStream {
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"liveAudio.html"];
+    NSURL *url = [NSURL fileURLWithPath:path isDirectory:NO];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [_webView loadRequest:request];
+}
 
+- (IBAction)handleSwitch:(UISegmentedControl *)sender {
+	switch (sender.selectedSegmentIndex) {
+		case 0:
+			[self loadVideoStream];
+			break;
+		case 1:
+			[self loadAudioStream];
+			break;
+		default:
+			break;
+	}
+}
 
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {

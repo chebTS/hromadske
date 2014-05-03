@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cx6-JT-QR7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="jIS-zZ-5Pc">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -381,43 +381,6 @@
             </objects>
             <point key="canvasLocation" x="1228" y="2370"/>
         </scene>
-        <!--Live View Controller-->
-        <scene sceneID="mJV-Fk-RtP">
-            <objects>
-                <viewController storyboardIdentifier="LiveViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cx6-JT-QR7" customClass="LiveViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iSI-vY-zNn"/>
-                        <viewControllerLayoutGuide type="bottom" id="2nz-1e-z5q"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ayk-kJ-68i">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbS-gg-4TW">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <constraints>
-                            <constraint firstItem="fbS-gg-4TW" firstAttribute="leading" secondItem="ayk-kJ-68i" secondAttribute="leading" id="8A0-0f-Rmk"/>
-                            <constraint firstAttribute="trailing" secondItem="fbS-gg-4TW" secondAttribute="trailing" id="ZCV-FC-WSV"/>
-                            <constraint firstItem="2nz-1e-z5q" firstAttribute="top" secondItem="fbS-gg-4TW" secondAttribute="bottom" id="jai-74-xZM"/>
-                            <constraint firstItem="fbS-gg-4TW" firstAttribute="top" secondItem="iSI-vY-zNn" secondAttribute="bottom" id="ut2-3j-kn5"/>
-                        </constraints>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="webView" destination="fbS-gg-4TW" id="C8p-MR-nNj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zmk-jc-IrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="212" y="1348"/>
-        </scene>
         <!--Menu View Controller-->
         <scene sceneID="iQG-Bb-k4H">
             <objects>
@@ -517,6 +480,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gf7-2m-K8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-276" y="347"/>
+        </scene>
+        <!--Live View Controller-->
+        <scene sceneID="etV-iW-biQ">
+            <objects>
+                <viewController storyboardIdentifier="LiveViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yCU-M4-NA2" customClass="LiveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bMp-BX-wYf"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Th-5P-H3p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1mp-uf-Zca">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIi-qj-d7M">
+                                <rect key="frame" x="0.0" y="405" width="768" height="214"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="mao-01-f94"/>
+                                </constraints>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dLu-Rs-u9f">
+                                <rect key="frame" x="73" y="20" width="174" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Дивитись"/>
+                                    <segment title="Слухати"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="handleSwitch:" destination="yCU-M4-NA2" eventType="valueChanged" id="5rk-5O-3aR"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="dLu-Rs-u9f" secondAttribute="centerX" id="HLN-D3-N61"/>
+                            <constraint firstItem="dLu-Rs-u9f" firstAttribute="top" secondItem="bMp-BX-wYf" secondAttribute="bottom" constant="20" id="Lvc-ir-N1j"/>
+                            <constraint firstAttribute="centerX" secondItem="dIi-qj-d7M" secondAttribute="centerX" id="MVp-Y9-QeY"/>
+                            <constraint firstItem="dIi-qj-d7M" firstAttribute="leading" secondItem="1mp-uf-Zca" secondAttribute="leading" id="Oid-MZ-MxM"/>
+                            <constraint firstItem="dIi-qj-d7M" firstAttribute="centerY" secondItem="1mp-uf-Zca" secondAttribute="centerY" id="TFs-kg-usD"/>
+                            <constraint firstAttribute="trailing" secondItem="dIi-qj-d7M" secondAttribute="trailing" id="t8E-zE-5mT"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="_switcher" destination="dLu-Rs-u9f" id="7fd-UB-Rkg"/>
+                        <outlet property="webView" destination="dIi-qj-d7M" id="glo-Lr-5rR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6WB-NJ-0SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="156" y="40"/>
         </scene>
     </scenes>
     <resources>

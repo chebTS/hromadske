@@ -482,54 +482,66 @@
             <point key="canvasLocation" x="-276" y="347"/>
         </scene>
         <!--Live View Controller-->
-        <scene sceneID="v3z-j3-cHf">
+        <scene sceneID="3J1-Lb-5Lk">
             <objects>
-                <viewController storyboardIdentifier="LiveViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sgB-8k-gPt" customClass="LiveViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LiveViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hx4-FR-V2R" customClass="LiveViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PMa-6F-hen"/>
-                        <viewControllerLayoutGuide type="bottom" id="XS3-i7-EtV"/>
+                        <viewControllerLayoutGuide type="top" id="Hcj-bI-2Yf"/>
+                        <viewControllerLayoutGuide type="bottom" id="ofe-QU-tao"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VXI-ae-LCP">
+                    <view key="view" contentMode="scaleToFill" id="aym-pk-Dzd">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuB-fy-nuM">
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4a-Tt-CJ8">
                                 <rect key="frame" x="0.0" y="178" width="768" height="669"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sv4-BO-5FK">
-                                <rect key="frame" x="73" y="20" width="174" height="29"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="faG-Gh-SlP">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Дивитись"/>
-                                    <segment title="Слухати"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="handleSwitch:" destination="sgB-8k-gPt" eventType="valueChanged" id="Tqe-ci-kEK"/>
-                                </connections>
-                            </segmentedControl>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mJb-oe-yeW">
+                                        <rect key="frame" x="73" y="11" width="174" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Дивитись"/>
+                                            <segment title="Слухати"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="handleSwitch:" destination="hx4-FR-V2R" eventType="valueChanged" id="gyx-YB-fgy"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="mJb-oe-yeW" secondAttribute="centerX" id="1FJ-Jg-bed"/>
+                                    <constraint firstAttribute="centerY" secondItem="mJb-oe-yeW" secondAttribute="centerY" id="Pcv-bx-tC9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Sv4-BO-5FK" secondAttribute="centerX" id="Mkn-jp-FVF"/>
-                            <constraint firstAttribute="trailing" secondItem="cuB-fy-nuM" secondAttribute="trailing" id="mjv-BD-t6p"/>
-                            <constraint firstItem="cuB-fy-nuM" firstAttribute="leading" secondItem="VXI-ae-LCP" secondAttribute="leading" id="qBz-Sa-v8W"/>
-                            <constraint firstItem="Sv4-BO-5FK" firstAttribute="top" secondItem="PMa-6F-hen" secondAttribute="bottom" constant="20" id="qKj-rr-O0y"/>
-                            <constraint firstAttribute="centerX" secondItem="cuB-fy-nuM" secondAttribute="centerX" id="s4D-jY-UyI"/>
-                            <constraint firstAttribute="centerY" secondItem="cuB-fy-nuM" secondAttribute="centerY" id="xg4-WF-YzG"/>
+                            <constraint firstItem="faG-Gh-SlP" firstAttribute="leading" secondItem="aym-pk-Dzd" secondAttribute="leading" id="DQV-kY-PAt"/>
+                            <constraint firstAttribute="trailing" secondItem="G4a-Tt-CJ8" secondAttribute="trailing" id="KKa-0m-lWf"/>
+                            <constraint firstItem="G4a-Tt-CJ8" firstAttribute="leading" secondItem="aym-pk-Dzd" secondAttribute="leading" id="O5s-am-25Y"/>
+                            <constraint firstAttribute="centerY" secondItem="G4a-Tt-CJ8" secondAttribute="centerY" id="WiC-4n-DFV"/>
+                            <constraint firstAttribute="trailing" secondItem="faG-Gh-SlP" secondAttribute="trailing" id="gSd-iz-d3i"/>
+                            <constraint firstItem="faG-Gh-SlP" firstAttribute="top" secondItem="Hcj-bI-2Yf" secondAttribute="bottom" id="lLd-2v-TM8"/>
+                            <constraint firstAttribute="centerX" secondItem="G4a-Tt-CJ8" secondAttribute="centerX" id="wol-lp-Qad"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="_switcher" destination="Sv4-BO-5FK" id="KfQ-cL-s6Q"/>
-                        <outlet property="webView" destination="cuB-fy-nuM" id="qdN-EU-oFp"/>
+                        <outlet property="_switcher" destination="mJb-oe-yeW" id="R8G-jb-khm"/>
+                        <outlet property="webView" destination="G4a-Tt-CJ8" id="mRp-9H-Fbr"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f8y-dg-LdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ew-07-SbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="156" y="40"/>
         </scene>

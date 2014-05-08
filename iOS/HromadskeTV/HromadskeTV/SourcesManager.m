@@ -167,7 +167,7 @@ static NSString *const kLastStreamsResponceKey = @"kLastStreamsResponceKey";
     for (int i = 0; i < videos.count; i++) {
 		VideoStream *newStream = [VideoStream streamWithDictionary:[videos objectAtIndex:i]];
 		if (_lastVideoSelectedIndex == i) {
-			_isUpdateRequired = [[[self lastVideoStream] path] isEqualToString:newStream.path];
+			_isUpdateRequired = ![[[self lastVideoStream] path] isEqualToString:newStream.path];
 		}
 		[_videoSources addObject:newStream];
     }

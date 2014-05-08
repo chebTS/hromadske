@@ -9,7 +9,6 @@
 #import "Data.h"
 #import <AFKissXMLRequestOperation.h>
 #import "TFHpple.h"
-static NSString *const kStreamsKey = @"streams";
 
 @implementation Data
 + (Data *)sharedData {
@@ -227,95 +226,6 @@ static NSString *const kStreamsKey = @"streams";
         [videos addObject:[Video videoWithDictionary:item]];
     }
     return videos;
-}
-
-#pragma mark - online links
-- (void)updateLivePathTailFromSource:(HTVLiveLinkSource)source withCompletion:(void(^)(NSString *path, BOOL isNew))completion {
-    HTVLiveLinkSource _source = (source == HTVLiveLinkSourceDefault) ? HTVLiveLinkSourceAPI : source;
-    
-    NSURL *url = nil;
-    NSString *path = nil;
-    switch (_source) {
-        case HTVLiveLinkSourceAPI:
-            url = [NSURL URLWithString:FREDY_BASE_URL];
-            path = URL_PATH_STREAM;
-            break;
-        case HTVLiveLinkSourceGdata:
-            url = [NSURL URLWithString:URL_BASE_GDATA];
-            path = URL_GDATA_PATH_ONLINE;
-            break;
-    }
-    
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    [httpClient setParameterEncoding:AFJSONParameterEncoding];
-    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    [httpClient getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSString *tail = nil;
-        switch (_source) {
-            case HTVLiveLinkSourceAPI:
-                tail = [self tailFromHromadskeAPI:responseObject];
-                break;
-            case HTVLiveLinkSourceGdata:
-                tail = [self tailFromGdataAPI:responseObject];
-                break;
-        }
-        
-        if (!tail) {
-            [self updateLivePathTailFromSource:HTVLiveLinkSourceGdata withCompletion:^(NSString *_path, BOOL _isNew) {
-                if (completion) {
-                    completion(_path,_isNew);
-                }
-            }];
-            return;
-        }
-        
-        BOOL needUpdate = NO;
-        NSString *oldLink = [HTVHelperMethods youtubeLiveLinkTail];
-        if (![tail isEqualToString:oldLink]) {
-            [HTVHelperMethods saveYoutubeLiveLinkTail:tail];
-            needUpdate = YES;
-        }
-        
-        if (completion) {
-            completion(tail,needUpdate);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil,NO);
-        }
-    }];
-}
-
-- (NSString *) tailFromHromadskeAPI:(id)response {
-    NSError *error = nil;
-    id json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves | NSJSONReadingAllowFragments error:&error];
-    [HTVHelperMethods clearLiveLinks];
-    NSArray *result = ((NSDictionary *)json)[kStreamsKey];
-    for (int i = 0; i < result.count; i++) {
-        [HTVHelperMethods saveHromadskeOnlineWithParameters:result[i]
-                                                        chanel:[HTVHelperMethods keyForOnlineWithPosition:i]];
-    }
-    
-    NSString *youtubeTail = result[0][kVideoIdKey];
-    
-    return youtubeTail;
-}
-
-- (NSString *) tailFromGdataAPI:(id)response {
-//    NSString *str = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    
-    NSError *error = nil;
-    id json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves | NSJSONReadingAllowFragments error:&error];
-    NSDictionary *result = (NSDictionary *)json;
-    NSString *youtubeLink = [result[@"feed"][@"entry"] firstObject][@"content"][@"src"];
-    NSString *youtubeTailDirty = [[youtubeLink componentsSeparatedByString:@"live/videos/"] lastObject];
-    NSString *youtubeTail = [[youtubeTailDirty componentsSeparatedByString:@"?"] firstObject];
-    [HTVHelperMethods clearLiveLinks];
-    [HTVHelperMethods saveHromadskeOnlineWithParameters:@{kNameKey : @"Громадське Online",
-                                                          kVideoIdKey : youtubeTail}
-                                                    chanel:[HTVHelperMethods keyForOnlineWithPosition:0]];
-    return youtubeTail;
 }
 
 

@@ -8,11 +8,14 @@
 
 #import "LiveViewController.h"
 #import "UIViewController+HTVNavigationController.h"
-#import "RemoteManager.h"
-#import "SINavigationMenuView.h"
-#import "OnlineStream.h"
 
-@interface LiveViewController () <UIWebViewDelegate, SINavigationMenuDelegate>
+#import "RemoteManager.h"
+#import "VideoStream.h"
+#import "SourcesManager.h"
+
+#import "SINavigationMenuView.h"
+
+@interface LiveViewController () <UIWebViewDelegate, SINavigationMenuDelegate, SourcesManagerDelefate>
 {
 	__weak IBOutlet UISegmentedControl *_switcher;
 	UIActivityIndicatorView *_indicator;
@@ -39,39 +42,60 @@
 
 	_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 	UIBarButtonItem *loader = [[UIBarButtonItem alloc] initWithCustomView:_indicator];
-//    UIBarButtonItem *item =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
 
     self.navigationItem.rightBarButtonItem = loader;
-    
-//    if (IOS_7)
-//    {
-//        [item setTintColor:[UIColor whiteColor]];
-//    }
-
     
     for (id subview in self.webView.subviews){
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])
             ((UIScrollView *)subview).bounces = NO;
     }
+	
+	[[SourcesManager sharedManager] setDelegate:self];
+	[self loadVideoStream];
+	[self setupDropDownTable];
 }
 
-- (void) refresh {
-    [self.webView reload];
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+	[_indicator startAnimating];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+
+	[webView stringByEvaluatingJavaScriptFromString:@"var meta = document.createElement('meta');meta.name = 'viewport';meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui';document.getElementsByTagName('head')[0].appendChild(meta);"];
+	if (_switcher.selectedSegmentIndex == 1) {
+		NSString *url = [[[[SourcesManager sharedManager] lastRadioStream] url] absoluteString];
+		[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setURL('%@');",url]];
+	}
+	
+	[_indicator stopAnimating];
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+	[_indicator stopAnimating];
 }
 
-- (void)setLiveUrl:(NSURL *)url {
+#pragma mark - SINavigationMenu methods
+
+- (void)setupDropDownTable
+{
+    CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
+
+    VideoStream *currentStream = [[SourcesManager sharedManager] lastVideoStream];
+
+    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:currentStream.name];
+    [menu displayMenuInView:self.view];
     
-    if(![self.webView.request.URL.absoluteString isEqualToString:url.absoluteString])
-    {
-        [self setupDropDownTable];
-        NSURLRequest *req = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:req];
-
-		_switcher.selectedSegmentIndex = 0;
-    }
+    menu.items = [[[SourcesManager sharedManager] videoSources] valueForKey:@"name"];
+    menu.delegate = self;
+    self.navigationItem.titleView = menu;
 }
+
+
 - (void) loadVideoStream {
-	NSURLRequest *req = [NSURLRequest requestWithURL:	[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];
+	_switcher.selectedSegmentIndex = 0;
+	
+	VideoStream *stream = [[SourcesManager sharedManager] lastVideoStream];
+	
+	NSURLRequest *req = [NSURLRequest requestWithURL:[stream url]];
 	[self.webView loadRequest:req];
 }
 - (void) loadAudioStream {
@@ -94,40 +118,21 @@
 	}
 }
 
-#pragma mark - UIWebViewDelegate
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-	[_indicator startAnimating];
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-
-	[webView stringByEvaluatingJavaScriptFromString:@"var meta = document.createElement('meta');meta.name = 'viewport';meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui';document.getElementsByTagName('head')[0].appendChild(meta);"];
-	
-	[_indicator stopAnimating];
-}
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-	[_indicator stopAnimating];
-}
-
-#pragma mark - SINavigationMenu methods
-
-- (void)setupDropDownTable
-{
-    CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
-    OnlineStream *currentStream = [HTVHelperMethods onlineStreamForKey:[HTVHelperMethods  keyForOnlineWithPosition:[HTVHelperMethods defaultLiveChanel]]];
-
-    //Set in which view we will display a menu
-    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:currentStream.name];
-    [menu displayMenuInView:self.view];
-    
-    menu.items = [[OnlineStream allOnlineStreams] valueForKey:@"name"];
-    menu.delegate = self;
-    self.navigationItem.titleView = menu;
-}
-
-
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
-    [HTVHelperMethods saveDefaultLiveChanelPosition:index];
-    [self setLiveUrl:[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];
+	[[SourcesManager sharedManager] setSelectedVideoIndex:(int)index];
+	
+	[self loadVideoStream];
 }
+
+#pragma mark - SourcesManagerDelefate 
+- (void) sourcesManagerdidUpdateSources:(SourcesManager *)manager withNewStatus:(BOOL)yes {
+	if (yes) {
+		[self loadVideoStream];
+	}
+	[self setupDropDownTable];
+}
+
+
+
 @end

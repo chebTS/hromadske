@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LiveViewController : UIViewController
-
-- (void)setLiveUrl:(NSURL *)url;
+{
+}
 @end

@@ -163,7 +163,7 @@ typedef enum {
 - (void)setupData
 {
     _mainPageItems = @{
-                       HTVMenuItemLive : @[ONLINE_PAGE, ONLINE_URL, ONLINE_SCREEN],
+                       HTVMenuItemLive : @[ONLINE_PAGE, @"", ONLINE_SCREEN],
                        HTVMenuItemAbout  : @[ABOUT_US_PAGE, ABOUT_US_URL, ABOUT_SCREEN],
                        HTVMenuItemNews : @[HOT_NEWS_PAGE]
                        };

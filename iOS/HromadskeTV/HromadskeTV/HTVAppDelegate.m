@@ -17,6 +17,7 @@
 
 #import "HTVTwitterCollection.h"
 #import "STTwitterAPI.h"
+#import "SourcesManager.h"
 
 @interface HTVAppDelegate()
 {
@@ -69,7 +70,7 @@
 {
     NSTimeInterval time = abs([_lastOpened timeIntervalSinceNow]);
     if (time > 1800 || !_lastOpened) {
-        [self updateLiveStatus];
+		[[SourcesManager sharedManager] updateSources];
         _lastOpened = [NSDate date];
     }
     
@@ -140,12 +141,6 @@
     UVConfig *config = [UVConfig configWithSite:USER_VOICE_URL];
     [UserVoice initialize:config];
 }
-- (void) updateLiveStatus {
-    [[Data sharedData] updateLivePathTailFromSource:HTVLiveLinkSourceDefault withCompletion:^(NSString *path, BOOL isNew) {
-        [[ControllersManager sharedManager] setNewLiveUrl:[NSURL URLWithString:[HTVHelperMethods fullYoutubeLink]]];
-    }];
-}
-
 
 #pragma mark - push
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

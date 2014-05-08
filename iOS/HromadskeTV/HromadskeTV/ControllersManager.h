@@ -31,8 +31,6 @@
 - (NewsViewController *)news;
 
 
-- (void)setNewLiveUrl:(NSURL *)url;
-
 - (void)openMenu;
 - (void)closeMenu;
 

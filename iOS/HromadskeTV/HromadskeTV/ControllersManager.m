@@ -21,7 +21,6 @@
     IIViewDeckController *_deck;
     LiveViewController *_live;
     NewsViewController *_news;
-    HTVWebVC *_liveTmp;
     REActivityViewController *_sharing;
     UINavigationController *_newsNavigation;
     
@@ -76,13 +75,7 @@
     }
     return _menu;
 }
-- (HTVWebVC *) liveTmp {
-    if (!_liveTmp) {
-        _liveTmp = [_storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([HTVWebVC class])];
-        _liveTmp.URL = [NSURL URLWithString:ONLINE_URL];
-    }
-    return _liveTmp;
-}
+
 - (LiveViewController *) live {
     if (!_live) {
         _live = [_storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([LiveViewController class])];
@@ -122,10 +115,6 @@
 }
 
 #pragma mark - Update methods
-- (void) setNewLiveUrl:(NSURL *)url {
-    [[self live] setLiveUrl:url];
-}
-
 - (void) openMenu {
     [_deck openLeftViewAnimated:YES];
 }

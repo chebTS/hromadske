@@ -8,24 +8,25 @@
 
 #import <Foundation/Foundation.h>
 @class YoutubeViewController;
-@class OnlineStream;
+@class VideoStream;
 @interface HTVHelperMethods : NSObject
 
 
 + (void)callCustomAlertWithMessage:(NSString *)message;
+
 + (NSString *)youtubeLiveLinkTail;
-+ (void)saveYoutubeLiveLinkTail:(NSString *)newLink;
-+ (NSString *)fullYoutubeLink;
+//+ (void)saveYoutubeLiveLinkTail:(NSString *)newLink;
+//+ (NSString *)fullYoutubeLink;
 + (NSArray *)parseDictionaryFromYoutube:(NSDictionary *)dictionary;
 + (void)fetchNewDataFromYoutubeForController:(YoutubeViewController *)controller;
 + (NSString *)yotubeTailFromString:(NSString *)string;
 + (NSArray *)parseArrayFromTwitter:(NSArray *)twittes;
 
-+ (void)clearLiveLinks;
-+ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters chanel:(NSString *)key;
-+ (OnlineStream *)onlineStreamForKey:(NSString *)key;
-+ (NSString *)keyForOnlineWithPosition:(int)position;
-+ (int)defaultLiveChanel;
-+ (void)saveDefaultLiveChanelPosition:(int)position;
+//+ (void)clearLiveLinks;
+//+ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters chanel:(NSString *)key;
+//+ (VideoStream *)onlineStreamForKey:(NSString *)key;
+//+ (NSString *)keyForOnlineWithPosition:(int)position;
+//+ (int)defaultLiveChanel;
+//+ (void)saveDefaultLiveChanelPosition:(int)position;
 
 @end

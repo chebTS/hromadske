@@ -10,7 +10,7 @@
 #import "YoutubeViewController.h"
 #import "Video.h"
 #import "Twitt.h"
-#import "OnlineStream.h"
+#import "VideoStream.h"
 
 static NSString *const kDefaultLanguageKey = @"default language";
 #define YOUTUBE_KEY @"youtube"
@@ -27,83 +27,83 @@ static NSString *const kDefaultLanguageKey = @"default language";
 }
 
 
-+ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters chanel:(NSString *)key
-{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:parameters forKey:key];
-    [prefs synchronize];
-}
+//+ (void)saveHromadskeOnlineWithParameters:(NSDictionary *)parameters chanel:(NSString *)key
+//{
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    [prefs setObject:parameters forKey:key];
+//    [prefs synchronize];
+//}
+//
+//+ (void)clearLiveLinks
+//{
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    int position = 0;
+//    NSDictionary *parameters = nil;
+//    do {
+//        NSString *key = [HTVHelperMethods keyForOnlineWithPosition:position];
+//        parameters = [prefs valueForKey:key];
+//        [prefs removeObjectForKey:key];
+//        position++;
+//    } while (parameters);
+//    [prefs synchronize];
+//}
+//
+//+ (VideoStream *)onlineStreamForKey:(NSString *)key
+//{
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    NSDictionary *parameters = [prefs objectForKey:key];
+//    if (parameters) {
+//        return [VideoStream onlineStreamWithParameters:parameters];
+//    }
+//    return nil;
+//}
+//
+//+ (NSString *)keyForOnlineWithPosition:(int)position
+//{
+//    return [kHromadskeOnlineKey stringByAppendingString:@(position).description];
+//}
+//
+//+ (int)defaultLiveChanel
+//{
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    NSNumber *youtubeDefaultChanel = [prefs objectForKey:kDefaultLanguageKey];
+//    if (!youtubeDefaultChanel) {
+//        [HTVHelperMethods saveDefaultLiveChanelPosition:0];
+//        return 0;
+//    }
+//    return youtubeDefaultChanel.intValue;
+//}
+//
+//+ (void)saveDefaultLiveChanelPosition:(int)position
+//{
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    [prefs setObject:@(position) forKey:kDefaultLanguageKey];
+//    [prefs synchronize];
+//}
+//+ (NSString *)youtubeLiveLinkTail
+//{
+//    VideoStream *stream = [HTVHelperMethods onlineStreamForKey: [HTVHelperMethods keyForOnlineWithPosition:[HTVHelperMethods defaultLiveChanel]]];
+//    NSString *youtubeLink = stream.path;
+//    if (youtubeLink) {
+//        return youtubeLink;
+//    }
+//    return @"";
+//}
 
-+ (void)clearLiveLinks
-{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    int position = 0;
-    NSDictionary *parameters = nil;
-    do {
-        NSString *key = [HTVHelperMethods keyForOnlineWithPosition:position];
-        parameters = [prefs valueForKey:key];
-        [prefs removeObjectForKey:key];
-        position++;
-    } while (parameters);
-    [prefs synchronize];
-}
+//+ (void)saveYoutubeLiveLinkTail:(NSString *)newLink
+//{
+//    //TODO:Need change
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    [prefs setObject:newLink forKey:YOUTUBE_KEY];
+//    [prefs synchronize];
+//}
 
-+ (OnlineStream *)onlineStreamForKey:(NSString *)key
-{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSDictionary *parameters = [prefs objectForKey:key];
-    if (parameters) {
-        return [OnlineStream onlineStreamWithParameters:parameters];
-    }
-    return nil;
-}
-
-+ (NSString *)keyForOnlineWithPosition:(int)position
-{
-    return [kHromadskeOnlineKey stringByAppendingString:@(position).description];
-}
-
-+ (int)defaultLiveChanel
-{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSNumber *youtubeDefaultChanel = [prefs objectForKey:kDefaultLanguageKey];
-    if (!youtubeDefaultChanel) {
-        [HTVHelperMethods saveDefaultLiveChanelPosition:0];
-        return 0;
-    }
-    return youtubeDefaultChanel.intValue;
-}
-
-+ (void)saveDefaultLiveChanelPosition:(int)position
-{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:@(position) forKey:kDefaultLanguageKey];
-    [prefs synchronize];
-}
-+ (NSString *)youtubeLiveLinkTail
-{
-    OnlineStream *stream = [HTVHelperMethods onlineStreamForKey: [HTVHelperMethods keyForOnlineWithPosition:[HTVHelperMethods defaultLiveChanel]]];
-    NSString *youtubeLink = stream.liveTailPath;
-    if (youtubeLink) {
-        return youtubeLink;
-    }
-    return @"";
-}
-
-+ (void)saveYoutubeLiveLinkTail:(NSString *)newLink
-{
-    //TODO:Need change
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:newLink forKey:YOUTUBE_KEY];
-    [prefs synchronize];
-}
-
-+ (NSString *)fullYoutubeLink
-{
-//    http://www.youtube.com/watch?v=%@&autoplay=0&ios=1
-    NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@?ios=1&autoplay=0&html5=1&controls=0&showinfo=0", [HTVHelperMethods youtubeLiveLinkTail]];
-    return link;
-}
+//+ (NSString *)fullYoutubeLink
+//{
+////    http://www.youtube.com/watch?v=%@&autoplay=0&ios=1
+//    NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@?ios=1&autoplay=0&html5=1&controls=0&showinfo=0", [HTVHelperMethods youtubeLiveLinkTail]];
+//    return link;
+//}
 
 + (void)fetchNewDataFromYoutubeForController:(YoutubeViewController *)controller
 {

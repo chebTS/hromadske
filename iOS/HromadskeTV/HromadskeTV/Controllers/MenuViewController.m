@@ -62,7 +62,7 @@ typedef enum {
     [super viewDidLoad];
     [self setupData];
     [self setupView];
-    _newsCategory = [NewsViewController nameForCategory:HTVVideoCategoryHot];
+    _newsCategory = [NewsViewController nameForCategory:HTVVideoCategoryAll];
 }
 
 - (void)setupView {

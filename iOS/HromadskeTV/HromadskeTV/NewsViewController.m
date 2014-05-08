@@ -20,6 +20,9 @@
     __weak IBOutlet UITableView *_table;
     NSMutableArray *_cache;
     HTVVideoCategory _currentCategory;
+	SINavigationMenuView *_menu;
+	
+	BOOL _showMenu;
 }
 @end
 
@@ -30,23 +33,30 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setup];
-    [self didSelectItemAtIndex:HTVVideoCategoryHot];
     [self setupView];
+    [self didSelectItemAtIndex:HTVVideoCategoryAll];
+	
+	for (UIControl *control in _menu.subviews) {
+		if ([control isKindOfClass:[UIControl class]]) {
+			[control beginTrackingWithTouch:nil withEvent:nil];
+			[control sendActionsForControlEvents:UIControlEventTouchUpInside];
+			[control cancelTrackingWithEvent:nil];
+		}
+	}
 }
 
 - (void) viewWillAppear:(BOOL)animated {
 	[[RemoteManager sharedManager] hideRemoteActivity];
 }
-
 - (void) setup {
     _cache = [NSMutableArray arrayWithObjects:[NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null],[NSNull null], nil];
 
     CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
-    SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:[NewsViewController categories][0]];
-    [menu displayMenuInView:self.navigationController.view];
-    menu.items = [NewsViewController categories];
-    menu.delegate = self;
-    self.navigationItem.titleView = menu;
+    _menu = [[SINavigationMenuView alloc] initWithFrame:frame title:[NewsViewController categories][0]];
+    [_menu displayMenuInView:self.navigationController.view];
+    _menu.items = [NewsViewController categories];
+    _menu.delegate = self;
+    self.navigationItem.titleView = _menu;
     
     
     if ([_table respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -160,7 +170,7 @@
 
 
 + (NSArray *) categories {
-    return @[@"Гарячі відео", @"Усі розділи", @"Політика", @"Економіка", @"Суспільство",@"Культура",@"Світ"];
+    return @[@"Гарячі відео", @"Усі новини", @"Політика", @"Економіка", @"Суспільство",@"Культура",@"Світ"];
 }
 + (NSString *) nameForCategory:(HTVVideoCategory)cat {
     NSArray *ar = [NewsViewController categories];

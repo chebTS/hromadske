@@ -23,5 +23,5 @@
 @property (nonatomic,assign) id <NewsViewControllerDelagate>delegate;
 
 + (NSString *) nameForCategory:(HTVVideoCategory)cat;
-
+- (void) showMenu;
 @end

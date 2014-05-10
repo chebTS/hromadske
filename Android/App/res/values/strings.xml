@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Hromadske.TV</string>
-    <string name="about_project">About Project</string>
-    <string name="programs">Programs</string>
-    <string name="interview">Interview</string>
-    <string name="videonews">Video News</string>
     <string name="help">Support the project</string>
     
     <string name="htv">Hromadske Television</string>
-    <string name="about">Application By\nSergey Tsibrovski\Specially for\n http://hromadske.tv/</string>
-    <string name="about_2">App was made in one night :))</string>
+    <string name="about">Application By\nSergey Tsibrovski\Specially for\n http://hromadske.tv/</string> 
     <string name="exit_text">Press again to exit</string>
     <string name="button_review">Write review</string>
     <string name="share">Share</string>
@@ -17,7 +12,6 @@
     <string name="hromadske_online">Hromadske ONLINE</string>
     <string name="everyday">Everyday at Kiev time\n(EET)</string>
     <string name="working_time">"10:00&#8211;12:00\n15:00&#8211;17:00\n19:00&#8211;22:00"</string>
-    <string name="no_link">Link not found</string>
     
     <string name="youtube_menu">YouTube Channel</string>
     <string name="about_menu">About Project</string>

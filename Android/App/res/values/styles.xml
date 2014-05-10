@@ -17,12 +17,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="stream_btn_style" parent="android:Widget.Holo.Light.Button">
-        <item name="android:background">@drawable/btn_video_selector</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">20sp</item>
-    </style>
+
     
     <style 
         name="stream_txt_style" parent="android:Widget.Holo.Light.TextView">
@@ -30,4 +25,87 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>
     </style>
+    
+<!--
+     File created by the Android Action Bar Style Generator
+
+     Copyright (C) 2011 The Android Open Source Project
+     Copyright (C) 2012 readyState Software Ltd
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+
+    <style name="Theme.Hromadske_style" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_hromadske_style</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Hromadske_style</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Hromadske_style</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Hromadske_style</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Hromadske_style</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Hromadske_style</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_hromadske_style</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_hromadske_style</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Hromadske_style</item>
+        <item name="android:actionBarTabTextStyle">@style/MyActionBarTabTextStyle</item>
+    </style>
+
+    <style name="MyActionBarTabTextStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabText">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="ActionBar.Solid.Hromadske_style" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_hromadske_style</item>
+        <!-- <item name="android:backgroundStacked">@drawable/ab_stacked_solid_hromadske_style</item> -->
+        <item name="android:backgroundStacked">@android:color/white</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_hromadske_style</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Hromadske_style</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Hromadske_style" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_hromadske_style</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Hromadske_style</item>
+    </style>
+
+    <style name="PopupMenu.Hromadske_style" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_hromadske_style</item>
+    </style>
+
+    <style name="DropDownListView.Hromadske_style" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_hromadske_style</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Hromadske_style" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_hromadske_style</item>
+    </style>
+
+    <style name="DropDownNav.Hromadske_style" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_hromadske_style</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_hromadske_style</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_hromadske_style</item>
+    </style>
+
+    <style name="ProgressBar.Hromadske_style" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_hromadske_style</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Hromadske_style" parent="@android:style/Widget.Holo.Light.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_hromadske_style</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Hromadske_style.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Hromadske_style</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Hromadske_style</item>
+    </style>
+
 </resources>

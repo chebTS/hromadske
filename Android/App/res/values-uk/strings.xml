@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hromadske.TV</string>
+    <string name="help">Підтримати проект</string>
+    
+    <string name="htv">Громадське Телебачення</string>
+    <string name="about">Додаток \nЦибровського Сергія\nта Фреда Кокса\nСпеціально для\n http://hromadske.tv/</string> 
+    <string name="exit_text">Натисніть ще раз для того щоб вийти</string>
+    <string name="button_review">Написати відгук</string>
+    <string name="share">Поділитися</string>
+    <string name="share_text">"Я дивлюся Hromadske.tv у додатку https://play.google.com/store/apps/details?id=tv.hromadske.app"</string>
+    <string name="hromadske_online">Громадське ONLINE</string>
+    <string name="everyday">Кожен день за київським часом\n(EET)</string>
+    <string name="working_time">"10:00&#8211;12:00\n15:00&#8211;17:00\n19:00&#8211;22:00"</string>
+    
+    <string name="youtube_menu">YouTube канал</string>
+    <string name="about_menu">Про проект</string>
+    <string name="menu_website">Сайт</string>
+    <string name="menu_twitter">Twitter</string>
+    <string name="menu_facebook">Facebook</string>
+    <string name="menu_rss">RSS</string>
+    <string name="menu_gplus">Google+</string>
+    <string name="menu_email">Email</string>
+    <string name="menu_push">Push-повідомлення</string>
+</resources>

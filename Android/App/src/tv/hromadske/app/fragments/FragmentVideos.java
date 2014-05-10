@@ -58,8 +58,8 @@ public class FragmentVideos extends Fragment {
 	}
 
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
+	public void onResume() {
+		super.onResume();
 		if (SystemUtils.isOnline(getActivity())) {
 			(new GetYoutubeUrlTask(containerLoad)).execute();
 		}else{

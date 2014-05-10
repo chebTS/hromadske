@@ -39,13 +39,9 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
+		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.activity_main);
-
-		getFragmentManager().beginTransaction()
-        .add(R.id.fragment_container, fragmentVideos).commit();
-		
+		getFragmentManager().beginTransaction().add(R.id.fragment_container, fragmentVideos).commit();		
 		setupPush();
 	}
 	
@@ -170,8 +166,7 @@ public class MainActivity extends Activity {
     Context context;
     AtomicInteger msgId = new AtomicInteger();
     
-    protected void setPushEnabled(boolean enabled)
-    {
+    protected void setPushEnabled(boolean enabled){
     	SharedPreferences.Editor editor = getGCMPreferences(getApplicationContext()).edit();
     	editor.putBoolean("push_enabled", enabled);
     	editor.commit();

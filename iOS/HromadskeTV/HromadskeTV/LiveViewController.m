@@ -8,10 +8,12 @@
 
 #import "LiveViewController.h"
 #import "UIViewController+HTVNavigationController.h"
+#import "UIViewController+ScrollingNavbar.h"
 
 #import "RemoteManager.h"
 #import "VideoStream.h"
 #import "SourcesManager.h"
+#import "Data.h"
 
 #import "SINavigationMenuView.h"
 
@@ -19,6 +21,8 @@
 {
 	__weak IBOutlet UISegmentedControl *_switcher;
 	UIActivityIndicatorView *_indicator;
+	
+	NSMutableArray *_news;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
@@ -29,11 +33,18 @@
 {
     [super viewDidLoad];
     [self setup];
+	[[Data sharedData] hotNewsCompletion:^(NSMutableArray *news) {
+		_news = news;
+	}];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupView];
+}
+- (void) viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	[self showNavBarAnimated:NO];
 }
 
 - (void) setup {

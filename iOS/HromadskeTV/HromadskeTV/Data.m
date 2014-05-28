@@ -9,6 +9,7 @@
 #import "Data.h"
 #import <AFKissXMLRequestOperation.h>
 #import "TFHpple.h"
+#import "HTMLParser.h"
 
 @implementation Data
 + (Data *)sharedData {
@@ -226,6 +227,64 @@
         [videos addObject:[Video videoWithDictionary:item]];
     }
     return videos;
+}
+
+#pragma mark - News from hromadske
+- (void) hotNewsCompletion:(void(^)(NSMutableArray *news))completion {
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:URL_BASE]];
+    [httpClient setParameterEncoding:AFJSONParameterEncoding];
+    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+	
+    [httpClient getPath:nil parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+		NSError *error = nil;
+		HTMLParser *parser = [[HTMLParser alloc] initWithData:responseObject error:&error];
+		
+		if (error) {
+			NSLog(@"Error: %@", error);
+			return;
+		}
+		
+		HTMLNode *bodyNode = [parser body];
+		
+		NSArray *page = [bodyNode findChildrenWithAttribute:@"id" matchingName:@"page" allowPartial:NO];
+		HTMLNode *list = [[page[0] findChildOfClass:@"add-content"] findChildOfClass:@"blocks-list"];
+		NSArray *elements = [list findChildTags:@"a"];
+
+		NSMutableArray * dict = [NSMutableArray array];
+
+		for (HTMLNode *a in elements) {
+
+			HTMLNode *img = [a findChildTag:@"img"];
+			HTMLNode *bdage = [a findChildTag:@"span"];
+			HTMLNode *title = [a findChildOfClass:@"title"];
+			HTMLNode *date = [a findChildOfClass:@"date"];
+			HTMLNode *description = [a findChildOfClass:@"description"];
+			HTMLNode *views = [a findChildOfClass:@"num"];
+
+			News *news = [[News alloc] init];
+			news.link = [a getAttributeNamed:@"href"];
+			news.title = [title contents];
+			news.description = [description contents];
+			news.thumbnail = [img getAttributeNamed:@"pagespeed_lazy_src"];
+			news.type = [bdage contents];
+			news.color = [bdage getAttributeNamed:@"style"];
+			news.date = [date contents];
+			news.views = [[views contents] intValue];
+
+			[dict addObject:news];
+		}
+		
+        if (completion) {
+            completion(dict);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error %@", error);
+        if (completion) {
+            completion(nil);
+        }
+    }];
 }
 
 

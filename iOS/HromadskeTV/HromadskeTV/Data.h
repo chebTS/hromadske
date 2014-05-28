@@ -22,6 +22,7 @@ typedef enum
 #import <Foundation/Foundation.h>
 #import "Video.h"
 #import "Twitt.h"
+#import "News.h"
 
 @interface Data : NSObject
 + (Data *) sharedData;
@@ -30,4 +31,5 @@ typedef enum
 
 - (void) youTubeURLFromHromadskeUrl:(NSURL *)url completion:(void(^)(NSString *resultString))completion;
 
+- (void) hotNewsCompletion:(void(^)(NSMutableArray *news))completion;
 @end

@@ -89,6 +89,10 @@
 		921D1EEA1892CCB000B92101 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE51892CCB000B92101 /* TFHpple.m */; };
 		921D1EEB1892CCB000B92101 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE71892CCB000B92101 /* TFHppleElement.m */; };
 		921D1EEC1892CCB000B92101 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE91892CCB000B92101 /* XPathQuery.m */; };
+		92274AC519364E3F00C65B2B /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 92274AC419364E3F00C65B2B /* News.m */; };
+		92274ACC19365C2600C65B2B /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 92274AC919365C2600C65B2B /* HTMLNode.m */; };
+		92274ACD19365C2600C65B2B /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92274ACA19365C2600C65B2B /* HTMLParser.m */; };
+		92274ACE19365C2600C65B2B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 92274ACB19365C2600C65B2B /* README.md */; };
 		922FC31D191B95550032EA24 /* SourcesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 922FC31C191B95550032EA24 /* SourcesManager.m */; };
 		922FC320191BBE5D0032EA24 /* RadioStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 922FC31F191BBE5D0032EA24 /* RadioStream.m */; };
 		92476638188DCDE700CC05B8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 92476637188DCDE700CC05B8 /* Utils.m */; };
@@ -234,6 +238,13 @@
 		921D1EE71892CCB000B92101 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		921D1EE81892CCB000B92101 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		921D1EE91892CCB000B92101 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		92274AC319364E3F00C65B2B /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		92274AC419364E3F00C65B2B /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		92274AC719365C2600C65B2B /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
+		92274AC819365C2600C65B2B /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
+		92274AC919365C2600C65B2B /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
+		92274ACA19365C2600C65B2B /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
+		92274ACB19365C2600C65B2B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		922FC31B191B95550032EA24 /* SourcesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourcesManager.h; sourceTree = "<group>"; };
 		922FC31C191B95550032EA24 /* SourcesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourcesManager.m; sourceTree = "<group>"; };
 		922FC31E191BBE5D0032EA24 /* RadioStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioStream.h; sourceTree = "<group>"; };
@@ -491,6 +502,7 @@
 		506870DC184E57A20024624B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				92274AC619365BFF00C65B2B /* HTMLParser2 */,
 				921D1EE31892CC9E00B92101 /* HTMLParser */,
 				50687102184FE4E40024624B /* HTVHud.h */,
 				50687103184FE4E40024624B /* HTVHud.m */,
@@ -582,6 +594,18 @@
 			name = HTMLParser;
 			sourceTree = "<group>";
 		};
+		92274AC619365BFF00C65B2B /* HTMLParser2 */ = {
+			isa = PBXGroup;
+			children = (
+				92274AC719365C2600C65B2B /* HTMLNode.h */,
+				92274AC819365C2600C65B2B /* HTMLParser.h */,
+				92274AC919365C2600C65B2B /* HTMLNode.m */,
+				92274ACA19365C2600C65B2B /* HTMLParser.m */,
+				92274ACB19365C2600C65B2B /* README.md */,
+			);
+			name = HTMLParser2;
+			sourceTree = "<group>";
+		};
 		9247663D188DD36500CC05B8 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +643,8 @@
 				50771F7518C8A8C9008BA7D2 /* VideoStream.m */,
 				922FC31E191BBE5D0032EA24 /* RadioStream.h */,
 				922FC31F191BBE5D0032EA24 /* RadioStream.m */,
+				92274AC319364E3F00C65B2B /* News.h */,
+				92274AC419364E3F00C65B2B /* News.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -848,6 +874,7 @@
 				5044E92018887B7F0050E304 /* Icon-40.png in Resources */,
 				92F9659A1890290A003F93EA /* arrow_down.png in Resources */,
 				50DF6E9618506C8C00576DD3 /* Icon-60.png in Resources */,
+				92274ACE19365C2600C65B2B /* README.md in Resources */,
 				506870A5184E4FD50024624B /* Main_iPhone.storyboard in Resources */,
 				5044E93618887B7F0050E304 /* placeHolder@2x.png in Resources */,
 				5068709C184E4FD50024624B /* InfoPlist.strings in Resources */,
@@ -939,11 +966,14 @@
 				5044E8F21887FE330050E304 /* FHSTwitterEngine.m in Sources */,
 				92F9659218902900003F93EA /* SICellSelection.m in Sources */,
 				92476642188DD3D800CC05B8 /* UIViewController+HTVNavigationController.m in Sources */,
+				92274ACD19365C2600C65B2B /* HTMLParser.m in Sources */,
 				50771F7618C8A8C9008BA7D2 /* VideoStream.m in Sources */,
+				92274ACC19365C2600C65B2B /* HTMLNode.m in Sources */,
 				92F9659018902900003F93EA /* SIMenuTable.m in Sources */,
 				92DC63F41892EE3500ADC2F7 /* AboutViewController.m in Sources */,
 				506870EB184E68B30024624B /* MenuViewController.m in Sources */,
 				92F9659118902900003F93EA /* SIMenuCell.m in Sources */,
+				92274AC519364E3F00C65B2B /* News.m in Sources */,
 				92F96573188F27A3003F93EA /* Data.m in Sources */,
 				5068709E184E4FD50024624B /* main.m in Sources */,
 				506870A2184E4FD50024624B /* HTVAppDelegate.m in Sources */,

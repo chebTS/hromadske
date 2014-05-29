@@ -18,8 +18,8 @@
                         <constraint firstAttribute="height" constant="190" id="lfT-ff-xe8"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjE-BT-Rgh">
-                    <rect key="frame" x="0.0" y="15" width="29" height="14"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjE-BT-Rgh">
+                    <rect key="frame" x="0.0" y="15" width="57" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="highlightedColor"/>
@@ -28,30 +28,40 @@
                     <rect key="frame" x="9" y="198" width="191" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" patternImage="B878B4B9-5160-48AA-B69D-CD6D2C79640C" colorSpace="pattern"/>
+                    <color key="textColor" patternImage="F1E56FB2-1BF0-4893-B2D9-2C0CB0CB78ED" colorSpace="pattern"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="191" translatesAutoresizingMaskIntoConstraints="NO" id="z2Y-wD-B23">
-                    <rect key="frame" x="9" y="236" width="191" height="142"/>
+                    <rect key="frame" x="9" y="241" width="191" height="137"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sR-rn-6Zo">
+                    <rect key="frame" x="8" y="170" width="194" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="99999" image="views.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="NjE-BT-Rgh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Ha-Lx-eWi"/>
+                <constraint firstItem="5sR-rn-6Zo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="0tA-ix-ITL"/>
                 <constraint firstItem="JfJ-dQ-yrg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5EG-zw-3iD"/>
                 <constraint firstItem="jCw-um-N2E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="5WQ-r3-v7x"/>
                 <constraint firstItem="jCw-um-N2E" firstAttribute="top" secondItem="JfJ-dQ-yrg" secondAttribute="bottom" constant="8" symbolic="YES" id="COs-Vh-fZJ"/>
                 <constraint firstAttribute="bottom" secondItem="z2Y-wD-B23" secondAttribute="bottom" constant="9" id="Jyj-5c-OaV"/>
+                <constraint firstAttribute="trailing" secondItem="5sR-rn-6Zo" secondAttribute="trailing" constant="8" id="Mwt-fp-V5Z"/>
                 <constraint firstItem="JfJ-dQ-yrg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="N58-JB-i2Y"/>
-                <constraint firstItem="NjE-BT-Rgh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="YdY-du-iZK"/>
                 <constraint firstAttribute="trailing" secondItem="z2Y-wD-B23" secondAttribute="trailing" constant="10" id="dhb-Rb-7Wa"/>
                 <constraint firstAttribute="trailing" secondItem="JfJ-dQ-yrg" secondAttribute="trailing" id="fW6-yE-GF8"/>
                 <constraint firstAttribute="trailing" secondItem="jCw-um-N2E" secondAttribute="trailing" constant="10" id="gGt-c1-PcZ"/>
                 <constraint firstItem="z2Y-wD-B23" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9" id="h0w-t7-Op4"/>
+                <constraint firstItem="5sR-rn-6Zo" firstAttribute="top" secondItem="NjE-BT-Rgh" secondAttribute="bottom" constant="128" id="hVG-ME-BLc"/>
                 <constraint firstItem="z2Y-wD-B23" firstAttribute="top" secondItem="jCw-um-N2E" secondAttribute="bottom" constant="3" id="wpu-KS-Gt5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -60,11 +70,12 @@
                 <outlet property="thumbnail" destination="JfJ-dQ-yrg" id="1l5-2x-5L1"/>
                 <outlet property="title" destination="jCw-um-N2E" id="TeF-q8-3Ro"/>
                 <outlet property="type" destination="NjE-BT-Rgh" id="6f9-U3-l1b"/>
+                <outlet property="views" destination="5sR-rn-6Zo" id="Un8-25-Np7"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="B878B4B9-5160-48AA-B69D-CD6D2C79640C" width="256" height="256">
+        <image name="F1E56FB2-1BF0-4893-B2D9-2C0CB0CB78ED" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4506,5 +4517,6 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
+        <image name="views.png" width="15" height="8"/>
     </resources>
 </document>

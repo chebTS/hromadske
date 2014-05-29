@@ -257,7 +257,7 @@
 		for (HTMLNode *a in elements) {
 
 			HTMLNode *img = [a findChildTag:@"img"];
-			HTMLNode *bdage = [a findChildTag:@"span"];
+			HTMLNode *bdage = [a findChildOfClass:@"mark"];
 			HTMLNode *title = [a findChildOfClass:@"title"];
 			HTMLNode *date = [a findChildOfClass:@"date"];
 			HTMLNode *description = [a findChildOfClass:@"description"];
@@ -271,7 +271,7 @@
 			news.type = [bdage contents];
 			news.color = [bdage getAttributeNamed:@"style"];
 			news.date = [date contents];
-			news.views = [[views contents] intValue];
+			news.views = [views contents];
 
 			[dict addObject:news];
 		}

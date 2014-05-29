@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *color;
-@property (nonatomic) int views;
+@property (nonatomic, strong) NSString *views;
 @property (nonatomic) int height;
 
 

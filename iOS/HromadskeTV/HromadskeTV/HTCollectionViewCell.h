@@ -13,6 +13,7 @@
 @interface HTCollectionViewCell : PSCollectionViewCell
 {
 }
+@property (weak, nonatomic) IBOutlet UIButton *views;
 @property (weak, nonatomic) IBOutlet UILabel *type;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *description;

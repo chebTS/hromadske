@@ -36,7 +36,7 @@
 	_title.text = news.title;
 	_description.text = news.description;
 	_type.text = news.type;
-	
+	[_views setTitle:news.views forState:UIControlStateNormal];
 	[self.thumbnail setImageWithURL:[NSURL URLWithString:news.thumbnail] placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
 	
 	if (news.height == 0) {

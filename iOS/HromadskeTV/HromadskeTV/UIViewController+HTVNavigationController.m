@@ -27,6 +27,7 @@
     } else {
         self.navigationController.navigationBar.tintColor = [Utils colorFromHtmlSting:@"#ec6a13"];
     }
+	self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)addMenuButton

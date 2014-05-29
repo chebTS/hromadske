@@ -399,13 +399,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnb-ZD-8a6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myd-LG-Smi" customClass="PSCollectionView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2sP-9U-qYR">
+                            </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2sP-9U-qYR">
                                 <rect key="frame" x="73" y="9" width="174" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -421,19 +419,17 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Bnb-ZD-8a6" secondAttribute="centerX" id="MIY-gz-T0h"/>
-                            <constraint firstAttribute="trailing" secondItem="Bnb-ZD-8a6" secondAttribute="trailing" id="WxF-z1-WrI"/>
-                            <constraint firstAttribute="centerX" secondItem="2sP-9U-qYR" secondAttribute="centerX" id="Xs1-de-bN5"/>
-                            <constraint firstItem="Bnb-ZD-8a6" firstAttribute="leading" secondItem="xOM-zH-oBC" secondAttribute="leading" id="cem-Rr-zll"/>
-                            <constraint firstItem="2sP-9U-qYR" firstAttribute="top" secondItem="09w-p7-mCA" secondAttribute="bottom" constant="9" id="exY-hB-bZP"/>
-                            <constraint firstItem="Bnb-ZD-8a6" firstAttribute="top" secondItem="09w-p7-mCA" secondAttribute="bottom" id="omY-Lc-FeM"/>
+                            <constraint firstItem="Myd-LG-Smi" firstAttribute="top" secondItem="09w-p7-mCA" secondAttribute="bottom" id="J8l-Fq-HDn"/>
+                            <constraint firstItem="rwf-x0-wfx" firstAttribute="top" secondItem="Myd-LG-Smi" secondAttribute="bottom" id="SDk-eQ-Y4j"/>
+                            <constraint firstAttribute="trailing" secondItem="Myd-LG-Smi" secondAttribute="trailing" id="bX5-2f-HSG"/>
+                            <constraint firstItem="Myd-LG-Smi" firstAttribute="leading" secondItem="xOM-zH-oBC" secondAttribute="leading" id="nLh-dt-TZX"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="_switcher" destination="2sP-9U-qYR" id="dA8-xj-YSV"/>
-                        <outlet property="webView" destination="Bnb-ZD-8a6" id="JgP-Sb-z7L"/>
+                        <outlet property="collectionView" destination="Myd-LG-Smi" id="ey9-Fr-vuc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jK-dc-4vZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

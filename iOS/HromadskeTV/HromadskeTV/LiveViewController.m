@@ -15,16 +15,22 @@
 #import "SourcesManager.h"
 #import "Data.h"
 
+#import <PSCollectionView.h>
+#import "HTCollectionViewCell.h"
+
 #import "SINavigationMenuView.h"
 
-@interface LiveViewController () <UIWebViewDelegate, SINavigationMenuDelegate, SourcesManagerDelefate>
+@interface LiveViewController () <UIWebViewDelegate, SINavigationMenuDelegate, SourcesManagerDelefate,PSCollectionViewDelegate,PSCollectionViewDataSource,UIScrollViewDelegate>
 {
 	__weak IBOutlet UISegmentedControl *_switcher;
 	UIActivityIndicatorView *_indicator;
 	
 	NSMutableArray *_news;
+
+//	PSCollectionView *_collectionView;
+	UIWebView *_webView;
 }
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet PSCollectionView *collectionView;
 @end
 
 @implementation LiveViewController
@@ -33,8 +39,10 @@
 {
     [super viewDidLoad];
     [self setup];
+	
 	[[Data sharedData] hotNewsCompletion:^(NSMutableArray *news) {
 		_news = news;
+		[_collectionView reloadData];
 	}];
 }
 
@@ -49,14 +57,15 @@
 
 - (void) setup {
     self.title = ONLINE_PAGE;
-    self.webView.delegate = self;
+	_webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];
+    _webView.delegate = self;
 
 	_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 	UIBarButtonItem *loader = [[UIBarButtonItem alloc] initWithCustomView:_indicator];
 
     self.navigationItem.rightBarButtonItem = loader;
     
-    for (id subview in self.webView.subviews){
+    for (id subview in _webView.subviews){
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])
             ((UIScrollView *)subview).bounces = NO;
     }
@@ -64,6 +73,9 @@
 	[[SourcesManager sharedManager] setDelegate:self];
 	[self loadVideoStream];
 	[self setupDropDownTable];
+	[self setupCollectionView];
+
+//	[self followScrollView:_collectionView];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -100,6 +112,24 @@
     self.navigationItem.titleView = menu;
 }
 
+- (void) setupCollectionView
+{
+	_collectionView.delegate = self; // This is for UIScrollViewDelegate
+	_collectionView.collectionViewDelegate = self;
+	_collectionView.collectionViewDataSource = self;
+	_collectionView.backgroundColor = [UIColor whiteColor];
+	_collectionView.autoresizingMask = ~UIViewAutoresizingNone;
+	_collectionView.numColsPortrait = 2;
+	_collectionView.numColsLandscape = 3;
+
+	CGRect frame = _webView.frame;
+	frame.size.height = 190;
+	UIView *header = [[UIView alloc] initWithFrame:frame];
+	[header addSubview:_webView];
+	
+	_collectionView.headerView = header;
+}
+
 
 - (void) loadVideoStream {
 	_switcher.selectedSegmentIndex = 0;
@@ -107,7 +137,7 @@
 	VideoStream *stream = [[SourcesManager sharedManager] lastVideoStream];
 	
 	NSURLRequest *req = [NSURLRequest requestWithURL:[stream url]];
-	[self.webView loadRequest:req];
+	[_webView loadRequest:req];
 }
 - (void) loadAudioStream {
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"liveAudio.html"];
@@ -145,5 +175,35 @@
 }
 
 
+#pragma mark - PSCollectionView
+- (Class)collectionView:(PSCollectionView *)collectionView cellClassForRowAtIndex:(NSInteger)index {
+    return [HTCollectionViewCell class];
+}
+
+- (UIView *)collectionView:(PSCollectionView *)collectionView cellForRowAtIndex:(NSInteger)index {
+	HTCollectionViewCell *cell = (HTCollectionViewCell *)[collectionView dequeueReusableViewForClass:[HTCollectionViewCell class]];
+	if (!cell) {
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HTCollectionViewCell" owner:self options:nil];
+        cell = (HTCollectionViewCell *)[nib objectAtIndex:0];
+	}
+	News *news = [_news objectAtIndex:index];
+	
+	cell.backgroundColor = [UIColor yellowColor];
+	cell.title.text = news.title;
+	cell.description.text = news.description;
+	cell.type.text = news.type;
+	[cell.thumbnail setImageWithURL:[NSURL URLWithString:news.link]
+                   placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
+	
+    return cell;
+}
+
+- (NSInteger)numberOfRowsInCollectionView:(PSCollectionView *)collectionView {
+    return _news.count;
+}
+
+- (CGFloat)collectionView:(PSCollectionView *)collectionView heightForRowAtIndex:(NSInteger)index {
+    return 125;
+}
 
 @end

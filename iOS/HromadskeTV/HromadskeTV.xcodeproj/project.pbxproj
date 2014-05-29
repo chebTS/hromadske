@@ -89,6 +89,8 @@
 		921D1EEA1892CCB000B92101 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE51892CCB000B92101 /* TFHpple.m */; };
 		921D1EEB1892CCB000B92101 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE71892CCB000B92101 /* TFHppleElement.m */; };
 		921D1EEC1892CCB000B92101 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D1EE91892CCB000B92101 /* XPathQuery.m */; };
+		9222C4FB193723390091248F /* HTCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9222C4FA193723390091248F /* HTCollectionViewCell.xib */; };
+		9222C4FE193723590091248F /* HTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9222C4FD193723590091248F /* HTCollectionViewCell.m */; };
 		92274AC519364E3F00C65B2B /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 92274AC419364E3F00C65B2B /* News.m */; };
 		92274ACC19365C2600C65B2B /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 92274AC919365C2600C65B2B /* HTMLNode.m */; };
 		92274ACD19365C2600C65B2B /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92274ACA19365C2600C65B2B /* HTMLParser.m */; };
@@ -238,6 +240,9 @@
 		921D1EE71892CCB000B92101 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		921D1EE81892CCB000B92101 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		921D1EE91892CCB000B92101 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		9222C4FA193723390091248F /* HTCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTCollectionViewCell.xib; sourceTree = "<group>"; };
+		9222C4FC193723590091248F /* HTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCollectionViewCell.h; sourceTree = "<group>"; };
+		9222C4FD193723590091248F /* HTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCollectionViewCell.m; sourceTree = "<group>"; };
 		92274AC319364E3F00C65B2B /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		92274AC419364E3F00C65B2B /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		92274AC719365C2600C65B2B /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
@@ -666,6 +671,9 @@
 				929B9AB31915866400E58254 /* HromadskeRadioLogo.png */,
 				92F96566188EF012003F93EA /* LiveViewController.h */,
 				92F96567188EF012003F93EA /* LiveViewController.m */,
+				9222C4FC193723590091248F /* HTCollectionViewCell.h */,
+				9222C4FD193723590091248F /* HTCollectionViewCell.m */,
+				9222C4FA193723390091248F /* HTCollectionViewCell.xib */,
 			);
 			name = LiveViewContoller;
 			sourceTree = "<group>";
@@ -862,6 +870,7 @@
 				50DF6E9D18506C8C00576DD3 /* Icon-Small-50@2x.png in Resources */,
 				50DF6EA5185082E500576DD3 /* Icon-Small@2x.png in Resources */,
 				5044E92318887B7F0050E304 /* Icon-60@2x.png in Resources */,
+				9222C4FB193723390091248F /* HTCollectionViewCell.xib in Resources */,
 				5044E92618887B7F0050E304 /* Icon-76.png in Resources */,
 				50DF6E5418506B5A00576DD3 /* port-ios7.png in Resources */,
 				50DF6E9A18506C8C00576DD3 /* Icon-76.png in Resources */,
@@ -956,6 +965,7 @@
 				5044E8EE1887DEF50050E304 /* Video.m in Sources */,
 				92F9658F18902900003F93EA /* SIMenuConfiguration.m in Sources */,
 				5044E8EB1887C0EF0050E304 /* VideoCollectionViewCell.m in Sources */,
+				9222C4FE193723590091248F /* HTCollectionViewCell.m in Sources */,
 				92F96568188EF012003F93EA /* LiveViewController.m in Sources */,
 				921D1EEA1892CCB000B92101 /* TFHpple.m in Sources */,
 				5044E90518880E0F0050E304 /* Twitt.m in Sources */,

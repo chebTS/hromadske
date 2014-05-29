@@ -191,8 +191,12 @@
 	cell.description.text = news.description;
 	cell.type.text = news.type;
 
-	[cell.thumbnail setImageWithURL:[NSURL URLWithString:news.thumbnail]
-                   placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
+	[cell.thumbnail setImageWithURL:[NSURL URLWithString:news.thumbnail] placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
+	[cell.title sizeToFit];
+	[cell.description sizeToFit];
+
+	news.height = 190 + cell.title.frame.size.height + cell.description.frame.size.height;
+
 	
     return cell;
 }
@@ -202,8 +206,11 @@
 }
 
 - (CGFloat)collectionView:(PSCollectionView *)collectionView heightForRowAtIndex:(NSInteger)index {
-//	HTCollectionViewCell *cell = [self collectionView:collectionView cellClassForRowAtIndex:index];
-    return 250;
+	News *news = [_news objectAtIndex:index];
+	if (news.height == 0) {
+		[self collectionView:collectionView cellForRowAtIndex:index];
+	}
+    return news.height;
 }
 
 @end

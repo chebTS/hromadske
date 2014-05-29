@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *color;
 @property (nonatomic) int views;
+@property (nonatomic) int height;
 
 
 - (id)initWithDictionary:(NSDictionary *)d;

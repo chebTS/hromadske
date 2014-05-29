@@ -117,7 +117,7 @@
 	_collectionView.delegate = self; // This is for UIScrollViewDelegate
 	_collectionView.collectionViewDelegate = self;
 	_collectionView.collectionViewDataSource = self;
-	_collectionView.backgroundColor = [UIColor whiteColor];
+	_collectionView.backgroundColor = [Utils colorFromHtmlSting:@"#e9e9e9"];
 	_collectionView.autoresizingMask = ~UIViewAutoresizingNone;
 	_collectionView.numColsPortrait = 2;
 	_collectionView.numColsLandscape = 3;
@@ -187,12 +187,11 @@
         cell = (HTCollectionViewCell *)[nib objectAtIndex:0];
 	}
 	News *news = [_news objectAtIndex:index];
-	
-	cell.backgroundColor = [UIColor yellowColor];
 	cell.title.text = news.title;
 	cell.description.text = news.description;
 	cell.type.text = news.type;
-	[cell.thumbnail setImageWithURL:[NSURL URLWithString:news.link]
+
+	[cell.thumbnail setImageWithURL:[NSURL URLWithString:news.thumbnail]
                    placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
 	
     return cell;
@@ -203,7 +202,8 @@
 }
 
 - (CGFloat)collectionView:(PSCollectionView *)collectionView heightForRowAtIndex:(NSInteger)index {
-    return 125;
+//	HTCollectionViewCell *cell = [self collectionView:collectionView cellClassForRowAtIndex:index];
+    return 250;
 }
 
 @end

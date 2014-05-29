@@ -18,7 +18,9 @@
     }
     return self;
 }
-
+- (void) awakeFromNib {
+	[Utils addRoundedCornersOfView:self withRadious:3];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

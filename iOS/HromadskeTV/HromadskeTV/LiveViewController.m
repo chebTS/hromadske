@@ -187,16 +187,7 @@
         cell = (HTCollectionViewCell *)[nib objectAtIndex:0];
 	}
 	News *news = [_news objectAtIndex:index];
-	cell.title.text = news.title;
-	cell.description.text = news.description;
-	cell.type.text = news.type;
-
-	[cell.thumbnail setImageWithURL:[NSURL URLWithString:news.thumbnail] placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
-	[cell.title sizeToFit];
-	[cell.description sizeToFit];
-
-	news.height = 190 + cell.title.frame.size.height + cell.description.frame.size.height;
-
+	[cell collectionView:collectionView fillCellWithObject:news atIndex:index];
 	
     return cell;
 }

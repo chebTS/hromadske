@@ -56,19 +56,23 @@
 }
 
 - (void) setup {
-    self.title = ONLINE_PAGE;
-	_webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];
-    _webView.delegate = self;
-
-	_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-	UIBarButtonItem *loader = [[UIBarButtonItem alloc] initWithCustomView:_indicator];
-
-    self.navigationItem.rightBarButtonItem = loader;
     
+	self.title = ONLINE_PAGE;
+	
+	_webView = [[UIWebView alloc] initWithFrame:CGRectMake(4, 4, 312, 176)];
+	[Utils addRoundedCornersOfView:_webView withRadious:5];
+    _webView.delegate = self;
+	
     for (id subview in _webView.subviews){
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])
             ((UIScrollView *)subview).bounces = NO;
+			((UIScrollView *)subview).scrollEnabled = NO;
     }
+
+	_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+	UIBarButtonItem *loader = [[UIBarButtonItem alloc] initWithCustomView:_indicator];
+    self.navigationItem.rightBarButtonItem = loader;
+    
 	
 	[[SourcesManager sharedManager] setDelegate:self];
 	[self loadVideoStream];
@@ -88,6 +92,8 @@
 	if (_switcher.selectedSegmentIndex == 1) {
 		NSString *url = [[[[SourcesManager sharedManager] lastRadioStream] url] absoluteString];
 		[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setURL('%@');",url]];
+	} else {
+		[webView stringByEvaluatingJavaScriptFromString:@"var video = document.getElementsByTagName('video')[0];video.setAttribute('x-webkit-airplay','allow');video.setAttribute('airplay','allow');"];
 	}
 	
 	[_indicator stopAnimating];
@@ -122,8 +128,7 @@
 	_collectionView.numColsPortrait = 2;
 	_collectionView.numColsLandscape = 3;
 
-	CGRect frame = _webView.frame;
-	frame.size.height = 190;
+	CGRect frame = CGRectMake(0, 0, 320, 190);
 	UIView *header = [[UIView alloc] initWithFrame:frame];
 	[header addSubview:_webView];
 	

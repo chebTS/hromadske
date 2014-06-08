@@ -26,7 +26,7 @@ static NSString *const kVideoIdKey = @"videoId";
 }
 
 - (NSURL *) url {
-    NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@?ios=1&autoplay=0&html5=1&controls=0&showinfo=0", _path];
+    NSString *link =  [NSString stringWithFormat:@"http://youtube.com/embed/%@?ios=1&autoplay=0&html5=1&controls=0&showinfo=0&airplay=1", _path];
     return [NSURL URLWithString:link];
 }
 

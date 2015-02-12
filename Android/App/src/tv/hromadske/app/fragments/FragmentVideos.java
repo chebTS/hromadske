@@ -1,5 +1,8 @@
 package tv.hromadske.app.fragments;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -13,8 +16,10 @@ import tv.hromadske.app.utils.Video;
 import android.app.ActionBar.LayoutParams;
 import android.app.Fragment;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,12 +35,14 @@ import com.google.analytics.tracking.android.MapBuilder;
 import com.google.analytics.tracking.android.Tracker;
 
 public class FragmentVideos extends Fragment {
+	private static final String TAG =FragmentVideos.class.getSimpleName(); 
 	private View containerLoad;
 	protected LinearLayout list;
 	protected Video[] videos;
 	protected View[] buttons;
 	protected LayoutInflater inflater;
-
+	private View sorryView;
+	
 	public FragmentVideos() {
 		super();
 	}
@@ -46,6 +53,13 @@ public class FragmentVideos extends Fragment {
 		list = (LinearLayout) v.findViewById(R.id.btns_list);
 		containerLoad = v.findViewById(R.id.container_load);
 		inflater = inflate;
+		sorryView = v.findViewById(R.id.container_sorry);
+		v.findViewById(R.id.btn_youtube_sorry).setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/user/HromadskeTV/featured")));	
+			}
+		});
 		return v;
 	}
 
@@ -113,13 +127,15 @@ public class FragmentVideos extends Fragment {
 
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			try {
+			try {				
 				HttpGet httpGet = new HttpGet(SystemUtils.STREAMS_URL);
 				DefaultHttpClient mHttpClient = new DefaultHttpClient();
 				HttpResponse dresponse = mHttpClient.execute(httpGet);
 				int status = dresponse.getStatusLine().getStatusCode();
-				if (status == 200) {
+				Log.i(TAG, "Status = " + status);
+				if (status == 200) {					
 					String res = SystemUtils.streamToString(dresponse.getEntity().getContent());
+					Log.i(TAG, res);
 					JSONArray streams = new JSONObject(res).optJSONArray("streams");
 					videos = new Video[streams.length()];
 
@@ -140,7 +156,13 @@ public class FragmentVideos extends Fragment {
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
-			createButtons();
+			if (result){
+				createButtons();
+				sorryView.setVisibility(View.GONE);
+			}else{
+				Toast.makeText(getActivity(), "Sorry, server error", Toast.LENGTH_LONG).show();
+				sorryView.setVisibility(View.VISIBLE);
+			}
 			loadView.setVisibility(View.GONE);
 		}
 	}

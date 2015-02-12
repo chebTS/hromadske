@@ -22,4 +22,5 @@
     <string name="menu_gplus">Google+</string>
     <string name="menu_email">Email</string>
     <string name="menu_push">Push Notifications</string>
+    <string name="sorry">If you see this text it means we have some problems with the server, and we are working to resolve the error. Click the button below to open Hromadkse channel in Youtube app </string>
 </resources>

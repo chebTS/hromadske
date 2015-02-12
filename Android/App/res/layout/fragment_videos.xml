@@ -21,6 +21,28 @@
 
         </LinearLayout>
     </ScrollView>
+    
+    <LinearLayout 
+        android:id="@+id/container_sorry"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        
+	    <TextView 
+	        android:padding="10dp"
+	        android:id="@+id/txt_sorry"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/sorry"/>
+	    
+	    <Button 
+	        android:id="@+id/btn_youtube_sorry"
+	        android:layout_gravity="center"
+	        android:background="@drawable/youtube"
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"/>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/container_load"

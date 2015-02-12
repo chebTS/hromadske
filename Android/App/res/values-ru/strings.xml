@@ -22,4 +22,7 @@
     <string name="menu_gplus">Google+</string>
     <string name="menu_email">Email</string>
     <string name="menu_push">Push-уведомления</string>
+    <string name="sorry">Если вы видите этот текст значит у нас какие-то проблемы с сервером, а мы работаем над устранением ошибки. Нажмите на кнопку ниже, чтобы открыть канал Громадське Телебачення в YouTube</string>
 </resources>
+
+

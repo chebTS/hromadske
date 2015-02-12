@@ -56,5 +56,5 @@
 </menu>
 <!--
 android:actionProviderClass= "android.widget.ShareActionProvider"
-android:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+android:actionProviderClass="android.support.v7.widget.ShareActionProvider"
 -->

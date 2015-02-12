@@ -1,5 +1,6 @@
 package tv.hromadske.app;
 
+import com.crashlytics.android.Crashlytics;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -39,7 +40,8 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);		
+		super.onCreate(savedInstanceState);
+		Crashlytics.start(this);		
 		setContentView(R.layout.activity_main);
 		getFragmentManager().beginTransaction().add(R.id.fragment_container, fragmentVideos).commit();		
 		setupPush();

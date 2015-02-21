@@ -15,6 +15,7 @@ import tv.hromadske.app.utils.SystemUtils;
 import tv.hromadske.app.utils.Video;
 import android.app.ActionBar.LayoutParams;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -156,14 +157,21 @@ public class FragmentVideos extends Fragment {
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
-			if (result){
-				createButtons();
-				sorryView.setVisibility(View.GONE);
-			}else{
-				Toast.makeText(getActivity(), "Sorry, server error", Toast.LENGTH_LONG).show();
-				sorryView.setVisibility(View.VISIBLE);
+			try{
+				if (result){
+					createButtons();
+					sorryView.setVisibility(View.GONE);
+				}else{
+					Context context = getActivity();
+					if (context != null){
+						Toast.makeText(context, "Sorry, server error", Toast.LENGTH_LONG).show();
+					}
+					sorryView.setVisibility(View.VISIBLE);
+				}
+				loadView.setVisibility(View.GONE);
+			}catch(Exception e){
+				e.printStackTrace();
 			}
-			loadView.setVisibility(View.GONE);
 		}
 	}
 }

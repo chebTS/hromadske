@@ -24,7 +24,7 @@
     
     <LinearLayout 
         android:id="@+id/container_sorry"
-        android:visibility="gone"
+        android:visibility="visible"
         android:orientation="vertical"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
@@ -36,7 +36,7 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/sorry"/>
 	    
-	    <Button 
+	    <ImageView 
 	        android:id="@+id/btn_youtube_sorry"
 	        android:layout_gravity="center"
 	        android:background="@drawable/youtube"

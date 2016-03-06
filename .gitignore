@@ -17,6 +17,9 @@ pass/
 # Local configuration file (sdk path, etc)
 local.properties
 
+*xcuserdata/
+*project.pbxproj
+
 # Eclipse project files
 .classpath
 .project
@@ -29,6 +32,7 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
 
 
 #CocoaPods

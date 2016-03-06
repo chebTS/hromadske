@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,34 +13,29 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JfJ-dQ-yrg">
                     <rect key="frame" x="0.0" y="0.0" width="210" height="190"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="190" id="lfT-ff-xe8"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjE-BT-Rgh">
                     <rect key="frame" x="0.0" y="15" width="57" height="27"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Label Label Label Label Label Label Label Label Label " lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="191" translatesAutoresizingMaskIntoConstraints="NO" id="jCw-um-N2E">
                     <rect key="frame" x="9" y="198" width="191" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" patternImage="F1E56FB2-1BF0-4893-B2D9-2C0CB0CB78ED" colorSpace="pattern"/>
+                    <color key="textColor" patternImage="5F42F7D2-0B9A-46F4-9A14-E39255FCF3E8" colorSpace="pattern"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="191" translatesAutoresizingMaskIntoConstraints="NO" id="z2Y-wD-B23">
                     <rect key="frame" x="9" y="241" width="191" height="137"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sR-rn-6Zo">
                     <rect key="frame" x="8" y="170" width="194" height="14"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="99999" image="views.png">
@@ -64,6 +59,7 @@
                 <constraint firstItem="5sR-rn-6Zo" firstAttribute="top" secondItem="NjE-BT-Rgh" secondAttribute="bottom" constant="128" id="hVG-ME-BLc"/>
                 <constraint firstItem="z2Y-wD-B23" firstAttribute="top" secondItem="jCw-um-N2E" secondAttribute="bottom" constant="3" id="wpu-KS-Gt5"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="description" destination="z2Y-wD-B23" id="vjv-n4-5vH"/>
@@ -75,10 +71,10 @@
         </view>
     </objects>
     <resources>
-        <image name="F1E56FB2-1BF0-4893-B2D9-2C0CB0CB78ED" width="256" height="256">
+        <image name="5F42F7D2-0B9A-46F4-9A14-E39255FCF3E8" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
-GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
 c1dOU0NvbG9ygAKADRIgwAAAgAOAC1p7MjU2LCAyNTZ90hUKFhhaTlMub2JqZWN0c6EXgASACtIVChod
 ohscgAWABoAJEADSIAohIl8QFE5TVElGRlJlcHJlc2VudGF0aW9ugAeACE8SAAQNHk1NACoABAAIdXiB
 /3Byef9wc33/b3F1/25wd/9wcnn/b3F1/2xudf9sbnX/bnB3/3Bzff9nanT/bnF7/3Byef9wc33/amxz
@@ -4506,15 +4502,15 @@ WMPUxFHEzsVLxcjGRsbDx0HHv8g9yLzJOsm5yjjKt8s2y7bMNcy1zTXNtc42zrbPN8+40DnQutE80b7S
 P9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo2WzZ8dp22vvbgNwF3IrdEN2W3hzeot8p36/gNuC94UTh
 zOJT4tvjY+Pr5HPk/OWE5g3mlucf56noMui86Ubp0Opb6uXrcOv77IbtEe2c7ijutO9A78zwWPDl8XLx
 //KM8xnzp/Q09ML1UPXe9m32+/eK+Bn4qPk4+cf6V/rn+3f8B/yY/Sn9uv5L/tz/bf//0iUmJyhaJGNs
-YXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjKSorXxAQTlNCaXRtYXBJbWFnZVJlcFpO
-U0ltYWdlUmVwWE5TT2JqZWN00iUmLS5XTlNBcnJheaItK9IlJjAxXk5TTXV0YWJsZUFycmF5ozAtK9Mz
-NAo1NjdXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAzSJSY5OldOU0NvbG9yojkr0iUmPD1XTlNJ
-bWFnZaI8K18QD05TS2V5ZWRBcmNoaXZlctFAQVRyb290gAEAAAAIAAAAEQAAABoAAAAjAAAALQAAADIA
-AAA3AAAARgAAAEwAAABXAAAAXgAAAGUAAAByAAAAeQAAAIEAAACDAAAAhQAAAIoAAACMAAAAjgAAAJkA
-AACeAAAAqQAAAKsAAACtAAAArwAAALQAAAC3AAAAuQAAALsAAAC9AAAAvwAAAMQAAADbAAAA3QAAAN8A
-BA4DAAQOCAAEDhMABA4cAAQOLwAEDjMABA5GAAQOUQAEDloABA5fAAQOZwAEDmoABA5vAAQOfgAEDoIA
-BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
-AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
+YXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjJykqWk5TSW1hZ2VSZXBYTlNPYmplY3TS
+JSYsLVdOU0FycmF5oiwq0iUmLzBeTlNNdXRhYmxlQXJyYXmjLywq0zIzCjQ1NldOU1doaXRlXE5TQ29s
+b3JTcGFjZUQwIDAAEAOADNIlJjg5V05TQ29sb3KiOCrSJSY7PFdOU0ltYWdlojsqXxAPTlNLZXllZEFy
+Y2hpdmVy0T9AVHJvb3SAAQAAAAgAAAARAAAAGgAAACMAAAAtAAAAMgAAADcAAABGAAAATAAAAFcAAABe
+AAAAZQAAAHIAAAB5AAAAgQAAAIMAAACFAAAAigAAAIwAAACOAAAAmQAAAJ4AAACpAAAAqwAAAK0AAACv
+AAAAtAAAALcAAAC5AAAAuwAAAL0AAAC/AAAAxAAAANsAAADdAAAA3wAEDgMABA4IAAQOEwAEDhwABA4v
+AAQOMwAEDj4ABA5HAAQOTAAEDlQABA5XAAQOXAAEDmsABA5vAAQOdgAEDn4ABA6LAAQOkAAEDpIABA6U
+AAQOmQAEDqEABA6kAAQOqQAEDrEABA60AAQOxgAEDskABA7OAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
+AAAAAAAEDtA
 </mutableData>
         </image>
         <image name="views.png" width="15" height="8"/>

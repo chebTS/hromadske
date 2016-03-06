@@ -22,7 +22,7 @@
     CGSize maxSize = CGSizeMake(rect.size.width  - (inset * 2), FLT_MAX);
     CGSize size = [result sizeWithFont:font
                      constrainedToSize:maxSize
-                         lineBreakMode:UILineBreakModeWordWrap];
+                         lineBreakMode:NSLineBreakByWordWrapping];
     NSRange range;
     
     if (rect.size.height < size.height)
@@ -39,7 +39,7 @@
             
             size = [result sizeWithFont:font
                       constrainedToSize:maxSize
-                          lineBreakMode:UILineBreakModeWordWrap];
+                          lineBreakMode:NSLineBreakByWordWrapping];
         }
     
     return result;

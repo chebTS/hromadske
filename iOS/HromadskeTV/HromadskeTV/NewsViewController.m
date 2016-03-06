@@ -21,8 +21,6 @@
     NSMutableArray *_cache;
     HTVVideoCategory _currentCategory;
 	SINavigationMenuView *_menu;
-	
-	BOOL _showMenu;
 }
 @end
 
@@ -72,7 +70,7 @@
 
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
-    HTVVideoCategory cat = _currentCategory = index;
+    HTVVideoCategory cat = _currentCategory = (HTVVideoCategory)index;
     
     if ([_delegate respondsToSelector:@selector(newsViewController:didChangeItem:)]) {
         [_delegate newsViewController:self didChangeItem:_currentCategory];
@@ -103,7 +101,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    int row = indexPath.row;
+    NSUInteger row = indexPath.row;
     Video *video = [[self dataSource] objectAtIndex:row];
     static NSString *ident = @"VideoTableViewCell";
 
@@ -117,7 +115,7 @@
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	
-    [cell.thumbnail setImageWithURL:[NSURL URLWithString:video.thumbnail]
+    [cell.thumbnail sd_setImageWithURL:[NSURL URLWithString:video.thumbnail]
                    placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
     [cell setup];
     

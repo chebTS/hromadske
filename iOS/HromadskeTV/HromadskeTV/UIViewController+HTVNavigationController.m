@@ -32,7 +32,7 @@
 
 - (void)addMenuButton
 {
-    int count = self.navigationController.viewControllers.count;
+    NSUInteger count = self.navigationController.viewControllers.count;
     if (count > 1) {
         return;
     }

@@ -11,6 +11,8 @@
 
 @implementation Video
 
+@synthesize description = _description;
+
 - (id)init
 {
     self = [super init];

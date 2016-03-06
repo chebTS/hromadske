@@ -9,7 +9,14 @@
 #import "HTCollectionViewCell.h"
 #import "News.h"
 
+
+@interface HTCollectionViewCell ()
+
+@end
+
 @implementation HTCollectionViewCell
+
+@synthesize description = _description;
 
 - (id)initWithFrame:(CGRect)frame
 {

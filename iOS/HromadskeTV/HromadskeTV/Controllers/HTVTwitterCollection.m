@@ -68,7 +68,7 @@
 - (void)loginWithiOS
 {
     self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
-    [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+    [_twitter verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
         [self getTimeLineInfo];
     } errorBlock:^(NSError *error) {
         [self loginWithSafari];

@@ -478,7 +478,7 @@ void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWidth, fl
     CGContextRelease(context);
     
     // Now your rawData contains the image data in the RGBA8888 pixel format.
-    int byteIndex = (bytesPerRow * yy) + xx * bytesPerPixel;
+    NSUInteger byteIndex = (bytesPerRow * yy) + xx * bytesPerPixel;
     for (int ii = 0 ; ii < count ; ++ii)
     {
         CGFloat red   = (rawData[byteIndex]     * 1.0) / 255.0;

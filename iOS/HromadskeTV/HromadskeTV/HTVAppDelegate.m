@@ -68,7 +68,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    NSTimeInterval time = abs([_lastOpened timeIntervalSinceNow]);
+    NSTimeInterval time = fabs([_lastOpened timeIntervalSinceNow]);
     if (time > 1800 || !_lastOpened) {
 		[[SourcesManager sharedManager] updateSources];
         _lastOpened = [NSDate date];

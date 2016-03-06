@@ -14,7 +14,7 @@
 {
     Twitt *twitt = [[Twitt alloc] init];
 //    NSDateFormatter *df = [NSDateFormatter stTwitterDateFormatter];
-    NSString *dateString = [dictionary valueForKey:@"created_at"];
+//    NSString *dateString = [dictionary valueForKey:@"created_at"];
 //    NSDate *date = [df dateFromString:dateString];
 //    twitt.date = date;
     twitt.text = dictionary[@"text"];

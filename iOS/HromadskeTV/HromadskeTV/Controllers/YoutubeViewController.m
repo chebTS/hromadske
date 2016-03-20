@@ -122,7 +122,8 @@
     VideoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HTVVideoCell" forIndexPath:indexPath];
     Video *video = self.videos[indexPath.item];
     cell.title.text = video.title;
-    [cell.thumbnail setImageWithURL:[NSURL URLWithString:video.thumbnail] placeholderImage:[UIImage imageNamed:VIDEO_IMAGE_PLACE_HOLDER] completed:nil];
+    [cell.thumbnail sd_setImageWithURL:[NSURL URLWithString:video.thumbnail]
+                      placeholderImage:[UIImage imageNamed:VIDEO_IMAGE_PLACE_HOLDER] completed:nil];
     
     return cell;
 }
